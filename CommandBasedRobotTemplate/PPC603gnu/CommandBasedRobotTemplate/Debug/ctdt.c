@@ -9,7 +9,11 @@
 
 void _GLOBAL__I__Z20FRC_userClassFactoryv();
 
+<<<<<<< HEAD
 void _GLOBAL__I__ZN10DriveTrainC2Ejjjjjjjj();
+=======
+void _GLOBAL__I__ZN10DriveTrainC2Ev();
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 void _GLOBAL__I__ZN11CommandBaseC2EPKc();
 
@@ -19,8 +23,11 @@ void _GLOBAL__I__ZN16ExampleSubsystemC2Ev();
 
 void _GLOBAL__I__ZN20ShiftingTransmissionC2EP15SpeedControllerP7EncoderP8Solenoid();
 
+<<<<<<< HEAD
 void _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev();
 
+=======
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 void _GLOBAL__I__ZN2OIC2Ev();
 
 void _GLOBAL__I__ZN12PrintCommandC2EPKc();
@@ -73,12 +80,19 @@ extern void (*_ctors[])();
 void (*_ctors[])() =
     {
     _GLOBAL__I__Z20FRC_userClassFactoryv,
+<<<<<<< HEAD
     _GLOBAL__I__ZN10DriveTrainC2Ejjjjjjjj,
+=======
+    _GLOBAL__I__ZN10DriveTrainC2Ev,
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
     _GLOBAL__I__ZN11CommandBaseC2EPKc,
     _GLOBAL__I__ZN14ExampleCommandC2Ev,
     _GLOBAL__I__ZN16ExampleSubsystemC2Ev,
     _GLOBAL__I__ZN20ShiftingTransmissionC2EP15SpeedControllerP7EncoderP8Solenoid,
+<<<<<<< HEAD
     _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev,
+=======
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
     _GLOBAL__I__ZN2OIC2Ev,
     _GLOBAL__I__ZN12PrintCommandC2EPKc,
     _GLOBAL__I__ZN9Scheduler9_instanceE,
@@ -108,7 +122,11 @@ void (*_ctors[])() =
 
 void _GLOBAL__D__Z20FRC_userClassFactoryv();
 
+<<<<<<< HEAD
 void _GLOBAL__D__ZN10DriveTrainC2Ejjjjjjjj();
+=======
+void _GLOBAL__D__ZN10DriveTrainC2Ev();
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 void _GLOBAL__D__ZN11CommandBaseC2EPKc();
 
@@ -118,8 +136,11 @@ void _GLOBAL__D__ZN16ExampleSubsystemC2Ev();
 
 void _GLOBAL__D__ZN20ShiftingTransmissionC2EP15SpeedControllerP7EncoderP8Solenoid();
 
+<<<<<<< HEAD
 void _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev();
 
+=======
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 void _GLOBAL__D__ZN2OIC2Ev();
 
 void _GLOBAL__D__ZN9Scheduler9_instanceE();
@@ -164,12 +185,19 @@ extern void (*_dtors[])();
 void (*_dtors[])() =
     {
     _GLOBAL__D__Z20FRC_userClassFactoryv,
+<<<<<<< HEAD
     _GLOBAL__D__ZN10DriveTrainC2Ejjjjjjjj,
+=======
+    _GLOBAL__D__ZN10DriveTrainC2Ev,
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
     _GLOBAL__D__ZN11CommandBaseC2EPKc,
     _GLOBAL__D__ZN14ExampleCommandC2Ev,
     _GLOBAL__D__ZN16ExampleSubsystemC2Ev,
     _GLOBAL__D__ZN20ShiftingTransmissionC2EP15SpeedControllerP7EncoderP8Solenoid,
+<<<<<<< HEAD
     _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev,
+=======
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
     _GLOBAL__D__ZN2OIC2Ev,
     _GLOBAL__D__ZN9Scheduler9_instanceE,
     _GLOBAL__D_wpi_error_s_ModuleIndexOutOfRange,

@@ -1,7 +1,12 @@
  \
  CommandBasedRobotTemplate_partialImage/Debug/Objects/CommandBasedRobotTemplate/Subsystems/ExampleSubsystem.o:  \
+<<<<<<< HEAD
  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/ExampleSubsystem.cpp \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/ExampleSubsystem.h \
+=======
+ C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/ExampleSubsystem.cpp \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/ExampleSubsystem.h \
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/ErrorBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Base.h \
@@ -378,9 +383,15 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/HSLImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
+<<<<<<< HEAD
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Robotmap.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/ExampleSubsystem.h:
+=======
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Robotmap.h
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/ExampleSubsystem.h:
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h:
 
@@ -1134,4 +1145,8 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h:
 
+<<<<<<< HEAD
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Robotmap.h:
+=======
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Robotmap.h:
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64

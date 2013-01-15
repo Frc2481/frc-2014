@@ -32,7 +32,11 @@ MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
 WS_ROOT_DIR := C:/WindRiver/workspace
+<<<<<<< HEAD
 PRJ_ROOT_DIR := $(WS_ROOT_DIR)/frcteam2481/CommandBasedRobotTemplate
+=======
+PRJ_ROOT_DIR := $(WS_ROOT_DIR)/CommandBasedRobotTemplate
+>>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 
 
