@@ -2,7 +2,7 @@
 #define SHIFTINGTRANSMISSION_H
 
 #include "WPILib.h"
-class ShiftingTransmission {
+class ShiftingTransmission : public SpeedController {
 private:
 	SpeedController* motor;
 	Encoder* encoder;
@@ -22,7 +22,7 @@ private:
 public:
 	ShiftingTransmission(SpeedController* m, Encoder* e, Solenoid* s);
 	~ShiftingTransmission();
-	void Set(float speed);
+	void Set(float speed, UINT8 syncGroup=0);
 	float Get();
 	bool IsHighSpeed();
 	bool IsLowSpeed();
@@ -32,6 +32,7 @@ public:
 	UINT32 GetDownShiftThreshold();
 	void Run();
 	void SetEnabled(bool enableState);
-	
+	void Disable();
+	void PIDWrite(float output);
 };
 #endif

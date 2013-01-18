@@ -2,20 +2,26 @@
 #include "Commands/Command.h"
 #include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
+#include "Commands/ShifterUpdateCommand.h"
+#include "Commands/ExampleAutonomous.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
 	Command *autonomousCommand;
+	ShifterUpdateCommand *shifterUpdateCommand;
 	LiveWindow *lw;
+	ExampleAutonomousCommand *xAutoCommand;
 	
 	virtual void RobotInit() {
 		CommandBase::init();
 		autonomousCommand = new ExampleCommand();
 		lw = LiveWindow::GetInstance();
+		shifterUpdateCommand = new ShifterUpdateCommand();
+		xAutoCommand = new ExampleAutonomousCommand();
 	}
 	
 	virtual void AutonomousInit() {
-		autonomousCommand->Start();
+		xAutoCommand->Start();
 	}
 	
 	virtual void AutonomousPeriodic() {
@@ -28,6 +34,7 @@ private:
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		autonomousCommand->Cancel();
+		shifterUpdateCommand->Start();
 	}
 	
 	virtual void TeleopPeriodic() {

@@ -14,7 +14,7 @@ ShiftingTransmission::ShiftingTransmission(SpeedController* m, Encoder* e, Solen
 ShiftingTransmission::~ShiftingTransmission(){
 }
 
-void ShiftingTransmission::Set(float speed){
+void ShiftingTransmission::Set(float speed, UINT8 syncGroup){
 	motorSpeed = speed;
 }
 float ShiftingTransmission::Get(){
@@ -43,7 +43,9 @@ UINT32 ShiftingTransmission::GetDownShiftThreshold(){
  *		this must be called once every loop (assume 20ms loops)
  */
 void ShiftingTransmission::Run(){
-	
+	if (!enabled) {
+		return;
+	}
 	if (encoder->GetRate() > upShiftThreshold && IsLowSpeed() && !isShiftingUp){	//Do we need to shift up? 
 		isShiftingUp = true;														// Set the state 
 		loopCount = 0;
@@ -84,10 +86,16 @@ void ShiftingTransmission::Run(){
 	
 	
 }
+void ShiftingTransmission::PIDWrite(float output) {
+	
+}
 void ShiftingTransmission::SetEnabled(bool enableState){
 	enabled = enableState;
 	if (!enabled){
 		isShiftingDown = !IsLowSpeed(); 		//If we are not in low gear, shift down
 		loopCount = 0;
 	}
+}
+void ShiftingTransmission::Disable(){
+	motor->Disable();
 }

@@ -1,12 +1,7 @@
  \
  CommandBasedRobotTemplate_partialImage/Debug/Objects/CommandBasedRobotTemplate/Components/ShiftingTransmission.o:  \
-<<<<<<< HEAD
  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/ShiftingTransmission.cpp \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/ShiftingTransmission.h \
-=======
- C:/WindRiver/workspace/CommandBasedRobotTemplate/Components/ShiftingTransmission.cpp \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Components/ShiftingTransmission.h \
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/vxworks-6.3/target/h/string.h \
   C:/WindRiver/vxworks-6.3/target/h/types/vxANSI.h \
@@ -385,11 +380,7 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h
 
-<<<<<<< HEAD
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/ShiftingTransmission.h:
-=======
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Components/ShiftingTransmission.h:
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 

@@ -1,14 +1,8 @@
  \
  CommandBasedRobotTemplate_partialImage/Debug/Objects/CommandBasedRobotTemplate/Commands/ExampleCommand.o:  \
-<<<<<<< HEAD
  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ExampleCommand.cpp \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ExampleCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h \
-=======
- C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/ExampleCommand.cpp \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/ExampleCommand.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../CommandBase.h \
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/ErrorBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Base.h \
@@ -120,11 +114,7 @@
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xtree \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/functional \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/memory \
-<<<<<<< HEAD
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/DriveTrain.h \
-=======
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/ExampleSubsystem.h \
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/iostream.h \
@@ -391,7 +381,6 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/HSLImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
-<<<<<<< HEAD
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/ShiftingTransmission.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../OI.h \
@@ -400,14 +389,6 @@
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ExampleCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h:
-=======
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../OI.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h
-
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/ExampleCommand.h:
-
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../CommandBase.h:
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h:
 
@@ -631,11 +612,7 @@ c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/memory:
 
-<<<<<<< HEAD
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/DriveTrain.h:
-=======
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/ExampleSubsystem.h:
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h:
 
@@ -1169,14 +1146,10 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h:
 
-<<<<<<< HEAD
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/ShiftingTransmission.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../OI.h:
-=======
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../OI.h:
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:

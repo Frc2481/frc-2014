@@ -1,12 +1,7 @@
  \
  CommandBasedRobotTemplate_partialImage/Debug/Objects/CommandBasedRobotTemplate/CommandBase.o:  \
-<<<<<<< HEAD
  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/CommandBase.cpp \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/CommandBase.h \
-=======
- C:/WindRiver/workspace/CommandBasedRobotTemplate/CommandBase.cpp \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/CommandBase.h \
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/ErrorBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Base.h \
@@ -118,11 +113,7 @@
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xtree \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/functional \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/memory \
-<<<<<<< HEAD
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/DriveTrain.h \
-=======
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/DriveTrain.h \
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/iostream.h \
@@ -389,7 +380,6 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/HSLImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
-<<<<<<< HEAD
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/ShiftingTransmission.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h \
@@ -398,16 +388,6 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/cRIOIOMap.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/CommandBase.h:
-=======
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Components/ShiftingTransmission.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/OI.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/cRIOIOMap.h
-
-C:/WindRiver/workspace/CommandBasedRobotTemplate/CommandBase.h:
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h:
 
@@ -631,11 +611,7 @@ c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/memory:
 
-<<<<<<< HEAD
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/DriveTrain.h:
-=======
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/DriveTrain.h:
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h:
 
@@ -1169,26 +1145,14 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h:
 
-<<<<<<< HEAD
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/ShiftingTransmission.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
-=======
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Components/ShiftingTransmission.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
-
-C:/WindRiver/workspace/CommandBasedRobotTemplate/OI.h:
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h:
 
-<<<<<<< HEAD
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/cRIOIOMap.h:
-=======
-C:/WindRiver/workspace/CommandBasedRobotTemplate/cRIOIOMap.h:
->>>>>>> dc44ca0e69d9090ea0fc33704e65fa360522cc64
