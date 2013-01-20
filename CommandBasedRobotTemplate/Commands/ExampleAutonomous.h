@@ -16,10 +16,10 @@
 class ExampleAutonomousCommand: public CommandGroup {
 public:
 	ExampleAutonomousCommand() {
-		AddSequential(new DriveForwardCommand(1,1));
-		AddSequential(new DriveBackwardCommand(1,1));
-		AddSequential(new TurnRightCommand(1,1));
-		AddSequential(new TurnLeftCommand(1,1));
+		AddSequential(new DriveForwardCommand(.5,5));
+		AddSequential(new DriveBackwardCommand(.5,5));
+		AddSequential(new TurnRightCommand(.5,1));
+		AddSequential(new TurnLeftCommand(.5,1));
 		AddSequential(new StopDriveCommand());
 	}
 };

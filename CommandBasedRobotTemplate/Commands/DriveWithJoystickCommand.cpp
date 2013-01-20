@@ -1,6 +1,6 @@
 #include "DriveWithJoystickCommand.h"
 
-DriveWithJoystickCommand::DriveWithJoystickCommand() {
+DriveWithJoystickCommand::DriveWithJoystickCommand() : CommandBase("DriveWithJoyStick") {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(driveTrain);
 }

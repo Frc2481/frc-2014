@@ -12,11 +12,11 @@
 class DriveWithJoystickCommand: public CommandBase {
 public:
 	DriveWithJoystickCommand();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
+	void Initialize();
+	void Execute();
+	bool IsFinished();
+	void End();
+	void Interrupted();
 };
 
 #endif

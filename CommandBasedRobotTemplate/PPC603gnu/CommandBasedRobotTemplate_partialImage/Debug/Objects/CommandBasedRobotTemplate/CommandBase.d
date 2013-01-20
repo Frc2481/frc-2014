@@ -382,10 +382,12 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/ShiftingTransmission.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Shooter.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/cRIOIOMap.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Robotmap.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/CommandBase.h:
 
@@ -1149,10 +1151,14 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Compo
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Shooter.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h:
 
-C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/cRIOIOMap.h:
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Robotmap.h:

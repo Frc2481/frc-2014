@@ -10,7 +10,7 @@
  */
 class DriveForwardCommand: public DriveCommandBase {
 public:
-	DriveForwardCommand(float speed, double time):DriveCommandBase(speed, time) {
+	DriveForwardCommand(float speed, double time):DriveCommandBase(speed, time, "driveForwardCommand") {
 		
 	}
 	virtual void Execute() {

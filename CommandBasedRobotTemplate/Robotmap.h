@@ -17,6 +17,16 @@
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:
 // #define RANGE_FINDER_PORT 1
-// #define RANGE_FINDER_MODULE 1
 
+#define LEFT_DRIVE_MOTOR 1
+#define RIGHT_DRIVE_MOTOR 2
+#define LEFT_DRIVE_ENCODER_A 1
+#define LEFT_DRIVE_ENCODER_B 2
+#define RIGHT_DRIVE_ENCODER_A 3
+#define RIGHT_DRIVE_ENCODER_B 4
+#define LEFT_DRIVE_SOLENOID 1
+#define RIGHT_DRIVE_SOLENOID 2
+#define SHOOTER_MOTOR 3
+#define SHOOTER_ENCODER_A 5
+#define SHOOTER_ENCODER_B 6
 #endif

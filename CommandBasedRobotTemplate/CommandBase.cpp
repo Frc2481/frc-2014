@@ -1,7 +1,6 @@
 #include "CommandBase.h"
-#include "Subsystems/DriveTrain.h"
 #include "Commands/Scheduler.h"
-#include "cRIOIOMap.h"
+#include "Robotmap.h"
 
 CommandBase::CommandBase(const char *name) : Command(name) {
 }
@@ -12,6 +11,7 @@ CommandBase::CommandBase() : Command() {
 // Initialize a single static instance of all of your subsystems to NULL
 DriveTrain* CommandBase::driveTrain = NULL;
 OI* CommandBase::oi = NULL;
+Shooter* CommandBase::shooter = NULL;
 
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
@@ -21,4 +21,5 @@ void CommandBase::init() {
 								LEFT_DRIVE_SOLENOID, RIGHT_DRIVE_SOLENOID);
 	
 	oi = new OI();
+	shooter = new Shooter(SHOOTER_MOTOR, SHOOTER_ENCODER_A, SHOOTER_ENCODER_B);
 }

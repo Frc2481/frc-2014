@@ -13,17 +13,9 @@ protected:
 	float driveSpeed;
 	double timeout;
 public:
-	DriveCommandBase(float speed, double time) {
-		Requires(driveTrain);
-		driveSpeed = speed;
-		timeout = time;
-	}
-	virtual void Initialize() {
-		SetTimeout(timeout);
-	}
-	virtual bool IsFinished() {
-		return IsTimedOut();
-	}
+	DriveCommandBase(float speed, double time, const char *name);
+	virtual void Initialize();
+	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
 };

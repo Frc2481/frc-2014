@@ -1,6 +1,6 @@
 #include "ShifterUpdateCommand.h"
 
-ShifterUpdateCommand::ShifterUpdateCommand() {
+ShifterUpdateCommand::ShifterUpdateCommand() : CommandBase("ShifterUpdateCommand"){
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 }

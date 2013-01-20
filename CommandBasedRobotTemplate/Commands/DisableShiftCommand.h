@@ -10,12 +10,18 @@
  */
 class DisableShiftCommand: public CommandBase {
 public:
-	DisableShiftCommand();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
+	DisableShiftCommand() : CommandBase("DisableShiftCommand") {}
+	void Initialize() {
+		driveTrain->SetShiftEnabled(false);
+	}
+	void Execute(){}
+	bool IsFinished() {
+		return false;
+	}
+	void End() {}
+	void Interrupted() {
+		driveTrain->SetShiftEnabled(true);
+	}
 };
 
 #endif

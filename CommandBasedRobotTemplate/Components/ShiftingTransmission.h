@@ -24,7 +24,7 @@ public:
 	~ShiftingTransmission();
 	void Set(float speed, UINT8 syncGroup=0);
 	float Get();
-	bool IsHighSpeed();
+//	bool IsHighSpeed();
 	bool IsLowSpeed();
 	void SetUpShiftThreshold(UINT32);
 	void SetDownShiftTheshold(UINT32);

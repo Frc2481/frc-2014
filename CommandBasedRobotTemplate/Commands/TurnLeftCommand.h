@@ -10,7 +10,7 @@
  */
 class TurnLeftCommand: public DriveCommandBase {
 public:
-	TurnLeftCommand(float speed, double time):DriveCommandBase(speed, time) {
+	TurnLeftCommand(float speed, double time):DriveCommandBase(speed, time, "TurnLeftCommand") {
 		
 	}
 	virtual void Execute() {

@@ -4,6 +4,8 @@
 #include "CommandBase.h"
 #include "Commands/ShifterUpdateCommand.h"
 #include "Commands/ExampleAutonomous.h"
+#include "Commands/ShiftUpCommand.h"
+#include "Commands/ShiftDownCommand.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
@@ -11,6 +13,7 @@ private:
 	ShifterUpdateCommand *shifterUpdateCommand;
 	LiveWindow *lw;
 	ExampleAutonomousCommand *xAutoCommand;
+	Compressor* compress;
 	
 	virtual void RobotInit() {
 		CommandBase::init();
@@ -18,6 +21,12 @@ private:
 		lw = LiveWindow::GetInstance();
 		shifterUpdateCommand = new ShifterUpdateCommand();
 		xAutoCommand = new ExampleAutonomousCommand();
+		SmartDashboard::PutData("ShifterUpdateCommand", new ShifterUpdateCommand());
+		SmartDashboard::PutData("ShiftUp", new ShiftUpCommand());
+		SmartDashboard::PutData("ShiftDownCommand", new ShiftDownCommand());
+		SmartDashboard::PutData(CommandBase::driveTrain);
+		compress = new Compressor(5,1);
+		
 	}
 	
 	virtual void AutonomousInit() {
@@ -33,12 +42,13 @@ private:
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		autonomousCommand->Cancel();
+		xAutoCommand->Cancel();
 		shifterUpdateCommand->Start();
+		compress->Start();
 	}
 	
 	virtual void TeleopPeriodic() {
-		Scheduler::GetInstance()->Run();
+		Scheduler::GetInstance()->Run();		
 	}
 	
 	virtual void TestPeriodic() {
