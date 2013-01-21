@@ -5,6 +5,7 @@
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Shooter.h"
 #include "OI.h"
+#include "Subsystems/Hopper.h"
 
 
 /**
@@ -21,6 +22,7 @@ public:
 	static DriveTrain *driveTrain;
 	static OI *oi;
 	static Shooter *shooter;
+	static Hopper *hopper;
 };
 
 #endif

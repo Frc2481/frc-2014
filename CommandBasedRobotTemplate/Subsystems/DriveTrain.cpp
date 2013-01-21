@@ -14,6 +14,7 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	rightSolenoid = new Solenoid(solenoidR);
 	leftSolenoid = new Solenoid(solenoidL);
 	
+	//shifterR = new ShiftingTransmission(rightMotor, rightEncoder, rightSolenoid);
 	shifterR = new ShiftingTransmission(rightMotor, rightEncoder, rightSolenoid);
 	shifterR->SetUpShiftThreshold(70);
 	shifterR->SetDownShiftTheshold(60);
@@ -23,6 +24,9 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	
 	drive = new RobotDrive(shifterL, shifterR);
 	drive->SetSafetyEnabled(false);
+	
+	jsMax = 0;
+	jsMin = 0;
 	
 }
 DriveTrain::~DriveTrain(){
@@ -72,7 +76,18 @@ void DriveTrain::SetShiftEnabled(bool state) {
 	shifterR->SetEnabled(state);
 }
 void DriveTrain::DriveWithJoystick(Joystick *stick) {
-	drive->ArcadeDrive(stick);
+	//drive->ArcadeDrive(stick);
+	drive->TankDrive(stick, 2, stick, 5);
+	if (stick->GetRawAxis(5) > jsMax) {
+		jsMax = stick->GetRawAxis(5);
+	}
+	else if (stick->GetRawAxis(5) < jsMin) {
+		jsMin = stick->GetRawAxis(5);
+	}
+	SmartDashboard::PutNumber("jsMax" , jsMax);
+	SmartDashboard::PutNumber("jsMin" , jsMin);
+	SmartDashboard::PutNumber("Left Drive Joystick Value" , stick->GetRawAxis(2));
+	SmartDashboard::PutNumber("Right Drive Joystick Value" , stick->GetRawAxis(5));
 	Periodic();
 }
 

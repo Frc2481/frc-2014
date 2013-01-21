@@ -16,6 +16,8 @@ Encoder *rightEncoder;
 Encoder *leftEncoder;
 Solenoid *rightSolenoid;
 Solenoid *leftSolenoid;
+float jsMax;
+float jsMin;
 
 public:
 	//DriveTrain();

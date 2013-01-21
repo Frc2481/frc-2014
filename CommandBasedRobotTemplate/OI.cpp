@@ -1,10 +1,11 @@
 #include "OI.h"
 #include "Commands/DisableShiftCommand.h"
 
+
 OI::OI() {
 	// Process operator interface input here.
-	driverStick = new Joystick(DRIVER_STICK_PORT);
-	shooterStick = new Joystick(SHOOTER_STICK_PORT);
+	driverStick = new Joystick2481(DRIVER_STICK_PORT);
+	shooterStick = new Joystick2481(SHOOTER_STICK_PORT);
 	disableShiftButton = new JoystickButton(driverStick, Joystick::kDefaultTriggerButton); //TODO change button argument to desired button
 	disableShiftButton->WhileHeld(new DisableShiftCommand());
 }

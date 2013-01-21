@@ -12,6 +12,7 @@ CommandBase::CommandBase() : Command() {
 DriveTrain* CommandBase::driveTrain = NULL;
 OI* CommandBase::oi = NULL;
 Shooter* CommandBase::shooter = NULL;
+Hopper* CommandBase::hopper = NULL;
 
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
@@ -22,4 +23,5 @@ void CommandBase::init() {
 	
 	oi = new OI();
 	shooter = new Shooter(SHOOTER_MOTOR, SHOOTER_ENCODER_A, SHOOTER_ENCODER_B);
+	hopper = new Hopper(HOPPER_SOLENOID);
 }

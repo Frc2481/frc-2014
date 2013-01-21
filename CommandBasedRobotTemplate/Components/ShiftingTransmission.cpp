@@ -20,7 +20,7 @@ ShiftingTransmission::~ShiftingTransmission(){
 }
 
 void ShiftingTransmission::Set(float speed, UINT8 syncGroup){
-	motorSpeed = speed;
+	motorSpeed = -speed;
 }
 float ShiftingTransmission::Get(){
 	return motor->Get();

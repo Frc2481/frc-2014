@@ -379,6 +379,8 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/HSLImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/Joystick2481.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/DisableShiftCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
@@ -389,7 +391,9 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Shooter.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../OI.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../OI.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Hopper.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
 
@@ -1147,6 +1151,10 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/Joystick2481.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/DisableShiftCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h:
@@ -1168,3 +1176,7 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsyst
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../OI.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Hopper.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h:
