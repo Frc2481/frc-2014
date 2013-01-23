@@ -22,6 +22,6 @@ void CommandBase::init() {
 								LEFT_DRIVE_SOLENOID, RIGHT_DRIVE_SOLENOID);
 	
 	oi = new OI();
-	shooter = new Shooter(SHOOTER_MOTOR, SHOOTER_ENCODER_A, SHOOTER_ENCODER_B);
+	shooter = new Shooter(SHOOTER_MOTOR, SHOOTER_ENCODER_A, SHOOTER_ENCODER_B, SHOOTER_LIFT_SOLENOID);
 	hopper = new Hopper(HOPPER_SOLENOID);
 }

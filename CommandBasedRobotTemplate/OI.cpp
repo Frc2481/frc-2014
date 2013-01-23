@@ -4,9 +4,9 @@
 
 OI::OI() {
 	// Process operator interface input here.
-	driverStick = new Joystick2481(DRIVER_STICK_PORT);
-	shooterStick = new Joystick2481(SHOOTER_STICK_PORT);
-	disableShiftButton = new JoystickButton(driverStick, Joystick::kDefaultTriggerButton); //TODO change button argument to desired button
+	driverStick = new XboxController(DRIVER_STICK_PORT);
+	shooterStick = new XboxController(SHOOTER_STICK_PORT);
+	disableShiftButton = new JoystickButton(driverStick, XboxController::xbAButton); //TODO change button argument to desired button
 	disableShiftButton->WhileHeld(new DisableShiftCommand());
 }
 

@@ -24,6 +24,7 @@ public:
 	void Retract();
 	void IncrementFrisbeeCount();
 	void DecrementFrisbeeCount();
+	short GetFrisbeeCount();
 };
 
 #endif /* HOPPER_H_ */

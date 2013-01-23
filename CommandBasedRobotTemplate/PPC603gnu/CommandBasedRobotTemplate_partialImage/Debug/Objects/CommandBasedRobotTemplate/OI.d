@@ -381,6 +381,7 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/Joystick2481.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/XboxController.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/DisableShiftCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
@@ -1154,6 +1155,8 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h:
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/Joystick2481.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/XboxController.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/DisableShiftCommand.h:
 

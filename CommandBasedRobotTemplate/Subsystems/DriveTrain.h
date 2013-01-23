@@ -7,17 +7,19 @@
 class DriveTrain: public Subsystem {
 private:
 	
-ShiftingTransmission *shifterL;
-ShiftingTransmission *shifterR;
-RobotDrive *drive;
-Talon *rightMotor;
-Talon *leftMotor;
-Encoder *rightEncoder;
-Encoder *leftEncoder;
-Solenoid *rightSolenoid;
-Solenoid *leftSolenoid;
-float jsMax;
-float jsMin;
+	UINT32 leftDriveAxis;
+	UINT32 rightDriveAxis;
+	ShiftingTransmission *shifterL;
+	ShiftingTransmission *shifterR;
+	RobotDrive *drive;
+	Talon *rightMotor;
+	Talon *leftMotor;
+	Encoder *rightEncoder;
+	Encoder *leftEncoder;
+	Solenoid *rightSolenoid;
+	Solenoid *leftSolenoid;
+	float jsMax;
+	float jsMin;
 
 public:
 	//DriveTrain();
@@ -34,5 +36,8 @@ public:
 	void SetShiftEnabled(bool state);
 	void DriveWithJoystick(Joystick *stick);
 	void Periodic();
+	void SetDriveAxis(UINT32 rightAxis, UINT32 leftAxis);
+	UINT32 GetRightDriveAxis();
+	UINT32 GetLeftDriveAxis();
 };
 #endif

@@ -45,66 +45,57 @@ UINT32 ShiftingTransmission::GetDownShiftThreshold(){
  *		this must be called once every loop (assume 20ms loops)
  */
 void ShiftingTransmission::Run(){
-	//if (enabled) {
+	if (encoder->GetRate() > upShiftThreshold && IsLowSpeed() && !isShiftingUp && !isShiftingDown && enabled){	//Do we need to shift up? 
+		isShiftingUp = true;														// Set the state 
+		loopCount = 0;
+	}
+	
+	if (encoder->GetRate() < downShiftThreshold && !IsLowSpeed() && (!isShiftingDown && !isShiftingUp)){	//Do we need to shift down?
+		isShiftingDown = true;															//Set the state 
+		loopCount = 0;
+	}
+	
+	if (isShiftingUp){
 		
-		if (encoder->GetRate() > upShiftThreshold && IsLowSpeed() && !isShiftingUp && !isShiftingDown && enabled){	//Do we need to shift up? 
-			isShiftingUp = true;														// Set the state 
-			loopCount = 0;
+		if (loopCount == 0){			// turn the motor off for two loops 
+			motor->Set(0); 			//TODO change this if we implement break
 		}
-		
-		if (encoder->GetRate() < downShiftThreshold && !IsLowSpeed() && (!isShiftingDown && !isShiftingUp)){	//Do we need to shift down?
-			isShiftingDown = true;															//Set the state 
-			loopCount = 0;
+		else if (loopCount == 2){
+			SetSolenoid(1);		// shift gears 
 		}
-		
-		if (isShiftingUp){
-			
-			if (loopCount == 0){			// turn the motor off for two loops 
-				motor->Set(0); 			//TODO change this if we implement break
-			}
-			else if (loopCount == 2){
-				solenoid->Set(1);		// shift gears 
-			}
-			else if (loopCount == 6){	// keep the motor off for another two loops and start the motor again
-				motor->Set(motorSpeed);
-			}
-			else if (loopCount == 16){  //We back off for approx 200ms for a debounce effect.
-				isShiftingUp = false;
-			}
-			loopCount++;
-		}
-		
-		else if (isShiftingDown){
-			
-			if (loopCount == 0){			// turn the motor off for two loops 
-				motor->Set(0); 			//TODO change this if we implement break
-			}
-			else if (loopCount == 2){
-				solenoid->Set(0);		// shift gears 
-			}
-			else if (loopCount == 6){	// keep the motor off for another two loops and start the motor again
-				motor->Set(motorSpeed);
-			}
-			else if (loopCount == 16){	//We back off for approx 200ms for a debounce effect.
-				isShiftingDown = false;
-			}
-			loopCount++;
-		}
-		else {
+		else if (loopCount == 6){	// keep the motor off for another two loops and start the motor again
 			motor->Set(motorSpeed);
 		}
-	//}
-	//else {
-	//	motor->Set(motorSpeed);
-	//}
+		else if (loopCount == 16){  //We back off for approx 200ms for a debounce effect.
+			isShiftingUp = false;
+		}
+		loopCount++;
+	}
 	
-	
+	else if (isShiftingDown){
+		
+		if (loopCount == 0){			// turn the motor off for two loops 
+			motor->Set(0); 			//TODO change this if we implement break
+		}
+		else if (loopCount == 2){
+			SetSolenoid(0);		// shift gears 
+		}
+		else if (loopCount == 6){	// keep the motor off for another two loops and start the motor again
+			motor->Set(motorSpeed);
+		}
+		else if (loopCount == 16){	//We back off for approx 200ms for a debounce effect.
+			isShiftingDown = false;
+		}
+		loopCount++;
+	}
+	else {
+		motor->Set(motorSpeed);
+	}
 }
 void ShiftingTransmission::PIDWrite(float output) {
 	
 }
 void ShiftingTransmission::SetEnabled(bool enableState){
-	//TODO: Allow a downshift before disabling.
 	enabled = enableState;
 	if (!enabled){
 		isShiftingDown = !IsLowSpeed(); 		//If we are not in low gear, shift down
@@ -114,4 +105,9 @@ void ShiftingTransmission::SetEnabled(bool enableState){
 void ShiftingTransmission::Disable(){
 	motor->Disable();
 	
+}
+void ShiftingTransmission::SetSolenoid(bool position){
+	if (solenoid){
+		solenoid ->Set(position);
+	}
 }

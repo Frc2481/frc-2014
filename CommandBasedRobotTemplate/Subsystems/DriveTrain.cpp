@@ -15,7 +15,7 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	leftSolenoid = new Solenoid(solenoidL);
 	
 	//shifterR = new ShiftingTransmission(rightMotor, rightEncoder, rightSolenoid);
-	shifterR = new ShiftingTransmission(rightMotor, rightEncoder, rightSolenoid);
+	shifterR = new ShiftingTransmission(rightMotor, rightEncoder, NULL);
 	shifterR->SetUpShiftThreshold(70);
 	shifterR->SetDownShiftTheshold(60);
 	shifterL = new ShiftingTransmission(leftMotor,leftEncoder, leftSolenoid);
@@ -27,6 +27,8 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	
 	jsMax = 0;
 	jsMin = 0;
+	rightDriveAxis = 0;
+	leftDriveAxis = 0;
 	
 }
 DriveTrain::~DriveTrain(){
@@ -77,7 +79,7 @@ void DriveTrain::SetShiftEnabled(bool state) {
 }
 void DriveTrain::DriveWithJoystick(Joystick *stick) {
 	//drive->ArcadeDrive(stick);
-	drive->TankDrive(stick, 2, stick, 5);
+	drive->TankDrive(stick, leftDriveAxis, stick, rightDriveAxis);
 	if (stick->GetRawAxis(5) > jsMax) {
 		jsMax = stick->GetRawAxis(5);
 	}
@@ -98,4 +100,14 @@ void DriveTrain::Periodic() {
 	SmartDashboard::PutBoolean("Status is Fatal R", rightEncoder->StatusIsFatal());
 	shifterL->Run();
 	shifterR->Run();
+}
+void DriveTrain::SetDriveAxis(UINT32 leftAxis, UINT32 rightAxis){
+	rightDriveAxis = rightAxis;
+	leftDriveAxis = leftAxis;
+}
+UINT32 DriveTrain::GetRightDriveAxis(){
+	return rightDriveAxis;
+}
+UINT32 DriveTrain::GetLeftDriveAxis(){
+	return leftDriveAxis;
 }

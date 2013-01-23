@@ -7,10 +7,11 @@
 
 #include "Shooter.h"
 
-Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannelA, UINT32 encoderChannelB) : PIDSubsystem(1,0,0){
+Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannelA, UINT32 encoderChannelB, UINT32 solenoidChannel) : PIDSubsystem(1,0,0){
 	shooterMotor = new Talon(motorChannel);
 	shooterEncoder = new Encoder(encoderChannelA, encoderChannelB);
 	shooterState = 0;
+	shooterLiftSolenoid = new Solenoid(solenoidChannel);
 }
 
 Shooter::~Shooter() {
@@ -38,4 +39,16 @@ void Shooter::UsePIDOutput(double output){
 
 bool Shooter::isShooterOn(){
 	return shooterState;
+}
+
+void Shooter::LiftShooter()  {
+	shooterLiftSolenoid->Set(1);
+}
+
+void Shooter::LowerShooter()  {
+	shooterLiftSolenoid->Set(0);
+}
+
+bool Shooter::isShooterUp() {
+	return shooterLiftSolenoid->Get();
 }

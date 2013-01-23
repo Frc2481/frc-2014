@@ -18,6 +18,7 @@ private:
 
 	void UpShift();
 	void DownShift();
+	void SetSolenoid(bool position);
 	
 public:
 	ShiftingTransmission(SpeedController* m, Encoder* e, Solenoid* s);

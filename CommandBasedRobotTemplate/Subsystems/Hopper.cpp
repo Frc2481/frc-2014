@@ -33,3 +33,6 @@ void Hopper::DecrementFrisbeeCount() {
 	frisbeeCount--;
 }
 
+short Hopper::GetFrisbeeCount() {
+	return frisbeeCount;
+}

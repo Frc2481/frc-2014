@@ -16,8 +16,9 @@ private:
 	Talon *shooterMotor;
 	Encoder *shooterEncoder;
 	bool shooterState;
+	Solenoid *shooterLiftSolenoid;
 public:
-	Shooter(UINT32 motorChannel, UINT32 encoderChannelA, UINT32 encoderChannelB);
+	Shooter(UINT32 motorChannel, UINT32 encoderChannelA, UINT32 encoderChannelB, UINT32 solenoidChannel);
 	virtual ~Shooter();
 	void setSpeed(double speed);
 	void turnOn();
@@ -25,7 +26,9 @@ public:
 	virtual double ReturnPIDInput();
 	virtual void UsePIDOutput(double output);
 	bool isShooterOn();
-	
+	void LiftShooter();
+	void LowerShooter();
+	bool isShooterUp();
 };
 
 #endif /* SHOOTER_H_ */

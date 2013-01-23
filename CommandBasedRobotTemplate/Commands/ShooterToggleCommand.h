@@ -28,8 +28,8 @@ public:
 	virtual bool IsFinished() {
 		return true;
 	}
-	virtual void End();
-	virtual void Interrupted();
+	virtual void End(){}
+	virtual void Interrupted(){}
 };
 
 #endif /* SHOOTERTOGGLECOMMAND_H_ */
