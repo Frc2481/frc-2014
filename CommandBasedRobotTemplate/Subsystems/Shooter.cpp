@@ -17,6 +17,7 @@ Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannelA, UINT32 encoderChan
 Shooter::~Shooter() {
 	delete shooterMotor;
 	delete shooterEncoder;
+	delete shooterLiftSolenoid;
 }
 
 void Shooter::setSpeed(double speed){
@@ -50,5 +51,6 @@ void Shooter::LowerShooter()  {
 }
 
 bool Shooter::isShooterUp() {
+	//TODO implement magnetic sensor ????!!??
 	return shooterLiftSolenoid->Get();
 }

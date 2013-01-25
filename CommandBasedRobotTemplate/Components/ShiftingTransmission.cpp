@@ -1,19 +1,13 @@
 #include "ShiftingTransmission.h"
 
-#define DISTANCE_PER_PULSE 2.31792417968 / 360.0
-
-ShiftingTransmission::ShiftingTransmission(SpeedController* m, Encoder* e, Solenoid* s)
-	: motor(m), encoder(e), solenoid(s){
-	encoder->SetDistancePerPulse(DISTANCE_PER_PULSE);
-	encoder->Start();
-	upShiftThreshold = -1;
-	downShiftThreshold = -1;
+ShiftingTransmission::ShiftingTransmission(SpeedController* m, Solenoid* s)
+	: motor(m), solenoid(s){
 	loopCount = 0;
 	isShiftingUp = 0;
 	isShiftingDown = 0;
-	beforeShiftSpeed = 0;
 	motorSpeed = 0;
 	enabled = true;
+	isLowSpeed = true;
 	
 }
 ShiftingTransmission::~ShiftingTransmission(){
@@ -26,35 +20,13 @@ float ShiftingTransmission::Get(){
 	return motor->Get();
 }
 bool ShiftingTransmission::IsLowSpeed(){
-	return !solenoid->Get();
-}
-void ShiftingTransmission::SetUpShiftThreshold(UINT32 t){
-	upShiftThreshold = t;
-}
-void ShiftingTransmission::SetDownShiftTheshold(UINT32 t){
-	downShiftThreshold = t;
-}
-UINT32 ShiftingTransmission::GetUpShiftThreshold(){
-	return upShiftThreshold;
-}
-UINT32 ShiftingTransmission::GetDownShiftThreshold(){
-	return downShiftThreshold;
+	return isLowSpeed;
 }
 /*
  * Run: check if we need to shift based on wheel speed then shift up or down accordingly
  *		this must be called once every loop (assume 20ms loops)
  */
 void ShiftingTransmission::Run(){
-	if (encoder->GetRate() > upShiftThreshold && IsLowSpeed() && !isShiftingUp && !isShiftingDown && enabled){	//Do we need to shift up? 
-		isShiftingUp = true;														// Set the state 
-		loopCount = 0;
-	}
-	
-	if (encoder->GetRate() < downShiftThreshold && !IsLowSpeed() && (!isShiftingDown && !isShiftingUp)){	//Do we need to shift down?
-		isShiftingDown = true;															//Set the state 
-		loopCount = 0;
-	}
-	
 	if (isShiftingUp){
 		
 		if (loopCount == 0){			// turn the motor off for two loops 
@@ -107,7 +79,22 @@ void ShiftingTransmission::Disable(){
 	
 }
 void ShiftingTransmission::SetSolenoid(bool position){
+	isLowSpeed = !position;
 	if (solenoid){
 		solenoid ->Set(position);
+	}
+}
+
+void ShiftingTransmission::ShiftUp() {
+	if (IsLowSpeed() && !isShiftingUp && !isShiftingDown && enabled){	//Do we need to shift up? 
+		isShiftingUp = true;														// Set the state 
+		loopCount = 0;
+	}
+}
+
+void ShiftingTransmission::ShiftDown() {
+	if (!IsLowSpeed() && (!isShiftingDown && !isShiftingUp)){	//Do we need to shift down?
+		isShiftingDown = true;															//Set the state 
+		loopCount = 0;
 	}
 }

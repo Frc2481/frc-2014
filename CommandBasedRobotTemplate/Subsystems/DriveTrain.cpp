@@ -2,31 +2,30 @@
 #include "../Commands/DriveWithJoystickCommand.h"
 #include "../Robotmap.h"
 
+#define DISTANCE_PER_PULSE 2.31792417968 / 360.0
+
 DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR, 
 					   UINT32 encoderLA, UINT32 encoderLB, UINT32 encoderRA, UINT32 encoderRB, 
-					   UINT32 solenoidL, UINT32 solenoidR) 
+					   UINT32 solenoidL) 
 : Subsystem("DriveTrain")
 {
 	rightMotor = new Talon(motorR);
 	leftMotor = new Talon(motorL);
 	rightEncoder = new Encoder(encoderRA, encoderRB);
 	leftEncoder = new Encoder(encoderLA, encoderLB);
-	rightSolenoid = new Solenoid(solenoidR);
 	leftSolenoid = new Solenoid(solenoidL);
 	
 	//shifterR = new ShiftingTransmission(rightMotor, rightEncoder, rightSolenoid);
-	shifterR = new ShiftingTransmission(rightMotor, rightEncoder, NULL);
-	shifterR->SetUpShiftThreshold(70);
-	shifterR->SetDownShiftTheshold(60);
-	shifterL = new ShiftingTransmission(leftMotor,leftEncoder, leftSolenoid);
-	shifterL->SetUpShiftThreshold(70);
-	shifterL->SetDownShiftTheshold(60);
-	
+	shifterR = new ShiftingTransmission(rightMotor, NULL);
+	shifterL = new ShiftingTransmission(leftMotor, leftSolenoid);
+	shiftUpThreshold = 70;
+	shiftDownThreshold = 60;
 	drive = new RobotDrive(shifterL, shifterR);
 	drive->SetSafetyEnabled(false);
-	
-	jsMax = 0;
-	jsMin = 0;
+	rightEncoder->SetDistancePerPulse(DISTANCE_PER_PULSE);
+	rightEncoder->Start();
+	leftEncoder->SetDistancePerPulse(DISTANCE_PER_PULSE);
+	leftEncoder->Start();
 	rightDriveAxis = 0;
 	leftDriveAxis = 0;
 	
@@ -39,7 +38,6 @@ DriveTrain::~DriveTrain(){
 	delete leftMotor;
 	delete rightEncoder;
 	delete leftEncoder;
-	delete rightSolenoid;
 	delete leftSolenoid;
 }
 
@@ -64,13 +62,13 @@ void DriveTrain::Stop() {
 }
 
 void DriveTrain::ShiftUp() {
-	rightSolenoid->Set(true);
-	leftSolenoid->Set(true);
+	shifterR->ShiftUp();
+	shifterL->ShiftUp();
 }
 
 void DriveTrain::ShiftDown() {
-	rightSolenoid->Set(false);
-	leftSolenoid->Set(false);
+	shifterR->ShiftDown();
+	shifterL->ShiftDown();
 }
 
 void DriveTrain::SetShiftEnabled(bool state) {
@@ -80,17 +78,10 @@ void DriveTrain::SetShiftEnabled(bool state) {
 void DriveTrain::DriveWithJoystick(Joystick *stick) {
 	//drive->ArcadeDrive(stick);
 	drive->TankDrive(stick, leftDriveAxis, stick, rightDriveAxis);
-	if (stick->GetRawAxis(5) > jsMax) {
-		jsMax = stick->GetRawAxis(5);
-	}
-	else if (stick->GetRawAxis(5) < jsMin) {
-		jsMin = stick->GetRawAxis(5);
-	}
-	SmartDashboard::PutNumber("jsMax" , jsMax);
-	SmartDashboard::PutNumber("jsMin" , jsMin);
-	SmartDashboard::PutNumber("Left Drive Joystick Value" , stick->GetRawAxis(2));
-	SmartDashboard::PutNumber("Right Drive Joystick Value" , stick->GetRawAxis(5));
-	Periodic();
+	
+	SmartDashboard::PutNumber("Left Drive Joystick Value" , stick->GetRawAxis(leftDriveAxis));
+	SmartDashboard::PutNumber("Right Drive Joystick Value" , stick->GetRawAxis(rightDriveAxis));
+	//Periodic();
 }
 
 void DriveTrain::Periodic() {
@@ -100,10 +91,21 @@ void DriveTrain::Periodic() {
 	SmartDashboard::PutBoolean("Status is Fatal R", rightEncoder->StatusIsFatal());
 	shifterL->Run();
 	shifterR->Run();
+	
+	if ((rightEncoder->GetRate() + leftEncoder->GetRate())/2 > shiftUpThreshold) {
+		shifterR->ShiftUp();
+		shifterL->ShiftUp();
+	}
+	else if ((rightEncoder->GetRate() + leftEncoder->GetRate())/2 < shiftDownThreshold) {
+		shifterR->ShiftDown();
+		shifterL->ShiftDown();
+	}
 }
-void DriveTrain::SetDriveAxis(UINT32 leftAxis, UINT32 rightAxis){
-	rightDriveAxis = rightAxis;
+void DriveTrain::SetLeftDriveAxis(UINT32 leftAxis){
 	leftDriveAxis = leftAxis;
+}
+void DriveTrain::SetRightDriveAxis(UINT32 rightAxis){
+	rightDriveAxis = rightAxis;
 }
 UINT32 DriveTrain::GetRightDriveAxis(){
 	return rightDriveAxis;

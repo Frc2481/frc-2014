@@ -13,15 +13,19 @@ DriveTrain* CommandBase::driveTrain = NULL;
 OI* CommandBase::oi = NULL;
 Shooter* CommandBase::shooter = NULL;
 Hopper* CommandBase::hopper = NULL;
+AirCompressor* CommandBase::airCompressor = NULL;
 
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
 	driveTrain = new DriveTrain(LEFT_DRIVE_MOTOR, RIGHT_DRIVE_MOTOR,
 								LEFT_DRIVE_ENCODER_A, LEFT_DRIVE_ENCODER_B, RIGHT_DRIVE_ENCODER_A, RIGHT_DRIVE_ENCODER_B,
-								LEFT_DRIVE_SOLENOID, RIGHT_DRIVE_SOLENOID);
+								LEFT_DRIVE_SOLENOID);
+	driveTrain->SetRightDriveAxis(XboxController::xbRightYAxis);
+	driveTrain->SetLeftDriveAxis(XboxController::xbLeftYAxis);
 	
 	oi = new OI();
 	shooter = new Shooter(SHOOTER_MOTOR, SHOOTER_ENCODER_A, SHOOTER_ENCODER_B, SHOOTER_LIFT_SOLENOID);
 	hopper = new Hopper(HOPPER_SOLENOID);
+	airCompressor = new AirCompressor(COMPRESSOR_SENSOR, COMPRESSOR_SPIKE);
 }

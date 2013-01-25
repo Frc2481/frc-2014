@@ -396,6 +396,7 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../XboxController.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Hopper.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/AirCompressor.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/CommandBase.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShifterUpdateCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ExampleAutonomous.h \
@@ -1198,6 +1199,8 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../XboxCon
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Hopper.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/AirCompressor.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/CommandBase.h:
 

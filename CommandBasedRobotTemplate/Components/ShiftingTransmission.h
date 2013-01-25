@@ -5,35 +5,30 @@
 class ShiftingTransmission : public SpeedController {
 private:
 	SpeedController* motor;
-	Encoder* encoder;
-	Solenoid* solenoid;
-	INT32 upShiftThreshold;
-	INT32 downShiftThreshold; 
+	Solenoid* solenoid; 
 	int loopCount;
 	float motorSpeed; 
-	float beforeShiftSpeed;
 	bool isShiftingUp;
 	bool isShiftingDown;
 	bool enabled;
+	bool isLowSpeed;
 
 	void UpShift();
 	void DownShift();
 	void SetSolenoid(bool position);
 	
 public:
-	ShiftingTransmission(SpeedController* m, Encoder* e, Solenoid* s);
+	ShiftingTransmission(SpeedController* m, Solenoid* s);
 	~ShiftingTransmission();
 	void Set(float speed, UINT8 syncGroup=0);
 	float Get();
 //	bool IsHighSpeed();
 	bool IsLowSpeed();
-	void SetUpShiftThreshold(UINT32);
-	void SetDownShiftTheshold(UINT32);
-	UINT32 GetUpShiftThreshold();
-	UINT32 GetDownShiftThreshold();
 	void Run();
 	void SetEnabled(bool enableState);
 	void Disable();
 	void PIDWrite(float output);
+	void ShiftUp();
+	void ShiftDown();
 };
 #endif

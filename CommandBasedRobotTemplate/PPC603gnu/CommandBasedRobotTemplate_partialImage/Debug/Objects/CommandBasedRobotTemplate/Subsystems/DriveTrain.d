@@ -395,6 +395,7 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/Hopper.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/AirCompressor.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/DriveTrain.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Robotmap.h
 
@@ -1185,6 +1186,8 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Comma
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/AirCompressor.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/DriveTrain.h:
 

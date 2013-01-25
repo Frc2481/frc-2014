@@ -13,7 +13,6 @@ private:
 	ShifterUpdateCommand *shifterUpdateCommand;
 	LiveWindow *lw;
 	ExampleAutonomousCommand *xAutoCommand;
-	Compressor* compress;
 	
 	virtual void RobotInit() {
 		CommandBase::init();
@@ -25,7 +24,7 @@ private:
 		SmartDashboard::PutData("ShiftUp", new ShiftUpCommand());
 		SmartDashboard::PutData("ShiftDownCommand", new ShiftDownCommand());
 		SmartDashboard::PutData(CommandBase::driveTrain);
-		compress = new Compressor(5,1);
+		
 		
 	}
 	
@@ -44,7 +43,6 @@ private:
 		// this line or comment it out.
 		xAutoCommand->Cancel();
 		shifterUpdateCommand->Start();
-		compress->Start();
 	}
 	
 	virtual void TeleopPeriodic() {

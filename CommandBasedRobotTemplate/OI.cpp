@@ -1,6 +1,6 @@
 #include "OI.h"
 #include "Commands/DisableShiftCommand.h"
-
+#include "Commands/FireDiscCommand.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -8,6 +8,8 @@ OI::OI() {
 	shooterStick = new XboxController(SHOOTER_STICK_PORT);
 	disableShiftButton = new JoystickButton(driverStick, XboxController::xbAButton); //TODO change button argument to desired button
 	disableShiftButton->WhileHeld(new DisableShiftCommand());
+	fireDiscButton = new JoystickButton(driverStick, XboxController::xbXButton);
+	fireDiscButton->WhileHeld(new FireDiscCommand);
 }
 
 Joystick* OI::GetDriverStick() {

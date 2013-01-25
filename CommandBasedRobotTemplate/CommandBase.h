@@ -6,6 +6,7 @@
 #include "Subsystems/Shooter.h"
 #include "OI.h"
 #include "Subsystems/Hopper.h"
+#include "Subsystems/AirCompressor.h"
 
 
 /**
@@ -23,6 +24,7 @@ public:
 	static OI *oi;
 	static Shooter *shooter;
 	static Hopper *hopper;
+	static AirCompressor *airCompressor;
 };
 
 #endif

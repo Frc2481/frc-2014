@@ -8,13 +8,12 @@
 #include "Hopper.h"
 
 Hopper::Hopper(UINT32 solenoidChannel) : Subsystem("Hopper") {
-	// TODO Auto-generated constructor stub
 	solenoid = new Solenoid(solenoidChannel);
 	frisbeeCount = 0;
 }
 
 Hopper::~Hopper() {
-	// TODO Auto-generated destructor stub
+	delete solenoid;
 }
 
 void Hopper::Load() {

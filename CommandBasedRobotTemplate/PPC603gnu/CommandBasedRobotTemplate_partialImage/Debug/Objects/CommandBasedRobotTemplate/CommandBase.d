@@ -391,6 +391,7 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/XboxController.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Hopper.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/AirCompressor.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Robotmap.h
 
@@ -1173,6 +1174,8 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/XboxController.h:
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Hopper.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/AirCompressor.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h:
 

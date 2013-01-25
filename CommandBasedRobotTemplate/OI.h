@@ -12,6 +12,7 @@ private:
 	XboxController *driverStick;
 	XboxController *shooterStick;
 	JoystickButton *disableShiftButton;
+	JoystickButton *fireDiscButton;
 	
 public:
 	OI();
