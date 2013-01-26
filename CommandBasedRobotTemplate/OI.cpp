@@ -8,7 +8,7 @@ OI::OI() {
 	shooterStick = new XboxController(SHOOTER_STICK_PORT);
 	disableShiftButton = new JoystickButton(driverStick, XboxController::xbAButton); //TODO change button argument to desired button
 	disableShiftButton->WhileHeld(new DisableShiftCommand());
-	fireDiscButton = new JoystickButton(driverStick, XboxController::xbXButton);
+	fireDiscButton = new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -.5);
 	fireDiscButton->WhileHeld(new FireDiscCommand);
 }
 

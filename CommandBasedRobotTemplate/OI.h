@@ -4,6 +4,7 @@
 #include "WPILib.h"
 #include "Components/Joystick2481.h"
 #include "XboxController.h"
+#include "Components/AnalogJoystickButton.h"
 
 class OI {
 private:
@@ -12,7 +13,7 @@ private:
 	XboxController *driverStick;
 	XboxController *shooterStick;
 	JoystickButton *disableShiftButton;
-	JoystickButton *fireDiscButton;
+	AnalogJoystickButton *fireDiscButton;
 	
 public:
 	OI();

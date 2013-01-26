@@ -392,10 +392,15 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Components/Joystick2481.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../XboxController.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Components/AnalogJoystickButton.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/Hopper.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/AirCompressor.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/ClimbingHooks.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/Arm.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/RobotLift.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/DriveTrain.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Robotmap.h
 
@@ -1181,6 +1186,10 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../XboxController.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Components/AnalogJoystickButton.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/Hopper.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h:
@@ -1188,6 +1197,12 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h:
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/AirCompressor.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/ClimbingHooks.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/Arm.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/RobotLift.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/DriveTrain.h:
 

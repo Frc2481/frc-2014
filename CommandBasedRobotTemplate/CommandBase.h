@@ -7,6 +7,9 @@
 #include "OI.h"
 #include "Subsystems/Hopper.h"
 #include "Subsystems/AirCompressor.h"
+#include "Subsystems/ClimbingHooks.h"
+#include "Subsystems/Arm.h"
+#include "Subsystems/RobotLift.h"
 
 
 /**
@@ -25,6 +28,9 @@ public:
 	static Shooter *shooter;
 	static Hopper *hopper;
 	static AirCompressor *airCompressor;
+	static ClimbingHooks *climbingHooks;
+	static Arm *climbingArm;
+	static RobotLift *robotLift;
 };
 
 #endif

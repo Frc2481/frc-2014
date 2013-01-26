@@ -24,7 +24,7 @@ private:
 		SmartDashboard::PutData("ShiftUp", new ShiftUpCommand());
 		SmartDashboard::PutData("ShiftDownCommand", new ShiftDownCommand());
 		SmartDashboard::PutData(CommandBase::driveTrain);
-		
+		SmartDashboard::PutData(CommandBase::shooter);
 		
 	}
 	
