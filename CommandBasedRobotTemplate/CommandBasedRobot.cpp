@@ -7,6 +7,16 @@
 #include "Commands/ShiftUpCommand.h"
 #include "Commands/ShiftDownCommand.h"
 
+#include "Commands/FullyExtendArmCommand.h"
+#include "Commands/FullyRetractArmCommand.h"
+#include "Commands/FirstRungPositionArmCommand.h"
+#include "Commands/StartingPositionArmCommand.h"
+#include "Commands/LatchCommand.h"
+#include "Commands/UnlatchCommand.h"
+#include "Commands/LiftRobotCommand.h"
+#include "Commands/LowerRobotCommand.h"
+#include "Commands/ClimbingCommandGroup.h"
+
 class CommandBasedRobot : public IterativeRobot {
 private:
 	Command *autonomousCommand;
@@ -25,7 +35,15 @@ private:
 		SmartDashboard::PutData("ShiftDownCommand", new ShiftDownCommand());
 		SmartDashboard::PutData(CommandBase::driveTrain);
 		SmartDashboard::PutData(CommandBase::shooter);
-		
+		SmartDashboard::PutData("FullyExtendArmCommand", new FullyExtendArmPositionCommand());
+		SmartDashboard::PutData("FullyRetractArmCommand", new FullyRetractArmPositionCommand());
+		SmartDashboard::PutData("FirstRungPositionArmCommand", new FirstRungArmPositionCommand());
+		SmartDashboard::PutData("StartingPositionArmCommand", new StartingPositionArmCommand());
+		SmartDashboard::PutData("LatchCommand", new LatchCommand());
+		SmartDashboard::PutData("UnlatchCommand", new UnlatchCommand());
+		SmartDashboard::PutData("LiftRobotCommand", new LiftRobotCommand());
+		SmartDashboard::PutData("LowerRobotCommand", new LowerRobotCommand());
+		SmartDashboard::PutData("ClimbingCommandGroup", new ClimbingCommandGroup());
 	}
 	
 	virtual void AutonomousInit() {
@@ -46,7 +64,7 @@ private:
 	}
 	
 	virtual void TeleopPeriodic() {
-		Scheduler::GetInstance()->Run();		
+		Scheduler::GetInstance()->Run();	
 	}
 	
 	virtual void TestPeriodic() {
