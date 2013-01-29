@@ -14,7 +14,9 @@ private:
 	XboxController *shooterStick;
 	JoystickButton *disableShiftButton;
 	AnalogJoystickButton *fireDiscButton;
-	
+	JoystickButton *manualArmExtendButton;
+	JoystickButton *manualArmRetractButton;
+
 public:
 	OI();
 	Joystick* GetDriverStick();

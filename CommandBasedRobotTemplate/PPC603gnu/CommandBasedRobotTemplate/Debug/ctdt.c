@@ -37,7 +37,7 @@ void _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev();
 
 void _GLOBAL__I__ZN2OIC2Ev();
 
-void _GLOBAL__I__ZN3Arm10speedRatioE();
+void _GLOBAL__I__ZN3Arm12speedRatioUpE();
 
 void _GLOBAL__I__ZN7ShooterC2Ejjjj();
 
@@ -109,7 +109,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN22ArmPositionCommandBaseC2EfPKc,
     _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev,
     _GLOBAL__I__ZN2OIC2Ev,
-    _GLOBAL__I__ZN3Arm10speedRatioE,
+    _GLOBAL__I__ZN3Arm12speedRatioUpE,
     _GLOBAL__I__ZN7ShooterC2Ejjjj,
     _GLOBAL__I__ZN9RobotLiftC2Ejj,
     _GLOBAL__I__ZN12PrintCommandC2EPKc,
@@ -169,7 +169,7 @@ void _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev();
 
 void _GLOBAL__D__ZN2OIC2Ev();
 
-void _GLOBAL__D__ZN3Arm10speedRatioE();
+void _GLOBAL__D__ZN3Arm12speedRatioUpE();
 
 void _GLOBAL__D__ZN7ShooterC2Ejjjj();
 
@@ -231,7 +231,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN22ArmPositionCommandBaseC2EfPKc,
     _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev,
     _GLOBAL__D__ZN2OIC2Ev,
-    _GLOBAL__D__ZN3Arm10speedRatioE,
+    _GLOBAL__D__ZN3Arm12speedRatioUpE,
     _GLOBAL__D__ZN7ShooterC2Ejjjj,
     _GLOBAL__D__ZN9RobotLiftC2Ejj,
     _GLOBAL__D__ZN9Scheduler9_instanceE,

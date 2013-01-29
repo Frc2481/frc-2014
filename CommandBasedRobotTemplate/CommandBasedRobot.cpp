@@ -44,6 +44,7 @@ private:
 		SmartDashboard::PutData("LiftRobotCommand", new LiftRobotCommand());
 		SmartDashboard::PutData("LowerRobotCommand", new LowerRobotCommand());
 		SmartDashboard::PutData("ClimbingCommandGroup", new ClimbingCommandGroup());
+		SmartDashboard::PutNumber("ArmExtensionChannel", CommandBase::climbingArm->getCurrentPosition());
 	}
 	
 	virtual void AutonomousInit() {
