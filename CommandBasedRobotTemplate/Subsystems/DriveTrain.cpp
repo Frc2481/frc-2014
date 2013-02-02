@@ -18,8 +18,8 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	//shifterR = new ShiftingTransmission(rightMotor, rightEncoder, rightSolenoid);
 	shifterR = new ShiftingTransmission(rightMotor, NULL);
 	shifterL = new ShiftingTransmission(leftMotor, leftSolenoid);
-	shiftUpThreshold = 70;
-	shiftDownThreshold = 60;
+	shiftUpThreshold = 60;
+	shiftDownThreshold = 50;
 	drive = new RobotDrive(shifterL, shifterR);
 	drive->SetSafetyEnabled(false);
 	rightEncoder->SetDistancePerPulse(DISTANCE_PER_PULSE);
@@ -28,6 +28,9 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	leftEncoder->Start();
 	rightDriveAxis = 0;
 	leftDriveAxis = 0;
+	testCompressorSensor = new DigitalInput(13);
+	
+	driveType = 0;
 	
 }
 DriveTrain::~DriveTrain(){
@@ -77,7 +80,15 @@ void DriveTrain::SetShiftEnabled(bool state) {
 }
 void DriveTrain::DriveWithJoystick(Joystick *stick) {
 	//drive->ArcadeDrive(stick);
-	drive->TankDrive(stick, leftDriveAxis, stick, rightDriveAxis);
+	if (driveType == 0){
+		drive->TankDrive(stick, leftDriveAxis, stick, rightDriveAxis);
+	}
+	if (driveType == 1){
+		drive->ArcadeDrive(stick, rightDriveAxis);
+	}
+	/*if (driveType = 2){
+		drive->
+	}*/
 	
 	SmartDashboard::PutNumber("Left Drive Joystick Value" , stick->GetRawAxis(leftDriveAxis));
 	SmartDashboard::PutNumber("Right Drive Joystick Value" , stick->GetRawAxis(rightDriveAxis));
@@ -89,6 +100,9 @@ void DriveTrain::Periodic() {
 	SmartDashboard::PutNumber("Right Encoder Value" , rightEncoder->GetRate());
 	SmartDashboard::PutBoolean("Status is Fatal L", leftEncoder->StatusIsFatal());
 	SmartDashboard::PutBoolean("Status is Fatal R", rightEncoder->StatusIsFatal());
+	SmartDashboard::PutNumber("ArmExtensionChannel", CommandBase::climbingArm->getCurrentPosition());
+	SmartDashboard::PutNumber("CompressorSwitchState", testCompressorSensor->Get());
+	
 	shifterL->Run();
 	shifterR->Run();
 	

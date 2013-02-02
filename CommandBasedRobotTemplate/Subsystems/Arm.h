@@ -14,6 +14,7 @@ class Arm : public PIDSubsystem {
 private:
 	static float speedRatioUp;
 	static float speedRatioDown;
+	static float armPositionTolerance;
 	Talon *armLift;
 	Talon *robotLift;
 	DigitalInput *armPositionFar;
@@ -23,6 +24,7 @@ private:
 	DigitalInput *liftExtendedSensor;
 	DigitalInput *liftRetractedSensor;
 	static float armSpeed;
+
 public:
 	Arm(UINT32 armLiftChannel, UINT32 robotLiftChannel, UINT32 armPosFarChannel, UINT32 armPosCloseChannel, UINT32 armExtendChannel);
 	virtual ~Arm();
@@ -34,6 +36,7 @@ public:
 	void extendArm();
 	void retractArm();
 	void stopArm();
+	bool isAtPosition();
 };
 
 #endif /* Arm_H_ */

@@ -3,6 +3,7 @@
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 #include "../Components/ShiftingTransmission.h"
+//#include "../Components/RobotDrive2481.h"
 
 class DriveTrain: public Subsystem {
 private:
@@ -17,8 +18,10 @@ private:
 	Encoder *rightEncoder;
 	Encoder *leftEncoder;
 	Solenoid *leftSolenoid;
+	DigitalInput *testCompressorSensor;
 	int shiftUpThreshold;
 	int shiftDownThreshold;
+	int driveType;
 
 public:
 	//DriveTrain();

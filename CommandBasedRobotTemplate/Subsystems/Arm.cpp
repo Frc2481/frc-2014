@@ -10,6 +10,7 @@
 float Arm::speedRatioUp = .75;
 float Arm::speedRatioDown = .125;
 float Arm::armSpeed = 1;
+float Arm::armPositionTolerance = 0.25;
 
 Arm::Arm(UINT32 armLiftChannel, UINT32 robotLiftChannel, UINT32 armPosFarChannel, UINT32 armPosCloseChannel, UINT32 armExtendChannel) : PIDSubsystem("Arm", 1, 0, 0) {
 	armLift = new Talon(armLiftChannel);
@@ -17,7 +18,8 @@ Arm::Arm(UINT32 armLiftChannel, UINT32 robotLiftChannel, UINT32 armPosFarChannel
 	armExtensionChannel = new AnalogChannel(armExtendChannel);
 	armPositionFar = new DigitalInput(armPosFarChannel);
 	armPositionClose = new DigitalInput(armPosCloseChannel);
-	//Enable(); MUST ENABLE TO USE PID!!
+	Enable();// MUST ENABLE TO USE PID!!
+	SetAbsoluteTolerance(1);
 }
 
 Arm::~Arm() {	
@@ -29,9 +31,9 @@ Arm::~Arm() {
 }
 
 double Arm::ReturnPIDInput(){
-	//return armExtensionChannel->GetAverageVoltage();
+	return armExtensionChannel->GetAverageVoltage();
 	//return 1 to mock pid input
-	return 1;
+	//return 1;
 	//remove
 }
 void Arm::UsePIDOutput(double output){
@@ -66,4 +68,8 @@ void Arm::retractArm() {
 void Arm::stopArm() {
 	armLift->Set(0);
 	robotLift->Set(0);
+}
+
+bool Arm::isAtPosition() {
+	return getCurrentPosition() < getDesiredPosition() + armPositionTolerance && getCurrentPosition() > getDesiredPosition() - armPositionTolerance;
 }

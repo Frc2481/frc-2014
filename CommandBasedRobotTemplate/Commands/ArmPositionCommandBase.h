@@ -14,6 +14,7 @@
 class ArmPositionCommandBase: public CommandBase {
 private:
 	float armPosition;
+	char *childCommandType;
 public:
 	ArmPositionCommandBase(float position, const char *name);
 	virtual ~ArmPositionCommandBase();

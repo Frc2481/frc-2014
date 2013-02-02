@@ -403,7 +403,19 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/RobotLift.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ExtendArmCommand.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RetractArmCommand.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RetractArmCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLatchCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LatchCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/UnlatchCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ClimbingCommandGroup.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FirstRungPositionArmCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ArmPositionCommandBase.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FullyExtendArmCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FullyRetractArmCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LiftRobotCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LowerRobotCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLiftCommand.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
 
@@ -1210,3 +1222,27 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCo
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ExtendArmCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RetractArmCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLatchCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LatchCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/UnlatchCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ClimbingCommandGroup.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FirstRungPositionArmCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ArmPositionCommandBase.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FullyExtendArmCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FullyRetractArmCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LiftRobotCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LowerRobotCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLiftCommand.h:

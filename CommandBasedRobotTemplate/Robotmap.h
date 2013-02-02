@@ -19,11 +19,11 @@
 // #define RANGE_FINDER_PORT 1
 
 // PWM Channels
-#define LEFT_DRIVE_MOTOR		1
-#define RIGHT_DRIVE_MOTOR		2
-#define SHOOTER_MOTOR 			3
+#define LEFT_DRIVE_MOTOR		2
+#define RIGHT_DRIVE_MOTOR		1
+#define SHOOTER_MOTOR 			5
 #define ARM_LIFT_MOTOR			4
-#define ROBOT_LIFT_MOTOR		5
+#define ROBOT_LIFT_MOTOR		3
 
 // Digital Input Channels
 #define LEFT_DRIVE_ENCODER_A	1
@@ -41,15 +41,15 @@
 
 // Solenoid Channels
 #define LEFT_DRIVE_SOLENOID 	1
-#define RIGHT_DRIVE_SOLENOID	2
-#define HOPPER_SOLENOID 		2
+#define RIGHT_DRIVE_SOLENOID	1
+#define HOPPER_SOLENOID 		6
 #define SHOOTER_LIFT_SOLENOID	3
-#define ROBOT_LIFT_SOLENOID		4
-#define LOCK_HOOK_SOLENOID		5
-#define UNLOCK_HOOK_SOLENOID	6
+#define ROBOT_LIFT_SOLENOID		2
+#define LOCK_HOOK_SOLENOID		4
+#define UNLOCK_HOOK_SOLENOID	5
 
 // Analog Input Channels
-#define ARM_EXTENSION_SENSOR	1
+#define ARM_EXTENSION_SENSOR	2
 
 
 #define	COMPRESSOR_SPIKE		1

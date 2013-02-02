@@ -16,6 +16,9 @@ private:
 	AnalogJoystickButton *fireDiscButton;
 	JoystickButton *manualArmExtendButton;
 	JoystickButton *manualArmRetractButton;
+	JoystickButton *manualLatchButton;
+	AnalogJoystickButton *climbSequenceButton;
+	JoystickButton *liftButton;
 
 public:
 	OI();

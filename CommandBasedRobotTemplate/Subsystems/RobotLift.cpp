@@ -23,5 +23,5 @@ void RobotLift::lower(){
 	liftSolenoid->Set(0);
 }
 bool RobotLift::isLifted(){
-	return liftSensor->Get();
+	return liftSolenoid->Get(); //TODO change to sensor
 }

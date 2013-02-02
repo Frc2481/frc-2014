@@ -7,8 +7,8 @@
 
 #include "Joystick2481.h"
 
-#define MAX_AXIS_VALUE 0.126
-#define MIN_AXIS_VALUE -0.102
+#define MAX_AXIS_VALUE 0.2
+#define MIN_AXIS_VALUE -0.2
 
 Joystick2481::Joystick2481(UINT32 port) : Joystick(port) {
 	// TODO Auto-generated constructor stub

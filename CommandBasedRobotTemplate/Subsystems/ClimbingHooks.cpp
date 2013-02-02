@@ -37,8 +37,9 @@ void ClimbingHooks::unlatch(){
 	lockHookSolenoid->Set(0);
 }
 bool ClimbingHooks::isLatched(){
-	if (leftHookSensor && rightHookSensor)	
-		return leftHookSensor->Get() && rightHookSensor->Get();
-	else 
-		return lockHookSolenoid->Get();
+	//if (leftHookSensor && rightHookSensor)	
+		//return leftHookSensor->Get() && rightHookSensor->Get();
+	//else 
+	bool isLatched = lockHookSolenoid->Get();
+		return isLatched;
 }

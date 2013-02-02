@@ -11,7 +11,7 @@
  */
 class FullyExtendArmPositionCommand: public ArmPositionCommandBase {
 private:
-	static const float extendPosition = 1;
+	static const float extendPosition = 4;
 public:
 	FullyExtendArmPositionCommand() : ArmPositionCommandBase(extendPosition, "FullyExtendArmPositionCommand") {}
 };

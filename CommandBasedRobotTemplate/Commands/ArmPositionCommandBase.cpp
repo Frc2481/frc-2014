@@ -10,6 +10,7 @@
 ArmPositionCommandBase::ArmPositionCommandBase(float position, const char * name) : CommandBase(name) {
 	Requires(climbingArm);
 	armPosition = position;
+	childCommandType = (char*)name;
 }
 
 ArmPositionCommandBase::~ArmPositionCommandBase() {}
@@ -18,7 +19,7 @@ void ArmPositionCommandBase::Initialize(){
 	climbingArm->setPosition(armPosition);
 }
 bool ArmPositionCommandBase::IsFinished(){
-	bool isOnTarget = climbingArm->OnTarget();
+	bool isOnTarget = climbingArm->isAtPosition();
 	return isOnTarget;
 }
 void ArmPositionCommandBase::Execute() {}
