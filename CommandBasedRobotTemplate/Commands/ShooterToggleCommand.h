@@ -8,7 +8,7 @@
 #ifndef SHOOTERTOGGLECOMMAND_H_
 #define SHOOTERTOGGLECOMMAND_H_
 
-#include "CommandBase.h"
+#include "../CommandBase.h"
 
 class ShooterToggleCommand: public CommandBase {
 public:
@@ -21,7 +21,7 @@ public:
 			shooter->turnOff();
 		}
 		else {
-			shooter->turnOn ();
+			shooter->turnOn();
 		}
 	}
 	virtual void Execute(){}

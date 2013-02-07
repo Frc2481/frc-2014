@@ -10,11 +10,8 @@
  */
 class DriveBackwardCommand: public DriveCommandBase {
 public:
-	DriveBackwardCommand(float speed, double time):DriveCommandBase(speed, time, "DriveBackwardCommadn") {
+	DriveBackwardCommand(float speed, float distance):DriveCommandBase(speed, -distance, -distance, "DriveBackwardCommadn") {
 		
-	}
-	virtual void Execute() {
-		driveTrain->DriveBackward(driveSpeed);
 	}
 };
 

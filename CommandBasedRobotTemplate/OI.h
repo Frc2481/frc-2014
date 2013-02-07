@@ -19,6 +19,9 @@ private:
 	JoystickButton *manualLatchButton;
 	AnalogJoystickButton *climbSequenceButton;
 	JoystickButton *liftButton;
+	JoystickButton *toggleShooterButton;
+	JoystickButton *speedUpShooterButton;
+	JoystickButton *slowDownShooterButton;
 
 public:
 	OI();

@@ -383,8 +383,15 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/ShiftingTransmission.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/FPSDrive.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Shooter.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/Encoder2481.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDSource.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../OI.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/Joystick2481.h \
@@ -1164,9 +1171,23 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsyst
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/FPSDrive.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Shooter.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/Encoder2481.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDSource.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../OI.h:
 

@@ -3,13 +3,14 @@
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 #include "../Components/ShiftingTransmission.h"
-//#include "../Components/RobotDrive2481.h"
+#include "../Components/FPSDrive.h"
 
 class DriveTrain: public Subsystem {
 private:
-	
+	static float tolerance;
 	UINT32 leftDriveAxis;
 	UINT32 rightDriveAxis;
+	UINT32 fpsTurnAxis;
 	ShiftingTransmission *shifterL;
 	ShiftingTransmission *shifterR;
 	RobotDrive *drive;
@@ -18,11 +19,12 @@ private:
 	Encoder *rightEncoder;
 	Encoder *leftEncoder;
 	Solenoid *leftSolenoid;
-	DigitalInput *testCompressorSensor;
+	FPSDrive *fpsDrive;
+//	PIDController *leftPID;
+//	PIDController *rightPID;
 	int shiftUpThreshold;
 	int shiftDownThreshold;
 	int driveType;
-
 public:
 	//DriveTrain();
 	DriveTrain(UINT32 motorL, UINT32 motorR, UINT32 encoderLA, UINT32 encoderLB, UINT32 encoderRA, UINT32 encoderRB, UINT32 solenoidL);
@@ -38,8 +40,11 @@ public:
 	void Periodic();
 	void SetLeftDriveAxis(UINT32 leftAxis);
 	void SetRightDriveAxis(UINT32 rightAxis);
+	void SetFPSTurnAxis(UINT32 turnAxis);
 	void ShiftUp();
 	void ShiftDown();
+	void SetPID(float leftSetpoint, float rightSetpoint);
+	bool IsPIDAtDistance();
 	UINT32 GetRightDriveAxis();
 	UINT32 GetLeftDriveAxis();
 };

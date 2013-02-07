@@ -21,13 +21,13 @@ public:
 	virtual ~FireDiscCommand(){}
 	virtual void Initialize(){
 		
-		if (shooter->isShooterUp() && shooter->OnTarget()) {
+		//if (shooter->isShooterUp() && shooter->OnTarget()) {
 			SetTimeout(timeout);
 			hopper->Load();
-		}
-		else {
-			SetTimeout(0);
-		}
+		//}
+		//else {
+		//	SetTimeout(0);
+		//}
 	}
 	virtual void Execute(){}
 	virtual bool IsFinished(){

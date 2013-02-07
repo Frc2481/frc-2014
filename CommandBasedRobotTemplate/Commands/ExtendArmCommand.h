@@ -21,7 +21,8 @@ public:
 	void Initialize() {
 		climbingArm->extendArm();
 	}
-	void Execute() {}
+	void Execute() {
+	}
 	bool IsFinished() {
 		return false;
 	}

@@ -384,7 +384,7 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/XboxController.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/AnalogJoystickButton.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/DisableShiftCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/EnableShiftCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/DriveTrain.h \
@@ -392,8 +392,15 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/ShiftingTransmission.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/FPSDrive.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Shooter.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/Encoder2481.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDSource.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../OI.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Hopper.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h \
@@ -415,7 +422,10 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FullyRetractArmCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LiftRobotCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LowerRobotCommand.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLiftCommand.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLiftCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterToggleCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SpeedUpShooterCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SlowDownShooterCommand.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
 
@@ -1183,7 +1193,7 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/AnalogJo
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
-C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/DisableShiftCommand.h:
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/EnableShiftCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h:
 
@@ -1199,9 +1209,23 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsyst
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/FPSDrive.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Shooter.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/Encoder2481.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDSource.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../OI.h:
 
@@ -1246,3 +1270,9 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LiftRobotC
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LowerRobotCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLiftCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterToggleCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SpeedUpShooterCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SlowDownShooterCommand.h:

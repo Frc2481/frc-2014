@@ -11,14 +11,15 @@ float Arm::speedRatioUp = .75;
 float Arm::speedRatioDown = .125;
 float Arm::armSpeed = 1;
 float Arm::armPositionTolerance = 0.25;
+float Arm::armHighPos = 4.5;
+float Arm::armLowPos = 0.3;
 
 Arm::Arm(UINT32 armLiftChannel, UINT32 robotLiftChannel, UINT32 armPosFarChannel, UINT32 armPosCloseChannel, UINT32 armExtendChannel) : PIDSubsystem("Arm", 1, 0, 0) {
 	armLift = new Talon(armLiftChannel);
 	robotLift = new Talon(robotLiftChannel);
 	armExtensionChannel = new AnalogChannel(armExtendChannel);
-	armPositionFar = new DigitalInput(armPosFarChannel);
-	armPositionClose = new DigitalInput(armPosCloseChannel);
-	Enable();// MUST ENABLE TO USE PID!!
+	//Enable();// MUST ENABLE TO USE PID!!
+	Disable();
 	SetAbsoluteTolerance(1);
 }
 
@@ -26,8 +27,6 @@ Arm::~Arm() {
 	delete armLift;
 	delete robotLift;
 	delete armExtensionChannel;
-	delete armPositionFar;
-	delete armPositionClose;
 }
 
 double Arm::ReturnPIDInput(){
@@ -37,12 +36,15 @@ double Arm::ReturnPIDInput(){
 	//remove
 }
 void Arm::UsePIDOutput(double output){
-	/*if(armPositionFar->Get() && output > 0)
+	if(armExtensionChannel->GetAverageVoltage() > armHighPos && output > 0) {
 		output = 0;
-	else if (armPositionClose->Get() && output < 0)
+	}
+	else if (armExtensionChannel->GetAverageVoltage() < armLowPos && output < 0) {
 		output = 0;
-	armLift->Set((float)output);
-	robotLift->Set(-speedRatio*(float)output);*/
+	}
+	armLift->Set(speedRatioDown*(float)output);
+	robotLift->Set((float)output);
+	
 	//use new ratios
 }
 void Arm::setPosition(double position){

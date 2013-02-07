@@ -4,6 +4,8 @@
 
 #define DISTANCE_PER_PULSE 2.31792417968 / 360.0
 
+float DriveTrain::tolerance = .5;
+
 DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR, 
 					   UINT32 encoderLA, UINT32 encoderLB, UINT32 encoderRA, UINT32 encoderRB, 
 					   UINT32 solenoidL) 
@@ -21,6 +23,7 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	shiftUpThreshold = 60;
 	shiftDownThreshold = 50;
 	drive = new RobotDrive(shifterL, shifterR);
+//	drive = new RobotDrive(leftMotor, rightMotor);
 	drive->SetSafetyEnabled(false);
 	rightEncoder->SetDistancePerPulse(DISTANCE_PER_PULSE);
 	rightEncoder->Start();
@@ -28,9 +31,18 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	leftEncoder->Start();
 	rightDriveAxis = 0;
 	leftDriveAxis = 0;
-	testCompressorSensor = new DigitalInput(13);
-	
-	driveType = 0;
+	//fpsDrive = new FPSDrive();
+	fpsTurnAxis = 0;
+	driveType = 0; // 0 = tank, 1 = arcade, 2 = FPS. Note, for FPS drive the leftStick will likely need to be the x instead of y axis in CommandBase.cpp
+//	leftPID = new PIDController(1, 0, 0, leftEncoder, leftMotor);
+//	rightPID = new PIDController(1, 0, 0, rightEncoder, rightMotor);
+//	
+//	leftPID->Disable();
+//	rightPID->Disable();
+//	leftPID->SetTolerance(tolerance);
+//	rightPID->SetTolerance(tolerance);
+//	leftEncoder->SetPIDSourceParameter(Encoder::kDistance);
+//	rightEncoder->SetPIDSourceParameter(Encoder::kDistance);
 	
 }
 DriveTrain::~DriveTrain(){
@@ -86,12 +98,15 @@ void DriveTrain::DriveWithJoystick(Joystick *stick) {
 	if (driveType == 1){
 		drive->ArcadeDrive(stick, rightDriveAxis);
 	}
-	/*if (driveType = 2){
-		drive->
-	}*/
+//	if (driveType == 2){
+//		fpsDrive->Drive(stick, leftDriveAxis, stick, fpsTurnAxis, drive);
+//	}
 	
-	SmartDashboard::PutNumber("Left Drive Joystick Value" , stick->GetRawAxis(leftDriveAxis));
-	SmartDashboard::PutNumber("Right Drive Joystick Value" , stick->GetRawAxis(rightDriveAxis));
+	//***For somereason uncommenting out these put numbers*** 
+	//***causes random IO errors and 100% CPU***
+	//SmartDashboard::PutNumber("Left Drive Joystick Value" , stick->GetRawAxis(leftDriveAxis));
+	//SmartDashboard::PutNumber("Right Drive Joystick Value" , stick->GetRawAxis(rightDriveAxis));
+	
 	//Periodic();
 }
 
@@ -100,8 +115,6 @@ void DriveTrain::Periodic() {
 	SmartDashboard::PutNumber("Right Encoder Value" , rightEncoder->GetRate());
 	SmartDashboard::PutBoolean("Status is Fatal L", leftEncoder->StatusIsFatal());
 	SmartDashboard::PutBoolean("Status is Fatal R", rightEncoder->StatusIsFatal());
-	SmartDashboard::PutNumber("ArmExtensionChannel", CommandBase::climbingArm->getCurrentPosition());
-	SmartDashboard::PutNumber("CompressorSwitchState", testCompressorSensor->Get());
 	
 	shifterL->Run();
 	shifterR->Run();
@@ -121,9 +134,28 @@ void DriveTrain::SetLeftDriveAxis(UINT32 leftAxis){
 void DriveTrain::SetRightDriveAxis(UINT32 rightAxis){
 	rightDriveAxis = rightAxis;
 }
+void DriveTrain::SetFPSTurnAxis(UINT32 turnAxis){
+	fpsTurnAxis = turnAxis;
+}
 UINT32 DriveTrain::GetRightDriveAxis(){
 	return rightDriveAxis;
 }
 UINT32 DriveTrain::GetLeftDriveAxis(){
 	return leftDriveAxis;
+}
+void DriveTrain::SetPID(float leftSetpoint, float rightSetpoint){
+	//leftEncoder->Reset();
+	//rightEncoder->Reset();
+	//leftPID->SetSetpoint(leftSetpoint);
+	//rightPID->SetSetpoint(rightSetpoint);
+}
+bool DriveTrain::IsPIDAtDistance(){
+	//if (rightPID->Get() < rightPID->GetSetpoint() + tolerance && 
+	//	rightPID->Get() > rightPID->GetSetpoint() - tolerance &&
+	//	leftPID->Get() < leftPID->GetSetpoint() + tolerance && 
+	//	leftPID->Get() > leftPID->GetSetpoint() - tolerance){
+		return true;
+	//}
+	return false;
+	
 }

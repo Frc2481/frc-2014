@@ -12,7 +12,8 @@ void DriveWithJoystickCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoystickCommand::Execute() {
-	driveTrain->DriveWithJoystick(oi->GetDriverStick());
+	if (oi->GetDriverStick())
+		driveTrain->DriveWithJoystick(oi->GetDriverStick());
 }
 
 // Make this return true when this Command no longer needs to run execute()

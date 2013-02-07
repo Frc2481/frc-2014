@@ -11,10 +11,12 @@
 class DriveCommandBase: public CommandBase {
 protected:
 	float driveSpeed;
-	double timeout;
+	float leftDistance;
+	float rightDistance;
 public:
-	DriveCommandBase(float speed, double time, const char *name);
+	DriveCommandBase(float speed, float leftDistance, float rightDistance, const char *name);
 	virtual void Initialize();
+	void DriveCommandBase::Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();

@@ -25,13 +25,14 @@ void CommandBase::init() {
 								LEFT_DRIVE_ENCODER_A, LEFT_DRIVE_ENCODER_B, RIGHT_DRIVE_ENCODER_A, RIGHT_DRIVE_ENCODER_B,
 								LEFT_DRIVE_SOLENOID);
 	driveTrain->SetRightDriveAxis(XboxController::xbRightYAxis);
-	driveTrain->SetLeftDriveAxis(XboxController::xbLeftYAxis);
+	driveTrain->SetLeftDriveAxis(XboxController::xbLeftYAxis); 
+	driveTrain->SetFPSTurnAxis(XboxController::xbRightXAxis);
 	
-	oi = new OI();
-	shooter = new Shooter(SHOOTER_MOTOR, SHOOTER_ENCODER_A, SHOOTER_ENCODER_B, SHOOTER_LIFT_SOLENOID);
+	shooter = new Shooter(SHOOTER_MOTOR, SHOOTER_ENCODER, SHOOTER_LIFT_SOLENOID);
 	hopper = new Hopper(HOPPER_SOLENOID);
 	airCompressor = new AirCompressor(COMPRESSOR_SENSOR, COMPRESSOR_SPIKE);
 	climbingArm = new Arm(ARM_LIFT_MOTOR, ROBOT_LIFT_MOTOR, UPPER_ARM_SENSOR, LOWER_ARM_SENSOR, ARM_EXTENSION_SENSOR);
 	climbingHooks = new ClimbingHooks(LOCK_HOOK_SOLENOID,UNLOCK_HOOK_SOLENOID, RIGHT_HOOK_MAGNET, LEFT_HOOK_MAGNET);
 	robotLift = new RobotLift(ROBOT_LIFT_SOLENOID,LIFT_ROBOT_SENSOR);
+	oi = new OI();
 }

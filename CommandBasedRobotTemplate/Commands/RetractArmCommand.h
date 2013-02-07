@@ -21,7 +21,8 @@ public:
 	void Initialize() {
 		climbingArm->retractArm();
 	}
-	void Execute() {}
+	void Execute() {
+	}
 	bool IsFinished() {
 		return false;
 	}

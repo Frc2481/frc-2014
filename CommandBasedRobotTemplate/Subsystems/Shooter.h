@@ -10,25 +10,29 @@
 
 #include "WPILib.h"
 #include "Commands/PIDSubsystem.h"
+#include "../Components/Encoder2481.h"
 
 class Shooter: public PIDSubsystem {
 private:
 	Talon *shooterMotor;
-	Encoder *shooterEncoder;
+	//RoEncoder *shooterEncoder;
+	Encoder2481 *shooterEncoder;
 	bool shooterState;
 	Solenoid *shooterLiftSolenoid;
-public:
-	Shooter(UINT32 motorChannel, UINT32 encoderChannelA, UINT32 encoderChannelB, UINT32 solenoidChannel);
+	public:
+	Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel);
 	virtual ~Shooter();
 	void setSpeed(double speed);
 	void turnOn();
-	void tunOff();
+	void turnOff();
 	virtual double ReturnPIDInput();
 	virtual void UsePIDOutput(double output);
 	bool isShooterOn();
 	void LiftShooter();
 	void LowerShooter();
 	bool isShooterUp();
+	
+	void update();
 };
 
 #endif /* SHOOTER_H_ */

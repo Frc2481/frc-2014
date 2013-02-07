@@ -9,7 +9,7 @@
 
 void _GLOBAL__I__Z20FRC_userClassFactoryv();
 
-void _GLOBAL__I__ZN10DriveTrainC2Ejjjjjjj();
+void _GLOBAL__I__ZN10DriveTrain9toleranceE();
 
 void _GLOBAL__I__ZN11CommandBaseC2EPKc();
 
@@ -21,7 +21,7 @@ void _GLOBAL__I__ZN14ExampleCommandC2Ev();
 
 void _GLOBAL__I__ZN14XboxController11xbLeftXAxisE();
 
-void _GLOBAL__I__ZN16DriveCommandBaseC2EfdPKc();
+void _GLOBAL__I__ZN16DriveCommandBaseC2EfffPKc();
 
 void _GLOBAL__I__ZN16ExampleSubsystemC2Ev();
 
@@ -39,7 +39,9 @@ void _GLOBAL__I__ZN2OIC2Ev();
 
 void _GLOBAL__I__ZN3Arm12speedRatioUpE();
 
-void _GLOBAL__I__ZN7ShooterC2Ejjjj();
+void _GLOBAL__I__ZN7ShooterC2Ejjj();
+
+void _GLOBAL__I__ZN9RoEncoderC2Eii();
 
 void _GLOBAL__I__ZN9RobotLiftC2Ejj();
 
@@ -95,13 +97,13 @@ extern void (*_ctors[])();
 void (*_ctors[])() =
     {
     _GLOBAL__I__Z20FRC_userClassFactoryv,
-    _GLOBAL__I__ZN10DriveTrainC2Ejjjjjjj,
+    _GLOBAL__I__ZN10DriveTrain9toleranceE,
     _GLOBAL__I__ZN11CommandBaseC2EPKc,
     _GLOBAL__I__ZN13AirCompressorC2Ejj,
     _GLOBAL__I__ZN13ClimbingHooksC2Ejjjj,
     _GLOBAL__I__ZN14ExampleCommandC2Ev,
     _GLOBAL__I__ZN14XboxController11xbLeftXAxisE,
-    _GLOBAL__I__ZN16DriveCommandBaseC2EfdPKc,
+    _GLOBAL__I__ZN16DriveCommandBaseC2EfffPKc,
     _GLOBAL__I__ZN16ExampleSubsystemC2Ev,
     _GLOBAL__I__ZN20AnalogJoystickButtonC2EP10GenericHIDif,
     _GLOBAL__I__ZN20ShifterUpdateCommandC2Ev,
@@ -110,7 +112,8 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev,
     _GLOBAL__I__ZN2OIC2Ev,
     _GLOBAL__I__ZN3Arm12speedRatioUpE,
-    _GLOBAL__I__ZN7ShooterC2Ejjjj,
+    _GLOBAL__I__ZN7ShooterC2Ejjj,
+    _GLOBAL__I__ZN9RoEncoderC2Eii,
     _GLOBAL__I__ZN9RobotLiftC2Ejj,
     _GLOBAL__I__ZN12PrintCommandC2EPKc,
     _GLOBAL__I__ZN9Scheduler9_instanceE,
@@ -141,7 +144,7 @@ void (*_ctors[])() =
 
 void _GLOBAL__D__Z20FRC_userClassFactoryv();
 
-void _GLOBAL__D__ZN10DriveTrainC2Ejjjjjjj();
+void _GLOBAL__D__ZN10DriveTrain9toleranceE();
 
 void _GLOBAL__D__ZN11CommandBaseC2EPKc();
 
@@ -153,7 +156,7 @@ void _GLOBAL__D__ZN14ExampleCommandC2Ev();
 
 void _GLOBAL__D__ZN14XboxController11xbLeftXAxisE();
 
-void _GLOBAL__D__ZN16DriveCommandBaseC2EfdPKc();
+void _GLOBAL__D__ZN16DriveCommandBaseC2EfffPKc();
 
 void _GLOBAL__D__ZN16ExampleSubsystemC2Ev();
 
@@ -171,7 +174,9 @@ void _GLOBAL__D__ZN2OIC2Ev();
 
 void _GLOBAL__D__ZN3Arm12speedRatioUpE();
 
-void _GLOBAL__D__ZN7ShooterC2Ejjjj();
+void _GLOBAL__D__ZN7ShooterC2Ejjj();
+
+void _GLOBAL__D__ZN9RoEncoderC2Eii();
 
 void _GLOBAL__D__ZN9RobotLiftC2Ejj();
 
@@ -217,13 +222,13 @@ extern void (*_dtors[])();
 void (*_dtors[])() =
     {
     _GLOBAL__D__Z20FRC_userClassFactoryv,
-    _GLOBAL__D__ZN10DriveTrainC2Ejjjjjjj,
+    _GLOBAL__D__ZN10DriveTrain9toleranceE,
     _GLOBAL__D__ZN11CommandBaseC2EPKc,
     _GLOBAL__D__ZN13AirCompressorC2Ejj,
     _GLOBAL__D__ZN13ClimbingHooksC2Ejjjj,
     _GLOBAL__D__ZN14ExampleCommandC2Ev,
     _GLOBAL__D__ZN14XboxController11xbLeftXAxisE,
-    _GLOBAL__D__ZN16DriveCommandBaseC2EfdPKc,
+    _GLOBAL__D__ZN16DriveCommandBaseC2EfffPKc,
     _GLOBAL__D__ZN16ExampleSubsystemC2Ev,
     _GLOBAL__D__ZN20AnalogJoystickButtonC2EP10GenericHIDif,
     _GLOBAL__D__ZN20ShifterUpdateCommandC2Ev,
@@ -232,7 +237,8 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev,
     _GLOBAL__D__ZN2OIC2Ev,
     _GLOBAL__D__ZN3Arm12speedRatioUpE,
-    _GLOBAL__D__ZN7ShooterC2Ejjjj,
+    _GLOBAL__D__ZN7ShooterC2Ejjj,
+    _GLOBAL__D__ZN9RoEncoderC2Eii,
     _GLOBAL__D__ZN9RobotLiftC2Ejj,
     _GLOBAL__D__ZN9Scheduler9_instanceE,
     _GLOBAL__D_wpi_error_s_ModuleIndexOutOfRange,

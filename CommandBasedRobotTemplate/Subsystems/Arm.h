@@ -15,10 +15,10 @@ private:
 	static float speedRatioUp;
 	static float speedRatioDown;
 	static float armPositionTolerance;
+	static float armHighPos;
+	static float armLowPos;
 	Talon *armLift;
 	Talon *robotLift;
-	DigitalInput *armPositionFar;
-	DigitalInput *armPositionClose;
 	AnalogChannel *armExtensionChannel;
 	Solenoid *liftSolenoid;
 	DigitalInput *liftExtendedSensor;

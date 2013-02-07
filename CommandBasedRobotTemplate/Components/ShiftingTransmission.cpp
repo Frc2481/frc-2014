@@ -6,7 +6,7 @@ ShiftingTransmission::ShiftingTransmission(SpeedController* m, Solenoid* s)
 	isShiftingUp = 0;
 	isShiftingDown = 0;
 	motorSpeed = 0;
-	enabled = true;
+	enabled = false;
 	isLowSpeed = true;
 	
 }

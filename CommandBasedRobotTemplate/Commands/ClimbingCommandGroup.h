@@ -24,17 +24,17 @@ public:
 	ClimbingCommandGroup() {
 		haveRun = false;
 		AddSequential(new FirstRungArmPositionCommand());
-		//AddSequential(new LiftRobotCommand());
-		//AddSequential(new LatchCommand());
-		//AddSequential(new LowerRobotCommand());
+		AddSequential(new LiftRobotCommand());
+		AddSequential(new LatchCommand());
+		AddSequential(new LowerRobotCommand());
 		AddSequential(new FullyExtendArmPositionCommand());
-		//AddSequential(new UnlatchCommand());
+		AddSequential(new UnlatchCommand());
 		AddSequential(new FullyRetractArmPositionCommand());
-		//AddSequential(new LatchCommand());
+		AddSequential(new LatchCommand());
 		AddSequential(new FullyExtendArmPositionCommand());
-		//AddSequential(new UnlatchCommand());
+		AddSequential(new UnlatchCommand());
 		AddSequential(new FullyRetractArmPositionCommand());
-		//AddSequential(new LatchCommand());
+		AddSequential(new LatchCommand());
 		//Shoot
 		//spin up motor in parallel?
 	}

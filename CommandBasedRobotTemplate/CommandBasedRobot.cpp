@@ -33,9 +33,8 @@ private:
 		SmartDashboard::PutData("ShifterUpdateCommand", new ShifterUpdateCommand());
 		SmartDashboard::PutData("ShiftUp", new ShiftUpCommand());
 		SmartDashboard::PutData("ShiftDownCommand", new ShiftDownCommand());
-		//SmartDashboard::PutData(CommandBase::driveTrain);
-		SmartDashboard::PutData(CommandBase::shooter);
-		SmartDashboard::PutData(CommandBase::climbingArm);
+		SmartDashboard::PutData(CommandBase::driveTrain);
+		//SmartDashboard::PutData(CommandBase::climbingArm);
 		SmartDashboard::PutData("FullyExtendArmCommand", new FullyExtendArmPositionCommand());
 		SmartDashboard::PutData("FullyRetractArmCommand", new FullyRetractArmPositionCommand());
 		SmartDashboard::PutData("FirstRungPositionArmCommand", new FirstRungArmPositionCommand());
@@ -45,6 +44,9 @@ private:
 		SmartDashboard::PutData("LiftRobotCommand", new LiftRobotCommand());
 		SmartDashboard::PutData("LowerRobotCommand", new LowerRobotCommand());
 		SmartDashboard::PutData("ClimbingCommandGroup", new ClimbingCommandGroup());
+		SmartDashboard::PutData("Shooter", CommandBase::shooter);
+//		SmartDashboard::PutData(CommandBase::shooter);
+		//lw->AddActuator("Shooter", "Shooter", CommandBase::shooter);
 	}
 	
 	virtual void AutonomousInit() {
@@ -53,6 +55,7 @@ private:
 	
 	virtual void AutonomousPeriodic() {
 		Scheduler::GetInstance()->Run();
+		Wait(0.005);
 	}
 	
 	virtual void TeleopInit() {
@@ -65,11 +68,19 @@ private:
 	}
 	
 	virtual void TeleopPeriodic() {
-		Scheduler::GetInstance()->Run();	
+		Scheduler::GetInstance()->Run();
+		CommandBase::shooter->update();
+		Wait(0.005);
 	}
+	/*
+	virtual void TestInit() {
+		
+	}
+	*/
 	
 	virtual void TestPeriodic() {
 		lw->Run();
+		Wait(0.005);
 	}
 };
 

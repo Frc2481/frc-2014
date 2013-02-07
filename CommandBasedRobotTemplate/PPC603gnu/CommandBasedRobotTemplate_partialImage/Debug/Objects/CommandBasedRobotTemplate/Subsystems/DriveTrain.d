@@ -380,6 +380,7 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/ShiftingTransmission.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/FPSDrive.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/DriveWithJoystickCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../CommandBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
@@ -387,6 +388,12 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/Shooter.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/../Components/Encoder2481.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDSource.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../OI.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Components/Joystick2481.h \
@@ -1162,6 +1169,8 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Compo
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/FPSDrive.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/DriveWithJoystickCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../CommandBase.h:
@@ -1175,6 +1184,18 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Comma
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/../Components/Encoder2481.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDSource.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../OI.h:
 
