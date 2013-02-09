@@ -12,7 +12,7 @@
 
 class FireDiscCommand: public CommandBase {
 private:
-	static const double timeout = 1;
+	static const double timeout = 1.5;
 public:
 	FireDiscCommand(){
 		Requires(shooter);
@@ -29,7 +29,13 @@ public:
 		//	SetTimeout(0);
 		//}
 	}
-	virtual void Execute(){}
+	virtual void Execute(){
+		/*
+		if (has been at speed for ) {
+		
+		}
+		*/
+	}
 	virtual bool IsFinished(){
 		return IsTimedOut();
 	}

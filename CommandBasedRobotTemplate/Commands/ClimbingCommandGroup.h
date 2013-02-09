@@ -10,12 +10,16 @@
 
 #include "WPILib.h"
 #include "FirstRungPositionArmCommand.h"
+#include "LatchHooksArmPositionCommand.h"
 #include "FullyExtendArmCommand.h"
 #include "FullyRetractArmCommand.h"
 #include "LatchCommand.h"
 #include "UnlatchCommand.h"
+#include "SafeUnlatchCommand.h"
 #include "LiftRobotCommand.h"
 #include "LowerRobotCommand.h"
+#include "ClimbOneLevel.h"
+#include "ClimbFirstLevel.h"
 
 class ClimbingCommandGroup: public CommandGroup {
 private:
@@ -23,20 +27,57 @@ private:
 public:
 	ClimbingCommandGroup() {
 		haveRun = false;
+		AddSequential(new ClimbFirstLevel());
+		AddSequential(new ClimbOneLevel());
+		AddSequential(new ClimbOneLevel());	
+		
+		/*AddSequential(new UnlatchCommand());
 		AddSequential(new FirstRungArmPositionCommand());
-		AddSequential(new LiftRobotCommand());
-		AddSequential(new LatchCommand());
+		
+		//Lift and give time for the robot to lift before
+		//climbing on to the first rung.
+		AddParallel(new LiftRobotCommand());
+		AddSequential(new WaitCommand(1.5));
+		
+		AddSequential(new FullyRetractArmPositionCommand());
+		
+		//Latch and give time for the hooks to latch
+		//before continuing.
+		AddParallel(new LatchCommand());
+		AddSequential(new WaitCommand(.5));
 		AddSequential(new LowerRobotCommand());
+		
+		//2nd Level
 		AddSequential(new FullyExtendArmPositionCommand());
-		AddSequential(new UnlatchCommand());
+		AddSequential(new WaitCommand(.25));
+		
+		AddParallel(new SafeUnlatchCommand());
 		AddSequential(new FullyRetractArmPositionCommand());
-		AddSequential(new LatchCommand());
+//		
+		AddParallel(new LatchCommand());
+		AddSequential(new WaitCommand(.5));
+		//AddSequential(new UnlatchCommand());
+		
+		//3rd Level
 		AddSequential(new FullyExtendArmPositionCommand());
-		AddSequential(new UnlatchCommand());
+		AddSequential(new WaitCommand(.25));
+		
+		AddParallel(new SafeUnlatchCommand());
 		AddSequential(new FullyRetractArmPositionCommand());
-		AddSequential(new LatchCommand());
+//		
+		AddParallel(new LatchCommand());
+		AddSequential(new WaitCommand(.5));
+				
+		
+//		AddSequential(new FullyRetractArmPositionCommand());
+//		AddSequential(new LatchCommand());
+//		AddSequential(new FullyExtendArmPositionCommand());
+//		AddSequential(new UnlatchCommand());
+//		AddSequential(new FullyRetractArmPositionCommand());
+//		AddSequential(new LatchCommand());
 		//Shoot
-		//spin up motor in parallel?
+		//spin up motor in parallel?*/
+		
 	}
 	~ClimbingCommandGroup() {
 		

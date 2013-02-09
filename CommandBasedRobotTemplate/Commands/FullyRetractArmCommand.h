@@ -10,7 +10,7 @@
  */
 class FullyRetractArmPositionCommand: public ArmPositionCommandBase {
 private:
-	static const float retractPosition = .3;
+	static const float retractPosition = .89;
 public:
 	FullyRetractArmPositionCommand( ): ArmPositionCommandBase(retractPosition, "FullyRetractArmPositionCommand") {}
 };

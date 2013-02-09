@@ -18,10 +18,15 @@ ArmPositionCommandBase::~ArmPositionCommandBase() {}
 void ArmPositionCommandBase::Initialize(){
 	climbingArm->setPosition(armPosition);
 }
-bool ArmPositionCommandBase::IsFinished(){
-	bool isOnTarget = climbingArm->isAtPosition();
-	return isOnTarget;
+void ArmPositionCommandBase::Execute() {
+	climbingArm->run();
 }
-void ArmPositionCommandBase::Execute() {}
-void ArmPositionCommandBase::End(){}
-void ArmPositionCommandBase::Interrupted(){}
+bool ArmPositionCommandBase::IsFinished(){
+	return climbingArm->isAtPosition();
+}
+void ArmPositionCommandBase::End(){
+	climbingArm->stopArm();
+}
+void ArmPositionCommandBase::Interrupted(){
+	End();
+}

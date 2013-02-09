@@ -20,7 +20,7 @@ Encoder2481::~Encoder2481() {
 float Encoder2481::GetPeriod() {
 	float rpm = 0;
 	//return 1;
-	rpm = 1 / (2 * pulseCounter->GetPeriod());
+	rpm = (1 / (pulseCounter->GetPeriod())) * 60;
 	if (StatusIsFatal()) return 0.0;
 	if (rpm > 10000) return 0;
 	return rpm;

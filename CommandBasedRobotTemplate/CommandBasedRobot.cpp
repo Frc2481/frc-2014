@@ -13,6 +13,7 @@
 #include "Commands/StartingPositionArmCommand.h"
 #include "Commands/LatchCommand.h"
 #include "Commands/UnlatchCommand.h"
+#include "Commands/SafeUnlatchCommand.h"
 #include "Commands/LiftRobotCommand.h"
 #include "Commands/LowerRobotCommand.h"
 #include "Commands/ClimbingCommandGroup.h"
@@ -45,6 +46,7 @@ private:
 		SmartDashboard::PutData("LowerRobotCommand", new LowerRobotCommand());
 		SmartDashboard::PutData("ClimbingCommandGroup", new ClimbingCommandGroup());
 		SmartDashboard::PutData("Shooter", CommandBase::shooter);
+		SmartDashboard::PutData("SafeUnlatch", new SafeUnlatchCommand());
 //		SmartDashboard::PutData(CommandBase::shooter);
 		//lw->AddActuator("Shooter", "Shooter", CommandBase::shooter);
 	}
@@ -69,7 +71,10 @@ private:
 	
 	virtual void TeleopPeriodic() {
 		Scheduler::GetInstance()->Run();
-		CommandBase::shooter->update();
+		
+		//If this is enabled we can't manually adjust the arm.
+		//This is called in absolute arm position commands.
+		//CommandBase::climbingArm->run();
 		Wait(0.005);
 	}
 	/*

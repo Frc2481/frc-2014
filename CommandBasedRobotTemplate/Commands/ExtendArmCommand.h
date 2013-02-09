@@ -18,10 +18,10 @@ public:
 	virtual ~ExtendArmCommand() {
 		
 	}
-	void Initialize() {
-		climbingArm->extendArm();
-	}
+	void Initialize() {}
 	void Execute() {
+		//This needs to be in execute so limits are enforced.
+		climbingArm->extendArm();
 	}
 	bool IsFinished() {
 		return false;
@@ -30,7 +30,7 @@ public:
 		climbingArm->stopArm();
 	}
 	void Interrupted() {
-		climbingArm->stopArm();
+		End();
 	}
 };
 

@@ -7,14 +7,23 @@
 
 #include "Shooter.h"
 
-Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel) : PIDSubsystem(.001,0,0){
+float Shooter::shooterSpeedTolerance = 500;
+double Shooter::pValue = 0.004;
+double Shooter::iValue = 0.0005;
+double Shooter::dValue = 0;
+double Shooter::fValue = 0;
+double Shooter::periodValue = 0.01;
+
+Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel) : PIDSubsystem(pValue,iValue,dValue,fValue,periodValue){
 	shooterMotor = new Talon(motorChannel);
 	//shooterEncoder = new RoEncoder(encoderChannel, 4);
 	shooterEncoder = new Encoder2481(encoderChannel);
 	shooterState = 0;
 	shooterLiftSolenoid = new Solenoid(solenoidChannel);
+	
 	SetSetpoint(2000);
-	SetPercentTolerance(5);
+	//SetPercentTolerance(5);
+	SetAbsoluteTolerance(10);
 }
 
 Shooter::~Shooter() {
@@ -64,6 +73,14 @@ bool Shooter::isShooterUp() {
 	return shooterLiftSolenoid->Get();
 }
 
-void Shooter::update() {
-	//shooterEncoder->update();
+float Shooter::getCurrentSpeed(){
+	return shooterEncoder->PIDGet();
+}
+
+double Shooter::getDesiredSpeed(){
+	return GetSetpoint();
+}
+
+bool Shooter::isAtSpeed() {
+	return getCurrentSpeed() < getDesiredSpeed() + shooterSpeedTolerance && getCurrentSpeed() > getDesiredSpeed() - shooterSpeedTolerance;
 }

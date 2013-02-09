@@ -19,7 +19,13 @@ private:
 	Encoder2481 *shooterEncoder;
 	bool shooterState;
 	Solenoid *shooterLiftSolenoid;
-	public:
+	static float shooterSpeedTolerance;
+	static double pValue;
+	static double iValue;
+	static double dValue;
+	static double fValue;
+	static double periodValue;
+public:
 	Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel);
 	virtual ~Shooter();
 	void setSpeed(double speed);
@@ -31,8 +37,9 @@ private:
 	void LiftShooter();
 	void LowerShooter();
 	bool isShooterUp();
-	
-	void update();
+	bool isAtSpeed();
+	float getCurrentSpeed();
+	double getDesiredSpeed();
 };
 
 #endif /* SHOOTER_H_ */

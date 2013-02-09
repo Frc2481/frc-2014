@@ -115,7 +115,7 @@ void DriveTrain::Periodic() {
 	SmartDashboard::PutNumber("Right Encoder Value" , rightEncoder->GetRate());
 	SmartDashboard::PutBoolean("Status is Fatal L", leftEncoder->StatusIsFatal());
 	SmartDashboard::PutBoolean("Status is Fatal R", rightEncoder->StatusIsFatal());
-	
+	SmartDashboard::PutNumber("ArmSensorValue", CommandBase::climbingArm->getCurrentPosition());
 	shifterL->Run();
 	shifterR->Run();
 	

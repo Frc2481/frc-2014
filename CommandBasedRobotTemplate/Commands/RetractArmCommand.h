@@ -18,10 +18,10 @@ public:
 	virtual ~RetractArmCommand() {
 		
 	}
-	void Initialize() {
-		climbingArm->retractArm();
-	}
+	void Initialize() {}
 	void Execute() {
+		//This needs to be in execute so limits are enforced.
+		climbingArm->retractArm();
 	}
 	bool IsFinished() {
 		return false;
@@ -30,7 +30,7 @@ public:
 		climbingArm->stopArm();
 	}
 	void Interrupted() {
-		climbingArm->stopArm();
+		End();
 	}
 };
 

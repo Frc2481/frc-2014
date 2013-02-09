@@ -46,6 +46,7 @@
 #define ROBOT_LIFT_SOLENOID		2
 #define LOCK_HOOK_SOLENOID		4
 #define UNLOCK_HOOK_SOLENOID	5
+#define ARM_TILT_SOLENOID		7
 
 // Analog Input Channels
 #define ARM_EXTENSION_SENSOR	2

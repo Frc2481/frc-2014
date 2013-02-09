@@ -1,4 +1,4 @@
-#ifndef OI_H
+	#ifndef OI_H
 #define OI_H
 
 #include "WPILib.h"
@@ -22,6 +22,9 @@ private:
 	JoystickButton *toggleShooterButton;
 	JoystickButton *speedUpShooterButton;
 	JoystickButton *slowDownShooterButton;
+	JoystickButton *ExtendArmButton;
+	JoystickButton *RetractArmButton;
+	
 
 public:
 	OI();

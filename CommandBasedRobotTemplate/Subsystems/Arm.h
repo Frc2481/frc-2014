@@ -10,7 +10,7 @@
 
 #include "WPILib.h"
 
-class Arm : public PIDSubsystem {
+class Arm : public Subsystem {
 private:
 	static float speedRatioUp;
 	static float speedRatioDown;
@@ -24,12 +24,14 @@ private:
 	DigitalInput *liftExtendedSensor;
 	DigitalInput *liftRetractedSensor;
 	static float armSpeed;
+	float desiredPosition;
+	Solenoid *armTiltSolenoid;
 
 public:
-	Arm(UINT32 armLiftChannel, UINT32 robotLiftChannel, UINT32 armPosFarChannel, UINT32 armPosCloseChannel, UINT32 armExtendChannel);
+	Arm(UINT32 armLiftChannel, UINT32 robotLiftChannel, UINT32 armPosFarChannel, UINT32 armPosCloseChannel, UINT32 armExtendChannel, UINT32 armTiltChannel);
 	virtual ~Arm();
-	virtual double ReturnPIDInput();
-	virtual void UsePIDOutput(double output);
+//	virtual double ReturnPIDInput();
+//	virtual void UsePIDOutput(double output);
 	void setPosition(double position);
 	float getCurrentPosition();
 	double getDesiredPosition();
@@ -37,6 +39,9 @@ public:
 	void retractArm();
 	void stopArm();
 	bool isAtPosition();
+	void run();
+	void tiltForward();
+	void tiltBackward();
 };
 
 #endif /* Arm_H_ */
