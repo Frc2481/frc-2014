@@ -9,11 +9,11 @@
 float Arm::speedRatioUp = .75;
 float Arm::speedRatioDown = .125;
 float Arm::armSpeed = 1;
-float Arm::armPositionTolerance = 0.1;
+float Arm::armPositionTolerance = 0.005;
 float Arm::armHighPos = 2.575;
 //float Arm::armHighPos = 1.7;
 //float Arm::armLowPos = 0.2;
-float Arm::armLowPos = .96;
+float Arm::armLowPos = .91;
 
 Arm::Arm(UINT32 armLiftChannel, UINT32 robotLiftChannel, UINT32 armPosFarChannel, UINT32 armPosCloseChannel, UINT32 armExtendChannel, UINT32 armTiltChannel) : Subsystem("Arm") {
 	armLift = new Talon(armLiftChannel);
@@ -105,8 +105,12 @@ void Arm::run() {
 	printf("Position %f \n \n", getCurrentPosition());
 }
 void Arm::tiltForward(){
-	armTiltSolenoid->Set(1);
+	armTiltSolenoid->Set(0);
 }
 void Arm::tiltBackward(){
-	armTiltSolenoid->Set(0);
+	armTiltSolenoid->Set(1);
+}
+
+bool Arm::isTilted() {
+	return !armTiltSolenoid->Get();
 }

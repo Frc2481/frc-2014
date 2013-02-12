@@ -184,56 +184,8 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITable.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h \
-  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/map \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PrintCommand.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/StartCommand.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitCommand.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitForChildren.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitUntilCommand.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Compressor.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Relay.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Dashboard.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DashboardBase.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/NetworkCommunication/FRCComm.h \
-  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/stack \
-  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/deque \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalInput.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalModule.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalOutput.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DoubleSolenoid.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/SolenoidBase.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Resource.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStation.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationEnhancedIO.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationLCD.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Encoder.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/GearTooth.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/GenericHID.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Gyro.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/HiTechnicCompass.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/HiTechnicColorSensor.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/I2C.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/IterativeRobot.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/RobotBase.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Watchdog.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Jaguar.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/SafePWM.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/PWM.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Kinect.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Skeleton.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/KinectStick.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Notifier.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDController.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Preferences.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables/NetworkTable.h \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/map \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITable.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/IRemote.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/IRemoteConnectionListener.h \
@@ -288,14 +240,73 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/IRemoteConnectionListener.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables/NetworkTableListenerAdapter.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/NumberArray.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ArrayData.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ArrayEntryType.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ArrayData.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ComplexEntryType.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ComplexData.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/NetworkTableEntry.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ArrayEntryType.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/StringArray.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/SmartDashboard.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/NamedSendable.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PrintCommand.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/StartCommand.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitCommand.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitForChildren.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitUntilCommand.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Compressor.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Relay.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Dashboard.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DashboardBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/NetworkCommunication/FRCComm.h \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/stack \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/deque \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalInput.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalModule.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalOutput.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DoubleSolenoid.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SolenoidBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Resource.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStation.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationEnhancedIO.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationLCD.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Encoder.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/GearTooth.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/GenericHID.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Gyro.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/HiTechnicCompass.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/HiTechnicColorSensor.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/I2C.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/IterativeRobot.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/RobotBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Watchdog.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Jaguar.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SafePWM.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PWM.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Kinect.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Skeleton.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/KinectStick.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Notifier.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDController.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Preferences.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables/NetworkTable.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/RobotDrive.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SerialPort.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SimpleRobot.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/SendableChooser.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/SmartDashboard.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/NamedSendable.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SPI.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Talon.h \
@@ -404,6 +415,7 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../OI.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Hopper.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/AirCompressor.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/ClimbingHooks.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/Arm.h \
@@ -418,7 +430,6 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FirstRungPositionArmCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ArmPositionCommandBase.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LatchHooksArmPositionCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FullyExtendArmCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FullyRetractArmCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SafeUnlatchCommand.h \
@@ -428,10 +439,16 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TiltArmBackwardCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TiltArmForwardCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ClimbFirstLevel.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterOnCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterOffCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LowerShooterCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLiftCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterToggleCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SpeedUpShooterCommand.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SlowDownShooterCommand.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SlowDownShooterCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ArmTiltToggleCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleHopperPressureCommand.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
 
@@ -799,105 +816,9 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITable.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h:
 
-c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/map:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PrintCommand.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/StartCommand.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitCommand.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitForChildren.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitUntilCommand.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Compressor.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Relay.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Dashboard.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DashboardBase.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/NetworkCommunication/FRCComm.h:
-
-c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/stack:
-
-c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/deque:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalInput.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalModule.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalOutput.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DoubleSolenoid.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/SolenoidBase.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Resource.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStation.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationEnhancedIO.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationLCD.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Encoder.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/GearTooth.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/GenericHID.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Gyro.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/HiTechnicCompass.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/HiTechnicColorSensor.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/I2C.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/IterativeRobot.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/RobotBase.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Watchdog.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Jaguar.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/SafePWM.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/PWM.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Kinect.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Skeleton.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/KinectStick.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Notifier.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDController.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Preferences.h:
-
 C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables/NetworkTable.h:
+
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/map:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITable.h:
 
@@ -1007,6 +928,128 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables/NetworkTableListenerAdapt
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h:
 
+C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/NumberArray.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ArrayData.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ArrayEntryType.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ArrayData.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ComplexEntryType.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ComplexData.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/NetworkTableEntry.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/ArrayEntryType.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables2/type/StringArray.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/SmartDashboard.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/NamedSendable.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PrintCommand.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/StartCommand.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitCommand.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitForChildren.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/WaitUntilCommand.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Compressor.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Relay.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Dashboard.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DashboardBase.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/NetworkCommunication/FRCComm.h:
+
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/stack:
+
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/deque:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalInput.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalModule.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalOutput.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DoubleSolenoid.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SolenoidBase.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Resource.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStation.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationEnhancedIO.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationLCD.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Encoder.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/GearTooth.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/GenericHID.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Gyro.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/HiTechnicCompass.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/HiTechnicColorSensor.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/I2C.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/IterativeRobot.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/RobotBase.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Watchdog.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Jaguar.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SafePWM.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PWM.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Kinect.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Skeleton.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/KinectStick.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Notifier.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDController.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Preferences.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/networktables/NetworkTable.h:
+
 C:/WindRiver/vxworks-6.3/target/h/WPILib/RobotDrive.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/SerialPort.h:
@@ -1018,10 +1061,6 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/SimpleRobot.h:
 C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/SendableChooser.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/SmartDashboard.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/NamedSendable.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h:
 
@@ -1239,6 +1278,8 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsyst
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h:
 
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/AirCompressor.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/ClimbingHooks.h:
@@ -1267,8 +1308,6 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FirstRungP
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ArmPositionCommandBase.h:
 
-C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LatchHooksArmPositionCommand.h:
-
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FullyExtendArmCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FullyRetractArmCommand.h:
@@ -1287,6 +1326,14 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TiltArmFor
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ClimbFirstLevel.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterOnCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterOffCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LowerShooterCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommand.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLiftCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterToggleCommand.h:
@@ -1294,3 +1341,7 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterTog
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SpeedUpShooterCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SlowDownShooterCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ArmTiltToggleCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleHopperPressureCommand.h:

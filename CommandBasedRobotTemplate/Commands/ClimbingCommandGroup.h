@@ -10,7 +10,6 @@
 
 #include "WPILib.h"
 #include "FirstRungPositionArmCommand.h"
-#include "LatchHooksArmPositionCommand.h"
 #include "FullyExtendArmCommand.h"
 #include "FullyRetractArmCommand.h"
 #include "LatchCommand.h"
@@ -20,6 +19,10 @@
 #include "LowerRobotCommand.h"
 #include "ClimbOneLevel.h"
 #include "ClimbFirstLevel.h"
+#include "ShooterOnCommand.h"
+#include "ShooterOffCommand.h"
+#include "LowerShooterCommand.h"
+#include "FireDiscCommand.h"
 
 class ClimbingCommandGroup: public CommandGroup {
 private:
@@ -27,9 +30,18 @@ private:
 public:
 	ClimbingCommandGroup() {
 		haveRun = false;
+		AddSequential(new LowerShooterCommand());
+		AddSequential(new ShooterOffCommand());
 		AddSequential(new ClimbFirstLevel());
 		AddSequential(new ClimbOneLevel());
 		AddSequential(new ClimbOneLevel());	
+		AddSequential(new ShooterOnCommand());
+		//TODO activate dinker
+		AddSequential(new FireDiscCommand());
+		AddSequential(new FireDiscCommand());
+		AddSequential(new FireDiscCommand());
+		AddSequential(new FireDiscCommand());
+		AddSequential(new ShooterOffCommand());
 		
 		/*AddSequential(new UnlatchCommand());
 		AddSequential(new FirstRungArmPositionCommand());

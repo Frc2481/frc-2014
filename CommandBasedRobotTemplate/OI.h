@@ -24,8 +24,9 @@ private:
 	JoystickButton *slowDownShooterButton;
 	JoystickButton *ExtendArmButton;
 	JoystickButton *RetractArmButton;
+	JoystickButton *hopperPressureButton;
+	JoystickButton *armTiltToggleButton;
 	
-
 public:
 	OI();
 	Joystick* GetDriverStick();

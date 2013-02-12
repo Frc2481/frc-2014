@@ -8,7 +8,7 @@
 #ifndef LOWERSHOOTERCOMMAND_H_
 #define LOWERSHOOTERCOMMAND_H_
 
-#include "CommandBase.h"
+#include "../CommandBase.h"
 
 class LowerShooterCommand: public CommandBase {
 public:

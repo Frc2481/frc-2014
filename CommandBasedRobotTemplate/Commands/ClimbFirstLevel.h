@@ -18,7 +18,8 @@
 
 class ClimbFirstLevel: public CommandGroup {
 public:
-	ClimbFirstLevel(){
+	ClimbFirstLevel() : CommandGroup(){
+	AddSequential(new TiltArmBackwardCommand());
 	AddSequential(new UnlatchCommand());
 	AddSequential(new FirstRungArmPositionCommand());
 	
@@ -35,7 +36,7 @@ public:
 	AddSequential(new WaitCommand(.5));
 	AddSequential(new LowerRobotCommand());
 	}
-	virtual ~ClimbFirstLevel();
+	virtual ~ClimbFirstLevel() {}
 };
 
 #endif /* CLIMBFIRSTLEVEL_H_ */

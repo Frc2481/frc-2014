@@ -17,20 +17,29 @@
 #include "Commands/LiftRobotCommand.h"
 #include "Commands/LowerRobotCommand.h"
 #include "Commands/ClimbingCommandGroup.h"
+#include "Commands/AutonomousCommandGroup.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
 	Command *autonomousCommand;
 	ShifterUpdateCommand *shifterUpdateCommand;
 	LiveWindow *lw;
-	ExampleAutonomousCommand *xAutoCommand;
+	AutonomousCommandGroup *autoCommand;
+	SendableChooser *autoDelayOptions;
 	
 	virtual void RobotInit() {
 		CommandBase::init();
 		autonomousCommand = new ExampleCommand();
 		lw = LiveWindow::GetInstance();
 		shifterUpdateCommand = new ShifterUpdateCommand();
-		xAutoCommand = new ExampleAutonomousCommand();
+		autoDelayOptions = new SendableChooser();
+		autoDelayOptions->AddDefault("no delay", (void*)0);
+		autoDelayOptions->AddObject("1 second", (void*)1);
+		autoDelayOptions->AddObject("2 seconds", (void*)2);
+		autoDelayOptions->AddObject("3 seconds", (void*)3);
+		autoDelayOptions->AddObject("4 seconds", (void*)4);
+		autoDelayOptions->AddObject("5 seconds", (void*)5);
+		SmartDashboard::PutData("Autonomous Delay Options", autoDelayOptions);
 		SmartDashboard::PutData("ShifterUpdateCommand", new ShifterUpdateCommand());
 		SmartDashboard::PutData("ShiftUp", new ShiftUpCommand());
 		SmartDashboard::PutData("ShiftDownCommand", new ShiftDownCommand());
@@ -47,12 +56,12 @@ private:
 		SmartDashboard::PutData("ClimbingCommandGroup", new ClimbingCommandGroup());
 		SmartDashboard::PutData("Shooter", CommandBase::shooter);
 		SmartDashboard::PutData("SafeUnlatch", new SafeUnlatchCommand());
-//		SmartDashboard::PutData(CommandBase::shooter);
 		//lw->AddActuator("Shooter", "Shooter", CommandBase::shooter);
 	}
 	
 	virtual void AutonomousInit() {
-		xAutoCommand->Start();
+		autoCommand = new AutonomousCommandGroup((int)autoDelayOptions->GetSelected(), true);
+		autoCommand->Start();
 	}
 	
 	virtual void AutonomousPeriodic() {
@@ -65,7 +74,7 @@ private:
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		xAutoCommand->Cancel();
+		autoCommand->Cancel();
 		shifterUpdateCommand->Start();
 	}
 	

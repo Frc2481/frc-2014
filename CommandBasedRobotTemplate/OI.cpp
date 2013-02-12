@@ -9,6 +9,8 @@
 #include "Commands/ShooterToggleCommand.h"
 #include "Commands/SpeedUpShooterCommand.h"
 #include "Commands/SlowDownShooterCommand.h"
+#include "Commands/ArmTiltToggleCommand.h"
+#include "Commands/ToggleHopperPressureCommand.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -39,6 +41,10 @@ OI::OI() {
 	
 	toggleShooterButton = new JoystickButton(shooterStick, XboxController::xbBButton);
 	toggleShooterButton->WhenPressed(new ShooterToggleCommand);
+	//toggleShooterButton->WhenPressed(new ArmTiltToggleCommand);
+	
+	armTiltToggleButton =  new JoystickButton(shooterStick, XboxController::xbAButton);
+	armTiltToggleButton->WhenPressed(new ArmTiltToggleCommand);
 	
 	speedUpShooterButton = new JoystickButton(shooterStick, XboxController::xbStartButton);
 	speedUpShooterButton->WhenPressed(new SpeedUpShooterCommand);
@@ -51,6 +57,9 @@ OI::OI() {
 	
 	RetractArmButton = new JoystickButton(shooterStick, XboxController::xbRightStickCLick);
 	RetractArmButton->WhenPressed(new FullyRetractArmPositionCommand);
+	
+	hopperPressureButton = new JoystickButton(driverStick, XboxController::xbStartButton);
+	hopperPressureButton->WhenPressed(new ToggleHopperPressureCommand());
 	
 	//idclimbSequenceButton->WhenReleased(new ClimbResetCommand(climbingGroup));
 }

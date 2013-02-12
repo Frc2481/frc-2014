@@ -21,20 +21,16 @@ public:
 	virtual ~FireDiscCommand(){}
 	virtual void Initialize(){
 		
-		//if (shooter->isShooterUp() && shooter->OnTarget()) {
+		if (shooter->isAtSpeed()) {
 			SetTimeout(timeout);
 			hopper->Load();
-		//}
-		//else {
-		//	SetTimeout(0);
-		//}
+		}
+		else {
+			SetTimeout(0);
+		}
 	}
 	virtual void Execute(){
-		/*
-		if (has been at speed for ) {
 		
-		}
-		*/
 	}
 	virtual bool IsFinished(){
 		return IsTimedOut();

@@ -11,6 +11,8 @@
 #include "Joystick.h"
 
 class Joystick2481 : public Joystick {
+private:
+	static char inputShape[255];
 public:
 	Joystick2481(UINT32 port);
 	virtual ~Joystick2481();

@@ -8,7 +8,7 @@
 #ifndef SHOOTERUPTOGGLECOMMAND_H_
 #define SHOOTERUPTOGGLECOMMAND_H_
 
-#include "CommandBase.h"
+#include "../CommandBase.h"
 
 class ShooterUpToggleCommand: public CommandBase {
 public:
@@ -20,7 +20,7 @@ public:
 		if(shooter->isShooterUp()){
 			shooter->LowerShooter();
 		}
-		else {
+		else if (climbingArm->getCurrentPosition() < 1) {
 			shooter->LiftShooter();
 		}
 	}

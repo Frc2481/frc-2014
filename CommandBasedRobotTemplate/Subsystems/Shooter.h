@@ -19,6 +19,7 @@ private:
 	Encoder2481 *shooterEncoder;
 	bool shooterState;
 	Solenoid *shooterLiftSolenoid;
+	Servo *hopperPressurizer;
 	static float shooterSpeedTolerance;
 	static double pValue;
 	static double iValue;

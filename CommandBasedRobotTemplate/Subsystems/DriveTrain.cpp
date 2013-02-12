@@ -34,15 +34,15 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	//fpsDrive = new FPSDrive();
 	fpsTurnAxis = 0;
 	driveType = 0; // 0 = tank, 1 = arcade, 2 = FPS. Note, for FPS drive the leftStick will likely need to be the x instead of y axis in CommandBase.cpp
-//	leftPID = new PIDController(1, 0, 0, leftEncoder, leftMotor);
-//	rightPID = new PIDController(1, 0, 0, rightEncoder, rightMotor);
+	leftPID = new PIDController(1, 0, 0, leftEncoder, leftMotor);
+	rightPID = new PIDController(1, 0, 0, rightEncoder, rightMotor);
 //	
-//	leftPID->Disable();
-//	rightPID->Disable();
-//	leftPID->SetTolerance(tolerance);
-//	rightPID->SetTolerance(tolerance);
-//	leftEncoder->SetPIDSourceParameter(Encoder::kDistance);
-//	rightEncoder->SetPIDSourceParameter(Encoder::kDistance);
+	leftPID->Disable();
+	rightPID->Disable();
+	leftPID->SetTolerance(tolerance);
+	rightPID->SetTolerance(tolerance);
+	leftEncoder->SetPIDSourceParameter(Encoder::kDistance);
+	rightEncoder->SetPIDSourceParameter(Encoder::kDistance);
 	
 }
 DriveTrain::~DriveTrain(){
@@ -104,8 +104,8 @@ void DriveTrain::DriveWithJoystick(Joystick *stick) {
 	
 	//***For somereason uncommenting out these put numbers*** 
 	//***causes random IO errors and 100% CPU***
-	//SmartDashboard::PutNumber("Left Drive Joystick Value" , stick->GetRawAxis(leftDriveAxis));
-	//SmartDashboard::PutNumber("Right Drive Joystick Value" , stick->GetRawAxis(rightDriveAxis));
+	SmartDashboard::PutNumber("Left Drive Joystick Value" , stick->GetRawAxis(leftDriveAxis));
+	SmartDashboard::PutNumber("Right Drive Joystick Value" , stick->GetRawAxis(rightDriveAxis));
 	
 	//Periodic();
 }
@@ -144,18 +144,22 @@ UINT32 DriveTrain::GetLeftDriveAxis(){
 	return leftDriveAxis;
 }
 void DriveTrain::SetPID(float leftSetpoint, float rightSetpoint){
-	//leftEncoder->Reset();
-	//rightEncoder->Reset();
-	//leftPID->SetSetpoint(leftSetpoint);
-	//rightPID->SetSetpoint(rightSetpoint);
+	leftEncoder->Reset();
+	rightEncoder->Reset();
+	leftPID->Enable();
+	rightPID->Enable();
+	leftPID->SetSetpoint(leftSetpoint);
+	rightPID->SetSetpoint(rightSetpoint);
 }
 bool DriveTrain::IsPIDAtDistance(){
-	//if (rightPID->Get() < rightPID->GetSetpoint() + tolerance && 
-	//	rightPID->Get() > rightPID->GetSetpoint() - tolerance &&
-	//	leftPID->Get() < leftPID->GetSetpoint() + tolerance && 
-	//	leftPID->Get() > leftPID->GetSetpoint() - tolerance){
+	if (rightPID->Get() < rightPID->GetSetpoint() + tolerance && 
+		rightPID->Get() > rightPID->GetSetpoint() - tolerance &&
+		leftPID->Get() < leftPID->GetSetpoint() + tolerance && 
+		leftPID->Get() > leftPID->GetSetpoint() - tolerance){
+		leftPID->Disable();
+		rightPID->Disable();
 		return true;
-	//}
+	}
 	return false;
 	
 }

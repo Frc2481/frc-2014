@@ -42,6 +42,7 @@ public:
 	void run();
 	void tiltForward();
 	void tiltBackward();
+	bool isTilted();
 };
 
 #endif /* Arm_H_ */

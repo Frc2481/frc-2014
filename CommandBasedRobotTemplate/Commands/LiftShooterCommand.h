@@ -15,11 +15,14 @@ public:
 	LiftShooterCommand() : CommandBase("LiftShooterCommand"){}
 	virtual ~LiftShooterCommand(){}
 	virtual void Initialize() {
-		shooter->LiftShooter();
+		if (climbingArm->getCurrentPosition() < 1) {
+			shooter->LiftShooter();
+		}
 	}
 	virtual void Execute(){}
 	virtual bool IsFinished() {
-		return shooter->isShooterUp();
+		return shooter->isShooterUp() ||
+				climbingArm->getCurrentPosition() < 1;
 	}
 	virtual void End(){}
 	virtual void Interrupted(){}

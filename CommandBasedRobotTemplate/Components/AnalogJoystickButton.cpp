@@ -1,11 +1,10 @@
 
 #include "AnalogJoystickButton.h"
 
-AnalogJoystickButton::AnalogJoystickButton(GenericHID *joystick, int axisNumber, float threshold ) :
-	m_threshold(threshold),
-	m_joystick(joystick),
-	m_axisNumber(axisNumber)
-{
+AnalogJoystickButton::AnalogJoystickButton(GenericHID *joystick, int axisNumber, float threshold ) {
+	m_threshold = threshold;
+	m_joystick = joystick;
+	m_axisNumber = axisNumber;
 }
 
 bool AnalogJoystickButton::Get()

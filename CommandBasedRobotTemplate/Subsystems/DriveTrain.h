@@ -20,8 +20,8 @@ private:
 	Encoder *leftEncoder;
 	Solenoid *leftSolenoid;
 	FPSDrive *fpsDrive;
-//	PIDController *leftPID;
-//	PIDController *rightPID;
+	PIDController *leftPID;
+	PIDController *rightPID;
 	int shiftUpThreshold;
 	int shiftDownThreshold;
 	int driveType;

@@ -135,7 +135,13 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tWatchdog.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/Sendable.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SafePWM.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/MotorSafety.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PWM.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SpeedController.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDOutput.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Hopper.h:
 
@@ -406,3 +412,15 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h:
 C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard/Sendable.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SafePWM.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/MotorSafety.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PWM.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SpeedController.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDOutput.h:

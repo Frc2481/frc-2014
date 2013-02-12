@@ -7,7 +7,7 @@
 
 #include "Shooter.h"
 
-float Shooter::shooterSpeedTolerance = 500;
+float Shooter::shooterSpeedTolerance = 20;
 double Shooter::pValue = 0.004;
 double Shooter::iValue = 0.0005;
 double Shooter::dValue = 0;
@@ -20,7 +20,6 @@ Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChan
 	shooterEncoder = new Encoder2481(encoderChannel);
 	shooterState = 0;
 	shooterLiftSolenoid = new Solenoid(solenoidChannel);
-	
 	SetSetpoint(2000);
 	//SetPercentTolerance(5);
 	SetAbsoluteTolerance(10);
@@ -36,7 +35,7 @@ void Shooter::setSpeed(double speed){
 	this->SetSetpoint(speed);
 }
 void Shooter::turnOn(){
-	printf("Speed: %f /n", GetSetpoint());
+	printf("Speed: %f \n", GetSetpoint());
 	this->Enable();
 	shooterState = 1;
 }
@@ -82,5 +81,8 @@ double Shooter::getDesiredSpeed(){
 }
 
 bool Shooter::isAtSpeed() {
-	return getCurrentSpeed() < getDesiredSpeed() + shooterSpeedTolerance && getCurrentSpeed() > getDesiredSpeed() - shooterSpeedTolerance;
+	return getCurrentSpeed() < getDesiredSpeed() + shooterSpeedTolerance &&
+			getCurrentSpeed() > getDesiredSpeed() - shooterSpeedTolerance;
 }
+
+

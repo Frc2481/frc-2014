@@ -21,7 +21,9 @@ public:
 	void Initialize() {}
 	void Execute() {
 		//This needs to be in execute so limits are enforced.
-		climbingArm->extendArm();
+		if (!shooter->isShooterUp()) {
+			climbingArm->extendArm();
+		}
 	}
 	bool IsFinished() {
 		return false;

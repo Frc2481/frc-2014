@@ -23,7 +23,7 @@ public:
 	}
 	void End(){}
 	void Interrupted(){}
-	virtual ~TiltArmForwardCommand();
+	virtual ~TiltArmForwardCommand(){}
 };
 
 #endif /* TILTARMCOMMAND_H_ */
