@@ -70,3 +70,11 @@ Joystick* OI::GetDriverStick() {
 Joystick* OI::GetShooterStick() {
 	return shooterStick;
 }
+
+bool OI::GetDeadMan1() {
+	return driverStick->GetRawButton(XboxController::xbSelectButton);
+}
+
+bool OI::GetDeadMan2() {
+	return shooterStick->GetRawButton(XboxController::xbSelectButton);
+}
