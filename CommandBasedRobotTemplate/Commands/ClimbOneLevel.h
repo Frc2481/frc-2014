@@ -20,14 +20,14 @@
 class ClimbOneLevel: public CommandGroup {
 public:
 	ClimbOneLevel() : CommandGroup(){
-		AddSequential(new FullyExtendArmPositionCommand());
-		AddParallel(new TiltArmForwardCommand);
+		AddSequential(new FullyExtendArmPositionCommand(1, true));
+		AddParallel(new TiltArmForwardCommand(2, true));
 		AddSequential(new WaitCommand(1));
 		
-		AddParallel(new SafeUnlatchCommand());
+		AddParallel(new SafeUnlatchCommand(4, true));
 		
-		AddSequential(new FullyRetractArmPositionCommand());
-		AddParallel(new LatchCommand());
+		AddSequential(new FullyRetractArmPositionCommand(4, true));
+		AddParallel(new LatchCommand(5, true));
 		AddSequential(new WaitCommand(.5));
 		
 	}

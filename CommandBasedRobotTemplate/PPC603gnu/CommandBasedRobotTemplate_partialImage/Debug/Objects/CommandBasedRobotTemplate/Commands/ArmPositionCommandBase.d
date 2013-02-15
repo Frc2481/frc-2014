@@ -390,6 +390,7 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/HSLImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ClimbCommandBase.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/DriveTrain.h \
@@ -1198,6 +1199,8 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/HSLImage.h:
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ClimbCommandBase.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h:
 

@@ -20,19 +20,19 @@ class ClimbFirstLevel: public CommandGroup {
 public:
 	ClimbFirstLevel() : CommandGroup(){
 	AddSequential(new TiltArmBackwardCommand());
-	AddSequential(new UnlatchCommand());
-	AddSequential(new FirstRungArmPositionCommand());
+	AddSequential(new UnlatchCommand(1, true));
+	AddSequential(new FirstRungArmPositionCommand(3, true));
 	
 	//Lift and give time for the robot to lift before
 	//climbing on to the first rung.
 	AddParallel(new LiftRobotCommand());
 	AddSequential(new WaitCommand(1.5));
 	
-	AddSequential(new FullyRetractArmPositionCommand());
+	AddSequential(new FullyRetractArmPositionCommand(4, true));
 	
 	//Latch and give time for the hooks to latch
 	//before continuing.
-	AddParallel(new LatchCommand());
+	AddParallel(new LatchCommand(5, true));
 	AddSequential(new WaitCommand(.5));
 	AddSequential(new LowerRobotCommand());
 	}

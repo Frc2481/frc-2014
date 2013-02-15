@@ -8,20 +8,20 @@
 #ifndef TILTARMFORWARDCOMMAND_H_
 #define TILTARMFORWARDCOMMAND_H_
 
-#include "../CommandBase.h"
+#include "ClimbCommandBase.h"
 
-class TiltArmForwardCommand: public CommandBase {
+class TiltArmForwardCommand: public ClimbCommandBase {
 public:
-	TiltArmForwardCommand(){
+	TiltArmForwardCommand(int seq, bool autoCmd=false) : ClimbCommandBase(seq, "TiltArmForwardCommand", autoCmd) {
 	}
-	void Initialize(){
+	void ClimbInitialize(){
 		climbingArm->tiltForward();
 	}
-	void Execute(){}
+	void ClimbExecute(){}
 	bool IsFinished(){
 		return true;
 	}
-	void End(){}
+	void ClimbEnd(){}
 	void Interrupted(){}
 	virtual ~TiltArmForwardCommand(){}
 };

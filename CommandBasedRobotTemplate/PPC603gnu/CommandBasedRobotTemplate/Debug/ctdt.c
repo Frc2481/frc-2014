@@ -21,6 +21,8 @@ void _GLOBAL__I__ZN14ExampleCommandC2Ev();
 
 void _GLOBAL__I__ZN14XboxController11xbLeftXAxisE();
 
+void _GLOBAL__I__ZN16ClimbCommandBase12curSeqNumberE();
+
 void _GLOBAL__I__ZN16DriveCommandBaseC2EfffPKc();
 
 void _GLOBAL__I__ZN16ExampleSubsystemC2Ev();
@@ -31,7 +33,7 @@ void _GLOBAL__I__ZN20ShifterUpdateCommandC2Ev();
 
 void _GLOBAL__I__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid();
 
-void _GLOBAL__I__ZN22ArmPositionCommandBaseC2EfPKc();
+void _GLOBAL__I__ZN22ArmPositionCommandBaseC2EfibPKc();
 
 void _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev();
 
@@ -103,12 +105,13 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN13ClimbingHooksC2Ejjjj,
     _GLOBAL__I__ZN14ExampleCommandC2Ev,
     _GLOBAL__I__ZN14XboxController11xbLeftXAxisE,
+    _GLOBAL__I__ZN16ClimbCommandBase12curSeqNumberE,
     _GLOBAL__I__ZN16DriveCommandBaseC2EfffPKc,
     _GLOBAL__I__ZN16ExampleSubsystemC2Ev,
     _GLOBAL__I__ZN20AnalogJoystickButtonC2EP10GenericHIDif,
     _GLOBAL__I__ZN20ShifterUpdateCommandC2Ev,
     _GLOBAL__I__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid,
-    _GLOBAL__I__ZN22ArmPositionCommandBaseC2EfPKc,
+    _GLOBAL__I__ZN22ArmPositionCommandBaseC2EfibPKc,
     _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev,
     _GLOBAL__I__ZN2OIC2Ev,
     _GLOBAL__I__ZN3Arm12speedRatioUpE,
@@ -156,6 +159,8 @@ void _GLOBAL__D__ZN14ExampleCommandC2Ev();
 
 void _GLOBAL__D__ZN14XboxController11xbLeftXAxisE();
 
+void _GLOBAL__D__ZN16ClimbCommandBase12curSeqNumberE();
+
 void _GLOBAL__D__ZN16DriveCommandBaseC2EfffPKc();
 
 void _GLOBAL__D__ZN16ExampleSubsystemC2Ev();
@@ -166,7 +171,7 @@ void _GLOBAL__D__ZN20ShifterUpdateCommandC2Ev();
 
 void _GLOBAL__D__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid();
 
-void _GLOBAL__D__ZN22ArmPositionCommandBaseC2EfPKc();
+void _GLOBAL__D__ZN22ArmPositionCommandBaseC2EfibPKc();
 
 void _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev();
 
@@ -228,12 +233,13 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN13ClimbingHooksC2Ejjjj,
     _GLOBAL__D__ZN14ExampleCommandC2Ev,
     _GLOBAL__D__ZN14XboxController11xbLeftXAxisE,
+    _GLOBAL__D__ZN16ClimbCommandBase12curSeqNumberE,
     _GLOBAL__D__ZN16DriveCommandBaseC2EfffPKc,
     _GLOBAL__D__ZN16ExampleSubsystemC2Ev,
     _GLOBAL__D__ZN20AnalogJoystickButtonC2EP10GenericHIDif,
     _GLOBAL__D__ZN20ShifterUpdateCommandC2Ev,
     _GLOBAL__D__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid,
-    _GLOBAL__D__ZN22ArmPositionCommandBaseC2EfPKc,
+    _GLOBAL__D__ZN22ArmPositionCommandBaseC2EfibPKc,
     _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev,
     _GLOBAL__D__ZN2OIC2Ev,
     _GLOBAL__D__ZN3Arm12speedRatioUpE,

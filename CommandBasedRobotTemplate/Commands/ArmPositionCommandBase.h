@@ -9,19 +9,19 @@
 #define ARMPOSITIONCOMMANDBASE_H_
 
 #include "WPILib.h"
-#include "../CommandBase.h"
+#include "ClimbCommandBase.h"
 
-class ArmPositionCommandBase: public CommandBase {
+class ArmPositionCommandBase: public ClimbCommandBase {
 private:
 	float armPosition;
 	char *childCommandType;
 public:
-	ArmPositionCommandBase(float position, const char *name);
+	ArmPositionCommandBase(float position, int seq, bool autoCmd, const char * name);
 	virtual ~ArmPositionCommandBase();
-	virtual void Initialize();
+	virtual void ClimbInitialize();
 	virtual bool IsFinished();
-	virtual void Execute();
-	virtual void End();
+	virtual void ClimbExecute();
+	virtual void ClimbEnd();
 	virtual void Interrupted();
 };
 

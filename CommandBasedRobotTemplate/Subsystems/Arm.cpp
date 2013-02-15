@@ -67,8 +67,8 @@ void Arm::extendArm() {
 		armLift->Set(speedRatioUp*(float)-armSpeed);
 		robotLift->Set((float)-armSpeed);
 	}
-	printf("ArmLift %f \n", -armSpeed*speedRatioDown);
-	printf("ArmWinch %f \n", -armSpeed);
+//	printf("    ArmLift %f \n", -armSpeed*speedRatioDown);
+//	printf("    ArmWinch %f \n", -armSpeed);
 }
 
 void Arm::retractArm() {
@@ -76,8 +76,8 @@ void Arm::retractArm() {
 		armLift->Set(speedRatioDown*(float)armSpeed);
 		robotLift->Set((float)armSpeed);
 	}
-	printf("ArmLift %f \n", armSpeed*speedRatioDown);
-	printf("ArmWinch %f \n", armSpeed);
+//	printf("    ArmLift %f \n", armSpeed*speedRatioDown);
+//	printf("    ArmWinch %f \n", armSpeed);
 }
 
 void Arm::stopArm() {
@@ -99,10 +99,10 @@ void Arm::run() {
 	else {
 		stopArm();
 	}
-	printf("Position + tol %f \n", getCurrentPosition() + armPositionTolerance);
-	printf("Position - tol %f \n", getCurrentPosition() - armPositionTolerance);
-	printf("Desired Position %f \n", getDesiredPosition());
-	printf("Position %f \n \n", getCurrentPosition());
+//	printf("    Position + tol %f \n", getCurrentPosition() + armPositionTolerance);
+//	printf("    Position - tol %f \n", getCurrentPosition() - armPositionTolerance);
+//	printf("    Desired Position %f \n", getDesiredPosition());
+//	printf("    Position %f \n \n", getCurrentPosition());
 }
 void Arm::tiltForward(){
 	armTiltSolenoid->Set(0);

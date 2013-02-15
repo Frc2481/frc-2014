@@ -7,20 +7,20 @@
 
 #ifndef UNLATCHCOMMAND_H_
 #define UNLATCHCOMMAND_H_
-#include "../CommandBase.h"
+#include "ClimbCommandBase.h"
 
-class UnlatchCommand : public CommandBase{
+class UnlatchCommand : public ClimbCommandBase{
 public:
-	UnlatchCommand() : CommandBase("UnlatchCommand"){}
+	UnlatchCommand(int seq, bool autoCmd=false) : ClimbCommandBase(seq, "UnlatchCommand", autoCmd){}
 	~UnlatchCommand(){}
-	void Initialize(){
+	void ClimbInitialize(){
 		climbingHooks->unlatch();
 	}
-	void Execute(){}
+	void ClimbExecute(){}
 	bool IsFinished(){
-		return !climbingHooks->isLatched();
+		return !climbingHooks->isLatched() || ClimbCommandBase::IsFinished();
 	}
-	void End(){}
+	void ClimbEnd(){}
 	void Interrupted(){}
 };
 

@@ -53,10 +53,10 @@ OI::OI() {
 	slowDownShooterButton->WhenPressed(new SlowDownShooterCommand);
 	
 	ExtendArmButton = new JoystickButton(shooterStick, XboxController::xbLeftStickClick);
-	ExtendArmButton->WhenPressed(new FullyExtendArmPositionCommand);
+	ExtendArmButton->WhenPressed(new FullyExtendArmPositionCommand(1));
 	
 	RetractArmButton = new JoystickButton(shooterStick, XboxController::xbRightStickCLick);
-	RetractArmButton->WhenPressed(new FullyRetractArmPositionCommand);
+	RetractArmButton->WhenPressed(new FullyRetractArmPositionCommand(4));
 	
 	hopperPressureButton = new JoystickButton(driverStick, XboxController::xbStartButton);
 	hopperPressureButton->WhenPressed(new ToggleHopperPressureCommand());

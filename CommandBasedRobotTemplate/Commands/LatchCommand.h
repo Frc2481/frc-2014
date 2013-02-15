@@ -7,20 +7,20 @@
 
 #ifndef LATCHCOMMAND_H_
 #define LATCHCOMMAND_H_
-#include "../CommandBase.h"
+#include "ClimbCommandBase.h"
 
-class LatchCommand : public CommandBase{
+class LatchCommand : public ClimbCommandBase{
 public:
-	LatchCommand() : CommandBase("LatchCommand"){}
+	LatchCommand(int seqNum, bool autoCmd=false) : ClimbCommandBase(seqNum, "LatchCommand", autoCmd){}
 	~LatchCommand(){}
-	void Initialize(){
+	void ClimbInitialize(){
 		climbingHooks->latch();
 	}
-	void Execute(){}
+	void ClimbExecute(){}
 	bool IsFinished(){
-		return climbingHooks->isLatched();
+		return climbingHooks->isLatched() || ClimbCommandBase::IsFinished();
 	}
-	void End(){}
+	void ClimbEnd(){}
 	void Interrupted(){}
 };
 

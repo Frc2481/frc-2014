@@ -13,7 +13,7 @@ class FullyExtendArmPositionCommand: public ArmPositionCommandBase {
 private:
 	static const float extendPosition = 2.575;
 public:
-	FullyExtendArmPositionCommand() : ArmPositionCommandBase(extendPosition, "FullyExtendArmPositionCommand") {}
+	FullyExtendArmPositionCommand(int seq, bool autoCmd=false) : ArmPositionCommandBase(extendPosition, seq, autoCmd,"FullyExtendArmPositionCommand") {}
 };
 
 #endif

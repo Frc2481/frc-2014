@@ -7,23 +7,23 @@
 
 #ifndef SAFE_UNLATCHCOMMAND_H_
 #define SAFE_UNLATCHCOMMAND_H_
-#include "../CommandBase.h"
+#include "ClimbCommandBase.h"
 
 /*
  * SafeUnlatch: The idea behind this command is to unlatch only after we have
  * 				retracted the arm half way.  In other words when we are halfway 
  * 				to the next level we unlatch.
  */
-class SafeUnlatchCommand : public CommandBase{
+class SafeUnlatchCommand : public ClimbCommandBase{
 public:
-	SafeUnlatchCommand() : CommandBase("UnlatchCommand"){}
+	SafeUnlatchCommand(int seq, bool autoCmd=false) : ClimbCommandBase(seq, "SafeUnlatchCommand", autoCmd){}
 	~SafeUnlatchCommand(){}
-	void Initialize(){}
-	void Execute(){}
+	void ClimbInitialize(){}
+	void ClimbExecute(){}
 	bool IsFinished(){
-		return climbingArm->getCurrentPosition() < 2.0;
+		return (climbingArm->getCurrentPosition() < 2.0) || ClimbCommandBase::IsFinished();
 	}
-	void End(){
+	void ClimbEnd(){
 		climbingHooks->unlatch();
 		climbingArm->tiltBackward();
 	}
