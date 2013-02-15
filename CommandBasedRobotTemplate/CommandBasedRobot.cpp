@@ -10,7 +10,6 @@
 #include "Commands/FullyExtendArmCommand.h"
 #include "Commands/FullyRetractArmCommand.h"
 #include "Commands/FirstRungPositionArmCommand.h"
-#include "Commands/StartingPositionArmCommand.h"
 #include "Commands/LatchCommand.h"
 #include "Commands/UnlatchCommand.h"
 #include "Commands/SafeUnlatchCommand.h"
@@ -29,6 +28,7 @@ private:
 	
 	virtual void RobotInit() {
 		CommandBase::init();
+		autoCommand = 0;
 		autonomousCommand = new ExampleCommand();
 		lw = LiveWindow::GetInstance();
 		shifterUpdateCommand = new ShifterUpdateCommand();
@@ -45,17 +45,17 @@ private:
 		SmartDashboard::PutData("ShiftDownCommand", new ShiftDownCommand());
 		SmartDashboard::PutData(CommandBase::driveTrain);
 		//SmartDashboard::PutData(CommandBase::climbingArm);
-		SmartDashboard::PutData("FullyExtendArmCommand", new FullyExtendArmPositionCommand());
-		SmartDashboard::PutData("FullyRetractArmCommand", new FullyRetractArmPositionCommand());
-		SmartDashboard::PutData("FirstRungPositionArmCommand", new FirstRungArmPositionCommand());
-		SmartDashboard::PutData("StartingPositionArmCommand", new StartingPositionArmCommand());
-		SmartDashboard::PutData("LatchCommand", new LatchCommand());
-		SmartDashboard::PutData("UnlatchCommand", new UnlatchCommand());
+		//SmartDashboard::PutData("FullyExtendArmCommand", new FullyExtendArmPositionCommand());
+		//SmartDashboard::PutData("FullyRetractArmCommand", new FullyRetractArmPositionCommand());
+		//SmartDashboard::PutData("FirstRungPositionArmCommand", new FirstRungArmPositionCommand());
+		//SmartDashboard::PutData("StartingPositionArmCommand", new StartingPositionArmCommand());
+		SmartDashboard::PutData("LatchCommand", new LatchCommand(-1));
+		//SmartDashboard::PutData("UnlatchCommand", new UnlatchCommand());
 		SmartDashboard::PutData("LiftRobotCommand", new LiftRobotCommand());
 		SmartDashboard::PutData("LowerRobotCommand", new LowerRobotCommand());
 		SmartDashboard::PutData("ClimbingCommandGroup", new ClimbingCommandGroup());
 		SmartDashboard::PutData("Shooter", CommandBase::shooter);
-		SmartDashboard::PutData("SafeUnlatch", new SafeUnlatchCommand());
+		//SmartDashboard::PutData("SafeUnlatch", new SafeUnlatchCommand());
 		//lw->AddActuator("Shooter", "Shooter", CommandBase::shooter);
 	}
 	
@@ -74,7 +74,9 @@ private:
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		autoCommand->Cancel();
+		if (autoCommand){
+			autoCommand->Cancel();
+		}
 		shifterUpdateCommand->Start();
 	}
 	
