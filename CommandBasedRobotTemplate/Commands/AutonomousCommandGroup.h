@@ -30,6 +30,10 @@ public:
 		AddSequential(new ShooterOffCommand());
 		if (willMove) {
 			AddSequential(new DriveBackwardCommand(0.5,5));
+			AddSequential(new TurnLeftCommand(0.5, 1.5));
+			AddSequential(new DriveForwardCommand(0.5, 10));
+			AddSequential(new TurnLeftCommand(0.5, 1.5));
+			AddSequential(new StopDriveCommand());
 		}
 	}
 	virtual ~AutonomousCommandGroup() {

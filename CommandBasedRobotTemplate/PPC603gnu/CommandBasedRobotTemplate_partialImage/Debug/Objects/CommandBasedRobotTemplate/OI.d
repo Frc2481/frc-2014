@@ -425,6 +425,8 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RetractArmCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLatchCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LatchCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/DeadmanCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../CommandBase.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/UnlatchCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ClimbingCommandGroup.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
@@ -448,7 +450,13 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SpeedUpShooterCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SlowDownShooterCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ArmTiltToggleCommand.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleHopperPressureCommand.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TiltArmBackwardCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TiltArmForwardCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterUpToggleCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/OpenHopperLidCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/CloseHopperLidCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleHopperLidCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/DeadmanTestCommandGroup.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
 
@@ -1298,6 +1306,10 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLatc
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LatchCommand.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/DeadmanCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../CommandBase.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/UnlatchCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ClimbingCommandGroup.h:
@@ -1344,4 +1356,16 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SlowDownSh
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ArmTiltToggleCommand.h:
 
-C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleHopperPressureCommand.h:
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TiltArmBackwardCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TiltArmForwardCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterUpToggleCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/OpenHopperLidCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/CloseHopperLidCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleHopperLidCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/DeadmanTestCommandGroup.h:

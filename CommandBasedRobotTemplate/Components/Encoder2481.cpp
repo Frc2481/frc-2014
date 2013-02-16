@@ -11,6 +11,9 @@
 Encoder2481::Encoder2481(UINT32 channel){
 	pulseCounter = new Counter(channel);
 	pulseCounter->Start();
+	speedTotal = 0;
+	counter = 0;
+	rpm = 0;
 }
 
 Encoder2481::~Encoder2481() {
@@ -18,11 +21,21 @@ Encoder2481::~Encoder2481() {
 }
 
 float Encoder2481::GetPeriod() {
-	float rpm = 0;
-	//return 1;
-	rpm = (1 / (pulseCounter->GetPeriod())) * 60;
-	if (StatusIsFatal()) return 0.0;
-	if (rpm > 10000) return 0;
+	float currentPeriod = 0;
+	
+	currentPeriod = (1 / (pulseCounter->GetPeriod())) * 60;
+	
+	if (currentPeriod > 10000) currentPeriod = 0; // handle inf
+	
+	speedTotal += currentPeriod;
+	counter ++;
+	
+	if (counter == 9){
+		rpm = speedTotal / counter;
+		speedTotal = 0;
+		counter = 0;
+	}
+
 	return rpm;
 }
 

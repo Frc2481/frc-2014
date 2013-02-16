@@ -1,11 +1,7 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
-#include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
 #include "Commands/ShifterUpdateCommand.h"
-#include "Commands/ExampleAutonomous.h"
-#include "Commands/ShiftUpCommand.h"
-#include "Commands/ShiftDownCommand.h"
 
 #include "Commands/FullyExtendArmCommand.h"
 #include "Commands/FullyRetractArmCommand.h"
@@ -28,8 +24,6 @@ private:
 	
 	virtual void RobotInit() {
 		CommandBase::init();
-		autoCommand = 0;
-		autonomousCommand = new ExampleCommand();
 		lw = LiveWindow::GetInstance();
 		shifterUpdateCommand = new ShifterUpdateCommand();
 		autoDelayOptions = new SendableChooser();
@@ -41,15 +35,13 @@ private:
 		autoDelayOptions->AddObject("5 seconds", (void*)5);
 		SmartDashboard::PutData("Autonomous Delay Options", autoDelayOptions);
 		SmartDashboard::PutData("ShifterUpdateCommand", new ShifterUpdateCommand());
-		SmartDashboard::PutData("ShiftUp", new ShiftUpCommand());
-		SmartDashboard::PutData("ShiftDownCommand", new ShiftDownCommand());
 		SmartDashboard::PutData(CommandBase::driveTrain);
 		//SmartDashboard::PutData(CommandBase::climbingArm);
 		//SmartDashboard::PutData("FullyExtendArmCommand", new FullyExtendArmPositionCommand());
 		//SmartDashboard::PutData("FullyRetractArmCommand", new FullyRetractArmPositionCommand());
 		//SmartDashboard::PutData("FirstRungPositionArmCommand", new FirstRungArmPositionCommand());
 		//SmartDashboard::PutData("StartingPositionArmCommand", new StartingPositionArmCommand());
-		SmartDashboard::PutData("LatchCommand", new LatchCommand(-1));
+		SmartDashboard::PutData("LatchCommand", new LatchCommand());
 		//SmartDashboard::PutData("UnlatchCommand", new UnlatchCommand());
 		SmartDashboard::PutData("LiftRobotCommand", new LiftRobotCommand());
 		SmartDashboard::PutData("LowerRobotCommand", new LowerRobotCommand());
@@ -57,6 +49,7 @@ private:
 		SmartDashboard::PutData("Shooter", CommandBase::shooter);
 		//SmartDashboard::PutData("SafeUnlatch", new SafeUnlatchCommand());
 		//lw->AddActuator("Shooter", "Shooter", CommandBase::shooter);
+		autoCommand = 0;
 	}
 	
 	virtual void AutonomousInit() {
@@ -88,7 +81,10 @@ private:
 		//CommandBase::climbingArm->run();
 		Wait(0.005);
 	}
-	/*
+	virtual void DisabledInit(){
+		Scheduler::GetInstance()->RemoveAll();
+	}
+	/* 
 	virtual void TestInit() {
 		
 	}

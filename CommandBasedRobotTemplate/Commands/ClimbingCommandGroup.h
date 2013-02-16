@@ -23,7 +23,6 @@
 #include "ShooterOffCommand.h"
 #include "LowerShooterCommand.h"
 #include "FireDiscCommand.h"
-
 class ClimbingCommandGroup: public CommandGroup {
 private:
 	bool haveRun;
@@ -36,7 +35,6 @@ public:
 		AddSequential(new ClimbOneLevel());
 		AddSequential(new ClimbOneLevel());	
 		AddSequential(new ShooterOnCommand());
-		//TODO activate dinker
 		AddSequential(new FireDiscCommand());
 		AddSequential(new FireDiscCommand());
 		AddSequential(new FireDiscCommand());

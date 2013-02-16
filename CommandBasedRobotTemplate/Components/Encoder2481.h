@@ -18,6 +18,9 @@ class Encoder2481 : public PIDSource, public LiveWindowSendable, public SensorBa
 private:
 	Counter *pulseCounter;
 	ITable *m_table;
+	float speedTotal;
+	int counter;
+	float rpm;
 public:
 	Encoder2481(UINT32 channel);
 	virtual ~Encoder2481();

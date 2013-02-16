@@ -9,9 +9,9 @@
 #define ARMPOSITIONCOMMANDBASE_H_
 
 #include "WPILib.h"
-#include "../CommandBase.h"
+#include "../Components/DeadmanCommand.h"
 
-class ArmPositionCommandBase: public CommandBase {
+class ArmPositionCommandBase: public DeadmanCommand {
 private:
 	float armPosition;
 	char *childCommandType;
@@ -20,9 +20,10 @@ public:
 	virtual ~ArmPositionCommandBase();
 	virtual void Initialize();
 	virtual bool IsFinished();
-	virtual void Execute();
 	virtual void End();
 	virtual void Interrupted();
+	virtual void DeadmanInterrupt();
+	virtual void DeadmanExecute();
 };
 
 #endif /* ARMPOSITIONCOMMANDBASE_H_ */

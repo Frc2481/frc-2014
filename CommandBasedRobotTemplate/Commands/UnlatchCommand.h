@@ -7,21 +7,22 @@
 
 #ifndef UNLATCHCOMMAND_H_
 #define UNLATCHCOMMAND_H_
-#include "../CommandBase.h"
+#include "../Components/DeadmanCommand.h"
 
-class UnlatchCommand : public CommandBase{
+class UnlatchCommand : public DeadmanCommand{
 public:
-	UnlatchCommand() : CommandBase("UnlatchCommand"){}
+	UnlatchCommand() : DeadmanCommand("UnlatchCommand"){}
 	~UnlatchCommand(){}
-	void Initialize(){
+	void Initialize(){}
+	void DeadmanExecute(){
 		climbingHooks->unlatch();
 	}
-	void Execute(){}
 	bool IsFinished(){
 		return !climbingHooks->isLatched();
 	}
 	void End(){}
 	void Interrupted(){}
+	void DeadmanInterrupt(){}
 };
 
 #endif /* UNLATCHCOMMAND_H_ */

@@ -17,7 +17,7 @@ void _GLOBAL__I__ZN13AirCompressorC2Ejj();
 
 void _GLOBAL__I__ZN13ClimbingHooksC2Ejjjj();
 
-void _GLOBAL__I__ZN14ExampleCommandC2Ev();
+void _GLOBAL__I__ZN14DeadmanCommandC2EPKc();
 
 void _GLOBAL__I__ZN14XboxController11xbLeftXAxisE();
 
@@ -101,7 +101,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN11CommandBaseC2EPKc,
     _GLOBAL__I__ZN13AirCompressorC2Ejj,
     _GLOBAL__I__ZN13ClimbingHooksC2Ejjjj,
-    _GLOBAL__I__ZN14ExampleCommandC2Ev,
+    _GLOBAL__I__ZN14DeadmanCommandC2EPKc,
     _GLOBAL__I__ZN14XboxController11xbLeftXAxisE,
     _GLOBAL__I__ZN16DriveCommandBaseC2EfffPKc,
     _GLOBAL__I__ZN16ExampleSubsystemC2Ev,
@@ -152,7 +152,7 @@ void _GLOBAL__D__ZN13AirCompressorC2Ejj();
 
 void _GLOBAL__D__ZN13ClimbingHooksC2Ejjjj();
 
-void _GLOBAL__D__ZN14ExampleCommandC2Ev();
+void _GLOBAL__D__ZN14DeadmanCommandC2EPKc();
 
 void _GLOBAL__D__ZN14XboxController11xbLeftXAxisE();
 
@@ -226,7 +226,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN11CommandBaseC2EPKc,
     _GLOBAL__D__ZN13AirCompressorC2Ejj,
     _GLOBAL__D__ZN13ClimbingHooksC2Ejjjj,
-    _GLOBAL__D__ZN14ExampleCommandC2Ev,
+    _GLOBAL__D__ZN14DeadmanCommandC2EPKc,
     _GLOBAL__D__ZN14XboxController11xbLeftXAxisE,
     _GLOBAL__D__ZN16DriveCommandBaseC2EfffPKc,
     _GLOBAL__D__ZN16ExampleSubsystemC2Ev,

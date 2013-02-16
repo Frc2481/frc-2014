@@ -8,22 +8,22 @@
 #ifndef TILTARMBACKWARDSCOMMAND_H_
 #define TILTARMBACKWARDSCOMMAND_H_
 
-#include "../CommandBase.h"
+#include "../Components/DeadmanCommand.h"
 
-class TiltArmBackwardCommand : public CommandBase{
+class TiltArmBackwardCommand : public DeadmanCommand{
 public:
-	TiltArmBackwardCommand(){
-	}
-	void Initialize(){
-		climbingArm->tiltBackward();
-	}
-	void Execute(){}
+	TiltArmBackwardCommand() : DeadmanCommand("TiltArmBackwardCommand"){}
+	virtual ~TiltArmBackwardCommand(){}
+	void Initialize(){}
 	bool IsFinished(){
-		return true;
+		return !climbingArm->isTilted();
 	}
 	void End(){}
 	void Interrupted(){}
-	virtual ~TiltArmBackwardCommand(){}
+	void DeadmanInterrupt(){}
+	void DeadmanExecute(){
+		climbingArm->tiltBackward();
+	}
 };
 
 #endif /* TILTARMBACKWARDSCOMMAND_H_ */

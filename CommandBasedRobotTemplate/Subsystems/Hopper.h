@@ -18,9 +18,10 @@ private:
 	Solenoid *solenoid;
 	short frisbeeCount;
 	Servo *hopperPressurizer;
+	Solenoid *lidSolenoid;
 	
 public:
-	Hopper(UINT32 solenoidChannel, UINT32 servoChannel);
+	Hopper(UINT32 solenoidChannel, UINT32 servoChannel, UINT32 lidSolenoidChannel);
 	virtual ~Hopper();
 	void Load();
 	void Retract();
@@ -30,6 +31,9 @@ public:
 	void addPressure();
 	void removePressure();
 	bool isPressurized();
+	void open();
+	void close();
+	bool isOpen();
 };
 
 #endif /* HOPPER_H_ */

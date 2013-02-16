@@ -20,7 +20,6 @@ public:
 	}
 	virtual ~FireDiscCommand(){}
 	virtual void Initialize(){
-		
 		if (shooter->isAtSpeed()) {
 			SetTimeout(timeout);
 			hopper->Load();

@@ -10,22 +10,24 @@ class OI {
 private:
 	static const int DRIVER_STICK_PORT = 1;
 	static const int SHOOTER_STICK_PORT = 2;
-	XboxController *driverStick;
-	XboxController *shooterStick;
-	JoystickButton *disableShiftButton;
+	Joystick2481 *driverStick;
+	Joystick2481 *shooterStick;
+	AnalogJoystickButton *enableShiftButton;
 	AnalogJoystickButton *fireDiscButton;
-	JoystickButton *manualArmExtendButton;
-	JoystickButton *manualArmRetractButton;
+	AnalogJoystickButton *manualArmExtendButton;
+	AnalogJoystickButton *manualArmRetractButton;
 	JoystickButton *manualLatchButton;
-	AnalogJoystickButton *climbSequenceButton;
+	JoystickButton *climbSequenceButton;
 	JoystickButton *liftButton;
 	JoystickButton *toggleShooterButton;
 	JoystickButton *speedUpShooterButton;
 	JoystickButton *slowDownShooterButton;
 	JoystickButton *ExtendArmButton;
 	JoystickButton *RetractArmButton;
-	JoystickButton *hopperPressureButton;
-	JoystickButton *armTiltToggleButton;
+	AnalogJoystickButton *tiltArmForwardButton;
+	AnalogJoystickButton *tiltArmBackwardButton;	
+	AnalogJoystickButton *toggleShooterPositionButton;
+	JoystickButton *hopperLidToggleButton;
 	
 public:
 	OI();

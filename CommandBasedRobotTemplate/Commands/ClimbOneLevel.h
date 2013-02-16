@@ -21,7 +21,7 @@ class ClimbOneLevel: public CommandGroup {
 public:
 	ClimbOneLevel() : CommandGroup(){
 		AddSequential(new FullyExtendArmPositionCommand());
-		AddParallel(new TiltArmForwardCommand);
+		AddParallel(new TiltArmForwardCommand());
 		AddSequential(new WaitCommand(1));
 		
 		AddParallel(new SafeUnlatchCommand());

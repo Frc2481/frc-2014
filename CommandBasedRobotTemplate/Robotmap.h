@@ -48,6 +48,7 @@
 #define LOCK_HOOK_SOLENOID		4
 #define UNLOCK_HOOK_SOLENOID	5
 #define ARM_TILT_SOLENOID		3
+#define HOPPER_LID_SOLENOID 	8
 
 // Analog Input Channels
 #define ARM_EXTENSION_SENSOR	2
