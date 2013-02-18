@@ -24,7 +24,7 @@
 #define SHOOTER_MOTOR 			5
 #define ARM_LIFT_MOTOR			4
 #define ROBOT_LIFT_MOTOR		3
-#define HOPPER_SERVO			10
+//#define HOPPER_SERVO			10
 
 // Digital Input Channels
 #define LEFT_DRIVE_ENCODER_A	1
@@ -43,12 +43,22 @@
 #define LEFT_DRIVE_SOLENOID 	1
 #define RIGHT_DRIVE_SOLENOID	1
 #define HOPPER_SOLENOID 		6
-#define SHOOTER_LIFT_SOLENOID	7
+#define SHOOTER_LIFT_SOLENOID	4
 #define ROBOT_LIFT_SOLENOID		2
-#define LOCK_HOOK_SOLENOID		4
-#define UNLOCK_HOOK_SOLENOID	5
+#define LOCK_HOOK_SOLENOID		7
+#define UNLOCK_HOOK_SOLENOID	8
 #define ARM_TILT_SOLENOID		3
-#define HOPPER_LID_SOLENOID 	8
+#define HOPPER_LID_SOLENOID 	5
+
+#define LED_BOTTOM_RED			1
+#define LED_BOTTOM_GREEN		2
+#define LED_BOTTOM_BLUE			3
+#define LED_TOP_RED				4
+#define LED_TOP_GREEN			5
+#define LED_TOP_BLUE			6
+
+//Module numbers
+#define LED_MODULE				2
 
 // Analog Input Channels
 #define ARM_EXTENSION_SENSOR	2

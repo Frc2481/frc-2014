@@ -18,9 +18,10 @@ public:
 	}
 	virtual void Initialize(){
 		if(shooter->isShooterUp()){
+			hopper->close();
 			shooter->LowerShooter();
 		}
-		else if (climbingArm->getCurrentPosition() < 1) {
+		else {//if (climbingArm->getCurrentPosition() < 1) {
 			shooter->LiftShooter();
 		}
 	}

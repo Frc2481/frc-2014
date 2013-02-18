@@ -18,7 +18,7 @@ public:
 	virtual ~RetractArmCommand() {
 		
 	}
-	void Initialize() {}
+	void Initialize(){}
 	void Execute() {
 		//This needs to be in execute so limits are enforced.
 		climbingArm->retractArm();

@@ -17,6 +17,7 @@ AirCompressor* CommandBase::airCompressor = NULL;
 Arm* CommandBase::climbingArm = NULL;
 ClimbingHooks* CommandBase::climbingHooks = NULL;
 RobotLift* CommandBase::robotLift = NULL;
+Lights* CommandBase::lights = NULL;
 
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
@@ -29,10 +30,11 @@ void CommandBase::init() {
 	driveTrain->SetFPSTurnAxis(XboxController::xbRightXAxis);
 	
 	shooter = new Shooter(SHOOTER_MOTOR, SHOOTER_ENCODER, SHOOTER_LIFT_SOLENOID);
-	hopper = new Hopper(HOPPER_SOLENOID, HOPPER_SERVO, HOPPER_LID_SOLENOID);
+	hopper = new Hopper(HOPPER_SOLENOID, HOPPER_LID_SOLENOID);
 	airCompressor = new AirCompressor(COMPRESSOR_SENSOR, COMPRESSOR_SPIKE);
 	climbingArm = new Arm(ARM_LIFT_MOTOR, ROBOT_LIFT_MOTOR, UPPER_ARM_SENSOR, LOWER_ARM_SENSOR, ARM_EXTENSION_SENSOR, ARM_TILT_SOLENOID);
 	climbingHooks = new ClimbingHooks(LOCK_HOOK_SOLENOID,UNLOCK_HOOK_SOLENOID, RIGHT_HOOK_MAGNET, LEFT_HOOK_MAGNET);
 	robotLift = new RobotLift(ROBOT_LIFT_SOLENOID,LIFT_ROBOT_SENSOR);
+	lights = new Lights();
 	oi = new OI();
 }

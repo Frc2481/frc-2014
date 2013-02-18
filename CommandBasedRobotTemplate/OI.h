@@ -28,6 +28,10 @@ private:
 	AnalogJoystickButton *tiltArmBackwardButton;	
 	AnalogJoystickButton *toggleShooterPositionButton;
 	JoystickButton *hopperLidToggleButton;
+	JoystickButton *redLightsButton;
+	JoystickButton *greenLightsButton;
+	JoystickButton *blueLightsButton;
+	JoystickButton *toggleHooksButton;
 	
 public:
 	OI();

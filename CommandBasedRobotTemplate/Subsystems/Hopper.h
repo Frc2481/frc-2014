@@ -21,16 +21,13 @@ private:
 	Solenoid *lidSolenoid;
 	
 public:
-	Hopper(UINT32 solenoidChannel, UINT32 servoChannel, UINT32 lidSolenoidChannel);
+	Hopper(UINT32 solenoidChannel, UINT32 lidSolenoidChannel);
 	virtual ~Hopper();
 	void Load();
 	void Retract();
 	void IncrementFrisbeeCount();
 	void DecrementFrisbeeCount();
 	short GetFrisbeeCount();
-	void addPressure();
-	void removePressure();
-	bool isPressurized();
 	void open();
 	void close();
 	bool isOpen();

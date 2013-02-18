@@ -39,6 +39,10 @@ void _GLOBAL__I__ZN2OIC2Ev();
 
 void _GLOBAL__I__ZN3Arm12speedRatioUpE();
 
+void _GLOBAL__I__ZN6LightsC2Ev();
+
+void _GLOBAL__I__ZN6RGBLedC2Ejjjj();
+
 void _GLOBAL__I__ZN7Shooter21shooterSpeedToleranceE();
 
 void _GLOBAL__I__ZN9RoEncoderC2Eii();
@@ -112,6 +116,8 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev,
     _GLOBAL__I__ZN2OIC2Ev,
     _GLOBAL__I__ZN3Arm12speedRatioUpE,
+    _GLOBAL__I__ZN6LightsC2Ev,
+    _GLOBAL__I__ZN6RGBLedC2Ejjjj,
     _GLOBAL__I__ZN7Shooter21shooterSpeedToleranceE,
     _GLOBAL__I__ZN9RoEncoderC2Eii,
     _GLOBAL__I__ZN9RobotLiftC2Ejj,
@@ -173,6 +179,10 @@ void _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev();
 void _GLOBAL__D__ZN2OIC2Ev();
 
 void _GLOBAL__D__ZN3Arm12speedRatioUpE();
+
+void _GLOBAL__D__ZN6LightsC2Ev();
+
+void _GLOBAL__D__ZN6RGBLedC2Ejjjj();
 
 void _GLOBAL__D__ZN7Shooter21shooterSpeedToleranceE();
 
@@ -237,6 +247,8 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev,
     _GLOBAL__D__ZN2OIC2Ev,
     _GLOBAL__D__ZN3Arm12speedRatioUpE,
+    _GLOBAL__D__ZN6LightsC2Ev,
+    _GLOBAL__D__ZN6RGBLedC2Ejjjj,
     _GLOBAL__D__ZN7Shooter21shooterSpeedToleranceE,
     _GLOBAL__D__ZN9RoEncoderC2Eii,
     _GLOBAL__D__ZN9RobotLiftC2Ejj,

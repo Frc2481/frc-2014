@@ -395,6 +395,7 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/FPSDrive.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Shooter.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/DynamicPIDSubsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/Encoder2481.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h \
@@ -402,6 +403,7 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotParameters.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/Joystick2481.h \
@@ -416,6 +418,10 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/ClimbingHooks.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Arm.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/RobotLift.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Lights.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/RGBLed.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotMap.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/RobotParameters.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Robotmap.h
 
@@ -1207,6 +1213,8 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Compo
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Shooter.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/DynamicPIDSubsystem.h:
+
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/Encoder2481.h:
@@ -1220,6 +1228,8 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h:
 C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotParameters.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
 
@@ -1248,6 +1258,14 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Climbing
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Arm.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/RobotLift.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Lights.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/RGBLed.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotMap.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/RobotParameters.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h:
 

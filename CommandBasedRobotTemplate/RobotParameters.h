@@ -1,0 +1,76 @@
+#ifndef COMPPRACTICE_H
+#define COMPPRACTICE_H
+
+#define DEBUG_MODE
+
+#ifdef DEBUG_MODE
+#define DEBUG(a, ...) printf(a, ...)
+#else
+#define DEBUG(a, ...) (void)0
+#endif
+
+#define COMPETITION_BOT
+
+#ifdef PRACTICE_BOT
+#ifndef COMPETITION_BOT
+#define SHOOTER_UP_P			0.00194		//.0039 oscillation point
+#define SHOOTER_UP_I			0.00001	
+#define SHOOTER_UP_D			0
+#define SHOOTER_UP_SPEED		4100
+#define SHOOTER_DOWN_P			0.003 // .006 oscillation point
+#define SHOOTER_DOWN_I			0.00025
+#define SHOOTER_DOWN_D			0
+#define SHOOTER_DOWN_SPEED		1400
+#define SHOOTER_AUTO_SPEED		SHOOTER_UP_SPEED
+#define SHOOTER_DUMP_SPEEDA		SHOOTER_DOWN_SPEED
+#define SHOOTER_DUMP_SPEEDB		SHOOTER_DOWN_SPEED - 100
+#define SHOOTER_PERIOD			0.01
+#define ARM_IN_LIMIT			0.91
+#define ARM_OUT_LIMIT			2.575
+#define ARM_SAFE_UNLATCH		2
+#define ARM_FIRST_RUNG			1.35
+#define ARM_UP_SPEED_RATIO		0.75
+#define ARM_DOWN_SPEED_RATIO	0.125
+#define ARM_SPEED				1
+#define ARM_POSITION_TOLERANCE 	0.005
+#define SHOOTER_UP_TOLERANCE	20
+#define SHOOTER_DOWN_TOLERANCE	40
+#define HOPPER_EXTEND_TIME		0.5
+#define HOPPER_LOCKOUT_TIME		1.0
+#define HIGH_RUNG_POSITION		2.3
+#endif
+#endif
+
+#ifdef COMPETITION_BOT
+#ifndef PRACTICE_BOT
+#define SHOOTER_UP_P			0.00194		//.0039 oscillation point
+#define SHOOTER_UP_I			0.00001	
+#define SHOOTER_UP_D			0
+#define SHOOTER_UP_SPEED		4100
+#define SHOOTER_DOWN_P			0.003 // .006 oscillation point
+#define SHOOTER_DOWN_I			0.00025
+#define SHOOTER_DOWN_D			0
+#define SHOOTER_DOWN_SPEED		1400
+#define SHOOTER_AUTO_SPEED		SHOOTER_UP_SPEED
+#define SHOOTER_DUMP_SPEEDA		SHOOTER_DOWN_SPEED
+#define SHOOTER_DUMP_SPEEDB		SHOOTER_DOWN_SPEED - 100
+#define SHOOTER_PERIOD			0.01
+#define ARM_IN_LIMIT			0.91
+#define ARM_OUT_LIMIT			4.5
+#define ARM_SAFE_UNLATCH		3
+#define ARM_FIRST_RUNG			1.678
+#define ARM_UP_SPEED_RATIO		0.75
+#define ARM_DOWN_SPEED_RATIO	0.125
+//#define ARM_UP_SPEED_RATIO	0.675
+//#define ARM_DOWN_SPEED_RATIO	0.2125
+#define ARM_SPEED				1
+#define ARM_POSITION_TOLERANCE 	0.010
+#define SHOOTER_UP_TOLERANCE	20
+#define SHOOTER_DOWN_TOLERANCE	40
+#define HOPPER_EXTEND_TIME		0.5
+#define HOPPER_LOCKOUT_TIME		1.0
+#define HIGH_RUNG_POSITION		2.3
+#endif
+#endif
+
+#endif

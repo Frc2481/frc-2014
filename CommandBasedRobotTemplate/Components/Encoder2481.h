@@ -20,11 +20,14 @@ private:
 	ITable *m_table;
 	float speedTotal;
 	int counter;
-	float rpm;
+	float averageRPM;
+	float prevPeriod;
+	float speedArray[9];
+	int speedArrayIndex;
 public:
 	Encoder2481(UINT32 channel);
 	virtual ~Encoder2481();
-	float GetPeriod();
+	float GetAveragePeriod();
 	double PIDGet();
 	void UpdateTable();
 	void InitTable(ITable *subTable);

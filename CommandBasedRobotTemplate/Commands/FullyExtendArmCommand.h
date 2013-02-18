@@ -1,7 +1,6 @@
 #ifndef FULLY_EXTEND_ARM_COMMAND_COMMAND_H
 #define FULLY_EXTEND_ARM_COMMAND_COMMAND_H
 
-
 #include "ArmPositionCommandBase.h"
 
 /**
@@ -11,7 +10,7 @@
  */
 class FullyExtendArmPositionCommand: public ArmPositionCommandBase {
 private:
-	static const float extendPosition = 2.575;
+	static const float extendPosition = ARM_OUT_LIMIT;
 public:
 	FullyExtendArmPositionCommand() : ArmPositionCommandBase(extendPosition, "FullyExtendArmPositionCommand") {}
 };

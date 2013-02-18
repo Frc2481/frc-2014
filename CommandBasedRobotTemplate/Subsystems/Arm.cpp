@@ -1,19 +1,15 @@
 /*
-
-3
  *      Author: Team2481
  */
 
 #include "Arm.h"
 
-float Arm::speedRatioUp = .75;
-float Arm::speedRatioDown = .125;
-float Arm::armSpeed = 1;
-float Arm::armPositionTolerance = 0.005;
-float Arm::armHighPos = 2.575;
-//float Arm::armHighPos = 1.7;
-//float Arm::armLowPos = 0.2;
-float Arm::armLowPos = .91;
+float Arm::speedRatioUp = ARM_UP_SPEED_RATIO;
+float Arm::speedRatioDown = ARM_DOWN_SPEED_RATIO;
+float Arm::armSpeed = ARM_SPEED;
+float Arm::armPositionTolerance = ARM_POSITION_TOLERANCE;
+float Arm::armHighPos = ARM_OUT_LIMIT;
+float Arm::armLowPos = ARM_IN_LIMIT;
 
 Arm::Arm(UINT32 armLiftChannel, UINT32 robotLiftChannel, UINT32 armPosFarChannel, UINT32 armPosCloseChannel, UINT32 armExtendChannel, UINT32 armTiltChannel) : Subsystem("Arm") {
 	armLift = new Talon(armLiftChannel);
@@ -21,7 +17,6 @@ Arm::Arm(UINT32 armLiftChannel, UINT32 robotLiftChannel, UINT32 armPosFarChannel
 	armExtensionChannel = new AnalogChannel(armExtendChannel);
 	armTiltSolenoid = new Solenoid(armTiltChannel);
 	desiredPosition = 1;
-	
 }
 
 Arm::~Arm() {	
@@ -30,28 +25,6 @@ Arm::~Arm() {
 	delete armExtensionChannel;
 }
 
-//double Arm::ReturnPIDInput(){
-//	return armExtensionChannel->GetAverageVoltage();
-//}
-//
-//void Arm::UsePIDOutput(double output){
-//	
-//	if (output > 0) {
-//		output = 1;
-//	}
-//	else if (output < 0){
-//		output = -1;
-//	}
-//	
-//	if(getCurrentPosition() > armHighPos && output > 0) {
-//		output = 0;
-//	}
-//	else if (getCurrentPosition() < armLowPos && output < 0) {
-//		output = 0;
-//	}
-//	armLift->Set(speedRatioDown*(float)-output);
-//	robotLift->Set((float)-output);
-//}
 void Arm::setPosition(double position){
 	desiredPosition = position;
 }
@@ -67,8 +40,8 @@ void Arm::extendArm() {
 		armLift->Set(speedRatioUp*(float)-armSpeed);
 		robotLift->Set((float)-armSpeed);
 	}
-	printf("ArmLift %f \n", -armSpeed*speedRatioDown);
-	printf("ArmWinch %f \n", -armSpeed);
+	//printf("ArmLift %f \n", -armSpeed*speedRatioDown);
+	//printf("ArmWinch %f \n", -armSpeed);
 }
 
 void Arm::retractArm() {
@@ -76,8 +49,8 @@ void Arm::retractArm() {
 		armLift->Set(speedRatioDown*(float)armSpeed);
 		robotLift->Set((float)armSpeed);
 	}
-	printf("ArmLift %f \n", armSpeed*speedRatioDown);
-	printf("ArmWinch %f \n", armSpeed);
+	//printf("ArmLift %f \n", armSpeed*speedRatioDown);
+	//printf("ArmWinch %f \n", armSpeed);
 }
 
 void Arm::stopArm() {
@@ -99,10 +72,10 @@ void Arm::run() {
 	else {
 		stopArm();
 	}
-	printf("Position + tol %f \n", getCurrentPosition() + armPositionTolerance);
-	printf("Position - tol %f \n", getCurrentPosition() - armPositionTolerance);
-	printf("Desired Position %f \n", getDesiredPosition());
-	printf("Position %f \n \n", getCurrentPosition());
+	//printf("Position + tol %f \n", getCurrentPosition() + armPositionTolerance);
+	//printf("Position - tol %f \n", getCurrentPosition() - armPositionTolerance);
+	//printf("Desired Position %f \n", getDesiredPosition());
+	//printf("Position %f \n \n", getCurrentPosition());
 }
 void Arm::tiltForward(){
 	armTiltSolenoid->Set(0);

@@ -16,6 +16,9 @@ private:
 public:
 	AirCompressor(UINT32 sensor, UINT32 spike);
 	virtual ~AirCompressor();
+	
+	void Stop();
+	void Start();
 };
 
 #endif /* AIRCOMPRESSOR_H_ */

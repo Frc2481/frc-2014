@@ -16,6 +16,9 @@ public:
 	virtual ~SlowDownShooterCommand(){}
 	void Initialize(){
 		CommandBase::shooter->setSpeed(CommandBase::shooter->GetSetpoint() - 50);
+		/*float curI =  CommandBase::shooter->GetController()->GetI();
+		CommandBase::shooter->GetController()->SetPID( .003, CommandBase::shooter->GetController()->GetI() - .00001, 0);
+		printf("%f \n", CommandBase::shooter->GetController()->GetI() - .00001);*/
 	}
 	void Execute(){}
 	bool IsFinished() {

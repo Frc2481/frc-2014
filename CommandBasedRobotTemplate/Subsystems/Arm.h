@@ -9,6 +9,7 @@
 #define Arm_H_
 
 #include "WPILib.h"
+#include "../RobotParameters.h"
 
 class Arm : public Subsystem {
 private:

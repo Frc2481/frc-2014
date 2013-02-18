@@ -22,6 +22,7 @@
 #include "ShooterOnCommand.h"
 #include "ShooterOffCommand.h"
 #include "LowerShooterCommand.h"
+#include "FireDiscCommandGroup.h"
 #include "FireDiscCommand.h"
 class ClimbingCommandGroup: public CommandGroup {
 private:
@@ -35,9 +36,13 @@ public:
 		AddSequential(new ClimbOneLevel());
 		AddSequential(new ClimbOneLevel());	
 		AddSequential(new ShooterOnCommand());
+		AddSequential(new WaitCommand(3));
 		AddSequential(new FireDiscCommand());
+		AddSequential(new WaitCommand(2));
 		AddSequential(new FireDiscCommand());
+		AddSequential(new WaitCommand(2));
 		AddSequential(new FireDiscCommand());
+		AddSequential(new WaitCommand(2));
 		AddSequential(new FireDiscCommand());
 		AddSequential(new ShooterOffCommand());
 		

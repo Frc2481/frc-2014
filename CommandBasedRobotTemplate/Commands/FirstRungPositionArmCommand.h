@@ -10,7 +10,7 @@
  */
 class FirstRungArmPositionCommand: public ArmPositionCommandBase {
 private:
-	static const float firstRungPosition = 1.35;
+	static const float firstRungPosition = ARM_FIRST_RUNG;
 public:
 	FirstRungArmPositionCommand():ArmPositionCommandBase(firstRungPosition, "firstRungPositionCommand") {}
 };

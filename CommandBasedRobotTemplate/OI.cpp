@@ -1,5 +1,6 @@
 #include "OI.h"
 #include "Commands/EnableShiftCommand.h"
+#include "Commands/FireDiscCommandGroup.h"
 #include "Commands/FireDiscCommand.h"
 #include "Commands/ExtendArmCommand.h"
 #include "Commands/RetractArmCommand.h"
@@ -17,6 +18,8 @@
 #include "Commands/CloseHopperLidCommand.h"
 #include "Commands/ToggleHopperLidCommand.h"
 #include "Commands/DeadmanTestCommandGroup.h"
+#include "Commands/SetLightsCommand.h"
+
 
 OI::OI() {
 	// Process operator interface input here.
@@ -27,19 +30,19 @@ OI::OI() {
 	enableShiftButton->WhileHeld(new EnableShiftCommand());
 	
 	fireDiscButton = new AnalogJoystickButton(shooterStick, XboxController::xbZAxis, -0.5);
+	//fireDiscButton->WhileHeld(new FireDiscCommandGroup());
 	fireDiscButton->WhileHeld(new FireDiscCommand());
 	
-	manualArmExtendButton = new AnalogJoystickButton(shooterStick, XboxController::xbRightYAxis, 0.5);
+	manualArmExtendButton = new AnalogJoystickButton(shooterStick, XboxController::xbRightYAxis, -0.5);
 	manualArmExtendButton->WhileHeld(new ExtendArmCommand());
 	
-	manualArmRetractButton = new AnalogJoystickButton(shooterStick, XboxController::xbRightYAxis, -0.5);
+	manualArmRetractButton = new AnalogJoystickButton(shooterStick, XboxController::xbRightYAxis, 0.5);
 	manualArmRetractButton->WhileHeld(new RetractArmCommand());
 	
 	manualLatchButton = new JoystickButton(shooterStick, XboxController::xbYButton);
 	manualLatchButton->WhenPressed(new ToggleLatchCommand());
 	
 	climbSequenceButton = new JoystickButton(shooterStick, XboxController::xbStartButton);
-	//ClimbingCommandGroup *climbingGroup = new ClimbingCommandGroup();
 	climbSequenceButton->WhenPressed(new ClimbingCommandGroup());
 	
 	liftButton = new JoystickButton(shooterStick, XboxController::xbXButton);
@@ -47,13 +50,12 @@ OI::OI() {
 	
 	toggleShooterButton = new JoystickButton(shooterStick, XboxController::xbRightBumper);
 	toggleShooterButton->WhenPressed(new ShooterToggleCommand());
-	//toggleShooterButton->WhenPressed(new ArmTiltToggleCommand);
 	
 	tiltArmForwardButton =  new AnalogJoystickButton(shooterStick, XboxController::xbLeftYAxis, 0.5);
-	tiltArmForwardButton->WhenPressed(new TiltArmForwardCommand());
+	tiltArmForwardButton->WhenPressed(new TiltArmForwardCommand(true));
 
 	tiltArmBackwardButton =  new AnalogJoystickButton(shooterStick, XboxController::xbLeftYAxis, -0.5);
-	tiltArmBackwardButton->WhenPressed(new TiltArmBackwardCommand());
+	tiltArmBackwardButton->WhenPressed(new TiltArmBackwardCommand(true));
 	
 	speedUpShooterButton = new JoystickButton(shooterStick, XboxController::xbAButton);
 	speedUpShooterButton->WhenPressed(new SpeedUpShooterCommand());
@@ -67,12 +69,23 @@ OI::OI() {
 	RetractArmButton = new JoystickButton(shooterStick, XboxController::xbRightStickCLick);
 	RetractArmButton->WhenPressed(new FullyRetractArmPositionCommand());
 	
-	toggleShooterPositionButton = new AnalogJoystickButton(shooterStick, XboxController::xbZAxis, -0.5);
+	toggleHooksButton = new JoystickButton(driverStick, XboxController::xbYButton);
+	toggleHooksButton->WhenPressed(new ToggleLatchCommand());
+	
+	toggleShooterPositionButton = new AnalogJoystickButton(shooterStick, XboxController::xbZAxis, 0.5);
 	toggleShooterPositionButton->WhenPressed(new ShooterUpToggleCommand);
-	//idclimbSequenceButton->WhenReleased(new ClimbResetCommand(climbingGroup));
 	
 	hopperLidToggleButton = new JoystickButton(shooterStick, XboxController::xbLeftBumper);
 	hopperLidToggleButton->WhenPressed(new ToggleHopperLidCommand());
+	
+	redLightsButton = new JoystickButton(driverStick, XboxController::xbBButton);
+	redLightsButton->WhenPressed(new SetLightsCommand(1));
+	
+	greenLightsButton = new JoystickButton(driverStick, XboxController::xbAButton);
+	greenLightsButton->WhenPressed(new SetLightsCommand(2));
+	
+	blueLightsButton = new JoystickButton(driverStick, XboxController::xbXButton);
+	blueLightsButton->WhenPressed(new SetLightsCommand(4));
 }
 
 
@@ -84,9 +97,9 @@ Joystick* OI::GetShooterStick() {
 }
 
 bool OI::GetDeadMan1() {
-	return driverStick->GetRawButton(XboxController::xbSelectButton);
+	return driverStick->GetRawButton(XboxController::xbBackButton);
 }
 
 bool OI::GetDeadMan2() {
-	return shooterStick->GetRawButton(XboxController::xbSelectButton);
+	return shooterStick->GetRawButton(XboxController::xbBackButton);
 }

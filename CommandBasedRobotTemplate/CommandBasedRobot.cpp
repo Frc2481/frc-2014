@@ -46,7 +46,7 @@ private:
 		SmartDashboard::PutData("LiftRobotCommand", new LiftRobotCommand());
 		SmartDashboard::PutData("LowerRobotCommand", new LowerRobotCommand());
 		SmartDashboard::PutData("ClimbingCommandGroup", new ClimbingCommandGroup());
-		SmartDashboard::PutData("Shooter", CommandBase::shooter);
+		//SmartDashboard::PutData("Shooter", CommandBase::shooter);
 		//SmartDashboard::PutData("SafeUnlatch", new SafeUnlatchCommand());
 		//lw->AddActuator("Shooter", "Shooter", CommandBase::shooter);
 		autoCommand = 0;

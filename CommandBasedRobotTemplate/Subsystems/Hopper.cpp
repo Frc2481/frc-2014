@@ -7,11 +7,11 @@
 
 #include "Hopper.h"
 
-Hopper::Hopper(UINT32 solenoidChannel, UINT32 servoChannel, UINT32 lidSolenoidChannel) : Subsystem("Hopper") {
+Hopper::Hopper(UINT32 solenoidChannel, UINT32 lidSolenoidChannel) : Subsystem("Hopper") {
 	solenoid = new Solenoid(solenoidChannel);
-	hopperPressurizer = new Servo(servoChannel);
 	frisbeeCount = 0;
 	lidSolenoid = new Solenoid(lidSolenoidChannel);
+	lidSolenoid->Set(1);
 }
 
 Hopper::~Hopper() {
@@ -38,17 +38,6 @@ short Hopper::GetFrisbeeCount() {
 	return frisbeeCount;
 }
 
-void Hopper::addPressure() {
-	hopperPressurizer->Set(0);
-}
-
-void Hopper::removePressure() {
-	hopperPressurizer->Set(.45);
-}
-
-bool Hopper::isPressurized() {
-	return hopperPressurizer->Get() == 0;
-}
 void Hopper::open(){
 	lidSolenoid->Set(1);
 }

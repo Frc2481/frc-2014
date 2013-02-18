@@ -12,7 +12,7 @@
 
 class FireDiscCommand: public CommandBase {
 private:
-	static const double timeout = 1.5;
+	bool hasFired;
 public:
 	FireDiscCommand(){
 		Requires(shooter);
@@ -20,21 +20,23 @@ public:
 	}
 	virtual ~FireDiscCommand(){}
 	virtual void Initialize(){
-		if (shooter->isAtSpeed()) {
-			SetTimeout(timeout);
-			hopper->Load();
-		}
-		else {
-			SetTimeout(0);
-		}
+		hasFired = false;
+		airCompressor->Stop();
+		SetInterruptible(true);
 	}
 	virtual void Execute(){
-		
+		if (shooter->isAtSpeed()) {
+			hopper->Load();
+			hasFired = true;
+			SetTimeout(HOPPER_EXTEND_TIME);
+			SetInterruptible(false);
+		}
 	}
 	virtual bool IsFinished(){
-		return IsTimedOut();
+		return hasFired && IsTimedOut();
 	}
 	virtual void End(){
+		airCompressor->Start();
 		hopper->Retract();
 	}
 	virtual void Interrupted(){

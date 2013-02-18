@@ -20,7 +20,7 @@ public:
 	~SafeUnlatchCommand(){}
 	void Initialize(){}
 	bool IsFinished(){
-		return (climbingArm->getCurrentPosition() > 2.0); // TODO Change > to <
+		return (climbingArm->getCurrentPosition() < ARM_SAFE_UNLATCH);
 	}
 	void End(){
 		climbingHooks->unlatch();

@@ -9,10 +9,11 @@
 #define SHOOTER_H_
 
 #include "WPILib.h"
-#include "Commands/PIDSubsystem.h"
+#include "../Components/DynamicPIDSubsystem.h"
 #include "../Components/Encoder2481.h"
+#include "../RobotParameters.h"
 
-class Shooter: public PIDSubsystem {
+class Shooter: public DynamicPIDSubsystem {
 private:
 	Talon *shooterMotor;
 	//RoEncoder *shooterEncoder;
@@ -26,6 +27,7 @@ private:
 	static double dValue;
 	static double fValue;
 	static double periodValue;
+	static int autoSpeed;
 public:
 	Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel);
 	virtual ~Shooter();
@@ -41,6 +43,7 @@ public:
 	bool isAtSpeed();
 	float getCurrentSpeed();
 	double getDesiredSpeed();
+	void updatePID();
 };
 
 #endif /* SHOOTER_H_ */

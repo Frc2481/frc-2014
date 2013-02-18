@@ -7,22 +7,23 @@
 
 #include "Shooter.h"
 
-float Shooter::shooterSpeedTolerance = 20;
-double Shooter::pValue = 0.004;
-double Shooter::iValue = 0.0005;
-double Shooter::dValue = 0;
+float Shooter::shooterSpeedTolerance = SHOOTER_UP_TOLERANCE;
+double Shooter::pValue = SHOOTER_UP_P;
+double Shooter::iValue = SHOOTER_UP_I;
+double Shooter::dValue = SHOOTER_UP_D;
 double Shooter::fValue = 0;
-double Shooter::periodValue = 0.01;
+double Shooter::periodValue = SHOOTER_PERIOD;
+int Shooter::autoSpeed = SHOOTER_AUTO_SPEED;
 
-Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel) : PIDSubsystem(pValue,iValue,dValue,fValue,periodValue){
+Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel) : DynamicPIDSubsystem(pValue,iValue,dValue,fValue,periodValue){
 	shooterMotor = new Talon(motorChannel);
 	//shooterEncoder = new RoEncoder(encoderChannel, 4);
 	shooterEncoder = new Encoder2481(encoderChannel);
 	shooterState = 0;
 	shooterLiftSolenoid = new Solenoid(solenoidChannel);
-	SetSetpoint(2000);
+	SetSetpoint(autoSpeed);
 	//SetPercentTolerance(5);
-	SetAbsoluteTolerance(10);
+	SetAbsoluteTolerance(shooterSpeedTolerance / 2.0);
 }
 
 Shooter::~Shooter() {
@@ -36,8 +37,10 @@ void Shooter::setSpeed(double speed){
 }
 void Shooter::turnOn(){
 	printf("Speed: %f \n", GetSetpoint());
+	updatePID();
 	this->Enable();
 	shooterState = 1;
+	
 }
 void Shooter::turnOff(){
 	this->Disable();
@@ -45,12 +48,15 @@ void Shooter::turnOff(){
 }
 double Shooter::ReturnPIDInput(){
 	//SmartDashboard::PutBoolean("Shooter Encoder" , shooterEncoder->getIO());
-	SmartDashboard::PutNumber("Shooter Encoder PID" , shooterEncoder->PIDGet());
-	printf("PID In: %f\n", shooterEncoder->PIDGet());
-	return shooterEncoder->PIDGet();
+	double pid = shooterEncoder->GetAveragePeriod();
+	
+	SmartDashboard::PutNumber("Shooter Encoder PID" , pid);
+	//printf("PID In: %f\n", pid);
+	//printf("I Value: %f \n",GetController()->GetI());
+	return pid;
 }
 void Shooter::UsePIDOutput(double output){
-	printf("PID Out: %f\n", output);
+	//printf("PID Out: %f\n", output);
 	shooterMotor->Set((float)-output);
 	//shooterMotor->Set(.5);
 }
@@ -61,10 +67,12 @@ bool Shooter::isShooterOn(){
 
 void Shooter::LiftShooter()  {
 	shooterLiftSolenoid->Set(1);
+	updatePID();
 }
 
 void Shooter::LowerShooter()  {
 	shooterLiftSolenoid->Set(0);
+	updatePID();
 }
 
 bool Shooter::isShooterUp() {
@@ -81,8 +89,19 @@ double Shooter::getDesiredSpeed(){
 }
 
 bool Shooter::isAtSpeed() {
-	return getCurrentSpeed() < getDesiredSpeed() + shooterSpeedTolerance &&
-			getCurrentSpeed() > getDesiredSpeed() - shooterSpeedTolerance;
+	float tolerance = isShooterUp()?SHOOTER_UP_TOLERANCE:SHOOTER_DOWN_TOLERANCE;
+	return getCurrentSpeed() < getDesiredSpeed() + tolerance &&
+			getCurrentSpeed() > getDesiredSpeed() - tolerance;
 }
 
-
+void Shooter::updatePID() {
+	if (isShooterUp()) {
+		GetController()->SetPID(SHOOTER_UP_P, SHOOTER_UP_I, SHOOTER_UP_D);
+		setSpeed(SHOOTER_UP_SPEED);
+	} else {
+		GetController()->SetPID(SHOOTER_DOWN_P, SHOOTER_DOWN_I, SHOOTER_DOWN_D);
+		setSpeed(SHOOTER_DOWN_SPEED);
+	}
+	//printf("Shooter P, I, D: %f, %f, %f \n", GetController()->GetP(), GetController()->GetI(), GetController()->GetD());
+	
+}

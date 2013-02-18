@@ -4,21 +4,20 @@
 
 
 DeadmanCommand::DeadmanCommand(const char *name) : CommandBase(name){
-	firstRun = true;
 	commandName = name;
+	interrupted = false;
 }
 
 DeadmanCommand::~DeadmanCommand(){}
 	
 void DeadmanCommand::Execute(){
 	if(oi->GetDeadMan1() && oi->GetDeadMan2()){
-		//if(firstRun) 
-			printf("Deadman Command Name - Execute %s \n", commandName);
-		
-		firstRun = false;
+		printf("Deadman Command Name - Execute %s \n", commandName);
+		interrupted = false;
 		DeadmanExecute();
 	}
-	else{
+	else if (!interrupted) {
+		interrupted = true;
 		DeadmanInterrupt();
 		printf("Deadman Command Name - Interupt %s \n", commandName);
 	}

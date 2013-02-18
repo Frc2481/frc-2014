@@ -10,7 +10,8 @@
 #include "Subsystems/ClimbingHooks.h"
 #include "Subsystems/Arm.h"
 #include "Subsystems/RobotLift.h"
-
+#include "Subsystems/Lights.h"
+#include "RobotParameters.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -31,6 +32,7 @@ public:
 	static ClimbingHooks *climbingHooks;
 	static Arm *climbingArm;
 	static RobotLift *robotLift;
+	static Lights *lights;
 };
 
 #endif

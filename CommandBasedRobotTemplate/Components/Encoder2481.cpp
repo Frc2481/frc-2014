@@ -11,41 +11,34 @@
 Encoder2481::Encoder2481(UINT32 channel){
 	pulseCounter = new Counter(channel);
 	pulseCounter->Start();
-	speedTotal = 0;
-	counter = 0;
-	rpm = 0;
+	averageRPM = 0;
+	memset(speedArray, 0, 9 * sizeof(float));
+	speedArrayIndex = 0;
 }
 
 Encoder2481::~Encoder2481() {
 	delete pulseCounter;
 }
 
-float Encoder2481::GetPeriod() {
-	float currentPeriod = 0;
+float Encoder2481::GetAveragePeriod() {
+	float currentPeriod = (1 / (pulseCounter->GetPeriod())) * 60;
 	
-	currentPeriod = (1 / (pulseCounter->GetPeriod())) * 60;
-	
-	if (currentPeriod > 10000) currentPeriod = 0; // handle inf
-	
-	speedTotal += currentPeriod;
-	counter ++;
-	
-	if (counter == 9){
-		rpm = speedTotal / counter;
-		speedTotal = 0;
-		counter = 0;
+	if (currentPeriod > 500 && currentPeriod < 6000) {
+		averageRPM = (averageRPM * 9) - speedArray[speedArrayIndex];
+		speedArray[speedArrayIndex++] = currentPeriod;
+		speedArrayIndex = speedArrayIndex % 10;
+		averageRPM = (averageRPM + currentPeriod) / 9;
 	}
-
-	return rpm;
+	return averageRPM;
 }
 
 double Encoder2481::PIDGet() {
 	//printf("PulseCounter: %d", pulseCounter->Get());
-	return GetPeriod(); 
+	return GetAveragePeriod(); 
 }
 void Encoder2481::UpdateTable(){
 	if (m_table != NULL) {
-	        m_table->PutNumber("Speed", GetPeriod());
+	        m_table->PutNumber("Speed", GetAveragePeriod());
 		}
 }
 void Encoder2481::InitTable(ITable *subTable) {

@@ -11,10 +11,15 @@
 #include "../Components/DeadmanCommand.h"
 
 class TiltArmBackwardCommand : public DeadmanCommand{
+private:
+	bool mManual;
 public:
-	TiltArmBackwardCommand() : DeadmanCommand("TiltArmBackwardCommand"){}
+	TiltArmBackwardCommand(bool manual=false) : DeadmanCommand("TiltArmBackwardCommand"), mManual(manual){}
 	virtual ~TiltArmBackwardCommand(){}
-	void Initialize(){}
+	void Initialize(){
+		if (mManual)
+			climbingArm->tiltBackward();
+	}
 	bool IsFinished(){
 		return !climbingArm->isTilted();
 	}

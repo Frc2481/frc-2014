@@ -400,6 +400,7 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../Components/FPSDrive.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/Shooter.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../Components/DynamicPIDSubsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../Components/Encoder2481.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h \
@@ -407,6 +408,7 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../RobotParameters.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../OI.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Components/Joystick2481.h \
@@ -420,7 +422,11 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/AirCompressor.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/ClimbingHooks.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/Arm.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/RobotLift.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/RobotLift.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/Lights.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../Components/RGBLed.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../RobotMap.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../RobotParameters.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ArmPositionCommandBase.h:
 
@@ -1220,6 +1226,8 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Compone
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/Shooter.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../Components/DynamicPIDSubsystem.h:
+
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../Components/Encoder2481.h:
@@ -1233,6 +1241,8 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h:
 C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../RobotParameters.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../OI.h:
 
@@ -1261,3 +1271,11 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Compone
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/Arm.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/RobotLift.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/Lights.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../Components/RGBLed.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../RobotMap.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../RobotParameters.h:

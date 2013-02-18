@@ -1,6 +1,7 @@
 #include "DriveTrain.h"
 #include "../Commands/DriveWithJoystickCommand.h"
 #include "../Robotmap.h"
+#include <math.h>
 
 #define DISTANCE_PER_PULSE 2.31792417968 / 360.0
 
@@ -34,8 +35,8 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	//fpsDrive = new FPSDrive();
 	fpsTurnAxis = 0;
 	driveType = 0; // 0 = tank, 1 = arcade, 2 = FPS. Note, for FPS drive the leftStick will likely need to be the x instead of y axis in CommandBase.cpp
-	leftPID = new PIDController(1, 0, 0, leftEncoder, leftMotor);
-	rightPID = new PIDController(1, 0, 0, rightEncoder, rightMotor);
+	leftPID = new PIDController(6, 0, 0, leftEncoder, leftMotor);
+	rightPID = new PIDController(6, 0, 0, rightEncoder, rightMotor);
 //	
 	leftPID->Disable();
 	rightPID->Disable();
@@ -119,11 +120,11 @@ void DriveTrain::Periodic() {
 	shifterL->Run();
 	shifterR->Run();
 	
-	if ((rightEncoder->GetRate() + leftEncoder->GetRate())/2 > shiftUpThreshold) {
+	if ((fabs(rightEncoder->GetRate()) + fabs(leftEncoder->GetRate()))/2 > shiftUpThreshold) {
 		shifterR->ShiftUp();
 		shifterL->ShiftUp();
 	}
-	else if ((rightEncoder->GetRate() + leftEncoder->GetRate())/2 < shiftDownThreshold) {
+	else if (fabs((rightEncoder->GetRate()) + fabs(leftEncoder->GetRate()))/2 < shiftDownThreshold) {
 		shifterR->ShiftDown();
 		shifterL->ShiftDown();
 	}
@@ -152,6 +153,8 @@ void DriveTrain::SetPID(float leftSetpoint, float rightSetpoint){
 	rightPID->SetSetpoint(rightSetpoint);
 }
 bool DriveTrain::IsPIDAtDistance(){
+	printf("Right: %f Left: %f\n", rightPID->Get(), leftPID->Get());
+	printf("Right-D: %f Left-D: %f\n", rightEncoder->GetDistance(), leftEncoder->GetDistance());
 	if (rightPID->Get() < rightPID->GetSetpoint() + tolerance && 
 		rightPID->Get() > rightPID->GetSetpoint() - tolerance &&
 		leftPID->Get() < leftPID->GetSetpoint() + tolerance && 

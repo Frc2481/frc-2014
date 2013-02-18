@@ -16,19 +16,22 @@
 #include "SafeUnlatchCommand.h"
 #include "TiltArmBackwardCommand.h"
 #include "TiltArmForwardCommand.h"
+#include "ClimbStepCommand.h"
+#include "HighRungArmPositionCommand.h"
 
 class ClimbOneLevel: public CommandGroup {
 public:
 	ClimbOneLevel() : CommandGroup(){
 		AddSequential(new FullyExtendArmPositionCommand());
-		AddParallel(new TiltArmForwardCommand());
-		AddSequential(new WaitCommand(1));
+		AddSequential(new TiltArmForwardCommand());
+		AddSequential(new HighRungArmPositionCommand());
+		AddSequential(new ClimbStepCommand);
 		
 		AddParallel(new SafeUnlatchCommand());
 		
 		AddSequential(new FullyRetractArmPositionCommand());
 		AddParallel(new LatchCommand());
-		AddSequential(new WaitCommand(.5));
+		AddSequential(new ClimbStepCommand());
 		
 	}
 	virtual ~ClimbOneLevel(){}

@@ -9,7 +9,7 @@
 #include "../Components/DeadmanCommand.h"
 
 ArmPositionCommandBase::ArmPositionCommandBase(float position, const char * name) : DeadmanCommand(name) {
-	Requires(climbingArm);
+	//DO NOT Require(climbingArm)
 	armPosition = position;
 	childCommandType = (char*)name;
 }

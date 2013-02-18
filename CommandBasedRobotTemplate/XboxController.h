@@ -24,7 +24,7 @@ public:
 	static const UINT32 XboxController::xbXButton;
 	static const UINT32 XboxController::xbYButton;
 	static const UINT32 XboxController::xbStartButton;
-	static const UINT32 XboxController::xbSelectButton;
+	static const UINT32 XboxController::xbBackButton;
 	static const UINT32 XboxController::xbRightBumper;
 	static const UINT32 XboxController::xbLeftBumper;
 	static const UINT32 XboxController::xbRightStickCLick;

@@ -11,8 +11,8 @@
 
 class DeadmanCommand : public CommandBase{
 	const char *commandName;
-	bool firstRun;
 	bool autoCommand;
+	bool interrupted;
 public:
 	DeadmanCommand(const char *name);
 	virtual ~DeadmanCommand();
