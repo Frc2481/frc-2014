@@ -6,6 +6,7 @@
  */
 
 #include "Shooter.h"
+#include <math.h>
 
 float Shooter::shooterSpeedTolerance = SHOOTER_UP_TOLERANCE;
 double Shooter::pValue = SHOOTER_UP_P;
@@ -24,6 +25,7 @@ Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChan
 	SetSetpoint(autoSpeed);
 	//SetPercentTolerance(5);
 	SetAbsoluteTolerance(shooterSpeedTolerance / 2.0);
+	GetController()->SetOutputRange(0,1);
 }
 
 Shooter::~Shooter() {
@@ -37,7 +39,7 @@ void Shooter::setSpeed(double speed){
 }
 void Shooter::turnOn(){
 	printf("Speed: %f \n", GetSetpoint());
-	updatePID();
+	//updatePID();
 	this->Enable();
 	shooterState = 1;
 	
@@ -45,19 +47,21 @@ void Shooter::turnOn(){
 void Shooter::turnOff(){
 	this->Disable();
 	shooterState = 0;
+	shooterEncoder->resetAverage();
 }
 double Shooter::ReturnPIDInput(){
 	//SmartDashboard::PutBoolean("Shooter Encoder" , shooterEncoder->getIO());
 	double pid = shooterEncoder->GetAveragePeriod();
 	
 	SmartDashboard::PutNumber("Shooter Encoder PID" , pid);
-	//printf("PID In: %f\n", pid);
-	//printf("I Value: %f \n",GetController()->GetI());
+	printf("PID In: %f\n", pid);
+	printf("P Value: %f \n",GetController()->GetP());
+	printf("I Value: %f \n",GetController()->GetI());
 	return pid;
 }
 void Shooter::UsePIDOutput(double output){
-	//printf("PID Out: %f\n", output);
-	shooterMotor->Set((float)-output);
+	printf("PID Out: %f\n", output);
+	shooterMotor->Set((float) -output);
 	//shooterMotor->Set(.5);
 }
 
@@ -94,13 +98,23 @@ bool Shooter::isAtSpeed() {
 			getCurrentSpeed() > getDesiredSpeed() - tolerance;
 }
 
+float Shooter::getErrorRPM() {
+	return fabs(getCurrentSpeed() - getDesiredSpeed());
+}
+
+float Shooter::getTollerance() {
+	return isShooterUp()?SHOOTER_UP_TOLERANCE:SHOOTER_DOWN_TOLERANCE;
+}
+
 void Shooter::updatePID() {
 	if (isShooterUp()) {
 		GetController()->SetPID(SHOOTER_UP_P, SHOOTER_UP_I, SHOOTER_UP_D);
+		GetController()->SetOutputRange(0,1);
 		setSpeed(SHOOTER_UP_SPEED);
 	} else {
 		GetController()->SetPID(SHOOTER_DOWN_P, SHOOTER_DOWN_I, SHOOTER_DOWN_D);
 		setSpeed(SHOOTER_DOWN_SPEED);
+		GetController()->SetOutputRange(-0.1,0.5);
 	}
 	//printf("Shooter P, I, D: %f, %f, %f \n", GetController()->GetP(), GetController()->GetI(), GetController()->GetD());
 	

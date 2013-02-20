@@ -13,6 +13,7 @@
 #include "CounterBase.h"
 #include "LiveWindow/LiveWindowSendable.h"
 #include "SensorBase.h"
+#include "../RobotParameters.h"
 
 class Encoder2481 : public PIDSource, public LiveWindowSendable, public SensorBase {
 private:
@@ -20,9 +21,9 @@ private:
 	ITable *m_table;
 	float speedTotal;
 	int counter;
-	float averageRPM;
+	float total;
 	float prevPeriod;
-	float speedArray[9];
+	float speedArray[SHOOTER_AVERAGE_SAMPLES];
 	int speedArrayIndex;
 public:
 	Encoder2481(UINT32 channel);
@@ -35,6 +36,7 @@ public:
 	void StopLiveWindowMode();
 	ITable* GetTable();
 	std::string GetSmartDashboardType();
+	void resetAverage();
 };
 
 #endif /* ENCODER2481_H_ */

@@ -9,12 +9,15 @@
 #define FIREDISCCOMMAND_H_
 
 #include "../CommandBase.h"
+#include "FireInterruptedCommand.h"
 
 class FireDiscCommand: public CommandBase {
 private:
+	FireInterruptedCommand *fireInterruptCmd;
 	bool hasFired;
 public:
 	FireDiscCommand(){
+		fireInterruptCmd = new FireInterruptedCommand();
 		Requires(shooter);
 		Requires(hopper);
 	}
@@ -22,25 +25,24 @@ public:
 	virtual void Initialize(){
 		hasFired = false;
 		airCompressor->Stop();
-		SetInterruptible(true);
+		//SetInterruptible(true);
 	}
 	virtual void Execute(){
 		if (shooter->isAtSpeed()) {
 			hopper->Load();
 			hasFired = true;
-			SetTimeout(HOPPER_EXTEND_TIME);
-			SetInterruptible(false);
+			//SetInterruptible(false);
 		}
 	}
 	virtual bool IsFinished(){
-		return hasFired && IsTimedOut();
+		return hasFired;
 	}
 	virtual void End(){
-		airCompressor->Start();
-		hopper->Retract();
+			fireInterruptCmd->Start();
 	}
 	virtual void Interrupted(){
-		End();
+		//End();
+			fireInterruptCmd->Start();
 	}
 };
 

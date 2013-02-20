@@ -44,6 +44,8 @@ public:
 	float getCurrentSpeed();
 	double getDesiredSpeed();
 	void updatePID();
+	float getErrorRPM();
+	float getTollerance();
 };
 
 #endif /* SHOOTER_H_ */
