@@ -20,7 +20,7 @@ public:
 	virtual void End(){}
 	virtual void Interrupted(){}
 	bool IsFinished(){
-		return oi->GetShooterStick()->GetRawButton(XboxController::xbStartButton);
+		return oi->GetShooterStick()->GetRawButton(XboxController::xbBackButton);
 	}
 };
 

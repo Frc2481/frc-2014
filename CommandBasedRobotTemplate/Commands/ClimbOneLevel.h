@@ -18,19 +18,30 @@
 #include "TiltArmForwardCommand.h"
 #include "ClimbStepCommand.h"
 #include "HighRungArmPositionCommand.h"
+#include "SetLightsCommand.h"
 
 class ClimbOneLevel: public CommandGroup {
 public:
 	ClimbOneLevel() : CommandGroup(){
+		//yellow
+		AddParallel(new SetLightsCommand(1,1,0));
+		
 		AddSequential(new FullyExtendArmPositionCommand());
 		AddSequential(new TiltArmForwardCommand());
 		AddSequential(new HighRungArmPositionCommand());
+		//red
+		AddParallel(new SetLightsCommand(1,0,0));
+		
 		AddSequential(new ClimbStepCommand);
+		//teal
+		AddParallel(new SetLightsCommand(0,1,1));
 		
 		AddParallel(new SafeUnlatchCommand());
-		
 		AddSequential(new FullyRetractArmPositionCommand());
 		AddParallel(new LatchCommand());
+		//red
+		AddParallel(new SetLightsCommand(1,0,0));
+		
 		AddSequential(new ClimbStepCommand());
 		
 	}

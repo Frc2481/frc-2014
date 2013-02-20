@@ -15,26 +15,32 @@
 #include "UnlatchCommand.h"
 #include "SafeUnlatchCommand.h"
 #include "FirstRungPositionArmCommand.h"
+#include "SetLightsCommand.h"
 
 class ClimbFirstLevel: public CommandGroup {
 public:
 	ClimbFirstLevel() : CommandGroup(){
+	//purple
+	AddParallel(new SetLightsCommand(1,0,1));
+	
 	AddSequential(new TiltArmBackwardCommand());
 	AddSequential(new UnlatchCommand());
 	AddSequential(new FirstRungArmPositionCommand());
-	
-	//Lift and give time for the robot to lift before
-	//climbing on to the first rung.
 	AddParallel(new LiftRobotCommand());
+	//red
+	AddParallel(new SetLightsCommand(1,0,0));
+	
 	AddSequential(new ClimbStepCommand());
+	//white
+	AddParallel(new SetLightsCommand(1,1,1));
 	
 	AddSequential(new FullyRetractArmPositionCommand());
-	
-	//Latch and give time for the hooks to latch
-	//before continuing.
 	AddParallel(new LatchCommand());
-	AddSequential(new ClimbStepCommand());
 	AddSequential(new LowerRobotCommand());
+	//red
+	AddParallel(new SetLightsCommand(1,0,0));
+	
+	AddSequential(new ClimbStepCommand());
 	}
 	virtual ~ClimbFirstLevel() {}
 };
