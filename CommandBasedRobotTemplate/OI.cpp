@@ -19,15 +19,34 @@
 #include "Commands/ToggleHopperLidCommand.h"
 #include "Commands/DeadmanTestCommandGroup.h"
 #include "Commands/SetLightsCommand.h"
-
+#include "Commands/CycleBottomLightsCommand.h"
+#include "Commands/CycleTopLightsCommand.h"
+#include "Commands/FineTuneToggle.h"
+#include "Commands/SetPCommand.h"
+#include "Commands/SetICommand.h"
 
 OI::OI() {
 	// Process operator interface input here.
 	driverStick = new Joystick2481(DRIVER_STICK_PORT);
 	shooterStick = new Joystick2481(SHOOTER_STICK_PORT);
+	pidTuneStick = new Joystick2481(PID_STICK_PORT);
+	
+	pUpButton = new JoystickButton(pidTuneStick, XboxController::xbAButton);
+	pUpButton->WhenPressed(new SetPCommand(true));
+	pDownButton = new JoystickButton(pidTuneStick, XboxController::xbBButton);
+	pDownButton->WhenPressed(new SetPCommand(false));
+	
+	iUpButton = new JoystickButton(pidTuneStick, XboxController::xbXButton);
+	iUpButton->WhenPressed(new SetICommand(true));
+	iDownButton = new JoystickButton(pidTuneStick, XboxController::xbYButton);
+	iDownButton->WhenPressed(new SetICommand(false));
+	
 	
 	enableShiftButton = new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -0.5); //TODO change button argument to desired button
 	enableShiftButton->WhileHeld(new EnableShiftCommand());
+	
+	toggleFineTuneButton = new AnalogJoystickButton(driverStick, XboxController::xbZAxis, 0.5);
+	toggleFineTuneButton->WhileHeld(new FineTuneToggle());
 	
 	fireDiscButton = new AnalogJoystickButton(shooterStick, XboxController::xbZAxis, -0.5);
 	//fireDiscButton->WhileHeld(new FireDiscCommandGroup());
@@ -78,14 +97,14 @@ OI::OI() {
 	hopperLidToggleButton = new JoystickButton(shooterStick, XboxController::xbLeftBumper);
 	hopperLidToggleButton->WhenPressed(new ToggleHopperLidCommand());
 	
-	redLightsButton = new JoystickButton(driverStick, XboxController::xbBButton);
-	redLightsButton->WhenPressed(new SetLightsCommand(1));
+	cycleBottomLightsButton = new JoystickButton(driverStick, XboxController::xbBButton);
+	cycleBottomLightsButton->WhenPressed(new CycleBottomLightsCommand());
 	
-	greenLightsButton = new JoystickButton(driverStick, XboxController::xbAButton);
-	greenLightsButton->WhenPressed(new SetLightsCommand(2));
+	cycleTopLightsButton = new JoystickButton(driverStick, XboxController::xbAButton);
+	cycleTopLightsButton->WhenPressed(new CycleTopLightsCommand());
 	
-	blueLightsButton = new JoystickButton(driverStick, XboxController::xbXButton);
-	blueLightsButton->WhenPressed(new SetLightsCommand(4));
+	//blueLightsButton = new JoystickButton(driverStick, XboxController::xbXButton);
+	//blueLightsButton->WhenPressed(new SetLightsCommand(4));
 }
 
 
@@ -97,9 +116,11 @@ Joystick* OI::GetShooterStick() {
 }
 
 bool OI::GetDeadMan1() {
-	return driverStick->GetRawButton(XboxController::xbBackButton);
+	return 1;
+	//return driverStick->GetRawButton(XboxController::xbBackButton);
 }
 
 bool OI::GetDeadMan2() {
-	return shooterStick->GetRawButton(XboxController::xbBackButton);
+	return 1;
+	//return shooterStick->GetRawButton(XboxController::xbBackButton);
 }

@@ -10,8 +10,10 @@ class OI {
 private:
 	static const int DRIVER_STICK_PORT = 1;
 	static const int SHOOTER_STICK_PORT = 2;
+	static const int PID_STICK_PORT = 3;
 	Joystick2481 *driverStick;
 	Joystick2481 *shooterStick;
+	Joystick2481 *pidTuneStick;
 	AnalogJoystickButton *enableShiftButton;
 	AnalogJoystickButton *fireDiscButton;
 	AnalogJoystickButton *manualArmExtendButton;
@@ -28,10 +30,16 @@ private:
 	AnalogJoystickButton *tiltArmBackwardButton;	
 	AnalogJoystickButton *toggleShooterPositionButton;
 	JoystickButton *hopperLidToggleButton;
-	JoystickButton *redLightsButton;
-	JoystickButton *greenLightsButton;
+	JoystickButton *cycleTopLightsButton;
+	JoystickButton *cycleBottomLightsButton;
 	JoystickButton *blueLightsButton;
 	JoystickButton *toggleHooksButton;
+	AnalogJoystickButton *toggleFineTuneButton;
+	JoystickButton *pUpButton;
+	JoystickButton *pDownButton;
+	JoystickButton *iUpButton;
+	JoystickButton *iDownButton;
+	
 	
 public:
 	OI();

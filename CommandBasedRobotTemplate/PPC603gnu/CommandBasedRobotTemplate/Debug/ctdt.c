@@ -33,9 +33,9 @@ void _GLOBAL__I__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid();
 
 void _GLOBAL__I__ZN22ArmPositionCommandBaseC2EfPKc();
 
-void _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev();
+void _GLOBAL__I__ZN24CycleBottomLightsCommand5colorE();
 
-void _GLOBAL__I__ZN2OIC2Ev();
+void _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev();
 
 void _GLOBAL__I__ZN3Arm12speedRatioUpE();
 
@@ -113,8 +113,8 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN20ShifterUpdateCommandC2Ev,
     _GLOBAL__I__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid,
     _GLOBAL__I__ZN22ArmPositionCommandBaseC2EfPKc,
+    _GLOBAL__I__ZN24CycleBottomLightsCommand5colorE,
     _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev,
-    _GLOBAL__I__ZN2OIC2Ev,
     _GLOBAL__I__ZN3Arm12speedRatioUpE,
     _GLOBAL__I__ZN6LightsC2Ev,
     _GLOBAL__I__ZN6RGBLedC2Ejjjj,
@@ -174,9 +174,9 @@ void _GLOBAL__D__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid();
 
 void _GLOBAL__D__ZN22ArmPositionCommandBaseC2EfPKc();
 
-void _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev();
+void _GLOBAL__D__ZN24CycleBottomLightsCommand5colorE();
 
-void _GLOBAL__D__ZN2OIC2Ev();
+void _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev();
 
 void _GLOBAL__D__ZN3Arm12speedRatioUpE();
 
@@ -244,8 +244,8 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN20ShifterUpdateCommandC2Ev,
     _GLOBAL__D__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid,
     _GLOBAL__D__ZN22ArmPositionCommandBaseC2EfPKc,
+    _GLOBAL__D__ZN24CycleBottomLightsCommand5colorE,
     _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev,
-    _GLOBAL__D__ZN2OIC2Ev,
     _GLOBAL__D__ZN3Arm12speedRatioUpE,
     _GLOBAL__D__ZN6LightsC2Ev,
     _GLOBAL__D__ZN6RGBLedC2Ejjjj,

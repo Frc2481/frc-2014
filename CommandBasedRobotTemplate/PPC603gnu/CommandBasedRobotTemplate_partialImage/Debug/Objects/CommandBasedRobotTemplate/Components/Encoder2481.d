@@ -136,6 +136,7 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../RobotParameters.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/ErrorBase.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/Encoder2481.h:
@@ -407,5 +408,7 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h:
 C:/WindRiver/vxworks-6.3/target/h/WPILib/LiveWindow/LiveWindowSendable.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../RobotParameters.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/ErrorBase.h:
