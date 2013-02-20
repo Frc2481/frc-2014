@@ -78,12 +78,12 @@ void Arm::run() {
 	//printf("Position %f \n \n", getCurrentPosition());
 }
 void Arm::tiltForward(){
-	armTiltSolenoid->Set(0);
+	armTiltSolenoid->Set(1);
 }
 void Arm::tiltBackward(){
-	armTiltSolenoid->Set(1);
+	armTiltSolenoid->Set(0);
 }
 
 bool Arm::isTilted() {
-	return !armTiltSolenoid->Get();
+	return armTiltSolenoid->Get();
 }

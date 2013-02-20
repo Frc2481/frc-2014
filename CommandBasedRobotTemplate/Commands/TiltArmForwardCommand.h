@@ -14,12 +14,13 @@ class TiltArmForwardCommand: public DeadmanCommand {
 private:
 	bool mManual;
 public:
-	TiltArmForwardCommand(bool manual=false) : DeadmanCommand("TiltArmForwardCommand"), mManual(manual) {}
+	TiltArmForwardCommand(bool manual=false) : DeadmanCommand("TiltArmForwardCommand"), mManual(manual) {
+		SetTimeout(1);
+	}
 	virtual ~TiltArmForwardCommand(){}
 	void Initialize(){
 		if (mManual) {
 			climbingArm->tiltForward();
-			SetTimeout(1);
 		}	
 	}
 	void DeadmanExecute(){

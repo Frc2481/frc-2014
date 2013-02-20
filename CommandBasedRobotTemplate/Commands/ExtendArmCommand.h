@@ -13,7 +13,7 @@
 class ExtendArmCommand: public CommandBase {
 public:
 	ExtendArmCommand() {
-		Requires(climbingArm);
+		//Requires(climbingArm);
 	}
 	virtual ~ExtendArmCommand() {
 		

@@ -28,6 +28,7 @@ bool ArmPositionCommandBase::IsFinished(){
 }
 void ArmPositionCommandBase::End(){
 	climbingArm->stopArm();
+	printf("end %s \n", childCommandType);
 }
 void ArmPositionCommandBase::Interrupted(){
 	End();
