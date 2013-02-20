@@ -44,6 +44,7 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	rightPID->SetTolerance(tolerance);
 	leftEncoder->SetPIDSourceParameter(Encoder::kDistance);
 	rightEncoder->SetPIDSourceParameter(Encoder::kDistance);
+	isFineTuneSpeed = false;
 	
 }
 DriveTrain::~DriveTrain(){
@@ -91,10 +92,27 @@ void DriveTrain::SetShiftEnabled(bool state) {
 	shifterL->SetEnabled(state);
 	shifterR->SetEnabled(state);
 }
+
+void DriveTrain::SetFineTuned(bool isFine) {
+	isFineTuneSpeed = isFine;
+}
+
+bool DriveTrain::IsFineTuned() {
+	return isFineTuneSpeed;
+}
+
 void DriveTrain::DriveWithJoystick(Joystick *stick) {
 	//drive->ArcadeDrive(stick);
+	float leftAxisValue = stick->GetRawAxis(leftDriveAxis);
+	float rightAxisValue = stick->GetRawAxis(rightDriveAxis);
 	if (driveType == 0){
-		drive->TankDrive(stick, leftDriveAxis, stick, rightDriveAxis);
+		if (isFineTuneSpeed) {
+			drive->TankDrive(leftAxisValue * DRIVE_FINE_SPEED_FACTOR, rightAxisValue * DRIVE_FINE_SPEED_FACTOR);
+		}
+		else {
+			drive->TankDrive(leftAxisValue, rightAxisValue);
+		}
+		
 	}
 	if (driveType == 1){
 		drive->ArcadeDrive(stick, rightDriveAxis);
@@ -119,7 +137,7 @@ void DriveTrain::Periodic() {
 	SmartDashboard::PutNumber("ArmSensorValue", CommandBase::climbingArm->getCurrentPosition());
 	shifterL->Run();
 	shifterR->Run();
-	
+	/*
 	if ((fabs(rightEncoder->GetRate()) + fabs(leftEncoder->GetRate()))/2 > shiftUpThreshold) {
 		shifterR->ShiftUp();
 		shifterL->ShiftUp();
@@ -127,7 +145,7 @@ void DriveTrain::Periodic() {
 	else if (fabs((rightEncoder->GetRate()) + fabs(leftEncoder->GetRate()))/2 < shiftDownThreshold) {
 		shifterR->ShiftDown();
 		shifterL->ShiftDown();
-	}
+	}*/
 }
 void DriveTrain::SetLeftDriveAxis(UINT32 leftAxis){
 	leftDriveAxis = leftAxis;

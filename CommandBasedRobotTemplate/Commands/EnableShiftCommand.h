@@ -13,6 +13,7 @@ public:
 	EnableShiftCommand() : CommandBase("EnableShiftCommand") {}
 	void Initialize() {
 		driveTrain->SetShiftEnabled(true);
+		driveTrain->ShiftUp();
 	}
 	void Execute(){}
 	bool IsFinished() {
@@ -21,6 +22,7 @@ public:
 	void End() {}
 	void Interrupted() {
 		driveTrain->SetShiftEnabled(false);
+		driveTrain->ShiftDown();
 	}
 };
 
