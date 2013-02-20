@@ -20,8 +20,8 @@ private:
 public:
 	Lights();
 	virtual ~Lights();
-	void setTop(int c);
-	void setBottom(int c);
+	void setTop(bool r, bool g, bool b);
+	void setBottom(bool r, bool g, bool b);
 	int getTop();
 	int getBottom();
 };

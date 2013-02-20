@@ -17,12 +17,13 @@ Lights::~Lights() {
 	delete mBottom;
 }
 
-void Lights::setTop(int c) {
-	mTop->set(c);
+void Lights::setTop(bool r, bool g, bool b) {
+	mTop->set(r,g,b);
+	
 }
 
-void Lights::setBottom(int c) {
-	mBottom->set(c);
+void Lights::setBottom(bool r, bool g, bool b) {
+	mBottom->set(r,g,b);
 }
 
 int Lights::getTop() {

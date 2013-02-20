@@ -13,7 +13,7 @@ private:
 public:
 	RGBLed(UINT32 r, UINT32 g, UINT32 b, UINT32 m = 1);
 	virtual ~RGBLed();
-	void set(int c);
+	void set(bool r, bool g, bool b);
 	int get();
 };
 #endif

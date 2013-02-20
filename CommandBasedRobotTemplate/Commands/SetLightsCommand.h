@@ -13,12 +13,18 @@
 class SetLightsCommand: public CommandBase {
 private:
 	int color;
+	bool r,g,b;
 public:
-	SetLightsCommand(int c) : color(c){}
+	SetLightsCommand(bool R, bool G, bool B){
+		r = R;
+		g = G;
+		b = B;
+		Requires(lights);
+	}
 	virtual ~SetLightsCommand(){}
 	void Initialize(){
-		lights->setBottom(color);
-		lights->setTop(color);
+		lights->setBottom(r, g, b);
+		lights->setTop(r, g, b);
 	}
 	void Execute(){
 	}

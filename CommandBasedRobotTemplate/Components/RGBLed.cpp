@@ -11,8 +11,8 @@ RGBLed::~RGBLed(){
 	delete mGreen;
 	delete mBlue;
 }
-void RGBLed::set(int c){
-	mColor = c;
+void RGBLed::set(bool r, bool g, bool b){
+	/*mColor = c;
 	int r, g, b;
 	switch (mColor) {
 	case 0:
@@ -46,8 +46,10 @@ void RGBLed::set(int c){
 		r = g = b = 1;
 		break;
 	}
+	g = !(bool)g;*/
+	
 	mRed->Set(r);
-	mGreen->Set(g);
+	mGreen->Set(!g);
 	mBlue->Set(b);
 	
 }
