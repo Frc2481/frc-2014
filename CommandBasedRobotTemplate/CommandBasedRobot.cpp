@@ -22,7 +22,7 @@ private:
 	LiveWindow *lw;
 	AutonomousCommandGroup *autoCommand;
 	SendableChooser *autoDelayOptions;
-	SendableChooser *allianceColour;
+	//SendableChooser *allianceColour;
 	UpdateLightsCommand *updateLightsCommand;
 	
 	virtual void RobotInit() {
@@ -37,7 +37,7 @@ private:
 		autoDelayOptions->AddObject("4 seconds", (void*)4);
 		autoDelayOptions->AddObject("5 seconds", (void*)5);
 		SmartDashboard::PutData("Autonomous Delay Options", autoDelayOptions);
-		allianceColour->AddDefault("auto", (void*)0);
+		/*allianceColour->AddDefault("auto", (void*)0);
 		allianceColour->AddObject("red", (void*)1);
 		allianceColour->AddObject("green", (void*)2);
 		allianceColour->AddObject("blue", (void*)3);
@@ -45,7 +45,7 @@ private:
 		allianceColour->AddObject("purple", (void*)5);
 		allianceColour->AddObject("teal", (void*)6);
 		allianceColour->AddObject("white", (void*)7);
-		SmartDashboard::PutData("Alliance Colour", allianceColour);
+		SmartDashboard::PutData("Alliance Colour", allianceColour);*/
 		SmartDashboard::PutData("ShifterUpdateCommand", new ShifterUpdateCommand());
 		SmartDashboard::PutData(CommandBase::driveTrain);
 		//SmartDashboard::PutData(CommandBase::climbingArm);
@@ -61,6 +61,7 @@ private:
 		//SmartDashboard::PutData("Shooter", CommandBase::shooter);
 		//SmartDashboard::PutData("SafeUnlatch", new SafeUnlatchCommand());
 		//lw->AddActuator("Shooter", "Shooter", CommandBase::shooter);
+		updateLightsCommand = new UpdateLightsCommand(0);
 		autoCommand = 0;
 	}
 	
@@ -82,7 +83,7 @@ private:
 		if (autoCommand){
 			autoCommand->Cancel();
 		}
-		updateLightsCommand = new UpdateLightsCommand((int)allianceColour->GetSelected());
+		//updateLightsCommand = new UpdateLightsCommand(0);//(int)allianceColour->GetSelected());
 		updateLightsCommand->Start();
 		shifterUpdateCommand->Start();
 	}
