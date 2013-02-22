@@ -464,6 +464,7 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireInterruptedCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RandomLightsCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutonomousCommandGroup.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/DriveForwardCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/DriveCommandBase.h \
@@ -1399,6 +1400,8 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCo
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireInterruptedCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RandomLightsCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutonomousCommandGroup.h:
 

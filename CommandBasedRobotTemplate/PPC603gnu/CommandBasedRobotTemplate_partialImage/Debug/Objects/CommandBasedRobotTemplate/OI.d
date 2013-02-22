@@ -433,6 +433,7 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RetractHopperCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireInterruptedCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ExtendArmCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RetractArmCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLatchCommand.h \
@@ -459,8 +460,8 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterOffCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LowerShooterCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommandGroup.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RandomLightsCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLiftCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterToggleCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SpeedUpShooterCommand.h \
@@ -478,7 +479,8 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/CycleTopLightsCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FineTuneToggle.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetPCommand.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetICommand.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetICommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
 
@@ -1344,6 +1346,8 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCo
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireInterruptedCommand.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommand.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ExtendArmCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RetractArmCommand.h:
@@ -1396,9 +1400,9 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LowerShoot
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommandGroup.h:
 
-C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommand.h:
-
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/RandomLightsCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleLiftCommand.h:
 
@@ -1435,3 +1439,5 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FineTuneTo
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetPCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetICommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h:

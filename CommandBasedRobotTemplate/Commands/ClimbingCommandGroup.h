@@ -26,6 +26,7 @@
 #include "FireDiscCommand.h"
 #include "SetLightsCommand.h"
 #include "RandomLightsCommand.h"
+#include "AutoFireCommandGroup.h"
 class ClimbingCommandGroup: public CommandGroup {
 private:
 	bool haveRun;
@@ -36,45 +37,10 @@ public:
 		AddSequential(new ShooterOffCommand());
 		AddSequential(new ClimbFirstLevel());
 		AddSequential(new ClimbOneLevel());
-		AddSequential(new ClimbOneLevel());	
+		AddSequential(new ClimbOneLevel());
+		AddSequential(new AutoFireCommandGroup());
 		//green
-		AddParallel(new SetLightsCommand(0,1,0));
 		
-		AddSequential(new ShooterOnCommand());
-		AddSequential(new WaitCommand(3));
-		//red
-		AddParallel(new SetLightsCommand(1,0,0));
-		
-		AddSequential(new FireDiscCommand());
-		//blue
-		AddParallel(new SetLightsCommand(0,0,1));
-		
-		AddSequential(new WaitCommand(2));
-		//red
-		AddParallel(new SetLightsCommand(1,0,0));
-		
-		AddSequential(new FireDiscCommand());
-		//purple
-		AddParallel(new SetLightsCommand(1,0,1));
-		
-		AddSequential(new WaitCommand(2));
-		//red
-		AddParallel(new SetLightsCommand(1,0,0));
-		
-		AddSequential(new FireDiscCommand());
-		//yellow
-		AddParallel(new SetLightsCommand(1,1,0));
-		
-		AddSequential(new WaitCommand(2));
-		//red
-		AddParallel(new SetLightsCommand(1,0,0));
-		
-		AddSequential(new FireDiscCommand());
-		//teal
-		AddParallel(new SetLightsCommand(0,1,1));
-		
-		AddSequential(new ShooterOffCommand());
-		AddParallel(new RandomLightsCommand());
 		
 		/*AddSequential(new UnlatchCommand());
 		AddSequential(new FirstRungArmPositionCommand());
