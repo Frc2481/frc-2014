@@ -31,6 +31,7 @@ public:
 	void open();
 	void close();
 	bool isOpen();
+	bool isFired();
 };
 
 #endif /* HOPPER_H_ */

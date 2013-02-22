@@ -11,26 +11,36 @@
 #include "../CommandBase.h"
 
 class FireInterruptedCommand: public CommandBase {
+private:
+	bool finished;
 public:
 	FireInterruptedCommand(){
 		Requires(hopper);
 		SetInterruptible(false);
 		SetTimeout(2);
 	}
+	virtual void Initialize(){
+		finished = false;
+	}
 	virtual ~FireInterruptedCommand(){}
 	virtual void Execute(){
-		if (TimeSinceInitialized() > HOPPER_EXTEND_TIME) {
+		
+		if (TimeSinceInitialized() > HOPPER_EXTEND_TIME && hopper->isFired()) {
 			airCompressor->Start();
 			hopper->Retract();
 		}
+		else {
+			finished = true;
+		}
 	}
-	virtual void Initialize(){}
-	virtual void Interrupted(){}
+	virtual void Interrupted(){
+		finished = false;
+	}
 	bool IsFinished(){
-		return IsTimedOut();
+		return IsTimedOut() || finished;
 	}
 	void End(){
-		
+		finished = false;
 	}
 	
 };

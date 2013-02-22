@@ -11,15 +11,14 @@
 #include "WPILib.h"
 #include "LoadHopperCommand.h"
 #include "RetractHopperCommand.h"
+#include "FireDiscCommand.h"
+#include "FireInterruptedCommand.h"
 
 class FireDiscCommandGroup: public CommandGroup {
 public:
 	FireDiscCommandGroup(){
-		SetInterruptible(false);
-		AddSequential(new LoadHopperCommand());
-		AddSequential(new WaitCommand(HOPPER_EXTEND_TIME));
-		AddSequential(new RetractHopperCommand());
-		AddSequential(new WaitCommand(HOPPER_LOCKOUT_TIME));
+		AddSequential(new FireDiscCommand());
+		AddSequential(new FireInterruptedCommand());
 	}
 	virtual ~FireDiscCommandGroup(){}
 };

@@ -47,3 +47,6 @@ void Hopper::close(){
 bool Hopper::isOpen(){
 	return lidSolenoid->Get();
 }
+bool Hopper::isFired(){
+	return solenoid->Get();
+}

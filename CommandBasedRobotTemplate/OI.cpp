@@ -24,6 +24,7 @@
 #include "Commands/FineTuneToggle.h"
 #include "Commands/SetPCommand.h"
 #include "Commands/SetICommand.h"
+#include "Commands/AutoFireCommandGroup.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -50,7 +51,7 @@ OI::OI() {
 	
 	fireDiscButton = new AnalogJoystickButton(shooterStick, XboxController::xbZAxis, -0.5);
 	//fireDiscButton->WhileHeld(new FireDiscCommandGroup());
-	fireDiscButton->WhileHeld(new FireDiscCommand());
+	fireDiscButton->WhenPressed(new FireDiscCommand());
 	
 	manualArmExtendButton = new AnalogJoystickButton(shooterStick, XboxController::xbRightYAxis, -0.5);
 	manualArmExtendButton->WhileHeld(new ExtendArmCommand());
@@ -103,8 +104,8 @@ OI::OI() {
 	cycleTopLightsButton = new JoystickButton(driverStick, XboxController::xbAButton);
 	cycleTopLightsButton->WhenPressed(new CycleTopLightsCommand());
 	
-	//blueLightsButton = new JoystickButton(driverStick, XboxController::xbXButton);
-	//blueLightsButton->WhenPressed(new SetLightsCommand(4));
+	blueLightsButton = new JoystickButton(driverStick, XboxController::xbXButton); // not blue. needs to be changed
+	blueLightsButton->WhenPressed(new AutoFireCommandGroup());
 }
 
 

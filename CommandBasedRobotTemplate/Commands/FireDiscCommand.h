@@ -13,11 +13,12 @@
 
 class FireDiscCommand: public CommandBase {
 private:
-	FireInterruptedCommand *fireInterruptCmd;
+	//FireInterruptedCommand *fireInterruptCmd;
 	bool hasFired;
 public:
 	FireDiscCommand(){
-		fireInterruptCmd = new FireInterruptedCommand();
+		//fireInterruptCmd = new FireInterruptedCommand();
+		SetTimeout(1);
 		Requires(shooter);
 		Requires(hopper);
 	}
@@ -35,14 +36,16 @@ public:
 		}
 	}
 	virtual bool IsFinished(){
-		return hasFired;
+		return IsTimedOut(); //hasFired || IsTimedOut();
 	}
 	virtual void End(){
-			fireInterruptCmd->Start();
+		airCompressor->Start();
+		hopper->Retract();
+			//fireInterruptCmd->Start();
 	}
 	virtual void Interrupted(){
-		//End();
-			fireInterruptCmd->Start();
+		End();
+			//fireInterruptCmd->Start();
 	}
 };
 
