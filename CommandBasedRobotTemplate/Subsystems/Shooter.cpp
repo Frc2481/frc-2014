@@ -39,7 +39,7 @@ void Shooter::setSpeed(double speed){
 }
 void Shooter::turnOn(){
 	printf("Speed: %f \n", GetSetpoint());
-	//updatePID();
+	updatePID();
 	this->Enable();
 	shooterState = 1;
 	
