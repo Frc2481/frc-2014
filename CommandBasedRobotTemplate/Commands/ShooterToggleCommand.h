@@ -19,9 +19,11 @@ public:
 	virtual void Initialize(){
 		if(shooter->isShooterOn()){
 			shooter->turnOff();
+			airCompressor->Start();
 		}
 		else {
 			shooter->turnOn();
+			airCompressor->Stop();
 		}
 	}
 	virtual void Execute(){}

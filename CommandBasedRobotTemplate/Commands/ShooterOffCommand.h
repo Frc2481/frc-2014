@@ -20,6 +20,7 @@ public:
 	}
 	virtual void Initialize(){
 		shooter->turnOn();
+		airCompressor->Stop();
 	}
 	virtual void Execute(){}
 	virtual bool IsFinished() {
