@@ -12,7 +12,10 @@
 #include "WPILib.h"
 
 class UpdateLightsCommand: public CommandBase {
+	int flashCount;
 	int allianceColor;
+	bool isFlashing;
+	double flashStartTime;
 public:
 	UpdateLightsCommand(int color) {
 		Requires(lights);
@@ -22,6 +25,8 @@ public:
 		
 	}
 	virtual void Initialize(){
+		flashCount = 0;
+		isFlashing = false;
 		int r,g,b = 0;
 		switch (allianceColor) {
 		case 0:
@@ -68,11 +73,54 @@ public:
 		lights->setBottom(r,g,b);
 	}
 	virtual void Execute(){
-		if (shooter->getErrorRPM() < shooter->getTollerance() * 2){
-			lights->setTop(0,1,0);
+		double timeRemaining = 2.25 - DriverStation::GetInstance()->GetMatchTime();
+		/*if (shooter->isShooterUp()){
+			if (!shooter->isShooterOn()){
+				lights->setTop(1,0,0);
+			}
+			if (shooter->getErrorRPM() < shooter->getTollerance() * 2){
+				lights->setTop(0,1,0);
+			}
+			else {
+				lights->setTop(1,1,0);
+			}
+		}*/
+		if(timeRemaining < 30){
+			if(!isFlashing && timeRemaining > 27.5){
+				isFlashing = true;
+				flashCount = 3;
+				flashStartTime = timeRemaining;
+			}
+			if(!isFlashing){
+				lights->setTop(1,0,0);
+			}
+		}
+		else if(timeRemaining < 60){
+			if(!isFlashing && timeRemaining > 57.5){
+				isFlashing = true;
+				flashCount = 2;
+				flashStartTime = timeRemaining;
+			}
+			if(!isFlashing){
+				lights->setTop(1,1,0);
+			}
 		}
 		else {
-			lights->setTop(1,0,0);
+			lights->setTop(0,1,0);
+		}
+		
+		if(isFlashing){
+			if(flashCount > 0 && timeRemaining - flashStartTime > .5){
+				lights->setTop(1,1,1);
+			}
+			else if(flashCount > 0 && timeRemaining - flashStartTime > 1){
+				lights->setTop(0,0,0);
+				flashStartTime = timeRemaining;
+				flashCount --;
+			}
+			else if (flashCount == 0){
+				isFlashing = false;
+			}
 		}
 	}
 	virtual bool IsFinished(){
