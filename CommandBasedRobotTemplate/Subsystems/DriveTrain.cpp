@@ -25,7 +25,7 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	shiftDownThreshold = 50;
 	drive = new RobotDrive(shifterL, shifterR);
 //	drive = new RobotDrive(leftMotor, rightMotor);
-	drive->SetSafetyEnabled(false);
+	drive->SetSafetyEnabled(WATCH_DOG_ENABLED);
 	rightEncoder->SetDistancePerPulse(DISTANCE_PER_PULSE);
 	rightEncoder->Start();
 	leftEncoder->SetDistancePerPulse(DISTANCE_PER_PULSE);
@@ -86,11 +86,6 @@ void DriveTrain::ShiftUp() {
 void DriveTrain::ShiftDown() {
 	shifterR->ShiftDown();
 	shifterL->ShiftDown();
-}
-
-void DriveTrain::SetShiftEnabled(bool state) {
-	shifterL->SetEnabled(state);
-	shifterR->SetEnabled(state);
 }
 
 void DriveTrain::SetFineTuned(bool isFine) {

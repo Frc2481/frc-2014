@@ -1,5 +1,5 @@
 #include "OI.h"
-#include "Commands/EnableShiftCommand.h"
+#include "Commands/ShiftUpCommand.h"
 #include "Commands/FireDiscCommandGroup.h"
 #include "Commands/FireDiscCommand.h"
 #include "Commands/ExtendArmCommand.h"
@@ -43,8 +43,8 @@ OI::OI() {
 	iDownButton->WhenPressed(new SetICommand(false));
 	
 	
-	enableShiftButton = new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -0.5); //TODO change button argument to desired button
-	enableShiftButton->WhileHeld(new EnableShiftCommand());
+	shiftUpButton = new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -0.5); //TODO change button argument to desired button
+	shiftUpButton->WhileHeld(new ShiftUpCommand());
 	
 	toggleFineTuneButton = new AnalogJoystickButton(driverStick, XboxController::xbZAxis, 0.5);
 	toggleFineTuneButton->WhileHeld(new FineTuneToggle());

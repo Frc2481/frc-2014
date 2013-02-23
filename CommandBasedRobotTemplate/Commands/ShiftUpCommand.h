@@ -1,5 +1,5 @@
-#ifndef ENABLE_SHIFT_COMMAND_H
-#define ENABLE_SHIFT_COMMAND_H
+#ifndef SHIFT_UP_COMMAND_H
+#define SHIFT_UP_COMMAND_H
 
 #include "../CommandBase.h"
 
@@ -8,11 +8,10 @@
  *
  * @author jacobM
  */
-class EnableShiftCommand: public CommandBase {
+class ShiftUpCommand: public CommandBase {
 public:
-	EnableShiftCommand() : CommandBase("EnableShiftCommand") {}
+	ShiftUpCommand() : CommandBase("ShiftUpCommand") {}
 	void Initialize() {
-		driveTrain->SetShiftEnabled(true);
 		driveTrain->ShiftUp();
 	}
 	void Execute(){}
@@ -21,7 +20,6 @@ public:
 	}
 	void End() {}
 	void Interrupted() {
-		driveTrain->SetShiftEnabled(false);
 		driveTrain->ShiftDown();
 	}
 };

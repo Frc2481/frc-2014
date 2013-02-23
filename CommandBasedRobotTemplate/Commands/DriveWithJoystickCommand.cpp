@@ -12,8 +12,12 @@ void DriveWithJoystickCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoystickCommand::Execute() {
-	if (oi->GetDriverStick())
+	if (oi->GetDriverStick()) {
 		driveTrain->DriveWithJoystick(oi->GetDriverStick());
+	}
+	else {
+		driveTrain->Stop();
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -29,4 +33,5 @@ void DriveWithJoystickCommand::End() {
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void DriveWithJoystickCommand::Interrupted() {
+	driveTrain->Stop();
 }

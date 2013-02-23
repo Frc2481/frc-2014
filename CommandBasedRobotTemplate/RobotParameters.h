@@ -9,7 +9,7 @@
 #define DEBUG(a, ...) (void)0
 #endif
 
-#define COMPETITION_BOT
+#define PRACTICE_BOT
 
 #ifdef PRACTICE_BOT
 #ifndef COMPETITION_BOT
@@ -39,6 +39,10 @@
 #define HOPPER_EXTEND_TIME		0.5
 #define HOPPER_LOCKOUT_TIME		1.0
 #define HIGH_RUNG_POSITION		4.255
+#define DRIVE_FINE_SPEED_FACTOR	0.5	
+
+#define WATCH_DOG_ENABLED		true
+
 #endif
 #endif
 
@@ -72,7 +76,10 @@
 #define HOPPER_EXTEND_TIME		0.5
 #define HOPPER_LOCKOUT_TIME		1.0
 #define HIGH_RUNG_POSITION		4.255
-#define DRIVE_FINE_SPEED_FACTOR	0.5			
+#define DRIVE_FINE_SPEED_FACTOR	0.5	
+
+#define WATCH_DOG_ENABLED		true
+
 #endif
 #endif
 

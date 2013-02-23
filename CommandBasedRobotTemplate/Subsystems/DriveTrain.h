@@ -36,7 +36,6 @@ public:
 	void TurnRight(float speed);
 	void TurnLeft(float speed);
 	void Stop();
-	void SetShiftEnabled(bool state);
 	void DriveWithJoystick(Joystick *stick);
 	void Periodic();
 	void SetLeftDriveAxis(UINT32 leftAxis);

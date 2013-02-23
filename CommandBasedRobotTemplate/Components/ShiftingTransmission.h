@@ -10,7 +10,6 @@ private:
 	float motorSpeed; 
 	bool isShiftingUp;
 	bool isShiftingDown;
-	bool enabled;
 	bool isLowSpeed;
 
 	void UpShift();
@@ -22,10 +21,8 @@ public:
 	~ShiftingTransmission();
 	void Set(float speed, UINT8 syncGroup=0);
 	float Get();
-//	bool IsHighSpeed();
 	bool IsLowSpeed();
 	void Run();
-	void SetEnabled(bool enableState);
 	void Disable();
 	void PIDWrite(float output);
 	void ShiftUp();

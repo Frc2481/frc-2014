@@ -14,7 +14,7 @@ private:
 	Joystick2481 *driverStick;
 	Joystick2481 *shooterStick;
 	Joystick2481 *pidTuneStick;
-	AnalogJoystickButton *enableShiftButton;
+	AnalogJoystickButton *shiftUpButton;
 	AnalogJoystickButton *fireDiscButton;
 	AnalogJoystickButton *manualArmExtendButton;
 	AnalogJoystickButton *manualArmRetractButton;

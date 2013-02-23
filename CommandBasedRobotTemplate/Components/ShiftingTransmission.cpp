@@ -6,7 +6,6 @@ ShiftingTransmission::ShiftingTransmission(SpeedController* m, Solenoid* s)
 	isShiftingUp = 0;
 	isShiftingDown = 0;
 	motorSpeed = 0;
-	enabled = false;
 	isLowSpeed = true;
 	
 }
@@ -40,6 +39,7 @@ void ShiftingTransmission::Run(){
 		}
 		else if (loopCount == 16){  //We back off for approx 200ms for a debounce effect.
 			isShiftingUp = false;
+			isLowSpeed = false;
 		}
 		loopCount++;
 	}
@@ -57,6 +57,7 @@ void ShiftingTransmission::Run(){
 		}
 		else if (loopCount == 16){	//We back off for approx 200ms for a debounce effect.
 			isShiftingDown = false;
+			isLowSpeed = true;
 		}
 		loopCount++;
 	}
@@ -67,34 +68,28 @@ void ShiftingTransmission::Run(){
 void ShiftingTransmission::PIDWrite(float output) {
 	
 }
-void ShiftingTransmission::SetEnabled(bool enableState){
-	enabled = enableState;
-	if (!enabled){
-		isShiftingDown = !IsLowSpeed(); 		//If we are not in low gear, shift down
-		loopCount = 0;
-	}
-}
 void ShiftingTransmission::Disable(){
 	motor->Disable();
 	
 }
 void ShiftingTransmission::SetSolenoid(bool position){
-	isLowSpeed = !position;
 	if (solenoid){
 		solenoid ->Set(position);
 	}
 }
 
 void ShiftingTransmission::ShiftUp() {
-	if (IsLowSpeed() && !isShiftingUp && !isShiftingDown && enabled){	//Do we need to shift up? 
-		isShiftingUp = true;														// Set the state 
+	if (IsLowSpeed() && !isShiftingUp){	//Do we need to shift up? 
+		isShiftingUp = true; // Set the state 
+		isShiftingDown = false;
 		loopCount = 0;
 	}
 }
 
 void ShiftingTransmission::ShiftDown() {
-	if (!IsLowSpeed() && (!isShiftingDown && !isShiftingUp)){	//Do we need to shift down?
-		isShiftingDown = true;															//Set the state 
+	if (!IsLowSpeed() && !isShiftingDown){	//Do we need to shift down?
+		isShiftingDown = true; //Set the state
+		isShiftingUp = false;
 		loopCount = 0;
 	}
 }
