@@ -39,6 +39,9 @@ private:
 	JoystickButton *pDownButton;
 	JoystickButton *iUpButton;
 	JoystickButton *iDownButton;
+	JoystickButton *speedUpShooterPIDButton;
+	JoystickButton *slowDownShooterPIDButton;
+	AnalogJoystickButton *fireDiscPIDButton;
 	
 	
 public:

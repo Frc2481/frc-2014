@@ -41,6 +41,14 @@ OI::OI() {
 	iUpButton->WhenPressed(new SetICommand(true));
 	iDownButton = new JoystickButton(pidTuneStick, XboxController::xbYButton);
 	iDownButton->WhenPressed(new SetICommand(false));
+
+	speedUpShooterPIDButton = new JoystickButton(pidTuneStick, XboxController::xbStartButton);
+	speedUpShooterPIDButton->WhenPressed(new SpeedUpShooterCommand());
+	slowDownShooterPIDButton = new JoystickButton(pidTuneStick, XboxController::xbBackButton);
+	slowDownShooterPIDButton->WhenPressed(new SlowDownShooterCommand());
+	
+	fireDiscPIDButton = new AnalogJoystickButton(pidTuneStick, XboxController::xbZAxis, -0.5);
+	fireDiscPIDButton->WhenPressed(new FireDiscCommand());
 	
 	
 	shiftUpButton = new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -0.5); //TODO change button argument to desired button
