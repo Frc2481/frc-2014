@@ -116,6 +116,10 @@ Joystick* OI::GetShooterStick() {
 	return shooterStick;
 }
 
+AnalogJoystickButton* OI::GetFireDiscButton() {
+	return fireDiscButton;
+}
+
 bool OI::GetDeadMan1() {
 	return 1;
 	//return driverStick->GetRawButton(XboxController::xbBackButton);

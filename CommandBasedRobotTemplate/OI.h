@@ -45,6 +45,7 @@ public:
 	OI();
 	Joystick* GetDriverStick();
 	Joystick* GetShooterStick();
+	AnalogJoystickButton* GetFireDiscButton();
 	bool GetDeadMan1();
 	bool GetDeadMan2();
 };

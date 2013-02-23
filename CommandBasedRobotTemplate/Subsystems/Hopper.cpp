@@ -18,7 +18,7 @@ Hopper::~Hopper() {
 	delete solenoid;
 }
 
-void Hopper::Load() {
+void Hopper::Fire() {
 	solenoid->Set(1);
 }
 

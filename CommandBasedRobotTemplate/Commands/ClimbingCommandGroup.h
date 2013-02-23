@@ -23,7 +23,6 @@
 #include "ShooterOffCommand.h"
 #include "LowerShooterCommand.h"
 #include "FireDiscCommandGroup.h"
-#include "FireDiscCommand.h"
 #include "SetLightsCommand.h"
 #include "RandomLightsCommand.h"
 #include "AutoFireCommandGroup.h"

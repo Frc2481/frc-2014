@@ -20,7 +20,7 @@ public:
 		printf("LoadHopper");
 		printf("%d \n", shooter->isAtSpeed());
 		if (shooter->isAtSpeed()) {
-			hopper->Load();
+			hopper->Fire();
 			airCompressor->Stop();
 		}
 		else{

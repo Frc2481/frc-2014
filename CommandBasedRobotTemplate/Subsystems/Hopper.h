@@ -23,7 +23,7 @@ private:
 public:
 	Hopper(UINT32 solenoidChannel, UINT32 lidSolenoidChannel);
 	virtual ~Hopper();
-	void Load();
+	void Fire();
 	void Retract();
 	void IncrementFrisbeeCount();
 	void DecrementFrisbeeCount();

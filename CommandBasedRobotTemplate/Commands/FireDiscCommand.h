@@ -1,7 +1,7 @@
 /*
  * FireDiscCommand.h
  *
- *  Created on: Jan 24, 2013
+ *  Created on: Feb 23, 2013
  *      Author: Team2481
  */
 
@@ -9,43 +9,55 @@
 #define FIREDISCCOMMAND_H_
 
 #include "../CommandBase.h"
-#include "FireInterruptedCommand.h"
 
 class FireDiscCommand: public CommandBase {
 private:
-	//FireInterruptedCommand *fireInterruptCmd;
+	bool startedFiring;
 	bool hasFired;
+	bool hasRetracted;
+	double startedFiringTime;
+	double startedRetractingTime;
+	bool isAuto;
+	
 public:
-	FireDiscCommand(){
-		//fireInterruptCmd = new FireInterruptedCommand();
-		SetTimeout(1);
-		Requires(shooter);
-		Requires(hopper);
+	FireDiscCommand(bool autoCmd = true) {
+		SetInterruptible(false);
+		isAuto = autoCmd;
 	}
-	virtual ~FireDiscCommand(){}
+	virtual ~FireDiscCommand() {}
 	virtual void Initialize(){
+		startedFiring = false;
 		hasFired = false;
-		airCompressor->Stop();
-		//SetInterruptible(true);
+		hasRetracted = false;
+		startedFiringTime = 0;
+		startedRetractingTime = 0;
 	}
 	virtual void Execute(){
 		if (shooter->isAtSpeed()) {
-			hopper->Load();
+			hopper->Fire();
+			startedFiring = true;
+			startedFiringTime = TimeSinceInitialized();
+		}
+		else if (startedFiring && TimeSinceInitialized() - startedFiringTime > HOPPER_EXTEND_TIME) {
+			hopper->Retract();
+			startedRetractingTime = TimeSinceInitialized();
 			hasFired = true;
-			//SetInterruptible(false);
+		}
+		else if (hasFired && TimeSinceInitialized() - startedRetractingTime > HOPPER_LOCKOUT_TIME) {
+			hasRetracted = true;
 		}
 	}
 	virtual bool IsFinished(){
-		return IsTimedOut(); //hasFired || IsTimedOut();
+		if (!startedFiring && !oi->GetFireDiscButton()->Get() && !isAuto) {
+			return true;
+		}
+		else {
+			return hasRetracted;
+		}
 	}
 	virtual void End(){
-		airCompressor->Start();
-		hopper->Retract();
-			//fireInterruptCmd->Start();
 	}
 	virtual void Interrupted(){
-		End();
-			//fireInterruptCmd->Start();
 	}
 };
 

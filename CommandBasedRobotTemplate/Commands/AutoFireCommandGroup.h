@@ -25,7 +25,7 @@ public:
 	//red
 	AddSequential(new SetLightsCommand(1,0,0));
 	
-	AddSequential(new FireDiscCommandGroup());
+	AddSequential(new FireDiscCommand());
 	//blue
 	AddSequential(new SetLightsCommand(0,0,1));
 	
@@ -33,7 +33,7 @@ public:
 	//red
 	//AddParallel(new SetLightsCommand(1,0,0));
 	
-	AddSequential(new FireDiscCommandGroup());
+	AddSequential(new FireDiscCommand());
 	//purple
 	AddSequential(new SetLightsCommand(1,0,1));
 	
@@ -41,7 +41,7 @@ public:
 	//red
 	//AddParallel(new SetLightsCommand(1,0,0));
 	
-	AddSequential(new FireDiscCommandGroup());
+	AddSequential(new FireDiscCommand());
 	//yellow
 	AddSequential(new SetLightsCommand(1,1,0));
 	
@@ -49,12 +49,12 @@ public:
 	//red
 	//sAddParallel(new SetLightsCommand(1,0,0));
 	
-	AddSequential(new FireDiscCommandGroup());
+	AddSequential(new FireDiscCommand());
 	//teal
 	AddSequential(new SetLightsCommand(0,1,1));
 	
 	AddSequential(new ShooterOffCommand());
-	AddParallel(new RandomLightsCommand);}
+	AddSequential(new RandomLightsCommand);}
 	virtual ~AutoFireCommandGroup(){}
 };
 
