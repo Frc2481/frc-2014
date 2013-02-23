@@ -18,8 +18,8 @@ public:
 	virtual ~LoadHopperCommand(){}
 	void Initialize(){
 		printf("LoadHopper");
-		printf("%d \n", shooter->isAtSpeed());
-		if (shooter->isAtSpeed()) {
+		printf("Is Settled%d \n", shooter->isSettled());
+		if (shooter->isSettled()) {
 			hopper->Fire();
 			airCompressor->Stop();
 		}

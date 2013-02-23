@@ -26,6 +26,7 @@ Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChan
 	//SetPercentTolerance(5);
 	SetAbsoluteTolerance(shooterSpeedTolerance / 2.0);
 	GetController()->SetOutputRange(0,1);
+	settledCount = 0;
 }
 
 Shooter::~Shooter() {
@@ -57,6 +58,12 @@ double Shooter::ReturnPIDInput(){
 	printf("PID In: %f\n", pid);
 	printf("P Value: %f \n",GetController()->GetP());
 	printf("I Value: %f \n",GetController()->GetI());
+	if (isAtSpeed()) {
+		settledCount++;
+	}
+	else {
+		settledCount = 0;
+	}
 	return pid;
 }
 void Shooter::UsePIDOutput(double output){
@@ -104,6 +111,10 @@ float Shooter::getErrorRPM() {
 
 float Shooter::getTollerance() {
 	return isShooterUp()?SHOOTER_UP_TOLERANCE:SHOOTER_DOWN_TOLERANCE;
+}
+
+bool Shooter::isSettled() {
+	return settledCount > 10;
 }
 
 void Shooter::updatePID() {

@@ -33,7 +33,8 @@ public:
 		startedRetractingTime = 0;
 	}
 	virtual void Execute(){
-		if (shooter->isAtSpeed()) {
+		printf("Settled = %d \n", shooter->isSettled());
+		if (shooter->isSettled()) {
 			hopper->Fire();
 			startedFiring = true;
 			startedFiringTime = TimeSinceInitialized();

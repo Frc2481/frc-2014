@@ -21,6 +21,7 @@ private:
 	bool shooterState;
 	Solenoid *shooterLiftSolenoid;
 	Servo *hopperPressurizer;
+	int settledCount;
 	static float shooterSpeedTolerance;
 	static double pValue;
 	static double iValue;
@@ -46,6 +47,7 @@ public:
 	void updatePID();
 	float getErrorRPM();
 	float getTollerance();
+	bool isSettled();
 };
 
 #endif /* SHOOTER_H_ */

@@ -20,6 +20,7 @@ public:
 		if(shooter->isShooterUp()){
 			hopper->close();
 			shooter->LowerShooter();
+			shooter->turnOff();
 		}
 		else {//if (climbingArm->getCurrentPosition() < 1) {
 			shooter->LiftShooter();

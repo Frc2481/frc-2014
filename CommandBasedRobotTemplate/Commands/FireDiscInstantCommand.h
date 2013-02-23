@@ -29,7 +29,7 @@ public:
 		//SetInterruptible(true);
 	}
 	virtual void Execute(){
-		if (shooter->isAtSpeed()) {
+		if (shooter->isSettled()) {
 			hopper->Fire();
 			hasFired = true;
 			//SetInterruptible(false);

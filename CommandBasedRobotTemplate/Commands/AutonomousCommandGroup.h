@@ -24,6 +24,7 @@ public:
 	AutonomousCommandGroup(float delay, bool willMove) {
 		AddSequential(new ShooterUpToggleCommand());
 		AddSequential(new ShooterOnCommand());
+		AddSequential(new WaitCommand(delay));
 		AddSequential(new FireDiscCommand());
 		AddSequential(new FireDiscCommand());
 		AddSequential(new FireDiscCommand());
