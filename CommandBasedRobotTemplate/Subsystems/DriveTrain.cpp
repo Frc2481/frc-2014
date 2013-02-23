@@ -26,6 +26,7 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	drive = new RobotDrive(shifterL, shifterR);
 //	drive = new RobotDrive(leftMotor, rightMotor);
 	drive->SetSafetyEnabled(WATCH_DOG_ENABLED);
+	drive->SetExpiration(.1);
 	rightEncoder->SetDistancePerPulse(DISTANCE_PER_PULSE);
 	rightEncoder->Start();
 	leftEncoder->SetDistancePerPulse(DISTANCE_PER_PULSE);
