@@ -29,6 +29,7 @@ private:
 	static double fValue;
 	static double periodValue;
 	static int autoSpeed;
+	float shooterSpeed;
 public:
 	Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel);
 	virtual ~Shooter();

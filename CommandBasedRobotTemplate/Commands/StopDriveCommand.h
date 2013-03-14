@@ -10,7 +10,7 @@
  */
 class StopDriveCommand: public DriveCommandBase {
 public:
-	StopDriveCommand():DriveCommandBase(0, 0, 0, "StopDriveCommand") {
+	StopDriveCommand():DriveCommandBase(0, 0, "StopDriveCommand") {
 		
 	}
 	virtual void Execute() {

@@ -417,6 +417,8 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../XboxController.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Components/AnalogJoystickButton.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Components/HeldButtonScheduler2481.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Buttons/ButtonScheduler.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/Hopper.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h \
@@ -1260,6 +1262,10 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Compone
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Components/AnalogJoystickButton.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Components/HeldButtonScheduler2481.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Buttons/ButtonScheduler.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/Hopper.h:
 

@@ -27,8 +27,8 @@ public:
 		if (TimeSinceInitialized() - previousTime > 0.25) {
 			lights->setTop(rand(),rand(),rand());
 			lights->setBottom(rand(),rand(),rand());
+			previousTime = TimeSinceInitialized();
 		}
-		previousTime = TimeSinceInitialized();
 	}
 	virtual bool IsFinished(){
 		return false;

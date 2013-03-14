@@ -34,12 +34,12 @@ public:
 	}
 	virtual void Execute(){
 		printf("Settled = %d \n", shooter->isSettled());
-		if (shooter->isSettled()) {
+		if (shooter->isSettled() && !startedFiring) {
 			hopper->Fire();
 			startedFiring = true;
 			startedFiringTime = TimeSinceInitialized();
 		}
-		else if (startedFiring && TimeSinceInitialized() - startedFiringTime > HOPPER_EXTEND_TIME) {
+		else if (startedFiring && TimeSinceInitialized() - startedFiringTime > HOPPER_EXTEND_TIME && !hasFired) {
 			hopper->Retract();
 			startedRetractingTime = TimeSinceInitialized();
 			hasFired = true;
@@ -57,8 +57,10 @@ public:
 		}
 	}
 	virtual void End(){
+		hopper->Retract();
 	}
 	virtual void Interrupted(){
+		End();
 	}
 };
 

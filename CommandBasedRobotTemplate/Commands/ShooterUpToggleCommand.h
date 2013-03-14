@@ -1,3 +1,4 @@
+
 /*
  * ShooterUpToggleCommand.h
  *
@@ -21,10 +22,12 @@ public:
 			hopper->close();
 			shooter->LowerShooter();
 			shooter->turnOff();
+			airCompressor->Start();
 		}
-		else {//if (climbingArm->getCurrentPosition() < 1) {
+		else if (climbingArm->getCurrentPosition() < 1) {
 			shooter->LiftShooter();
 		}
+		printf("arm %f \n", climbingArm->getCurrentPosition());
 	}
 	virtual void Execute(){}
 	virtual bool IsFinished() {

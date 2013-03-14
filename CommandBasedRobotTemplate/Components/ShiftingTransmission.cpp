@@ -41,6 +41,9 @@ void ShiftingTransmission::Run(){
 			isShiftingUp = false;
 			isLowSpeed = false;
 		}
+		else if (loopCount > 6) {
+			motor->Set(motorSpeed);
+		}
 		loopCount++;
 	}
 	
@@ -58,6 +61,9 @@ void ShiftingTransmission::Run(){
 		else if (loopCount == 16){	//We back off for approx 200ms for a debounce effect.
 			isShiftingDown = false;
 			isLowSpeed = true;
+		}
+		else if (loopCount > 6) {
+			motor->Set(motorSpeed);
 		}
 		loopCount++;
 	}

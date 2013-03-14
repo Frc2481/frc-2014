@@ -17,7 +17,12 @@ ArmPositionCommandBase::ArmPositionCommandBase(float position, const char * name
 ArmPositionCommandBase::~ArmPositionCommandBase() {}
 
 void ArmPositionCommandBase::Initialize(){
-	climbingArm->setPosition(armPosition);
+	if (childCommandType == "FullyRetractArmPositionCommand" && 135 - DriverStation::GetInstance()->GetMatchTime() < CLIMB_LOCKOUT_TIME) {
+		Interrupted();
+	}
+	else {
+		climbingArm->setPosition(armPosition);
+	}
 }
 void ArmPositionCommandBase::DeadmanExecute() {
 	climbingArm->run();

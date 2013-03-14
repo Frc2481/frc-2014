@@ -46,7 +46,7 @@ DriveTrain::DriveTrain(UINT32 motorL, UINT32 motorR,
 	leftEncoder->SetPIDSourceParameter(Encoder::kDistance);
 	rightEncoder->SetPIDSourceParameter(Encoder::kDistance);
 	isFineTuneSpeed = false;
-	
+	spedUpCount = 0;
 }
 DriveTrain::~DriveTrain(){
 	delete drive;
@@ -64,10 +64,10 @@ void DriveTrain::InitDefaultCommand() {
 }
 
 void DriveTrain::DriveForward(float speed) {
-	drive->SetLeftRightMotorOutputs(speed, speed);
+	drive->SetLeftRightMotorOutputs(-speed, -speed);
 }
 void DriveTrain::DriveBackward(float speed) {
-	drive->SetLeftRightMotorOutputs(-speed, -speed);
+	drive->SetLeftRightMotorOutputs(speed, speed);
 }
 void DriveTrain::TurnRight(float speed) {
 	drive->SetLeftRightMotorOutputs(speed, -speed);
@@ -126,10 +126,10 @@ void DriveTrain::DriveWithJoystick(Joystick *stick) {
 }
 
 void DriveTrain::Periodic() {
-	SmartDashboard::PutNumber("Left Encoder Value" , leftEncoder->GetRate());
-	SmartDashboard::PutNumber("Right Encoder Value" , rightEncoder->GetRate());
-	SmartDashboard::PutBoolean("Status is Fatal L", leftEncoder->StatusIsFatal());
-	SmartDashboard::PutBoolean("Status is Fatal R", rightEncoder->StatusIsFatal());
+	//SmartDashboard::PutNumber("Left Encoder Value" , leftEncoder->GetRate());
+	//SmartDashboard::PutNumber("Right Encoder Value" , rightEncoder->GetRate());
+	//SmartDashboard::PutBoolean("Status is Fatal L", leftEncoder->StatusIsFatal());
+	//SmartDashboard::PutBoolean("Status is Fatal R", rightEncoder->StatusIsFatal());
 	SmartDashboard::PutNumber("ArmSensorValue", CommandBase::climbingArm->getCurrentPosition());
 	shifterL->Run();
 	shifterR->Run();
@@ -142,6 +142,13 @@ void DriveTrain::Periodic() {
 		shifterR->ShiftDown();
 		shifterL->ShiftDown();
 	}*/
+	if(fabs(shifterL->Get()) > .9 && fabs(shifterR->Get()) > .9){
+		spedUpCount++;
+	}
+	else {
+		spedUpCount = 0;
+	}
+ 
 }
 void DriveTrain::SetLeftDriveAxis(UINT32 leftAxis){
 	leftDriveAxis = leftAxis;
@@ -179,4 +186,10 @@ bool DriveTrain::IsPIDAtDistance(){
 	}
 	return false;
 	
+}
+bool DriveTrain::IsSpedUp(){
+	return spedUpCount > 20;
+}
+bool DriveTrain::IsShifted(){
+	return !shifterL->IsLowSpeed();
 }

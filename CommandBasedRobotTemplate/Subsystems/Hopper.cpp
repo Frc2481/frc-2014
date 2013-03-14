@@ -11,7 +11,7 @@ Hopper::Hopper(UINT32 solenoidChannel, UINT32 lidSolenoidChannel) : Subsystem("H
 	solenoid = new Solenoid(solenoidChannel);
 	frisbeeCount = 0;
 	lidSolenoid = new Solenoid(lidSolenoidChannel);
-	lidSolenoid->Set(1);
+	lidSolenoid->Set(0);
 }
 
 Hopper::~Hopper() {

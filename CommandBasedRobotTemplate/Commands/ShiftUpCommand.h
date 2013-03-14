@@ -11,10 +11,12 @@
 class ShiftUpCommand: public CommandBase {
 public:
 	ShiftUpCommand() : CommandBase("ShiftUpCommand") {}
-	void Initialize() {
-		driveTrain->ShiftUp();
+	void Initialize() {	}
+	void Execute(){
+		if(/*driveTrain->IsSpedUp()&&*/ !driveTrain->IsShifted()){
+			driveTrain->ShiftUp();
+		}
 	}
-	void Execute(){}
 	bool IsFinished() {
 		return false;
 	}

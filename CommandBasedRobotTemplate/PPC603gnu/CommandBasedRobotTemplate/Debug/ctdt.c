@@ -21,7 +21,7 @@ void _GLOBAL__I__ZN14DeadmanCommandC2EPKc();
 
 void _GLOBAL__I__ZN14XboxController11xbLeftXAxisE();
 
-void _GLOBAL__I__ZN16DriveCommandBaseC2EfffPKc();
+void _GLOBAL__I__ZN16DriveCommandBaseC2EfdPKc();
 
 void _GLOBAL__I__ZN16ExampleSubsystemC2Ev();
 
@@ -32,6 +32,8 @@ void _GLOBAL__I__ZN20ShifterUpdateCommandC2Ev();
 void _GLOBAL__I__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid();
 
 void _GLOBAL__I__ZN22ArmPositionCommandBaseC2EfPKc();
+
+void _GLOBAL__I__ZN23HeldButtonScheduler2481C2EbP7TriggerP7Command();
 
 void _GLOBAL__I__ZN24CycleBottomLightsCommand5colorE();
 
@@ -107,12 +109,13 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN13ClimbingHooksC2Ejjjj,
     _GLOBAL__I__ZN14DeadmanCommandC2EPKc,
     _GLOBAL__I__ZN14XboxController11xbLeftXAxisE,
-    _GLOBAL__I__ZN16DriveCommandBaseC2EfffPKc,
+    _GLOBAL__I__ZN16DriveCommandBaseC2EfdPKc,
     _GLOBAL__I__ZN16ExampleSubsystemC2Ev,
     _GLOBAL__I__ZN20AnalogJoystickButtonC2EP10GenericHIDif,
     _GLOBAL__I__ZN20ShifterUpdateCommandC2Ev,
     _GLOBAL__I__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid,
     _GLOBAL__I__ZN22ArmPositionCommandBaseC2EfPKc,
+    _GLOBAL__I__ZN23HeldButtonScheduler2481C2EbP7TriggerP7Command,
     _GLOBAL__I__ZN24CycleBottomLightsCommand5colorE,
     _GLOBAL__I__ZN24DriveWithJoystickCommandC2Ev,
     _GLOBAL__I__ZN3Arm12speedRatioUpE,
@@ -162,7 +165,7 @@ void _GLOBAL__D__ZN14DeadmanCommandC2EPKc();
 
 void _GLOBAL__D__ZN14XboxController11xbLeftXAxisE();
 
-void _GLOBAL__D__ZN16DriveCommandBaseC2EfffPKc();
+void _GLOBAL__D__ZN16DriveCommandBaseC2EfdPKc();
 
 void _GLOBAL__D__ZN16ExampleSubsystemC2Ev();
 
@@ -173,6 +176,8 @@ void _GLOBAL__D__ZN20ShifterUpdateCommandC2Ev();
 void _GLOBAL__D__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid();
 
 void _GLOBAL__D__ZN22ArmPositionCommandBaseC2EfPKc();
+
+void _GLOBAL__D__ZN23HeldButtonScheduler2481C2EbP7TriggerP7Command();
 
 void _GLOBAL__D__ZN24CycleBottomLightsCommand5colorE();
 
@@ -238,12 +243,13 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN13ClimbingHooksC2Ejjjj,
     _GLOBAL__D__ZN14DeadmanCommandC2EPKc,
     _GLOBAL__D__ZN14XboxController11xbLeftXAxisE,
-    _GLOBAL__D__ZN16DriveCommandBaseC2EfffPKc,
+    _GLOBAL__D__ZN16DriveCommandBaseC2EfdPKc,
     _GLOBAL__D__ZN16ExampleSubsystemC2Ev,
     _GLOBAL__D__ZN20AnalogJoystickButtonC2EP10GenericHIDif,
     _GLOBAL__D__ZN20ShifterUpdateCommandC2Ev,
     _GLOBAL__D__ZN20ShiftingTransmissionC2EP15SpeedControllerP8Solenoid,
     _GLOBAL__D__ZN22ArmPositionCommandBaseC2EfPKc,
+    _GLOBAL__D__ZN23HeldButtonScheduler2481C2EbP7TriggerP7Command,
     _GLOBAL__D__ZN24CycleBottomLightsCommand5colorE,
     _GLOBAL__D__ZN24DriveWithJoystickCommandC2Ev,
     _GLOBAL__D__ZN3Arm12speedRatioUpE,

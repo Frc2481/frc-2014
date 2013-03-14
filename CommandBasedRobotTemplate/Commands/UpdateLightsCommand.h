@@ -85,7 +85,7 @@ public:
 				lights->setTop(1,1,0);
 			}
 		}*/
-		if(timeRemaining < 30){
+		if(timeRemaining < 60){
 			if(!isFlashing && timeRemaining > 27.5){
 				isFlashing = true;
 				flashCount = 3;
@@ -95,7 +95,7 @@ public:
 				lights->setTop(1,0,0);
 			}
 		}
-		else if(timeRemaining < 60){
+		else if(timeRemaining < 90){
 			if(!isFlashing && timeRemaining > 57.5){
 				isFlashing = true;
 				flashCount = 2;

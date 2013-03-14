@@ -6,19 +6,16 @@
  * @author jacobM
  */
 
-DriveCommandBase::DriveCommandBase(float speed, float distanceL, float distanceR, const char *name):CommandBase(name) {
+DriveCommandBase::DriveCommandBase(float speed, double time, const char *name):CommandBase(name) {
 	Requires(driveTrain);
 	driveSpeed = speed;
-	leftDistance = distanceL;
-	rightDistance = distanceR;
+	timeout = time;
 }
 void DriveCommandBase::Initialize() {
-	driveTrain->SetPID(leftDistance, rightDistance);
-	
+	SetTimeout(timeout);
 }
-void DriveCommandBase::Execute() {}
-bool DriveCommandBase::IsFinished() {
-	return driveTrain->IsPIDAtDistance();
+ bool DriveCommandBase::IsFinished() {
+	return IsTimedOut();
 }
 void DriveCommandBase::End(){
 	driveTrain->Stop();

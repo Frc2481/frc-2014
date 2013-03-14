@@ -13,10 +13,13 @@
 
 #ifdef PRACTICE_BOT
 #ifndef COMPETITION_BOT
-#define SHOOTER_UP_P			0.00194		//.0039 oscillation point
-#define SHOOTER_UP_I			0.00001
+#define SHOOTER_UP_P			.003//.005//0.00194		//.0039 oscillation point
+#define SHOOTER_UP_I			0.0002 //0.00001	
 #define SHOOTER_UP_D			0
-#define SHOOTER_UP_SPEED		3450
+//#define SHOOTER_UP_P			0.00194		//.0039 oscillation point
+//#define SHOOTER_UP_I			0.00001
+//#define SHOOTER_UP_D			0
+#define SHOOTER_UP_SPEED		3750
 #define SHOOTER_DOWN_P			0.0017 // .006 oscillation point
 #define SHOOTER_DOWN_I			0.00007
 #define SHOOTER_DOWN_D			0
@@ -27,9 +30,9 @@
 #define SHOOTER_PERIOD			0.01
 #define SHOOTER_AVERAGE_SAMPLES	9
 #define ARM_IN_LIMIT			0.91
-#define ARM_OUT_LIMIT			2.575
-#define ARM_SAFE_UNLATCH		2
-#define ARM_FIRST_RUNG			1.35
+#define ARM_OUT_LIMIT			4.4
+#define ARM_SAFE_UNLATCH		3
+#define ARM_FIRST_RUNG			1.678
 #define ARM_UP_SPEED_RATIO		0.75
 #define ARM_DOWN_SPEED_RATIO	0.125
 #define ARM_SPEED				1
@@ -37,9 +40,11 @@
 #define SHOOTER_UP_TOLERANCE	20
 #define SHOOTER_DOWN_TOLERANCE	40
 #define HOPPER_EXTEND_TIME		0.5
-#define HOPPER_LOCKOUT_TIME		0 //1.0
+#define HOPPER_LOCKOUT_TIME		1.0
 #define HIGH_RUNG_POSITION		4.255
-#define DRIVE_FINE_SPEED_FACTOR	0.75	
+#define DRIVE_FINE_SPEED_FACTOR	0.63
+
+#define CLIMB_LOCKOUT_TIME		3.0
 
 #define WATCH_DOG_ENABLED		true
 
@@ -51,7 +56,7 @@
 #define SHOOTER_UP_P			.003//.005//0.00194		//.0039 oscillation point
 #define SHOOTER_UP_I			0.0002 //0.00001	
 #define SHOOTER_UP_D			0
-#define SHOOTER_UP_SPEED		3450
+#define SHOOTER_UP_SPEED		4500
 #define SHOOTER_DOWN_P			0.003//0.003 // .006 oscillation point
 #define SHOOTER_DOWN_I			0.0002//0.00025
 #define SHOOTER_DOWN_D			0
@@ -77,6 +82,8 @@
 #define HOPPER_LOCKOUT_TIME		0 //1.0
 #define HIGH_RUNG_POSITION		4.255
 #define DRIVE_FINE_SPEED_FACTOR	0.75	
+
+#define CLIMB_LOCKOUT_TIME		3.0
 
 #define WATCH_DOG_ENABLED		true
 

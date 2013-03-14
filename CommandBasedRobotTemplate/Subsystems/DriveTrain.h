@@ -26,6 +26,7 @@ private:
 	int shiftDownThreshold;
 	int driveType;
 	bool isFineTuneSpeed;
+	int spedUpCount;
 public:
 	//DriveTrain();
 	DriveTrain(UINT32 motorL, UINT32 motorR, UINT32 encoderLA, UINT32 encoderLB, UINT32 encoderRA, UINT32 encoderRB, UINT32 solenoidL);
@@ -49,5 +50,7 @@ public:
 	UINT32 GetLeftDriveAxis();
 	void SetFineTuned(bool isFine);
 	bool IsFineTuned();
+	bool IsSpedUp();
+	bool IsShifted();
 };
 #endif

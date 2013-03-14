@@ -14,6 +14,7 @@
 #include "Commands/ClimbingCommandGroup.h"
 #include "Commands/AutonomousCommandGroup.h"
 #include "Commands/UpdateLightsCommand.h"
+#include "Commands/SetLightsCommand.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
@@ -24,11 +25,14 @@ private:
 	SendableChooser *autoDelayOptions;
 	//SendableChooser *allianceColour;
 	UpdateLightsCommand *updateLightsCommand;
+	SetLightsCommand *autoLightsCommand;
+	LowerRobotCommand *lowerRobotCommand;
 	
 	virtual void RobotInit() {
 		CommandBase::init();
 		lw = LiveWindow::GetInstance();
 		shifterUpdateCommand = new ShifterUpdateCommand();
+		autoLightsCommand = new SetLightsCommand(1,1,0);
 		autoDelayOptions = new SendableChooser();
 		autoDelayOptions->AddDefault("no delay", (void*)0);
 		autoDelayOptions->AddObject("1 second", (void*)1);
@@ -62,16 +66,19 @@ private:
 		//SmartDashboard::PutData("SafeUnlatch", new SafeUnlatchCommand());
 		//lw->AddActuator("Shooter", "Shooter", CommandBase::shooter);
 		updateLightsCommand = new UpdateLightsCommand(0);
+		lowerRobotCommand = new LowerRobotCommand();
 		autoCommand = 0;
 	}
 	
 	virtual void AutonomousInit() {
 		autoCommand = new AutonomousCommandGroup((int)autoDelayOptions->GetSelected(), true);
 		autoCommand->Start();
+		autoLightsCommand->Start();
 	}
 	
 	virtual void AutonomousPeriodic() {
 		Scheduler::GetInstance()->Run();
+		CommandBase::driveTrain->Periodic();
 		Wait(0.005);
 	}
 	
@@ -85,12 +92,11 @@ private:
 		}
 		//updateLightsCommand = new UpdateLightsCommand(0);//(int)allianceColour->GetSelected());
 		updateLightsCommand->Start();
-		shifterUpdateCommand->Start();
 	}
 	
 	virtual void TeleopPeriodic() {
 		Scheduler::GetInstance()->Run();
-		
+		CommandBase::driveTrain->Periodic();
 		//If this is enabled we can't manually adjust the arm.
 		//This is called in absolute arm position commands.
 		//CommandBase::climbingArm->run();
@@ -98,6 +104,7 @@ private:
 	}
 	virtual void DisabledInit(){
 		Scheduler::GetInstance()->RemoveAll();
+		lowerRobotCommand->Start();
 	}
 	/* 
 	virtual void TestInit() {

@@ -48,7 +48,10 @@ OI::OI() {
 	slowDownShooterPIDButton->WhenPressed(new SlowDownShooterCommand());
 	
 	fireDiscPIDButton = new AnalogJoystickButton(pidTuneStick, XboxController::xbZAxis, -0.5);
-	fireDiscPIDButton->WhenPressed(new FireDiscCommand());
+	//fireDiscPIDButton->WhileHeld(new FireDiscCommand(false));
+	
+	firePIDButtonScheduler = new HeldButtonScheduler2481(0, fireDiscPIDButton, new FireDiscCommand(false));
+	firePIDButtonScheduler->Start();
 	
 	
 	shiftUpButton = new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -0.5); //TODO change button argument to desired button
@@ -59,7 +62,7 @@ OI::OI() {
 	
 	fireDiscButton = new AnalogJoystickButton(shooterStick, XboxController::xbZAxis, -0.5);
 	//fireDiscButton->WhileHeld(new FireDiscCommandGroup());
-	fireDiscButton->WhenPressed(new FireDiscCommand());
+	//fireDiscButton->WhileHeld(new FireDiscCommand(false));
 	
 	manualArmExtendButton = new AnalogJoystickButton(shooterStick, XboxController::xbRightYAxis, -0.5);
 	manualArmExtendButton->WhileHeld(new ExtendArmCommand());
@@ -114,6 +117,11 @@ OI::OI() {
 	
 	blueLightsButton = new JoystickButton(driverStick, XboxController::xbXButton); // not blue. needs to be changed
 	blueLightsButton->WhenPressed(new AutoFireCommandGroup());
+	
+	fireButtonScheduler = new HeldButtonScheduler2481(0, fireDiscButton, new FireDiscCommand(false));
+	fireButtonScheduler->Start();
+	
+	
 }
 
 

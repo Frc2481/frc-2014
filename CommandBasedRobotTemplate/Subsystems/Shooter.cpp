@@ -27,6 +27,7 @@ Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChan
 	SetAbsoluteTolerance(shooterSpeedTolerance / 2.0);
 	GetController()->SetOutputRange(0,1);
 	settledCount = 0;
+	shooterSpeed = SHOOTER_UP_SPEED;
 }
 
 Shooter::~Shooter() {
@@ -36,7 +37,11 @@ Shooter::~Shooter() {
 }
 
 void Shooter::setSpeed(double speed){
+	
+	if (isShooterUp())
+			shooterSpeed = speed;
 	this->SetSetpoint(speed);
+			
 }
 void Shooter::turnOn(){
 	printf("Speed: %f \n", GetSetpoint());
@@ -121,7 +126,7 @@ void Shooter::updatePID() {
 	if (isShooterUp()) {
 		GetController()->SetPID(SHOOTER_UP_P, SHOOTER_UP_I, SHOOTER_UP_D);
 		GetController()->SetOutputRange(0,1);
-		setSpeed(SHOOTER_UP_SPEED);
+		setSpeed(shooterSpeed);
 	} else {
 		GetController()->SetPID(SHOOTER_DOWN_P, SHOOTER_DOWN_I, SHOOTER_DOWN_D);
 		setSpeed(SHOOTER_DOWN_SPEED);

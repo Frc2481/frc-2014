@@ -5,6 +5,7 @@
 #include "Components/Joystick2481.h"
 #include "XboxController.h"
 #include "Components/AnalogJoystickButton.h"
+#include "Components/HeldButtonScheduler2481.h"
 
 class OI {
 private:
@@ -42,7 +43,8 @@ private:
 	JoystickButton *speedUpShooterPIDButton;
 	JoystickButton *slowDownShooterPIDButton;
 	AnalogJoystickButton *fireDiscPIDButton;
-	
+	HeldButtonScheduler2481 *fireButtonScheduler;
+	HeldButtonScheduler2481 *firePIDButtonScheduler;
 	
 public:
 	OI();
