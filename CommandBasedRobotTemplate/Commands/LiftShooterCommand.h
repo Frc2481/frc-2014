@@ -22,7 +22,7 @@ public:
 	virtual void Execute(){}
 	virtual bool IsFinished() {
 		return shooter->isShooterUp() ||
-				climbingArm->getCurrentPosition() < 1;
+				climbingArm->getCurrentPosition() > 1;
 	}
 	virtual void End(){}
 	virtual void Interrupted(){}
