@@ -400,6 +400,7 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/../RobotParameters.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotParameters.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotMap.h \
   C:/WindRiver/vxworks-6.3/target/h/math.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/Shooter.h:
@@ -1199,5 +1200,7 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h:
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/../RobotParameters.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotParameters.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotMap.h:
 
 C:/WindRiver/vxworks-6.3/target/h/math.h:

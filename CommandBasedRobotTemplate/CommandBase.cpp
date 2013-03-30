@@ -31,7 +31,7 @@ void CommandBase::init() {
 	driveTrain->SetLeftDriveAxis(XboxController::xbLeftYAxis);
 	driveTrain->SetFPSTurnAxis(XboxController::xbRightXAxis);
 	
-	shooter = new Shooter(SHOOTER_MOTOR, SHOOTER_ENCODER, SHOOTER_LIFT_SOLENOID);
+	shooter = new Shooter(SHOOTER_MOTOR, SHOOTER_ENCODER, SHOOTER_LIFT_SOLENOID, SHOOTER_LOWER_SOLENOID);
 	hopper = new Hopper(HOPPER_SOLENOID, HOPPER_LID_SOLENOID);
 	airCompressor = new AirCompressor(COMPRESSOR_SENSOR, COMPRESSOR_SPIKE);
 	climbingArm = new Arm(ARM_LIFT_MOTOR, ROBOT_LIFT_MOTOR, UPPER_ARM_SENSOR, LOWER_ARM_SENSOR, ARM_EXTENSION_SENSOR, ARM_TILT_SOLENOID);

@@ -21,6 +21,7 @@ private:
 	bool shooterState;
 	Solenoid *shooterLiftSolenoid;
 	Servo *hopperPressurizer;
+	Solenoid *shooterDownSolenoid;
 	int settledCount;
 	static float shooterSpeedTolerance;
 	static double pValue;
@@ -30,8 +31,9 @@ private:
 	static double periodValue;
 	static int autoSpeed;
 	float shooterSpeed;
+	
 public:
-	Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel);
+	Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel, UINT32 solenoidDownChannel);
 	virtual ~Shooter();
 	void setSpeed(double speed);
 	void turnOn();

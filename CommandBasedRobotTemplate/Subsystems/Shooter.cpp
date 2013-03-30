@@ -6,6 +6,7 @@
  */
 
 #include "Shooter.h"
+#include "../RobotMap.h"
 #include <math.h>
 
 float Shooter::shooterSpeedTolerance = SHOOTER_UP_TOLERANCE;
@@ -16,7 +17,7 @@ double Shooter::fValue = 0;
 double Shooter::periodValue = SHOOTER_PERIOD;
 int Shooter::autoSpeed = SHOOTER_AUTO_SPEED;
 
-Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel) : DynamicPIDSubsystem(pValue,iValue,dValue,fValue,periodValue){
+Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel, UINT32 solenoidDownChannel) : DynamicPIDSubsystem(pValue,iValue,dValue,fValue,periodValue){
 	shooterMotor = new Talon(motorChannel);
 	//shooterEncoder = new RoEncoder(encoderChannel, 4);
 	shooterEncoder = new Encoder2481(encoderChannel);
@@ -28,6 +29,7 @@ Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChan
 	GetController()->SetOutputRange(0,1);
 	settledCount = 0;
 	shooterSpeed = SHOOTER_UP_SPEED;
+	shooterDownSolenoid = new Solenoid(LED_MODULE, solenoidDownChannel);
 }
 
 Shooter::~Shooter() {
@@ -83,11 +85,13 @@ bool Shooter::isShooterOn(){
 
 void Shooter::LiftShooter()  {
 	shooterLiftSolenoid->Set(1);
+	shooterDownSolenoid->Set(0);
 	updatePID();
 }
 
 void Shooter::LowerShooter()  {
 	shooterLiftSolenoid->Set(0);
+	shooterDownSolenoid->Set(1);
 	updatePID();
 }
 
