@@ -25,8 +25,8 @@ public:
 	}
 	virtual void Execute(){
 		if (TimeSinceInitialized() - previousTime > 0.25) {
-			lights->setTop(rand(),rand(),rand());
-			lights->setBottom(rand(),rand(),rand());
+			lights->setTop(rand() > 0.5,rand() > 0.5,rand() > 0.5);
+			lights->setBottom(rand() > 0.5,rand() > 0.5,rand() > 0.5);
 			previousTime = TimeSinceInitialized();
 		}
 	}
