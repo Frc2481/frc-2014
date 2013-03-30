@@ -20,8 +20,8 @@ class AutoFireCommandGroup: public CommandGroup {
 public:
 	AutoFireCommandGroup(){AddParallel(new SetLightsCommand(0,1,0));
 	
-	AddSequential(new ShooterOnCommand());
-	AddSequential(new WaitCommand(3));
+	//AddSequential(new ShooterOnCommand());
+	//AddSequential(new WaitCommand(3));
 	//red
 	AddSequential(new SetLightsCommand(1,0,0));
 	
@@ -54,7 +54,8 @@ public:
 	AddSequential(new SetLightsCommand(0,1,1));
 	
 	AddSequential(new ShooterOffCommand());
-	AddSequential(new RandomLightsCommand);}
+	//AddSequential(new RandomLightsCommand);
+	}
 	virtual ~AutoFireCommandGroup(){}
 };
 
