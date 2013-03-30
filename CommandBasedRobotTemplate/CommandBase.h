@@ -12,6 +12,7 @@
 #include "Subsystems/RobotLift.h"
 #include "Subsystems/Lights.h"
 #include "RobotParameters.h"
+#include "Subsystems/TipSensor.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -33,6 +34,8 @@ public:
 	static Arm *climbingArm;
 	static RobotLift *robotLift;
 	static Lights *lights;
+	static TipSensor *tipSensor;
+	static bool tipCorrectionEnabled;
 };
 
 #endif

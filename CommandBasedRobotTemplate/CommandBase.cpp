@@ -18,6 +18,8 @@ Arm* CommandBase::climbingArm = NULL;
 ClimbingHooks* CommandBase::climbingHooks = NULL;
 RobotLift* CommandBase::robotLift = NULL;
 Lights* CommandBase::lights = NULL;
+TipSensor* CommandBase::tipSensor = NULL;
+bool CommandBase::tipCorrectionEnabled  = false;
 
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
@@ -34,7 +36,8 @@ void CommandBase::init() {
 	airCompressor = new AirCompressor(COMPRESSOR_SENSOR, COMPRESSOR_SPIKE);
 	climbingArm = new Arm(ARM_LIFT_MOTOR, ROBOT_LIFT_MOTOR, UPPER_ARM_SENSOR, LOWER_ARM_SENSOR, ARM_EXTENSION_SENSOR, ARM_TILT_SOLENOID);
 	climbingHooks = new ClimbingHooks(LOCK_HOOK_SOLENOID,UNLOCK_HOOK_SOLENOID, RIGHT_HOOK_MAGNET, LEFT_HOOK_MAGNET);
-	robotLift = new RobotLift(ROBOT_LIFT_SOLENOID,LIFT_ROBOT_SENSOR);
+	robotLift = new RobotLift(ROBOT_LIFT_SOLENOID,LIFT_ROBOT_SENSOR, ROBOT_FLIP_SOLENOID);
 	lights = new Lights();
+	tipSensor = new TipSensor();
 	oi = new OI();
 }

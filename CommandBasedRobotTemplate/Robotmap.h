@@ -49,6 +49,7 @@
 #define UNLOCK_HOOK_SOLENOID	8
 #define ARM_TILT_SOLENOID		3
 #define HOPPER_LID_SOLENOID 	5
+#define ROBOT_FLIP_SOLENOID		7
 
 #define LED_BOTTOM_RED			1
 #define LED_BOTTOM_GREEN		2
@@ -62,6 +63,8 @@
 
 // Analog Input Channels
 #define ARM_EXTENSION_SENSOR	2
+#define ACCEL_Y_CHANNEL			3
+#define ACCEL_Z_CHANNEL			4
 
 
 #define	COMPRESSOR_SPIKE		1

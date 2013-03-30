@@ -17,9 +17,11 @@ public:
 	void Initialize(){
 		if (robotLift->isLifted()){
 			robotLift->lower();
+			tipCorrectionEnabled = false;
 		}
 		else {
 			robotLift->lift();
+			tipCorrectionEnabled = true;
 		}
 	}
 	void Execute(){

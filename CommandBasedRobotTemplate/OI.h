@@ -42,6 +42,7 @@ private:
 	JoystickButton *iDownButton;
 	JoystickButton *speedUpShooterPIDButton;
 	JoystickButton *slowDownShooterPIDButton;
+	JoystickButton *flipRobotButton;
 	AnalogJoystickButton *fireDiscPIDButton;
 	HeldButtonScheduler2481 *fireButtonScheduler;
 	HeldButtonScheduler2481 *firePIDButtonScheduler;

@@ -14,11 +14,14 @@ class RobotLift : Subsystem{
 private:
 	Solenoid *liftSolenoid;
 	DigitalInput *liftSensor;
+	Solenoid *lrRobotFlip;
 public:
-	RobotLift(UINT32 liftSolenoidChannel, UINT32 liftSensorChannel);
+	RobotLift(UINT32 liftSolenoidChannel, UINT32 liftSensorChannel, UINT32 lrFlipChannel);
 	virtual ~RobotLift();
 	void lift();
 	void lower();
+	void flip();
+	void retractFlip();
 	bool isLifted();
 };
 

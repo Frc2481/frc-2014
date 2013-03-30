@@ -7,9 +7,10 @@
 
 #include "RobotLift.h"
 
-RobotLift::RobotLift(UINT32 liftSolenoidChannel, UINT32 liftSensorChannel) : Subsystem("RobotLift") {
+RobotLift::RobotLift(UINT32 liftSolenoidChannel, UINT32 liftSensorChannel, UINT32 lrFlipChannel): Subsystem("RobotLift") {
 	liftSolenoid = new Solenoid(liftSolenoidChannel);
 	liftSensor = new DigitalInput(liftSensorChannel);
+	lrRobotFlip = new Solenoid(lrFlipChannel);
 }
 
 RobotLift::~RobotLift() {
@@ -24,4 +25,10 @@ void RobotLift::lower(){
 }
 bool RobotLift::isLifted(){
 	return liftSolenoid->Get(); //TODO change to sensor
+}
+void RobotLift::flip(){
+	lrRobotFlip->Set(1);
+}
+void RobotLift::retractFlip(){
+	lrRobotFlip->Set(0);
 }

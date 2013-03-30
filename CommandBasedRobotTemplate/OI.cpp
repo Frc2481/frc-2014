@@ -25,6 +25,7 @@
 #include "Commands/SetPCommand.h"
 #include "Commands/SetICommand.h"
 #include "Commands/AutoFireCommandGroup.h"
+#include "Commands/FlipRobotCommand.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -120,6 +121,9 @@ OI::OI() {
 	
 	fireButtonScheduler = new HeldButtonScheduler2481(0, fireDiscButton, new FireDiscCommand(false));
 	fireButtonScheduler->Start();
+	
+	flipRobotButton = new JoystickButton(driverStick, XboxController::xbRightBumper);
+	flipRobotButton->WhileHeld(new FlipRobotCommand());
 	
 	
 }
