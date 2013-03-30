@@ -21,6 +21,7 @@ public:
 	virtual void Initialize(){
 		shooter->turnOff();
 		airCompressor->Start();
+		lights->setTop(1, 0, 1);
 	}
 	virtual void Execute(){}
 	virtual bool IsFinished() {

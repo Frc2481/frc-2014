@@ -22,6 +22,7 @@ public:
 			hopper->close();
 			shooter->LowerShooter();
 			shooter->turnOff();
+			lights->setTop(1, 0, 0);
 			airCompressor->Start();
 		}
 		else if (climbingArm->getCurrentPosition() < 1) {

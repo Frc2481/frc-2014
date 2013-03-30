@@ -19,10 +19,12 @@ public:
 	virtual void Initialize(){
 		if(shooter->isShooterOn()){
 			shooter->turnOff();
+			lights->setTop(1, 0, 0);
 			airCompressor->Start();
 		}
 		else {
 			shooter->turnOn();
+			lights->setTop(1, 0, 1);
 			airCompressor->Stop();
 		}
 	}
