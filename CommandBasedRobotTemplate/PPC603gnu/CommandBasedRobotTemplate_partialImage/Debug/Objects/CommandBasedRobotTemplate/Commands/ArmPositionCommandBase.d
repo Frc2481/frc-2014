@@ -429,7 +429,9 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/Lights.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../Components/RGBLed.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../RobotMap.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../RobotParameters.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../RobotParameters.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/TipSensor.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../Robotmap.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ArmPositionCommandBase.h:
 
@@ -1288,3 +1290,7 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Compone
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../RobotMap.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../RobotParameters.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/TipSensor.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Components/../Subsystems/../Robotmap.h:

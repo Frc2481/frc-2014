@@ -430,6 +430,8 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/../RobotMap.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../RobotParameters.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/TipSensor.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/../Robotmap.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/DriveTrain.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Robotmap.h \
   C:/WindRiver/vxworks-6.3/target/h/math.h
@@ -1291,6 +1293,10 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/../RobotMap.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../RobotParameters.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/TipSensor.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/../Robotmap.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/DriveTrain.h:
 

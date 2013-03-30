@@ -15,6 +15,8 @@
 #include "Commands/AutonomousCommandGroup.h"
 #include "Commands/UpdateLightsCommand.h"
 #include "Commands/SetLightsCommand.h"
+#include "Commands/AutoFireCommandGroup.h"
+#include "Commands/TipDetectionCommand.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
@@ -26,7 +28,9 @@ private:
 	//SendableChooser *allianceColour;
 	UpdateLightsCommand *updateLightsCommand;
 	SetLightsCommand *autoLightsCommand;
+	SetLightsCommand *teleLightsCommand;
 	LowerRobotCommand *lowerRobotCommand;
+	TipDetectionCommand *tipDetection;
 	
 	virtual void RobotInit() {
 		CommandBase::init();
@@ -52,6 +56,7 @@ private:
 		SmartDashboard::PutData("Alliance Colour", allianceColour);*/
 		SmartDashboard::PutData("ShifterUpdateCommand", new ShifterUpdateCommand());
 		SmartDashboard::PutData(CommandBase::driveTrain);
+		SmartDashboard::PutData("AutoFireCommandGroup", new AutoFireCommandGroup());
 		//SmartDashboard::PutData(CommandBase::climbingArm);
 		//SmartDashboard::PutData("FullyExtendArmCommand", new FullyExtendArmPositionCommand());
 		//SmartDashboard::PutData("FullyRetractArmCommand", new FullyRetractArmPositionCommand());
@@ -66,8 +71,10 @@ private:
 		//SmartDashboard::PutData("SafeUnlatch", new SafeUnlatchCommand());
 		//lw->AddActuator("Shooter", "Shooter", CommandBase::shooter);
 		updateLightsCommand = new UpdateLightsCommand(0);
+		teleLightsCommand = new SetLightsCommand(1,0,0);
 		lowerRobotCommand = new LowerRobotCommand();
 		autoCommand = 0;
+		tipDetection = new TipDetectionCommand();
 	}
 	
 	virtual void AutonomousInit() {
@@ -90,13 +97,19 @@ private:
 		if (autoCommand){
 			autoCommand->Cancel();
 		}
+		teleLightsCommand->Start();
+		tipDetection->Start();
 		//updateLightsCommand = new UpdateLightsCommand(0);//(int)allianceColour->GetSelected());
-		updateLightsCommand->Start();
+		//updateLightsCommand->Start();
 	}
 	
 	virtual void TeleopPeriodic() {
 		Scheduler::GetInstance()->Run();
 		CommandBase::driveTrain->Periodic();
+		CommandBase::tipSensor->Periodic();
+		SmartDashboard::PutNumber("Accel_Y_Axis", CommandBase::tipSensor->GetYAxis());
+		SmartDashboard::PutNumber("Accel_Z_Axis", CommandBase::tipSensor->GetZAxis());
+		SmartDashboard::PutNumber("Accel_Z_Axis_Filtered", CommandBase::tipSensor->IsTipped());
 		//If this is enabled we can't manually adjust the arm.
 		//This is called in absolute arm position commands.
 		//CommandBase::climbingArm->run();

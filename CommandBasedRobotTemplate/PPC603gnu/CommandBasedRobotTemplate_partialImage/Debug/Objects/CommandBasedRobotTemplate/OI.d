@@ -429,6 +429,8 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Components/RGBLed.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../RobotMap.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../RobotParameters.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/TipSensor.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Robotmap.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommandGroup.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/LoadHopperCommand.h \
@@ -483,7 +485,8 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FineTuneToggle.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetPCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetICommand.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FlipRobotCommand.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
 
@@ -1341,6 +1344,10 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsyst
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../RobotParameters.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/TipSensor.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../Subsystems/../Robotmap.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FireDiscCommandGroup.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
@@ -1450,3 +1457,5 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetPComman
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetICommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FlipRobotCommand.h:

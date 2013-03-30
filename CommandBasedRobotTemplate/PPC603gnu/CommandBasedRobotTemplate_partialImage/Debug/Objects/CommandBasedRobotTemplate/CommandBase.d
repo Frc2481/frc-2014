@@ -425,6 +425,8 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/RGBLed.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotMap.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/RobotParameters.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/TipSensor.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Robotmap.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Robotmap.h
 
@@ -1275,6 +1277,10 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Compo
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotMap.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/RobotParameters.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/TipSensor.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Robotmap.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h:
 

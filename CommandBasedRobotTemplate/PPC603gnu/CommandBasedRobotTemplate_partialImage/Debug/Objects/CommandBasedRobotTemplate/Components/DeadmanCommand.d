@@ -425,7 +425,9 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../Subsystems/Lights.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../Subsystems/../Components/RGBLed.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../Subsystems/../RobotMap.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../RobotParameters.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../RobotParameters.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../Subsystems/TipSensor.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../Subsystems/../Robotmap.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/DeadmanCommand.h:
 
@@ -1276,3 +1278,7 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../Subsy
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../Subsystems/../RobotMap.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../RobotParameters.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../Subsystems/TipSensor.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Components/../Subsystems/../Robotmap.h:

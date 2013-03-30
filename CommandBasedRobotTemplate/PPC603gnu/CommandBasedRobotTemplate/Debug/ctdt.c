@@ -49,7 +49,9 @@ void _GLOBAL__I__ZN7Shooter21shooterSpeedToleranceE();
 
 void _GLOBAL__I__ZN9RoEncoderC2Eii();
 
-void _GLOBAL__I__ZN9RobotLiftC2Ejj();
+void _GLOBAL__I__ZN9RobotLiftC2Ejjj();
+
+void _GLOBAL__I__ZN9TipSensorC2Ev();
 
 void _GLOBAL__I__ZN12PrintCommandC2EPKc();
 
@@ -125,7 +127,8 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN6RGBLedC2Ejjjj,
     _GLOBAL__I__ZN7Shooter21shooterSpeedToleranceE,
     _GLOBAL__I__ZN9RoEncoderC2Eii,
-    _GLOBAL__I__ZN9RobotLiftC2Ejj,
+    _GLOBAL__I__ZN9RobotLiftC2Ejjj,
+    _GLOBAL__I__ZN9TipSensorC2Ev,
     _GLOBAL__I__ZN12PrintCommandC2EPKc,
     _GLOBAL__I__ZN9Scheduler9_instanceE,
     _GLOBAL__I__ZN11WaitCommandC2Ed,
@@ -196,7 +199,9 @@ void _GLOBAL__D__ZN7Shooter21shooterSpeedToleranceE();
 
 void _GLOBAL__D__ZN9RoEncoderC2Eii();
 
-void _GLOBAL__D__ZN9RobotLiftC2Ejj();
+void _GLOBAL__D__ZN9RobotLiftC2Ejjj();
+
+void _GLOBAL__D__ZN9TipSensorC2Ev();
 
 void _GLOBAL__D__ZN9Scheduler9_instanceE();
 
@@ -262,7 +267,8 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN6RGBLedC2Ejjjj,
     _GLOBAL__D__ZN7Shooter21shooterSpeedToleranceE,
     _GLOBAL__D__ZN9RoEncoderC2Eii,
-    _GLOBAL__D__ZN9RobotLiftC2Ejj,
+    _GLOBAL__D__ZN9RobotLiftC2Ejjj,
+    _GLOBAL__D__ZN9TipSensorC2Ev,
     _GLOBAL__D__ZN9Scheduler9_instanceE,
     _GLOBAL__D_wpi_error_s_ModuleIndexOutOfRange,
     _GLOBAL__D__ZN17MotorSafetyHelper12m_headHelperE,

@@ -427,6 +427,8 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Components/RGBLed.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../RobotMap.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/RobotParameters.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/TipSensor.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Robotmap.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShifterUpdateCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FullyExtendArmCommand.h \
@@ -477,7 +479,11 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/StopDriveCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterUpToggleCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/UpdateLightsCommand.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetLightsCommand.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetLightsCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TipDetectionCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.H \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TipCorrectionCommand.h
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
@@ -1331,6 +1337,10 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Robot
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/RobotParameters.h:
 
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/TipSensor.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Subsystems/../Robotmap.h:
+
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShifterUpdateCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.h:
@@ -1432,3 +1442,11 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ShooterUpT
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/UpdateLightsCommand.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetLightsCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TipDetectionCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/../CommandBase.H:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/TipCorrectionCommand.h:

@@ -28,63 +28,22 @@ public:
 		flashCount = 0;
 		isFlashing = false;
 		int r,g,b = 0;
-		switch (allianceColor) {
-		case 0:
-			if (DriverStation::GetInstance()->GetAlliance() == DriverStation::kBlue){
-				r = g = 0;
-				b = 1;
-			}
-			else if (DriverStation::GetInstance()->GetAlliance() == DriverStation::kRed){
-				b = g = 0;
-				r = 1;
-			}
-			else {
-				r = g = b = 1;
-			}
-			break;
-		case 1:
-			r = 1;
-			g = b = 0;
-			break;
-		case 2:
-			g = 1;
-			r = b = 0;
-			break;
-		case 3:
-			b = 1;
+
+		if (DriverStation::GetInstance()->GetAlliance() == DriverStation::kBlue){
 			r = g = 0;
-			break;
-		case 4:
-			r = g = 1;
-			b = 0;
-			break;
-		case 5:
-			r = b = 1;
-			g = 0;
-			break;
-		case 6:
-			g = b = 1;
-			r = 0;
-			break;
-		case 7:
+			b = 1;
+		}
+		else if (DriverStation::GetInstance()->GetAlliance() == DriverStation::kRed){
+			b = g = 0;
+			r = 1;
+		}
+		else {
 			r = g = b = 1;
-			break;
 		}
 		lights->setBottom(r,g,b);
 	}
 	virtual void Execute(){
 		double timeRemaining = 2.25 - DriverStation::GetInstance()->GetMatchTime();
-		/*if (shooter->isShooterUp()){
-			if (!shooter->isShooterOn()){
-				lights->setTop(1,0,0);
-			}
-			if (shooter->getErrorRPM() < shooter->getTollerance() * 2){
-				lights->setTop(0,1,0);
-			}
-			else {
-				lights->setTop(1,1,0);
-			}
-		}*/
 		if(timeRemaining < 60){
 			if(!isFlashing && timeRemaining > 27.5){
 				isFlashing = true;
