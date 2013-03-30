@@ -36,6 +36,7 @@ public:
 		AddSequential(new ShooterOffCommand());
 		AddSequential(new ClimbFirstLevel());
 		AddSequential(new ClimbOneLevel());
+		AddSequential(new ShooterOnCommand());
 		AddSequential(new ClimbOneLevel());
 		AddSequential(new AutoFireCommandGroup());
 		//green
