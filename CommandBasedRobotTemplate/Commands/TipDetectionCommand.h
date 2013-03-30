@@ -23,10 +23,15 @@ public:
 	virtual ~TipDetectionCommand(){}
 	void Initialize(){}
 	void Execute(){		
-		if (tipCorrectionEnabled && tipSensor->IsTipped() != 0){
-			tipCorrection->Start();
+		if (tipSensor->IsTipped() != 0){
+			if (tipCorrectionEnabled){
+				tipCorrection->Start();
+			} else {
+				tipCorrection->Cancel();
+			}
 		} else {
 			tipCorrection->Cancel();
+			robotLift->retractFlip();
 		}
 	}
 	bool IsFinished(){

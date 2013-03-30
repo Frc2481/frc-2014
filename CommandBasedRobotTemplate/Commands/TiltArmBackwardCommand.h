@@ -19,7 +19,7 @@ public:
 	void Initialize(){
 		if (mManual)
 			climbingArm->tiltBackward();
-			tipCorrectionEnabled = true;
+			tipCorrectionEnabled = false;
 	}
 	bool IsFinished(){
 		return !climbingArm->isTilted();
