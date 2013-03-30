@@ -15,7 +15,7 @@ private:
 	bool mManual;
 public:
 	TiltArmForwardCommand(bool manual=false) : DeadmanCommand("TiltArmForwardCommand"), mManual(manual) {
-		SetTimeout(1.2);
+		SetTimeout(0.7);
 	}
 	virtual ~TiltArmForwardCommand(){}
 	void Initialize(){
