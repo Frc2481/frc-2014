@@ -16,6 +16,7 @@ public:
 	virtual ~LiftRobotCommand(){}
 	void Initialize(){
 		robotLift->lift();
+		tipCorrectionEnabled = false;
 	}
 	void Execute(){}
 	bool IsFinished(){
