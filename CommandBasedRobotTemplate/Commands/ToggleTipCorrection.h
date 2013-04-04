@@ -20,7 +20,7 @@ public:
 	}
 	void Interrupted(){}
 	bool IsFinished(){
-		return false;
+		return true;
 	}
 	void End(){}
 };
