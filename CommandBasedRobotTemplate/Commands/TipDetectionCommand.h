@@ -31,7 +31,6 @@ public:
 			}
 		} else {
 			tipCorrection->Cancel();
-			robotLift->retractFlip();
 		}
 	}
 	bool IsFinished(){
