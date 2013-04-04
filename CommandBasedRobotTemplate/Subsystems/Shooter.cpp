@@ -84,20 +84,20 @@ bool Shooter::isShooterOn(){
 }
 
 void Shooter::LiftShooter()  {
-	shooterLiftSolenoid->Set(1);
-	shooterDownSolenoid->Set(0);
-	updatePID();
-}
-
-void Shooter::LowerShooter()  {
 	shooterLiftSolenoid->Set(0);
 	shooterDownSolenoid->Set(1);
 	updatePID();
 }
 
+void Shooter::LowerShooter()  {
+	shooterLiftSolenoid->Set(1);
+	shooterDownSolenoid->Set(0);
+	updatePID();
+}
+
 bool Shooter::isShooterUp() {
 	//TODO implement magnetic sensor ????!!??
-	return shooterLiftSolenoid->Get();
+	return !shooterLiftSolenoid->Get();
 }
 
 float Shooter::getCurrentSpeed(){
