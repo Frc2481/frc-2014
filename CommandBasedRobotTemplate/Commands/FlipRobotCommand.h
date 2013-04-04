@@ -11,27 +11,20 @@
 #include "../CommandBase.h"
 
 class FlipRobotCommand: public CommandBase {
-	bool finished;
+
 public:
 	FlipRobotCommand(){}
 	virtual ~FlipRobotCommand(){}
 	void Initialize() {
-		finished = false;
+		robotLift->flip();
+		tipCorrectionEnabled = false;
 	}
-	void Execute(){
-		if (oi->GetDriverStick()->GetRawButton(XboxController::xbRightBumper) &&
-			oi->GetDriverStick()->GetRawButton(XboxController::xbLeftBumper)) {
-			robotLift->flip();
-			tipCorrectionEnabled = false;
-		} else {
-			finished = true;
-		}
-	}
+	void Execute(){}
 	void Interrupted(){
 		End();
 	}
 	bool IsFinished(){
-		return finished;
+		return false;
 	}
 	void End(){
 		robotLift->retractFlip();

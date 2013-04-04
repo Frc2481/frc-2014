@@ -123,7 +123,7 @@ OI::OI() {
 	fireButtonScheduler = new HeldButtonScheduler2481(0, fireDiscButton, new FireDiscCommand(false));
 	fireButtonScheduler->Start();
 	
-	flipRobotButton = new JoystickButton(driverStick, XboxController::xbRightBumper);
+	flipRobotButton = new JoystickButton(driverStick, XboxController::xbBackButton);
 	flipRobotButton->WhileHeld(new FlipRobotCommand());
 	
 	toggleTipCorrectionButton = new JoystickButton(driverStick, XboxController::xbStartButton);
