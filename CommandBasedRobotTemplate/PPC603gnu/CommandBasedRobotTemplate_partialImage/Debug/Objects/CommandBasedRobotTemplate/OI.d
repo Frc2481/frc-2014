@@ -486,7 +486,8 @@
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetPCommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetICommand.h \
   C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h \
-  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FlipRobotCommand.h
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FlipRobotCommand.h \
+  C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleTipCorrection.h
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/OI.h:
 
@@ -1459,3 +1460,5 @@ C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/SetIComman
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/AutoFireCommandGroup.h:
 
 C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/FlipRobotCommand.h:
+
+C:/WindRiver/workspace/frcteam2481/CommandBasedRobotTemplate/Commands/ToggleTipCorrection.h:

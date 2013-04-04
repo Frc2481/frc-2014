@@ -26,6 +26,7 @@
 #include "Commands/SetICommand.h"
 #include "Commands/AutoFireCommandGroup.h"
 #include "Commands/FlipRobotCommand.h"
+#include "Commands/ToggleTipCorrection.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -124,6 +125,9 @@ OI::OI() {
 	
 	flipRobotButton = new JoystickButton(driverStick, XboxController::xbRightBumper);
 	flipRobotButton->WhileHeld(new FlipRobotCommand());
+	
+	toggleTipCorrectionButton = new JoystickButton(driverStick, XboxController::xbStartButton);
+	toggleTipCorrectionButton->WhenPressed(new ToggleTipCorrection());
 	
 	
 }

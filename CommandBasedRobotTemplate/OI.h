@@ -46,6 +46,7 @@ private:
 	AnalogJoystickButton *fireDiscPIDButton;
 	HeldButtonScheduler2481 *fireButtonScheduler;
 	HeldButtonScheduler2481 *firePIDButtonScheduler;
+	JoystickButton *toggleTipCorrectionButton;
 	
 public:
 	OI();
