@@ -6,11 +6,12 @@
  */
 
 #include "RobotLift.h"
+#include "../RobotMap.h"
 
 RobotLift::RobotLift(UINT32 liftSolenoidChannel, UINT32 liftSensorChannel, UINT32 lrFlipChannel): Subsystem("RobotLift") {
 	liftSolenoid = new Solenoid(liftSolenoidChannel);
 	liftSensor = new DigitalInput(liftSensorChannel);
-	lrRobotFlip = new Solenoid(lrFlipChannel);
+	lrRobotFlip = new Solenoid(LED_MODULE, lrFlipChannel);
 }
 
 RobotLift::~RobotLift() {
