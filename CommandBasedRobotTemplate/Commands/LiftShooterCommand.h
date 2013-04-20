@@ -8,21 +8,18 @@
 #ifndef LIFTSHOOTERCOMMAND_H_
 #define LIFTSHOOTERCOMMAND_H_
 
-#include "CommandBase.h"
+#include "../CommandBase.h"
 
 class LiftShooterCommand: public CommandBase {
 public:
 	LiftShooterCommand() : CommandBase("LiftShooterCommand"){}
 	virtual ~LiftShooterCommand(){}
 	virtual void Initialize() {
-		if (climbingArm->getCurrentPosition() < 1) {
 			shooter->LiftShooter();
-		}
 	}
 	virtual void Execute(){}
 	virtual bool IsFinished() {
-		return shooter->isShooterUp() ||
-				climbingArm->getCurrentPosition() > 1;
+		return true;
 	}
 	virtual void End(){}
 	virtual void Interrupted(){}

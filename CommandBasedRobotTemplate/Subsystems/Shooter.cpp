@@ -30,6 +30,7 @@ Shooter::Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChan
 	settledCount = 0;
 	shooterSpeed = SHOOTER_UP_SPEED;
 	shooterDownSolenoid = new Solenoid(LED_MODULE, solenoidDownChannel);
+	shooterUp = false;
 }
 
 Shooter::~Shooter() {
@@ -84,12 +85,14 @@ bool Shooter::isShooterOn(){
 }
 
 void Shooter::LiftShooter()  {
+	shooterUp = true;
 	shooterLiftSolenoid->Set(0);
 	shooterDownSolenoid->Set(1);
 	updatePID();
 }
 
 void Shooter::LowerShooter()  {
+	shooterUp = false;
 	shooterLiftSolenoid->Set(1);
 	shooterDownSolenoid->Set(0);
 	updatePID();
@@ -97,7 +100,7 @@ void Shooter::LowerShooter()  {
 
 bool Shooter::isShooterUp() {
 	//TODO implement magnetic sensor ????!!??
-	return !shooterLiftSolenoid->Get();
+	return shooterUp;
 }
 
 float Shooter::getCurrentSpeed(){

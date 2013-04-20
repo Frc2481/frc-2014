@@ -31,6 +31,7 @@ private:
 	static double periodValue;
 	static int autoSpeed;
 	float shooterSpeed;
+	bool shooterUp;
 	
 public:
 	Shooter(UINT32 motorChannel, UINT32 encoderChannel, UINT32 solenoidChannel, UINT32 solenoidDownChannel);

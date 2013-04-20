@@ -19,11 +19,12 @@
 #include "ShooterOffCommand.h"
 #include "ShooterUpToggleCommand.h"
 #include "LowerShooterCommand.h"
+#include "LiftShooterCommand.h"
 
 class AutonomousCommandGroup: public CommandGroup {
 public:
 	AutonomousCommandGroup(float delay, bool willMove) {
-		AddSequential(new ShooterUpToggleCommand());
+		AddSequential(new LiftShooterCommand());
 		AddSequential(new ShooterOnCommand());
 		AddSequential(new WaitCommand(2));
 		AddSequential(new FireDiscCommand());
