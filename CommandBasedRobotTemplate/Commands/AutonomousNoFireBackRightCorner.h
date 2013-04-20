@@ -1,12 +1,12 @@
 /*
- * AutonomousCommandGroup.h
+ * AutonomousNoFireBackRightCorner.h
  *
  *  Created on: Feb 11, 2013
  *      Author: Team2481
  */
 
-#ifndef AUTONOMOUSCOMMANDGROUP_H_
-#define AUTONOMOUSCOMMANDGROUP_H_
+#ifndef AUTONOMOUSNOFIREBACKRIGHTCORNER_H_
+#define AUTONOMOUSNOFIREBACKRIGHTCORNER_H_
 
 #include "WPILib.h"
 #include "DriveForwardCommand.h"
@@ -21,19 +21,16 @@
 #include "LowerShooterCommand.h"
 #include "LiftShooterCommand.h"
 
-class AutonomousCommandGroup: public CommandGroup {
+class AutonomousNoFireBackRightCorner: public CommandGroup {
 public:
-	AutonomousCommandGroup() {
-		AddSequential(new LiftShooterCommand());
-		AddSequential(new ShooterOnCommand());
-		AddSequential(new WaitCommand(2));
-		AddSequential(new FireDiscCommand());
-		AddSequential(new FireDiscCommand());
-		AddSequential(new FireDiscCommand());
-		AddSequential(new FireDiscCommand());
-		AddSequential(new FireDiscCommand());
-		AddSequential(new ShooterUpToggleCommand());
-		AddSequential(new DriveBackwardCommand(.75, 1.6));
+	AutonomousNoFireBackRightCorner() {
+		//AddSequential(new FireDiscCommand());
+		//AddSequential(new FireDiscCommand());
+		AddSequential(new DriveBackwardCommand(1, .3));
+		AddSequential(new WaitCommand(.2));
+		AddSequential(new TurnLeftCommand(1,.27));
+		//AddSequential(new DriveBackwardCommand(.75, 1.25));   // 75%
+		AddSequential(new DriveBackwardCommand(1, .75));		// 100%
 		AddSequential(new StopDriveCommand());
 		// (willMove) {
 			//AddSequential(new DriveBackwardCommand(0.5,5));
@@ -43,9 +40,9 @@ public:
 			AddSequential(new StopDriveCommand());*/
 		//}
 	}
-	virtual ~AutonomousCommandGroup() {
+	virtual ~AutonomousNoFireBackRightCorner() {
 		
 	}
 };
 
-#endif /* AUTONOMOUSCOMMANDGROUP_H_ */
+#endif /* AUTONOMOUSNOFIREBACKRIGHTCORNER_H_ */

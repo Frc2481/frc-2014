@@ -17,14 +17,21 @@
 #include "Commands/SetLightsCommand.h"
 #include "Commands/AutoFireCommandGroup.h"
 #include "Commands/TipDetectionCommand.h"
+#include "Commands/TurningTestCommand.h"
+#include "Commands/AutonomousFireBackRightCorner.h"
+#include "Commands/AutonomousBackReturnFire.h"
+#include "Commands/AutonomousCommandGroupNoBack.h"
+#include "Commands/AutonomousBackNoFire.h"
+#include "Commands/AutonomousNoFireBackLeftCorner.h"
+#include "Commands/AutonomousNoFireBackRightCorner.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
 	Command *autonomousCommand;
 	ShifterUpdateCommand *shifterUpdateCommand;
 	LiveWindow *lw;
-	AutonomousCommandGroup *autoCommand;
-	SendableChooser *autoDelayOptions;
+	CommandGroup *autoCommand;
+	SendableChooser *autoOptions;
 	//SendableChooser *allianceColour;
 	UpdateLightsCommand *updateLightsCommand;
 	SetLightsCommand *autoLightsCommand;
@@ -37,14 +44,14 @@ private:
 		lw = LiveWindow::GetInstance();
 		shifterUpdateCommand = new ShifterUpdateCommand();
 		autoLightsCommand = new SetLightsCommand(1,1,0);
-		autoDelayOptions = new SendableChooser();
-		autoDelayOptions->AddDefault("no delay", (void*)0);
-		autoDelayOptions->AddObject("1 second", (void*)1);
-		autoDelayOptions->AddObject("2 seconds", (void*)2);
-		autoDelayOptions->AddObject("3 seconds", (void*)3);
-		autoDelayOptions->AddObject("4 seconds", (void*)4);
-		autoDelayOptions->AddObject("5 seconds", (void*)5);
-		SmartDashboard::PutData("Autonomous Delay Options", autoDelayOptions);
+		autoOptions = new SendableChooser();
+		autoOptions->AddDefault("Middle - Fire 3 back up", new AutonomousCommandGroup());
+		autoOptions->AddObject("Middle - Fire 3 - no back", new AutonomousNoBack());
+		autoOptions->AddObject("Middle - No Fire - Back Up", new AutonomousBackNoFire);
+		autoOptions->AddObject("Right Corner - Fire 3 - Back & Turn", new AutonomousFireBackRightCorner());
+		autoOptions->AddObject("Right Corner - No Fire - Back & Turn", new AutonomousNoFireBackRightCorner());
+		autoOptions->AddObject("Left Corner - No Fire - Back & Turn", new AutonomousNoFireBackLeftCorner());
+		SmartDashboard::PutData("Autonomous Delay Options", autoOptions);
 		/*allianceColour->AddDefault("auto", (void*)0);
 		allianceColour->AddObject("red", (void*)1);
 		allianceColour->AddObject("green", (void*)2);
@@ -70,6 +77,9 @@ private:
 		//SmartDashboard::PutData("Shooter", CommandBase::shooter);
 		//SmartDashboard::PutData("SafeUnlatch", new SafeUnlatchCommand());
 		//lw->AddActuator("Shooter", "Shooter", CommandBase::shooter);
+		SmartDashboard::PutData("TurningTestCommand", new TurningTestCommand);
+		SmartDashboard::PutData("AutoFireBackRightCorner", new AutonomousFireBackRightCorner());
+		SmartDashboard::PutData("AutoBackReturnFire", new AutonomousBackReturnFire);
 		updateLightsCommand = new UpdateLightsCommand(0);
 		teleLightsCommand = new SetLightsCommand(1,0,0);
 		lowerRobotCommand = new LowerRobotCommand();
@@ -78,7 +88,7 @@ private:
 	}
 	
 	virtual void AutonomousInit() {
-		autoCommand = new AutonomousCommandGroup((int)autoDelayOptions->GetSelected(), true);
+		autoCommand = (CommandGroup*)autoOptions->GetSelected();
 		autoCommand->Start();
 		autoLightsCommand->Start();
 	}

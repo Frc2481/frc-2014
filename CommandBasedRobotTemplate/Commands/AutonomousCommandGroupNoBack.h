@@ -1,12 +1,12 @@
 /*
- * AutonomousCommandGroup.h
+ * AutonomousNoBack.h
  *
  *  Created on: Feb 11, 2013
  *      Author: Team2481
  */
 
-#ifndef AUTONOMOUSCOMMANDGROUP_H_
-#define AUTONOMOUSCOMMANDGROUP_H_
+#ifndef AUTONOMOUSNOBACK_H_
+#define AUTONOMOUSNOBACK_H_
 
 #include "WPILib.h"
 #include "DriveForwardCommand.h"
@@ -21,9 +21,9 @@
 #include "LowerShooterCommand.h"
 #include "LiftShooterCommand.h"
 
-class AutonomousCommandGroup: public CommandGroup {
+class AutonomousNoBack: public CommandGroup {
 public:
-	AutonomousCommandGroup() {
+	AutonomousNoBack() {
 		AddSequential(new LiftShooterCommand());
 		AddSequential(new ShooterOnCommand());
 		AddSequential(new WaitCommand(2));
@@ -33,8 +33,6 @@ public:
 		AddSequential(new FireDiscCommand());
 		AddSequential(new FireDiscCommand());
 		AddSequential(new ShooterUpToggleCommand());
-		AddSequential(new DriveBackwardCommand(.75, 1.6));
-		AddSequential(new StopDriveCommand());
 		// (willMove) {
 			//AddSequential(new DriveBackwardCommand(0.5,5));
 			/*AddSequential(new TurnLeftCommand(0.5, 1.5));
@@ -43,9 +41,9 @@ public:
 			AddSequential(new StopDriveCommand());*/
 		//}
 	}
-	virtual ~AutonomousCommandGroup() {
+	virtual ~AutonomousNoBack() {
 		
 	}
 };
 
-#endif /* AUTONOMOUSCOMMANDGROUP_H_ */
+#endif /* AUTONOMOUSNOBACK_H_ */

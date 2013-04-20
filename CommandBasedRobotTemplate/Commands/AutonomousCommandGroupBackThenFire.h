@@ -1,12 +1,12 @@
 /*
- * AutonomousCommandGroup.h
+ * AutonomousBackThenFire.h
  *
  *  Created on: Feb 11, 2013
  *      Author: Team2481
  */
 
-#ifndef AUTONOMOUSCOMMANDGROUP_H_
-#define AUTONOMOUSCOMMANDGROUP_H_
+#ifndef AUTONOMOUSBACKTHENFIRE_H_
+#define AUTONOMOUSBACKTHENFIRE_H_
 
 #include "WPILib.h"
 #include "DriveForwardCommand.h"
@@ -21,12 +21,13 @@
 #include "LowerShooterCommand.h"
 #include "LiftShooterCommand.h"
 
-class AutonomousCommandGroup: public CommandGroup {
+class AutonomousBackThenFire: public CommandGroup {
 public:
-	AutonomousCommandGroup() {
-		AddSequential(new LiftShooterCommand());
+	AutonomousBackThenFire() {
 		AddSequential(new ShooterOnCommand());
-		AddSequential(new WaitCommand(2));
+		AddSequential(new LiftShooterCommand());
+		AddSequential(new DriveBackwardCommand(.75, 1.6));
+		AddSequential(new StopDriveCommand());
 		AddSequential(new FireDiscCommand());
 		AddSequential(new FireDiscCommand());
 		AddSequential(new FireDiscCommand());
@@ -43,9 +44,9 @@ public:
 			AddSequential(new StopDriveCommand());*/
 		//}
 	}
-	virtual ~AutonomousCommandGroup() {
+	virtual ~AutonomousBackThenFire() {
 		
 	}
 };
 
-#endif /* AUTONOMOUSCOMMANDGROUP_H_ */
+#endif /* AUTONOMOUSBACKTHENFIRE_H_ */
