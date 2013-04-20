@@ -21,7 +21,7 @@ class ClimbFirstLevel: public CommandGroup {
 public:
 	ClimbFirstLevel() : CommandGroup(){
 	//purple
-	AddParallel(new SetLightsCommand(1,0,1));
+	AddParallel(new SetLightsCommand(0,1,1));
 	
 	AddSequential(new TiltArmBackwardCommand());
 	AddSequential(new UnlatchCommand());

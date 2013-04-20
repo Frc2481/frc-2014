@@ -12,26 +12,33 @@
 #include "DriveBackwardCommand.h"
 #include "DriveForwardCommand.h"
 #include "TipCorrectionCommand.h"
+#include "PoliceLightsCommand.h"
 
 class TipDetectionCommand: public CommandBase {
 private:
 	TipCorrectionCommand *tipCorrection;
+	PoliceLightsCommand *policeLights;
 public:
 	TipDetectionCommand() : CommandBase("TipDetectionCommand"){
 		tipCorrection = new TipCorrectionCommand();
+		policeLights = new PoliceLightsCommand();
 	}
 	virtual ~TipDetectionCommand(){}
 	void Initialize(){}
 	void Execute(){		
-		if (tipSensor->IsTipped() != 0){
+		/*if (tipSensor->IsTipped() != 0){
 			if (tipCorrectionEnabled){
-				tipCorrection->Start();
-			} else {
-				tipCorrection->Cancel();
-			}
+				policeLights->Start();
+				printf("TipDetected \n");
+				//tipCorrection->Start();
+			} /*else {
+				//tipCorrection->Cancel();
+				//policeLights->Cancel();
+			//}
 		} else {
-			tipCorrection->Cancel();
-		}
+			//tipCorrection->Cancel();
+			policeLights->Cancel();
+		}*/
 	}
 	bool IsFinished(){
 		return false;

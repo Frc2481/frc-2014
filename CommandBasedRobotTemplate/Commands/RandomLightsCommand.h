@@ -17,6 +17,7 @@ private:
 public:
 	RandomLightsCommand() {
 		previousTime = 0;
+		Requires(lights);
 	}
 	virtual ~RandomLightsCommand() {
 		
@@ -24,9 +25,9 @@ public:
 	virtual void Initialize(){
 	}
 	virtual void Execute(){
-		if (TimeSinceInitialized() - previousTime > 0.25) {
-			lights->setTop(rand() > 0.5,rand() > 0.5,rand() > 0.5);
-			lights->setBottom(rand() > 0.5,rand() > 0.5,rand() > 0.5);
+		if (TimeSinceInitialized() - previousTime > 0.5 && TimeSinceInitialized() > 6.0) {
+			lights->setTop(rand()/((double)RAND_MAX) > 0.5,rand()/((double)RAND_MAX) > 0.5,rand()/((double)RAND_MAX) > 0.5);
+			lights->setBottom(rand()/((double)RAND_MAX) > 0.5,rand()/((double)RAND_MAX) > 0.5,rand()/((double)RAND_MAX) > 0.5);
 			previousTime = TimeSinceInitialized();
 		}
 	}

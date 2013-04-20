@@ -37,8 +37,8 @@ public:
 		AddSequential(new ClimbFirstLevel());
 		AddSequential(new ClimbOneLevel());
 		AddSequential(new ShooterOnCommand());
+		//AddParallel(new RandomLightsCommand());
 		AddSequential(new ClimbOneLevel());
-		AddParallel(new RandomLightsCommand());
 		AddSequential(new AutoFireCommandGroup());
 		//green
 		
