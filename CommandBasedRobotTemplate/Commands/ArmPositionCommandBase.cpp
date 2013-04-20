@@ -26,6 +26,7 @@ void ArmPositionCommandBase::Initialize(){
 }
 void ArmPositionCommandBase::DeadmanExecute() {
 	climbingArm->run();
+	driftCorrectionEnabled = false;
 }
 
 bool ArmPositionCommandBase::IsFinished(){

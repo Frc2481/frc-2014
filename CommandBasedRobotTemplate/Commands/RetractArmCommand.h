@@ -22,6 +22,7 @@ public:
 	void Execute() {
 		//This needs to be in execute so limits are enforced.
 		climbingArm->retractArm();
+		driftCorrectionEnabled = false;
 	}
 	bool IsFinished() {
 		return false;

@@ -18,13 +18,15 @@ public:
 	virtual ~ExtendArmCommand() {
 		
 	}
-	void Initialize() {}
+	void Initialize() {
+	}
 	void Execute() {
 		printf("Extend");
 		//This needs to be in execute so limits are enforced.
 		if (!shooter->isShooterUp()) {
 			climbingArm->extendArm();
 		}
+		driftCorrectionEnabled = false;
 	}
 	bool IsFinished() {
 		return false;

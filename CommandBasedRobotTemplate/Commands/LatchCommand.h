@@ -16,6 +16,7 @@ public:
 	void Initialize(){}
 	void DeadmanExecute(){
 		climbingHooks->latch();
+		driftCorrectionEnabled = true;
 	}
 	bool IsFinished(){
 		return climbingHooks->isLatched();

@@ -36,6 +36,7 @@ public:
 	static Lights *lights;
 	static TipSensor *tipSensor;
 	static bool tipCorrectionEnabled;
+	static bool driftCorrectionEnabled;
 };
 
 #endif

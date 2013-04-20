@@ -26,6 +26,7 @@
 #include "SetLightsCommand.h"
 #include "RandomLightsCommand.h"
 #include "AutoFireCommandGroup.h"
+#include "DriftCorrectionCommand.h"
 class ClimbingCommandGroup: public CommandGroup {
 private:
 	bool haveRun;
@@ -35,6 +36,7 @@ public:
 		AddSequential(new LowerShooterCommand());
 		AddSequential(new ShooterOffCommand());
 		AddSequential(new ClimbFirstLevel());
+		AddParallel(new DriftCorrectionCommand());
 		AddSequential(new ClimbOneLevel());
 		AddSequential(new ShooterOnCommand());
 		//AddParallel(new RandomLightsCommand());
