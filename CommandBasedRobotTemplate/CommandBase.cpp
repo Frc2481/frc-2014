@@ -20,6 +20,7 @@ RobotLift* CommandBase::robotLift = NULL;
 Lights* CommandBase::lights = NULL;
 TipSensor* CommandBase::tipSensor = NULL;
 bool CommandBase::tipCorrectionEnabled  = true;
+bool CommandBase::driftCorrectionEnabled  = true;
 
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
