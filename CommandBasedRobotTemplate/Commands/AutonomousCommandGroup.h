@@ -31,7 +31,8 @@ public:
 		AddSequential(new FireDiscCommand());
 		AddSequential(new FireDiscCommand());
 		AddSequential(new FireDiscCommand());
-		AddSequential(new FireDiscCommand());
+		AddParallel(new FireDiscCommand());
+		AddSequential(new WaitCommand(.5));
 		AddSequential(new ShooterUpToggleCommand());
 		AddSequential(new DriveBackwardCommand(.75, 1.6));
 		AddSequential(new StopDriveCommand());

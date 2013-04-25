@@ -24,6 +24,7 @@
 #include "Commands/AutonomousBackNoFire.h"
 #include "Commands/AutonomousNoFireBackLeftCorner.h"
 #include "Commands/AutonomousNoFireBackRightCorner.h"
+#include "Commands/AutonomousMiddleFire4Back.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
@@ -45,12 +46,13 @@ private:
 		shifterUpdateCommand = new ShifterUpdateCommand();
 		autoLightsCommand = new SetLightsCommand(1,1,0);
 		autoOptions = new SendableChooser();
-		autoOptions->AddDefault("Middle - Fire 3 back up", new AutonomousCommandGroup());
-		autoOptions->AddObject("Middle - Fire 3 - no back", new AutonomousNoBack());
+		autoOptions->AddDefault("Middle - Fire 5 - back up", new AutonomousCommandGroup());
+		autoOptions->AddObject("Middle - Fire 5- no back", new AutonomousNoBack());
 		autoOptions->AddObject("Middle - No Fire - Back Up", new AutonomousBackNoFire);
-		autoOptions->AddObject("Right Corner - Fire 3 - Back & Turn", new AutonomousFireBackRightCorner());
+		autoOptions->AddObject("Right Corner - Fire 4 - Back & Turn", new AutonomousFireBackRightCorner());
 		autoOptions->AddObject("Right Corner - No Fire - Back & Turn", new AutonomousNoFireBackRightCorner());
 		autoOptions->AddObject("Left Corner - No Fire - Back & Turn", new AutonomousNoFireBackLeftCorner());
+		autoOptions->AddObject("Middle - Fire 4 - Back Up", new AutonomousMiddleFire4Back());
 		SmartDashboard::PutData("Autonomous Delay Options", autoOptions);
 		/*allianceColour->AddDefault("auto", (void*)0);
 		allianceColour->AddObject("red", (void*)1);
