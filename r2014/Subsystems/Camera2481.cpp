@@ -8,18 +8,14 @@
 #include "Camera2481.h"
 
 Camera2481::Camera2481() : Subsystem("Camera2481"){
-	cameraTable = new NetworkTable();
+	//cameraTable = new NetworkTable();
 }
 
 bool Camera2481::HasTarget(){	
-	int *ptr;
-	if(cameraTable->GetValue("BOUNDING_COORDINATES")){
-		ptr = cameraTable->GetValue("BOUNDING_COORDINATES");
-		if (((ptr[0] - boundingBox[4]) > (boundingBox[1] - boundingBox[5]) && boundingBox[]
+	if(cameraTable->GetBoolean("BOUNDING_COORDINATES")){
+		return 1;
 	}
 	return 0;
-	}
-	else return 0;
 }
 
 Camera2481::~Camera2481() {
