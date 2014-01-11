@@ -7,13 +7,21 @@
 
 #ifndef DRIVETRAIN_H_
 #define DRIVETRAIN_H_
+#include "../RobotParameters.h"
+#include "../Components/SwerveModule.h"
+#include "WPILib.h"
 
 class DriveTrain {
 
 private:
+	SwerveModule *FLWheel;
+	SwerveModule *FRWheel;
+	SwerveModule *BRWheel;
+	SwerveModule *BLWheel;
+	
 	static const double pi = 3.14159;
-	static const float baseWidth = 0;
-	static const float baseLength = 0;
+	static const float baseWidth = ROBOTWIDTH;
+	static const float baseLength = ROBOTLENGTH;
 public:
 	DriveTrain();
 	virtual ~DriveTrain();

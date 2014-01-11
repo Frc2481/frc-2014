@@ -7,12 +7,18 @@
 
 #include <cmath>
 #include "DriveTrain.h"
+#include "../RobotMap.h"
 
-DriveTrain::DriveTrain() {
+DriveTrain::DriveTrain() :
+				FLWheel(new SwerveModule(FLDRIVE, FLSTEER, FLENCODER)),
+				FRWheel(new SwerveModule(FRDRIVE, FRSTEER, FRENCODER)), 
+				BRWheel(new SwerveModule(BRDRIVE, BRSTEER, BRENCODER)),
+				BLWheel(new SwerveModule(BLDRIVE, BRSTEER, BRENCODER)){
+
 	// TODO Auto-generated constructor stub
 }
 
-void DriveTrain::Crab(float xPos, float yPos, float twist, bool useGyro) {
+void DriveTrain::Crab(float xPos, float yPos, float twist, bool useGyro){
 	twist = (twist + 1) * pi;
 	float FWD = yPos;
 	float STR = xPos;
@@ -23,7 +29,7 @@ void DriveTrain::Crab(float xPos, float yPos, float twist, bool useGyro) {
 	}
 	float A = STR - twist * baseLength / 2;
 	float B = STR + twist * baseLength / 2;
-	float C = FWD + twist * baseWidth / 2;
+	float C = FWD - twist * baseWidth / 2;
 	float D = FWD + twist * baseWidth / 2;
 	float wheelSpeedFR = sqrtf(powf(B, 2) + powf(C, 2));
 	float wheelSpeedFL = sqrtf(powf(B, 2) + powf(D, 2));
@@ -51,8 +57,19 @@ void DriveTrain::Crab(float xPos, float yPos, float twist, bool useGyro) {
 		wheelSpeedBR /= maxWheelSpeed;
 		wheelSpeedBL /= maxWheelSpeed;
 	}
+	
+	FRWheel->Set(wheelSpeedFR, wheelAngleFR);
+	FLWheel->Set(wheelSpeedFL, wheelAngleFL);
+	BRWheel->Set(wheelSpeedBR, wheelAngleBR);
+	BLWheel->Set(wheelSpeedBL, wheelAngleBL);
 }
 
+
 DriveTrain::~DriveTrain() {
+	delete FRWheel;
+	delete BRWheel;
+	delete FLWheel;
+	delete BLWheel;
+	
 	// TODO Auto-generated destructor stub
 }
