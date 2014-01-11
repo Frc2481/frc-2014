@@ -3,6 +3,7 @@
 
 #include "Commands/Command.h"
 #include "Subsystems/ExampleSubsystem.h"
+#include "Subsystems/DriveTrain.h"
 #include "OI.h"
 
 
@@ -18,6 +19,7 @@ public:
 	static void init();
 	// Create a single static instance of all of your subsystems
 	static ExampleSubsystem *examplesubsystem;
+	static DriveTrain *driveTrain;
 	static OI *oi;
 };
 

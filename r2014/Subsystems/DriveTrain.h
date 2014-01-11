@@ -10,9 +10,11 @@
 #include "../RobotParameters.h"
 #include "../Components/SwerveModule.h"
 #include "WPILib.h"
+#include "Commands/Subsystem.h"
 
-class DriveTrain {
+class DriveTrain: public Subsystem {
 
+#define MAX_CHANGE 10
 private:
 	SwerveModule *FLWheel;
 	SwerveModule *FRWheel;
@@ -20,12 +22,18 @@ private:
 	SwerveModule *BLWheel;
 	
 	static const double pi = 3.14159;
-	static const float baseWidth = ROBOTWIDTH;
-	static const float baseLength = ROBOTLENGTH;
+	static const double baseWidth = ROBOTWIDTH;
+	static const double baseLength = ROBOTLENGTH;
+	double prevAngle;
+	double radius;
 public:
 	DriveTrain();
 	virtual ~DriveTrain();
-	void Crab(float xPos, float yPos, float twist, bool useGyro);
+	void InitDefaultCommand();
+	void Crab(double xPos, double yPos, double twist, bool useGyro);
+	double degToRad(double deg);
+	double radToDeg(double rad);
+	double limitAngle(double angle);
 };
 
 #endif /* DRIVETRAIN_H_ */
