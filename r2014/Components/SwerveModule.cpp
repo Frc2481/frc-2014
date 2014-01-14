@@ -24,8 +24,8 @@ float SwerveModule::GetSpeed()const{
 }
 
 void SwerveModule::Set(float speed, float angle){
-	if (fabs(angle - (mEncoder->GetAverageVoltage() / 5 *360)) > 90 ){
-		angle = -angle;
+	if (fabs(angle - GetAngle()) > 90 ){
+		angle = (angle + 180) % 360;
 		speed = -speed;
 	}
 	mSteerController->SetSetpoint(angle);
