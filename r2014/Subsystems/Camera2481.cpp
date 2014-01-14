@@ -8,14 +8,11 @@
 #include "Camera2481.h"
 
 Camera2481::Camera2481() : Subsystem("Camera2481"){
-	//cameraTable = new NetworkTable();
+	cameraTable = NetworkTable::GetTable("camera");
 }
 
 bool Camera2481::HasTarget(){	
-	if(cameraTable->GetBoolean("BOUNDING_COORDINATES")){
-		return 1;
-	}
-	return 0;
+	return cameraTable->GetBoolean("HOT_TARGET");
 }
 
 Camera2481::~Camera2481() {
