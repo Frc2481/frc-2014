@@ -18,5 +18,6 @@ void CommandBase::init() {
 	// line should be repeated for each subsystem in the project.
 	examplesubsystem = new ExampleSubsystem();
 	driveTrain = new DriveTrain();
+	driveTrain->SetLengthAndWidth(ROBOTLENGTH, ROBOTWIDTH);
 	oi = new OI();
 }
