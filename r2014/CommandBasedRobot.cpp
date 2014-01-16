@@ -32,6 +32,7 @@ private:
 	
 	virtual void TeleopPeriodic() {
 		Scheduler::GetInstance()->Run();
+		Wait(0.005);
 	}
 	
 	virtual void TestPeriodic() {
