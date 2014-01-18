@@ -14,9 +14,9 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 				FLWheel(new SwerveModule(FLDRIVE, FLSTEER, FLENCODER)),
 				FRWheel(new SwerveModule(FRDRIVE, FRSTEER, FRENCODER)), 
 				BRWheel(new SwerveModule(BRDRIVE, BRSTEER, BRENCODER)),
-				BLWheel(new SwerveModule(BLDRIVE, BRSTEER, BRENCODER))  {
+				BLWheel(new SwerveModule(BLDRIVE, BLSTEER, BLENCODER)) {
+				//headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)){
 	prevAngle = 90.0;
-	radius = sqrt(pow(baseLength,2)+pow(baseWidth,2));
 	// TODO Auto-generated constructor stub
 }
 
@@ -24,56 +24,15 @@ void DriveTrain::InitDefaultCommand() {
 	SetDefaultCommand(new CrabDriveCommand());
 }
 
-double DriveTrain::limitAngle(double angle) {
-	double diff1 = angle - prevAngle;
-	bool invert = false;
-	if (fabs(diff1) > 180)
-		invert = true;
-	if (diff1 < 0) {
-		diff1 += 360;
-	}
-	double diff2 = 360 - diff1;
-	bool goLeft = false;
-	if (diff1 < diff2) {
-		goLeft = true;
-	}
-	//if (invert)
-		//goLeft = !goLeft;
-	goLeft = goLeft ^ invert;
-	double targetAngle;
-	if (goLeft) {
-		targetAngle = min(angle, prevAngle + MAX_CHANGE);
-	}
-	else {
-		targetAngle = max(angle, prevAngle - MAX_CHANGE);
-	}
-	
-	prevAngle = angle;
-	return targetAngle;
-}
-
-void DriveTrain::Crab(double xPos, double yPos, double twist, bool useGyro){
-	//twist = twist * pi;
-	
-	//double angle = radToDeg(atan2(yPos, xPos)) + 180;
-	//double magnitude = sqrt(pow(xPos, 2) + pow(yPos, 2));
-	/*angle limiting
-	angle = this.limitAngle(angle);
-	double FWD = magnitude * sin(degToRad(angle));
-	double STR = magnitude * cos(degToRad(angle));
-	*/
+void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric){
 	double FWD = yPos;
 	double STR = xPos;
+	
 	
 	SmartDashboard::PutNumber("FWD", FWD);
 	SmartDashboard::PutNumber("STR", STR);
 	SmartDashboard::PutNumber("twist", twist);
-	
-	// TODO get gyro angle
-	if (useGyro) {
-		// TODO FWD = yPos * cosf(gyro angle) + xPos * sinf(gyro angle);
-		// TODO STR = -yPos * sinf(gyro angle) + xPos * cosf(gyro angle);
-	}
+
 	double A = STR - twist * baseLength / radius;
 	double B = STR + twist * baseLength / radius;
 	double C = FWD - twist * baseWidth / radius;
@@ -90,6 +49,7 @@ void DriveTrain::Crab(double xPos, double yPos, double twist, bool useGyro){
 	double wheelAngleFL = atan2(B, D) * 180 / pi;
 	double wheelAngleBR = atan2(A, C) * 180 / pi;
 	double wheelAngleBL = atan2(A, D) * 180 / pi;
+	
 	
 	//speeds normalized 0 to 1
 	//maybe eventually reverse motor instead of turning far and going forward
@@ -119,10 +79,25 @@ void DriveTrain::Crab(double xPos, double yPos, double twist, bool useGyro){
 	SmartDashboard::PutNumber("wheelAngleBR", wheelAngleBR);
 	SmartDashboard::PutNumber("wheelAngleBL", wheelAngleBL);
 	
-	FRWheel->Set(wheelSpeedFR, wheelAngleFR);
-	FLWheel->Set(wheelSpeedFL, wheelAngleFL);
-	BRWheel->Set(wheelSpeedBR, wheelAngleBR);
-	BLWheel->Set(wheelSpeedBL, wheelAngleBL);
+	if (fieldCentric) {
+		float heading = headingSource->GetHeading();
+		wheelAngleFR += heading;
+		wheelAngleFL += heading;
+		wheelSpeedBR += heading;
+		wheelSpeedBL += heading;
+	}
+	
+	//FRWheel->Set(wheelSpeedFR, wheelAngleFR + 180);
+	//FLWheel->Set(wheelSpeedFL, wheelAngleFL + 180);
+	BRWheel->Set(wheelSpeedBR, wheelAngleBR + 180);
+	//BLWheel->Set(wheelSpeedBL, wheelAngleBL + 180);
+
+}
+
+void DriveTrain::SetLengthAndWidth(double robotLength, double robotWidth) {
+	baseLength = robotLength;
+	baseWidth = robotWidth;
+	radius = sqrt(pow(robotLength, 2)+pow(robotWidth, 2));
 }
 
 double DriveTrain::degToRad(double deg) {
@@ -138,6 +113,4 @@ DriveTrain::~DriveTrain() {
 	delete BRWheel;
 	delete FLWheel;
 	delete BLWheel;
-	
-	// TODO Auto-generated destructor stub
 }

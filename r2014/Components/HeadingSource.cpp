@@ -22,10 +22,18 @@ HeadingSource::~HeadingSource() {
 }
 
 float HeadingSource::GetHeading(){
-	return prevHeading + gyro->GetAngle();
+	return (int)(fieldHeadingOffset + prevHeading + gyro->GetAngle())%360;
+}
+
+
+void HeadingSource::setFieldHeadingOffset(float offset)
+{
+    fieldHeadingOffset = offset;
 }
 
 void HeadingSource::periodic(){
+	double compassAngle = compass->GetAngle();
+	
 	if (gyro->GetRate() < 1){
 		gyroCounter++;
 	}
@@ -33,7 +41,7 @@ void HeadingSource::periodic(){
 		gyroCounter = 0;
 	}
 	
-	if (fabs(prevCompass - compass->GetAngle()) < 10){
+    if(fabs(prevCompass - compassAngle) < 10){
 		compassCounter++;
 	}
 	else {
@@ -41,9 +49,9 @@ void HeadingSource::periodic(){
 	}
 	
 	if (compassCounter > 50 && gyroCounter > 50){
-		prevHeading = compass->GetAngle();
+		prevHeading = compassAngle;
 		gyro->Reset();
 	}
-	prevCompass = compass->GetAngle();
 	
+	prevCompass = compassAngle;
 }

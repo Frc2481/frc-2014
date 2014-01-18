@@ -20,12 +20,15 @@ private:
 	int compassCounter;
 	float prevHeading;
 	float prevCompass;
+	float fieldHeadingOffset;
+	
 	
 public:
 	HeadingSource(uint32_t gyroChannel, uint8_t compassChannel);
 	virtual ~HeadingSource();
 	float GetHeading();
 	void periodic();
+    void setFieldHeadingOffset(float fieldHeadingOffset);
 	
 };
 

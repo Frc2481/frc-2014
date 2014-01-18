@@ -20,19 +20,23 @@
 // #define RANGE_FINDER_MODULE 1
 
 //Motors
-#define FLDRIVE 1
-#define FRDRIVE 2
-#define BLDRIVE 3
-#define BRDRIVE 4
-#define FLSTEER 5
-#define FRSTEER 6
-#define BLSTEER 7
+#define FRDRIVE 1
+#define FRSTEER 2
+#define BRDRIVE 7
 #define BRSTEER 8
+#define BLDRIVE 5
+#define BLSTEER 6
+#define FLDRIVE 3
+#define FLSTEER 4
 
 //Analog Inputs
 #define FLENCODER 1
 #define FRENCODER 2
 #define BLENCODER 3
 #define BRENCODER 4
+#define GYRO_CHANNEL 5
+
+//Module Number
+#define COMPASS_MODULE 1
 
 #endif

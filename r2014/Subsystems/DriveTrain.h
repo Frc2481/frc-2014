@@ -9,6 +9,7 @@
 #define DRIVETRAIN_H_
 #include "../RobotParameters.h"
 #include "../Components/SwerveModule.h"
+#include "../Components/HeadingSource.h"
 #include "WPILib.h"
 #include "Commands/Subsystem.h"
 
@@ -20,20 +21,26 @@ private:
 	SwerveModule *FRWheel;
 	SwerveModule *BRWheel;
 	SwerveModule *BLWheel;
+	HeadingSource *headingSource;
 	
 	static const double pi = 3.14159;
-	static const double baseWidth = ROBOTWIDTH;
-	static const double baseLength = ROBOTLENGTH;
+	double baseWidth;
+	double baseLength;
 	double prevAngle;
 	double radius;
+	float prevAngleFR;
+	float prevAngleFL;
+	float prevAngleBR;
+	float prevAngleBL;
 public:
 	DriveTrain();
 	virtual ~DriveTrain();
 	void InitDefaultCommand();
-	void Crab(double xPos, double yPos, double twist, bool useGyro);
+	void Crab(double xPos, double yPos, double twist, bool fieldCentric);
 	double degToRad(double deg);
 	double radToDeg(double rad);
 	double limitAngle(double angle);
+	void SetLengthAndWidth(double robotLength, double robotWidth);
 };
 
 #endif /* DRIVETRAIN_H_ */
