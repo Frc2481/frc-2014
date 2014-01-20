@@ -14,26 +14,23 @@ class SetPCommand: public CommandBase {
 private:
 	bool willRaise;
 public:
-	SetPCommand(bool raise, Subsystem subsystem) {
-		willRaise = raise;
-	}
-	virtual ~SetPCommand() {
-		
-	}
-	virtual void Initialize(){
-		if (willRaise) {
-			subsystem->GetController()->SetPID(
-					subsystem->GetController()->GetP() + .0001, 
-					subsystem->GetController()->GetI(), 
-					subsystem->GetController()->GetD());
+	SetPCommand(bool raise) {
+			willRaise = raise;
 		}
-		else {
-			subsystem->GetController()->SetPID(
-					subsystem->GetController()->GetP() - .0001, 
-					subsystem->GetController()->GetI(), 
-					subsystem->GetController()->GetD());
+		virtual ~SetPCommand() {
+			
 		}
-	}
+		virtual void Initialize(){
+			if (willRaise) {
+				driveTrain->SetP(
+						driveTrain->GetP() + .0001); 			
+			}
+			else {
+				driveTrain->SetP(
+						driveTrain->GetP() - .0001);
+			}
+			printf("p: %f\n" , driveTrain->GetP());
+		}
 	virtual void Execute(){}
 	virtual bool IsFinished(){
 		return true;

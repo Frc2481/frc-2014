@@ -3,5 +3,6 @@
 
 #define ROBOTLENGTH 10
 #define ROBOTWIDTH 10
+#define ENCODER_OFFSET_FILENAME "Encoder_Offsets"
 
 #endif

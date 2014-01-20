@@ -12,12 +12,17 @@
 class ContinuousEncoder: public PIDSource {
 private:
 	AnalogChannel *mEncoder;
+	float mOffset;
 	
 public:
 	ContinuousEncoder(uint32_t encoderChannel);
 	virtual ~ContinuousEncoder();
 	virtual double PIDGet();
+	double GetAngle();
+	double GetRawAngle();
 	float getVoltage();
+    float GetOffset() const;
+    void SetOffset(float mOffset);
 	
 };
 

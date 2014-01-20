@@ -11,6 +11,10 @@ private:
 	static const int AUX_STICK_PORT = 2;
 	Joystick2481 *driverStick;
 	Joystick2481 *auxStick;
+	JoystickButton *FROffsetButton;
+	JoystickButton *FLOffsetButton;
+	JoystickButton *BROffsetButton;
+	JoystickButton *BLOffsetButton;
 public:
 	OI();
 	Joystick* GetDriverStick();

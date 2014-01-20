@@ -34,14 +34,14 @@ void HeadingSource::setFieldHeadingOffset(float offset)
 void HeadingSource::periodic(){
 	double compassAngle = compass->GetAngle();
 	
-	if (gyro->GetRate() < 1){
+	if (gyro->GetRate() < 1){  // !!! need to make sure we get absolute value
 		gyroCounter++;
 	}
 	else {
 		gyroCounter = 0;
 	}
-	
-    if(fabs(prevCompass - compassAngle) < 10){
+	   // Is Compass stable?
+    if(fabs(prevCompass - compassAngle) < 10){  // !!! Need to better handle slow change over time in compass
 		compassCounter++;
 	}
 	else {
@@ -50,7 +50,7 @@ void HeadingSource::periodic(){
 	
 	if (compassCounter > 50 && gyroCounter > 50){
 		prevHeading = compassAngle;
-		gyro->Reset();
+		gyro->Reset();   // !!! Jonathan:  Reset counter vars!
 	}
 	
 	prevCompass = compassAngle;

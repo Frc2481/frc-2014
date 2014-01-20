@@ -14,7 +14,7 @@ class SetICommand: public CommandBase {
 private:
 	bool willRaise;
 public:
-	SetICommand(bool raise, Subsystem subsystem) {
+	SetICommand(bool raise) {
 		willRaise = raise;
 	}
 	virtual ~SetICommand() {
@@ -22,17 +22,14 @@ public:
 	}
 	virtual void Initialize(){
 		if (willRaise) {
-			shooter->GetController()->SetPID(
-					shooter->GetController()->GetP(), 
-					shooter->GetController()->GetI() + .00001, 
-					shooter->GetController()->GetD());
+			driveTrain->SetI(
+					driveTrain->GetI() + .00001); 			
 		}
 		else {
-			shooter->GetController()->SetPID(
-					shooter->GetController()->GetP(), 
-					shooter->GetController()->GetI() - .00001, 
-					shooter->GetController()->GetD());
+			driveTrain->SetI(
+					driveTrain->GetI() - .00001);
 		}
+		printf("i: %f\n" , driveTrain->GetI());
 	}
 	virtual void Execute(){}
 	virtual bool IsFinished(){

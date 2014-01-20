@@ -1,4 +1,4 @@
-/*a
+/*
  * PController.cpp
  *
  *  Created on: Jan 17, 2014
@@ -9,10 +9,12 @@
 #include <cmath>
 #include "SwerveModule.h"
 
-PController::PController(PIDSource* userInput, PIDOutput* userOutput, float pValue) :
+PController::PController(PIDSource* userInput, PIDOutput* userOutput, float pValue, float iValue) :
 			input(userInput), 
 			output(userOutput), 
 			p(pValue),
+			i(iValue),
+			totalError(0),
 			tolerance(0),
 			inputRangeUpper(0),
 			inputRangeLower(5),
@@ -20,28 +22,75 @@ PController::PController(PIDSource* userInput, PIDOutput* userOutput, float pVal
 			outputRangeUpper(1),
 			outputRangeLower(-1),
 			enabled(true),		
-			onTarget(false)	{
-
+			onTarget(false),
+			pidOutput(0),
+			pSemaphore(semMCreate(SEM_Q_PRIORITY)),
+			pUpdate(new Notifier(PController::UpdateController, this)){
+	pUpdate->StartPeriodic(.004);
 }
 
 PController::~PController() {
+	semFlush(pSemaphore);
+	delete pUpdate;
 	// TODO Auto-generated destructor stub
 	
 }
 void PController::SetP(float pValue){
-	p = pValue;
+	CRITICAL_REGION(pSemaphore) {
+		p = pValue;
+	}
+	END_REGION;
 }
 
 float PController::GetP(){
+	
 	return p;
+}
+
+void PController::SetI(float iValue){
+	CRITICAL_REGION(pSemaphore) {
+		i = iValue;
+	}
+	END_REGION;
+}
+
+float PController::GetI(){
+	
+	return i;
 }
 
 void PController::SetTolerance(float userTolerance){
 	tolerance = userTolerance;
 }
 void PController::Set(float setPoint){
+	CRITICAL_REGION(pSemaphore) {
+		this->setPoint = setPoint;
+	}
+	END_REGION;
+}
+
+void PController::UpdateController(void* controller) {
+	PController* control = (PController*) controller;
+	control->Update();
+}
+void PController::Update() {
+	float setPoint;
+	float tolerance;
+	float inputRange;
+	bool onTarget;
+	bool enabled;
+	
+	CRITICAL_REGION(pSemaphore) {
+		setPoint = this->setPoint;
+		tolerance = this->tolerance;
+		inputRange = this->inputRange;
+		enabled = this->enabled;
+	}
+	END_REGION;
+	
 	if(enabled){
-		float error = setPoint - input->PIDGet();
+		float feedback = input->PIDGet();
+		float error = setPoint - feedback;
 		float correctedError = 0;
 		
 		if (fabs(error) < tolerance){
@@ -62,40 +111,74 @@ void PController::Set(float setPoint){
 			correctedError = error;
 		}
 		
-		if (correctedError > outputRangeUpper){
-			correctedError = outputRangeUpper;
+		if(i > 0.0)
+		{
+			double potIGain = (totalError + correctedError);
+			if (potIGain < outputRangeUpper)
+			{
+				if(potIGain > outputRangeLower)
+					totalError += correctedError;
+				else
+					totalError = outputRangeLower/i;
+			}
+			else
+			{
+				totalError = outputRangeUpper/i;
+			}
 		}
-		else if (correctedError < outputRangeLower){
-			correctedError = outputRangeLower;
-		}
-		SmartDashboard::PutNumber("corrected Error", correctedError);
-		SmartDashboard::PutNumber("error", error);
-			
 		
-		output->PIDWrite(-correctedError * p);
+		pidOutput = -correctedError * p + i*totalError;
+		
+		if (pidOutput > outputRangeUpper){
+			pidOutput = outputRangeUpper;
+		}
+		else if (pidOutput < outputRangeLower){
+			pidOutput = outputRangeLower;
+		}
+		output->PIDWrite(-pidOutput);
+		SmartDashboard::PutNumber("corrected", correctedError);
+		SmartDashboard::PutNumber("error", error);
+		SmartDashboard::PutNumber("feedback", feedback);
 	}
 	else {
 		output->PIDWrite(0);
 	}
+	
+	CRITICAL_REGION(pSemaphore) {
+		this->onTarget = onTarget;
+	}
+	END_REGION;
 }
 
 void PController::SetInputRange(float lower, float upper){
-	inputRangeUpper = upper;
-	inputRangeLower = lower;
-	inputRange = inputRangeUpper - inputRangeLower;
+	CRITICAL_REGION(pSemaphore) {
+		inputRangeUpper = upper;
+		inputRangeLower = lower;
+		inputRange = inputRangeUpper - inputRangeLower;
+	}
+	END_REGION;
 }
 
 void PController::SetOutputRange(float lower, float upper){
-	outputRangeUpper = upper;
-	outputRangeLower = lower;
+	CRITICAL_REGION(pSemaphore) {
+		outputRangeUpper = upper;
+		outputRangeLower = lower;
+	}
+	END_REGION;
 }
 
 void PController::Enable(){
-	enabled = true;
+	CRITICAL_REGION(pSemaphore) {
+		enabled = true;
+	}
+	END_REGION;
 }
 
 void PController::Disable(){
-	enabled = false;
+	CRITICAL_REGION(pSemaphore) {
+		enabled = false;
+	}
+	END_REGION;
 }
 
 bool PController::IsEnabled(){

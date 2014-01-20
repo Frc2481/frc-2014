@@ -41,6 +41,11 @@ public:
 	double radToDeg(double rad);
 	double limitAngle(double angle);
 	void SetLengthAndWidth(double robotLength, double robotWidth);
+	float GetEncoderValue(int wheel);
+	void SetP(float p);
+	float GetP();
+	void SetI(float i);
+	float GetI();
 };
 
 #endif /* DRIVETRAIN_H_ */

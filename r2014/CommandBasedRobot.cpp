@@ -31,8 +31,10 @@ private:
 	}
 	
 	virtual void TeleopPeriodic() {
+		double timeBefore = GetTime();
 		Scheduler::GetInstance()->Run();
-		Wait(0.005);
+//		printf("%f \r\n", GetTime()-timeBefore);
+		Wait(0.003);
 	}
 	
 	virtual void TestPeriodic() {

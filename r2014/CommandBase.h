@@ -5,7 +5,7 @@
 #include "Subsystems/ExampleSubsystem.h"
 #include "Subsystems/DriveTrain.h"
 #include "OI.h"
-
+#include "PersistedSettings.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -21,6 +21,7 @@ public:
 	static ExampleSubsystem *examplesubsystem;
 	static DriveTrain *driveTrain;
 	static OI *oi;
+	static PersistedSettings *persistedSettings;
 };
 
 #endif

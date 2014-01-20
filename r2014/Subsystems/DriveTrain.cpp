@@ -17,7 +17,10 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 				BLWheel(new SwerveModule(BLDRIVE, BLSTEER, BLENCODER)) {
 				//headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)){
 	prevAngle = 90.0;
-	// TODO Auto-generated constructor stub
+	FLWheel->SetOffset(CommandBase::persistedSettings->data["FL_ENCODER_OFFSET"]);
+	FRWheel->SetOffset(CommandBase::persistedSettings->data["FR_ENCODER_OFFSET"]);
+	BRWheel->SetOffset(CommandBase::persistedSettings->data["BR_ENCODER_OFFSET"]);
+	BLWheel->SetOffset(CommandBase::persistedSettings->data["BL_ENCODER_OFFSET"]);
 }
 
 void DriveTrain::InitDefaultCommand() {
@@ -26,7 +29,7 @@ void DriveTrain::InitDefaultCommand() {
 
 void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric){
 	double FWD = yPos;
-	double STR = xPos;
+	double STR = -xPos;
 	
 	
 	SmartDashboard::PutNumber("FWD", FWD);
@@ -87,10 +90,17 @@ void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric)
 		wheelSpeedBL += heading;
 	}
 	
-	//FRWheel->Set(wheelSpeedFR, wheelAngleFR + 180);
-	//FLWheel->Set(wheelSpeedFL, wheelAngleFL + 180);
+	
+	FLWheel->Set(wheelSpeedFL, wheelAngleFL + 180);
+	FRWheel->Set(wheelSpeedFR, wheelAngleFR);
 	BRWheel->Set(wheelSpeedBR, wheelAngleBR + 180);
-	//BLWheel->Set(wheelSpeedBL, wheelAngleBL + 180);
+	BLWheel->Set(wheelSpeedBL, wheelAngleBL);
+	
+//	FLWheel->Set(wheelSpeedFL, wheelAngleFL + 180);
+//	FRWheel->Set(wheelSpeedFR, wheelAngleFR + 180);
+//	BRWheel->Set(wheelSpeedBR, 0);
+//	BLWheel->Set(wheelSpeedBL, wheelAngleBL + 180);
+	
 
 }
 
@@ -108,9 +118,44 @@ double DriveTrain::radToDeg(double rad) {
 	return rad * 180 / pi;
 }
 
+float DriveTrain::GetEncoderValue(int wheel) {
+	if (wheel == FRENCODER) {
+		return FRWheel->GetRawAngle();
+	}else if (wheel == FLENCODER) {
+		return FLWheel->GetRawAngle();
+	}else if (wheel == BRENCODER) {
+		return BRWheel->GetRawAngle();
+	}else if (wheel == BLENCODER) {
+		return BLWheel->GetRawAngle();
+	}
+	return 0.0;
+}
+
 DriveTrain::~DriveTrain() {
 	delete FRWheel;
 	delete BRWheel;
 	delete FLWheel;
 	delete BLWheel;
+}
+
+float DriveTrain::GetP() { 
+	return FLWheel->GetController()->GetP();
+}
+
+void DriveTrain::SetP(float p) {
+	FLWheel->GetController()->SetP(p);
+	FRWheel->GetController()->SetP(p);
+	BRWheel->GetController()->SetP(p);
+	BLWheel->GetController()->SetP(p);
+}
+
+float DriveTrain::GetI() { 
+	return FLWheel->GetController()->GetI();
+}
+
+void DriveTrain::SetI(float i) {
+	FLWheel->GetController()->SetI(i);
+	FRWheel->GetController()->SetI(i);
+	BRWheel->GetController()->SetI(i);
+	BLWheel->GetController()->SetI(i);
 }
