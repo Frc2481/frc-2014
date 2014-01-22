@@ -21,6 +21,7 @@ PController::PController(PIDSource* userInput, PIDOutput* userOutput, float pVal
 			inputRange(5),
 			outputRangeUpper(1),
 			outputRangeLower(-1),
+			setPoint(0),
 			enabled(true),		
 			onTarget(false),
 			pidOutput(0),
@@ -110,10 +111,10 @@ void PController::Update() {
 			onTarget = false;
 			correctedError = error;
 		}
-		
+		/*
 		if(i > 0.0)
 		{
-			double potIGain = (totalError + correctedError);
+			double potIGain = (totalError + correctedError) * i;
 			if (potIGain < outputRangeUpper)
 			{
 				if(potIGain > outputRangeLower)
@@ -126,8 +127,8 @@ void PController::Update() {
 				totalError = outputRangeUpper/i;
 			}
 		}
-		
-		pidOutput = -correctedError * p + i*totalError;
+	*/
+		pidOutput = -correctedError * p;// + i*totalError;
 		
 		if (pidOutput > outputRangeUpper){
 			pidOutput = outputRangeUpper;
@@ -135,6 +136,7 @@ void PController::Update() {
 		else if (pidOutput < outputRangeLower){
 			pidOutput = outputRangeLower;
 		}
+		//printf("correctedError: %f, p: %f\n", -correctedError, p);
 		output->PIDWrite(-pidOutput);
 		SmartDashboard::PutNumber("corrected", correctedError);
 		SmartDashboard::PutNumber("error", error);
@@ -187,4 +189,7 @@ bool PController::IsEnabled(){
 
 bool PController::OnTarget(){
 	return onTarget;
+}
+float PController::GetSetPoint(){
+	return setPoint;
 }

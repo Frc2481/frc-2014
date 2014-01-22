@@ -13,6 +13,9 @@ class ContinuousEncoder: public PIDSource {
 private:
 	AnalogChannel *mEncoder;
 	float mOffset;
+	float prevEncoderValues[5];
+	int index;
+	float sum;
 	
 public:
 	ContinuousEncoder(uint32_t encoderChannel);

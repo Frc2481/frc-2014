@@ -45,6 +45,7 @@ public:
 	bool OnTarget();
 	static void UpdateController(void* controller);
 	void Update();
+	float GetSetPoint();
 
 };
 

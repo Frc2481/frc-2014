@@ -17,8 +17,8 @@ private:
 	JoystickButton *BLOffsetButton;
 public:
 	OI();
-	Joystick* GetDriverStick();
-	Joystick* GetAuxStick();
+	Joystick2481* GetDriverStick();
+	Joystick2481* GetAuxStick();
 };
 
 #endif

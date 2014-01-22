@@ -12,13 +12,20 @@ ContinuousEncoder::ContinuousEncoder(uint32_t encoderChannel)
 		 	mOffset(0) {
 	
 	// TODO Auto-generated constructor stub
+	sum = 0;
+	index = 0;
+	memset(prevEncoderValues, 0, sizeof(float) * 5);
 }
 
 ContinuousEncoder::~ContinuousEncoder() {
 	// TODO Auto-generated destructor stub
 }
 double ContinuousEncoder::PIDGet(){
-	return GetAngle();
+	sum -= prevEncoderValues[index];
+	prevEncoderValues[index] = GetAngle();
+	sum += prevEncoderValues[index];
+	index = ++index % 5;
+	return sum / 5;
 }
 	
 double ContinuousEncoder::GetAngle() {

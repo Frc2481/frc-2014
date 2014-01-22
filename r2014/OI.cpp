@@ -22,9 +22,9 @@ OI::OI() {
 //	BLOffsetButton->WhenPressed(new SetPCommand(false));
 }
 
-Joystick* OI::GetDriverStick() {
+Joystick2481* OI::GetDriverStick() {
 	return driverStick;
 }
-Joystick* OI::GetAuxStick() {
+Joystick2481* OI::GetAuxStick() {
 	return auxStick;
 }

@@ -8,7 +8,7 @@ SwerveModule::SwerveModule(uint32_t driveChannel, uint32_t steerChannel, uint32_
 				mDrive(new Talon(driveChannel)), 
 				mSteer(new Talon(steerChannel)), 
 				mEncoder(new ContinuousEncoder(steerEncoder)),
-				mSteerController(new PController( mEncoder, mSteer, .007, 0.0)),
+				mSteerController(new PController( mEncoder, mSteer, .035, 0.0)),
 				prevAngle(0)
 {
 	
@@ -48,18 +48,28 @@ float SwerveModule::DegToVolts(float deg) {
 }
 
 void SwerveModule::Set(float speed, float angle){
-//	if (fabs(angle - GetAngle()) > 90 ){
-//		angle = ((int)angle + 180) % 360;
-//		speed = -speed;
-//		//printf("reverse");
-//	}
-
-	if (fabs(speed) < .2){
+	float currentAngle = GetAngle();
+	/*
+	if (fabs(angle - currentAngle) > 90 && fabs(angle - currentAngle) < 270){
+		angle = ((int)angle + 180) % 360;
+		speed = -speed;
+		//printf("reverse");
+	}
+	*/
+	if (fabs(angle - currentAngle) < 90 || fabs(angle - currentAngle) > 270) {
+		
+	}
+	else {
+		angle = ((int)angle + 180) % 360;
+		speed = -speed;
+	}
+	if (fabs(speed) < .1){
 		angle = prevAngle;
 	}
 	else {
 		prevAngle = angle;
 	}
+	
 	//printf("angle = %f \n", GetAngle());
 	//SmartDashboard::PutNumber("Angle", GetAngle());
 	float temp;

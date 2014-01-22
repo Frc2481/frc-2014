@@ -30,7 +30,7 @@ void DriveTrain::InitDefaultCommand() {
 void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric){
 	double FWD = yPos;
 	double STR = -xPos;
-	
+	twist = -twist;
 	
 	SmartDashboard::PutNumber("FWD", FWD);
 	SmartDashboard::PutNumber("STR", STR);
@@ -44,14 +44,15 @@ void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric)
 	SmartDashboard::PutNumber("B", B);
 	SmartDashboard::PutNumber("C", C);
 	SmartDashboard::PutNumber("D", D);
-	double wheelSpeedFR = sqrt(pow(B, 2) + pow(C, 2));
-	double wheelSpeedFL = sqrt(pow(B, 2) + pow(D, 2));
-	double wheelSpeedBR = sqrt(pow(A, 2) + pow(C, 2));
-	double wheelSpeedBL = sqrt(pow(A, 2) + pow(D, 2));
-	double wheelAngleFR = atan2(B, C) * 180 / pi;
-	double wheelAngleFL = atan2(B, D) * 180 / pi;
-	double wheelAngleBR = atan2(A, C) * 180 / pi;
-	double wheelAngleBL = atan2(A, D) * 180 / pi;
+	SmartDashboard::PutNumber("twist", twist);
+	double wheelSpeedFL = sqrt(pow(B, 2) + pow(C, 2));
+	double wheelSpeedFR = sqrt(pow(B, 2) + pow(D, 2));
+	double wheelSpeedBL = sqrt(pow(A, 2) + pow(C, 2));
+	double wheelSpeedBR = sqrt(pow(A, 2) + pow(D, 2));
+	double wheelAngleFL = atan2(B, C) * 180 / pi;
+	double wheelAngleFR = atan2(B, D) * 180 / pi;
+	double wheelAngleBL = atan2(A, C) * 180 / pi;
+	double wheelAngleBR = atan2(A, D) * 180 / pi;
 	
 	
 	//speeds normalized 0 to 1
@@ -90,11 +91,12 @@ void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric)
 		wheelSpeedBL += heading;
 	}
 	
-	
-	FLWheel->Set(wheelSpeedFL, wheelAngleFL + 180);
-	FRWheel->Set(wheelSpeedFR, wheelAngleFR);
+	//printf("%f\n", FLWheel->GetAngle());
+	//printf("setPoint  = %f\n",FLWheel->GetController()->GetSetPoint());
+	FLWheel->Set(wheelSpeedFL, wheelAngleFL);
+	FRWheel->Set(wheelSpeedFR, wheelAngleFR +180);
 	BRWheel->Set(wheelSpeedBR, wheelAngleBR + 180);
-	BLWheel->Set(wheelSpeedBL, wheelAngleBL);
+	BLWheel->Set(wheelSpeedBL, wheelAngleBL + 180);
 	
 //	FLWheel->Set(wheelSpeedFL, wheelAngleFL + 180);
 //	FRWheel->Set(wheelSpeedFR, wheelAngleFR + 180);
