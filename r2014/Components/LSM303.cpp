@@ -32,6 +32,7 @@ LSM303::LSM303(uint8_t moduleNumber)
   m_max = (LSM303::vector<int16_t>){+32767, +32767, +32767};
   _dev = DigitalModule::GetInstance(moduleNumber)->GetI2C(COMPASS_ADDRESS);
   
+  
 }
 /*
 Enables the LSM303's accelerometer and magnetometer. Also:

@@ -2,6 +2,9 @@
 #include "Commands/SetEncoderOffsetCommand.h"
 #include "Commands/SetICommand.h"
 #include "Commands/SetPCommand.h"
+#include "Commands/ResetGyroCommand.h"
+#include "Commands/CalibrateCompassCommand.h"
+#include "Commands/SetFieldOffsetCommand.h"
 #include "Robotmap.h"
 
 OI::OI() {
@@ -20,6 +23,16 @@ OI::OI() {
 	BLOffsetButton = new JoystickButton(driverStick, XboxController::xbXButton);
 	BLOffsetButton->WhenPressed(new SetEncoderOffsetCommand(BLENCODER));
 //	BLOffsetButton->WhenPressed(new SetPCommand(false));
+	CalibrateCompassButton = new JoystickButton(driverStick, XboxController::xbBackButton);
+	CalibrateCompassButton->WhileHeld(new CalibrateCompassCommand());	
+	
+	SetFieldOffsetButton = new JoystickButton(driverStick, XboxController::xbStartButton);
+	SetFieldOffsetButton->WhenPressed(new SetFieldOffsetCommand());	
+	
+	ResetGyroButton = new JoystickButton(driverStick, XboxController::xbLeftBumper);
+	ResetGyroButton->WhenPressed(new ResetGyroCommand());	
+	
+	SmartDashboard::PutData(new ResetGyroCommand());
 }
 
 Joystick2481* OI::GetDriverStick() {

@@ -33,7 +33,7 @@ private:
 	virtual void TeleopPeriodic() {
 		double timeBefore = GetTime();
 		Scheduler::GetInstance()->Run();
-//		printf("%f \r\n", GetTime()-timeBefore);
+		printf("%f \r\n", GetTime()-timeBefore);
 		Wait(0.003);
 	}
 	

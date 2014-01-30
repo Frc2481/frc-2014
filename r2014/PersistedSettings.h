@@ -18,13 +18,16 @@ class PersistedSettings {
 private:
 	std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems);
 	std::vector<std::string> split(const std::string &s, char delim);
+	PersistedSettings();
 	
 public:
-	PersistedSettings();
 	virtual ~PersistedSettings();
 	void WriteToFile(std::string filename);
 	void LoadFromFile(std::string filename);
 	std::map<std::string, double>  data;
+	static PersistedSettings &GetInstance();
+	double Get(string name);
+	void Set(string name, double value);
 };
 
 #endif /* PERSISTEDSETTINGS_H_ */

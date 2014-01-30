@@ -58,4 +58,16 @@ std::vector<std::string> PersistedSettings::split(const std::string &s, char del
     split(s, delim, elems);
     return elems;
 }
+PersistedSettings& PersistedSettings::GetInstance(){
+	static PersistedSettings instance;
+	return instance;
+}
+double PersistedSettings::Get(string name){
+	return data[name];
+}
+
+void PersistedSettings::Set(string name, double value){
+	data[name] = value;
+	WriteToFile(ENCODER_OFFSET_FILENAME);
+}
 

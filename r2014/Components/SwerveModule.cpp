@@ -75,10 +75,7 @@ void SwerveModule::Set(float speed, float angle){
 	float temp;
 	temp = GetAngle();
 	//mSteerController->SetSetpoint(angle + 180);
-	//if (mSteerController->OnTarget())
-		mDrive->Set(speed);
-	//else 
-		//mDrive->Set(0);
+	mDrive->Set(speed);
 	mSteerController->Set(angle);
 }
 

@@ -22,6 +22,7 @@ private:
 	SwerveModule *BRWheel;
 	SwerveModule *BLWheel;
 	HeadingSource *headingSource;
+	//ResetGyroCommand *resetGyroCommand;
 	
 	static const double pi = 3.14159;
 	double baseWidth;
@@ -32,6 +33,7 @@ private:
 	float prevAngleFL;
 	float prevAngleBR;
 	float prevAngleBL;
+	float angleOffset;
 public:
 	DriveTrain();
 	virtual ~DriveTrain();
@@ -46,6 +48,9 @@ public:
 	float GetP();
 	void SetI(float i);
 	float GetI();
+	void ResetGyro();
+	void UpdateCompass(bool done);
+	void SetFieldOffset();
 };
 
 #endif /* DRIVETRAIN_H_ */

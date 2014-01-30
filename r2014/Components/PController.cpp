@@ -98,12 +98,12 @@ void PController::Update() {
 			correctedError = 0;
 			onTarget = true;
 		}
-		else if (error < -inputRange / 2){
+		else if (error <= -inputRange / 2){
 			onTarget = false;
 			correctedError = error + inputRange;
 		}
 		
-		else if(error > inputRange / 2) {
+		else if(error >= inputRange / 2) {
 			onTarget = false;
 			correctedError = error - inputRange;
 		}

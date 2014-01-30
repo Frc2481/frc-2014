@@ -15,6 +15,9 @@ private:
 	JoystickButton *FLOffsetButton;
 	JoystickButton *BROffsetButton;
 	JoystickButton *BLOffsetButton;
+	JoystickButton *CalibrateCompassButton;
+	JoystickButton *SetFieldOffsetButton;
+	JoystickButton *ResetGyroButton;
 public:
 	OI();
 	Joystick2481* GetDriverStick();

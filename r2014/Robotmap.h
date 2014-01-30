@@ -30,13 +30,15 @@
 #define FLSTEER 4
 
 //Analog Inputs
-#define FLENCODER 1
+#define GYRO_CHANNEL 1
 #define FRENCODER 2
 #define BLENCODER 3
 #define BRENCODER 4
-#define GYRO_CHANNEL 5
+#define FLENCODER 5
 
 //Module Number
 #define COMPASS_MODULE 1
+
+#define COMPASS_ADDRESS 0x3b
 
 #endif

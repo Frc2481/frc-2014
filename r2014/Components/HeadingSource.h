@@ -9,19 +9,36 @@
 #define HEADINGSOURCE_H_
 #include <WPILib.h>
 #include <cmath>
-#include "Compass.h"
+//#include "Compass.h"
+#include "LSM303.h"
+#include "RollingAccumulator.h"
+#include "../PersistedSettings.h"
 
+#define GYRO_AVG_SAMPLES 20
+#define COMPASS_AVG_SAMPLES 10
 
 class HeadingSource {
 private:
 	Gyro *gyro;
-	Compass *compass;
+	LSM303 *compass;
 	int gyroCounter;
 	int compassCounter;
 	float prevHeading;
 	float prevCompass;
 	float fieldHeadingOffset;
+	float heading;
+
 	
+	LSM303::vector<int16_t> runningMin;
+	LSM303::vector<int16_t> runningMax;
+	
+
+	RollingAccumulator<float, GYRO_AVG_SAMPLES> _gyroSinAccum;
+	RollingAccumulator<float, GYRO_AVG_SAMPLES> _gyroCosAccum;
+
+	RollingAccumulator<float, COMPASS_AVG_SAMPLES> _compassSinAccum;
+	RollingAccumulator<float, COMPASS_AVG_SAMPLES> _compassCosAccum;
+	RollingAccumulator<float, 10> _gyroRateAccum;
 	
 public:
 	HeadingSource(uint32_t gyroChannel, uint8_t compassChannel);
@@ -29,7 +46,11 @@ public:
 	float GetHeading();
 	void periodic();
     void setFieldHeadingOffset(float fieldHeadingOffset);
-	
+    void ResetGyro();
+    void CalibrateCompass();
+	void CompassPeriodic(bool done = false);
+	void CompassInit();
+	void SetOffset();
 };
 
 #endif /* HEADINGSOURCE_H_ */
