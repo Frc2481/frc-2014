@@ -18,6 +18,10 @@ private:
 	JoystickButton *CalibrateCompassButton;
 	JoystickButton *SetFieldOffsetButton;
 	JoystickButton *ResetGyroButton;
+	JoystickButton *ManualRetractShooterButton;
+	JoystickButton *ManualReleaseShooterButton;
+	JoystickButton *ManualFireButton;
+	JoystickButton *ManualLatchButton;
 public:
 	OI();
 	Joystick2481* GetDriverStick();

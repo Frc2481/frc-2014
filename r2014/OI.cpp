@@ -6,6 +6,10 @@
 #include "Commands/CalibrateCompassCommand.h"
 #include "Commands/SetFieldOffsetCommand.h"
 #include "Robotmap.h"
+#include "Commands/ReleaseShooterCommand.h"
+#include "Commands/RetractShooterCommand.h"
+#include "Commands/ManualFireShooterCommand.h"
+#include "Commands/ManualLatchShooterCommand.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -31,6 +35,20 @@ OI::OI() {
 	
 	ResetGyroButton = new JoystickButton(driverStick, XboxController::xbLeftBumper);
 	ResetGyroButton->WhenPressed(new ResetGyroCommand());	
+	
+	ManualRetractShooterButton = new JoystickButton(auxStick, XboxController::xbLeftBumper);
+	ManualRetractShooterButton->WhileHeld(new RetractShooterCommand());	
+	
+	ManualReleaseShooterButton = new JoystickButton(auxStick, XboxController::xbRightBumper);
+	ManualReleaseShooterButton->WhileHeld(new ReleaseShooterCommand());	
+
+	ManualFireButton = new JoystickButton(auxStick, XboxController::xbAButton);
+	ManualFireButton->WhenPressed(new ManualFireShooterCommand());	
+	
+	ManualLatchButton = new JoystickButton(auxStick, XboxController::xbBButton);
+	ManualLatchButton->WhenPressed(new ManualLatchShooterCommand());	
+	
+
 	
 	SmartDashboard::PutData(new ResetGyroCommand());
 }

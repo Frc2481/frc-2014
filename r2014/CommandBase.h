@@ -3,9 +3,12 @@
 
 #include "Commands/Command.h"
 #include "Subsystems/ExampleSubsystem.h"
+#include "Subsystems/Shooter.h"
 #include "Subsystems/DriveTrain.h"
+#include "Subsystems/DistanceSensors.h"
 #include "OI.h"
 #include "PersistedSettings.h"
+#include "Robotmap.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -22,6 +25,8 @@ public:
 	static DriveTrain *driveTrain;
 	static OI *oi;
 	static PersistedSettings *persistedSettings;
+	static Shooter *shooter;
+	static DistanceSensors *distanceSensors;
 };
 
 #endif

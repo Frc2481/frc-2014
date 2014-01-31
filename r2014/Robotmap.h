@@ -28,6 +28,11 @@
 #define BLSTEER 6
 #define FLDRIVE 3
 #define FLSTEER 4
+#define WINCH 9
+
+//Solenoids
+#define EARS 1
+#define RELEASE 2
 
 //Analog Inputs
 #define GYRO_CHANNEL 1
@@ -35,10 +40,15 @@
 #define BLENCODER 3
 #define BRENCODER 4
 #define FLENCODER 5
+#define WINCH_SENSOR 6
+#define ULTRASONIC_RIGHT 7
+#define ULTRASONIC_LEFT 8
+
 
 //Module Number
 #define COMPASS_MODULE 1
 
 #define COMPASS_ADDRESS 0x3b
+#define WIIGYRO_ADDRESS 0
 
 #endif
