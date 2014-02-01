@@ -5,6 +5,7 @@
 #include "Commands/ResetGyroCommand.h"
 #include "Commands/CalibrateCompassCommand.h"
 #include "Commands/SetFieldOffsetCommand.h"
+#include "Commands/JukeCommand.h"
 #include "Robotmap.h"
 #include "Commands/ReleaseShooterCommand.h"
 #include "Commands/RetractShooterCommand.h"
@@ -30,11 +31,14 @@ OI::OI() {
 //	BLOffsetButton->WhenPressed(new SetPCommand(false));
 	CalibrateCompassButton = new JoystickButton(driverStick, XboxController::xbBackButton);
 	CalibrateCompassButton->WhileHeld(new CalibrateCompassCommand());	
-	
+	RightJukeButton = new JoystickButton(driverStick, XboxController::xbRightBumper); 
+	RightJukeButton->WhenPressed(new JukeCommand(true));
+	LeftJukeButton = new JoystickButton(driverStick, XboxController::xbLeftBumper);
+	LeftJukeButton->WhenPressed(new JukeCommand(false));
 	SetFieldOffsetButton = new JoystickButton(driverStick, XboxController::xbStartButton);
 	SetFieldOffsetButton->WhenPressed(new SetFieldOffsetCommand());	
 	
-	ResetGyroButton = new JoystickButton(driverStick, XboxController::xbLeftBumper);
+	ResetGyroButton = new JoystickButton(driverStick, XboxController::xbBackButton);
 	ResetGyroButton->WhenPressed(new ResetGyroCommand());	
 	
 	ManualRetractShooterButton = new JoystickButton(auxStick, XboxController::xbLeftBumper);
