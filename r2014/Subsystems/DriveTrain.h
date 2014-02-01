@@ -55,6 +55,7 @@ public:
 	void UpdateCompass(bool done);
 	void SetFieldOffset();
 	float GetHeading();
+	void Stop();
 };
 
 #endif /* DRIVETRAIN_H_ */

@@ -28,6 +28,13 @@ void DriveTrain::InitDefaultCommand() {
 	SetDefaultCommand(new CrabDriveCommand());
 }
 
+void DriveTrain::Stop() {
+	FLWheel = 0;
+	FRWheel = 0;
+	BLWheel = 0;
+	BRWheel = 0;
+}
+
 void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric){
 //	double FWD = yPos;
 //	double STR = -xPos;
