@@ -4,6 +4,7 @@
 #include "WPILib.h"
 #include "Components/Joystick2481.h"
 #include "XboxController.h"
+#include "Components/AnalogJoystickButton.h"
 
 class OI {
 private:
@@ -15,7 +16,7 @@ private:
 	JoystickButton *FLOffsetButton;
 	JoystickButton *BROffsetButton;
 	JoystickButton *BLOffsetButton;
-	JoystickButton *CalibrateCompassButton;
+	AnalogJoystickButton *CalibrateCompassButton;
 	JoystickButton *SetFieldOffsetButton;
 	JoystickButton *ResetGyroButton;
 	JoystickButton *ManualRetractShooterButton;

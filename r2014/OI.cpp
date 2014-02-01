@@ -29,8 +29,8 @@ OI::OI() {
 	BLOffsetButton = new JoystickButton(driverStick, XboxController::xbXButton);
 	BLOffsetButton->WhenPressed(new SetEncoderOffsetCommand(BLENCODER));
 //	BLOffsetButton->WhenPressed(new SetPCommand(false));
-	CalibrateCompassButton = new JoystickButton(driverStick, XboxController::xbBackButton);
-	CalibrateCompassButton->WhileHeld(new CalibrateCompassCommand());	
+	CalibrateCompassButton = new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -.5);
+	CalibrateCompassButton->WhenPressed(new CalibrateCompassCommand());	
 	RightJukeButton = new JoystickButton(driverStick, XboxController::xbRightBumper); 
 	RightJukeButton->WhenPressed(new JukeCommand(true));
 	LeftJukeButton = new JoystickButton(driverStick, XboxController::xbLeftBumper);
