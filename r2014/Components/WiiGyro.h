@@ -8,37 +8,40 @@
 #ifndef WiiGyro_H_
 #define WiiGyro_H_
 #include <WPILib.h>
-#include "../Robotmap.h"
 
 class WiiGyro {
 private:
-	I2C* wiiGyro;
-	double heading;
-	SEM_ID semaphore;
-	Notifier* update;
-	
-	enum Registers {
-		CTRL1 = 0x20,
-		CTRL5 = 0x24,
-		CTRL6 = 0x25,
-		CTRL7 = 0x26,
-		CRA_REG_M = 0x00,
-		MR_REG_M = 0x02,
-		OUT_X_L_M = 0x08,
-		OUT_X_H_M = 0x09,
-		OUT_Y_L_M = 0x0a,
-		OUT_Y_H_M = 0x0b,
-		OUT_Z_L_M = 0x0c,
-		OUT_Z_H_M = 0x0d,
-	};
+	uint8_t data[6];	    //six data bytes
+	int yaw, pitch, roll;  //three axes
+	int yaw0, pitch0, roll0;  //calibration zeroes
+	double time, last_time;
+	float delta_t;
+	int last_yaw[3], last_pitch[3], last_roll[3];
+	int yaw_deg2, pitch_deg2, roll_deg2;
+	int startTag;
+	int accel_x_axis, accel_y_axis, accel_z_axis;
+	float final_yaw_deg, final_pitch_deg, final_roll_deg;
+	I2C *wiiGyroInitial;
+	I2C *wiiGyro;
+	DigitalModule *dm;
+	Timer *timer;
+	SEM_ID wiiSemaphore;
+	Notifier* wiiUpdate;
+
 public:
 	WiiGyro(uint8_t moduleNumber);
-	
-	virtual ~WiiGyro();
-	void Init();
-	void Update();
-	static void UpdateWiiGyro(void* WiiGyro);
-	double GetAngle();
+	~WiiGyro();
+	void wmpOn();
+	//void wmpSendZero();
+	void calibrateZeroes();
+	void receiveData();
+	float rk4Integrate(int y4, int y3, int y2, int y1, float deltax);
+	void setup();
+	unsigned char bitRead(unsigned char in, unsigned char n);
+	void loop();
+	void reset();
+	float GetYaw();
+	static void LoopPeriodic(void *controller);
 };
 
 #endif /* WiiGyro_H_ */

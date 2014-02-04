@@ -10,6 +10,7 @@
 #include "Commands/RetractShooterCommand.h"
 #include "Commands/ManualFireShooterCommand.h"
 #include "Commands/ManualLatchShooterCommand.h"
+#include "Commands/WriteToCSVCommand.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -47,6 +48,9 @@ OI::OI() {
 	
 	ManualLatchButton = new JoystickButton(auxStick, XboxController::xbBButton);
 	ManualLatchButton->WhenPressed(new ManualLatchShooterCommand());	
+
+	WriteToCSVButton = new JoystickButton(auxStick, XboxController::xbStartButton);
+	WriteToCSVButton->WhenPressed(new WriteToCSVCommand());	
 	
 
 	

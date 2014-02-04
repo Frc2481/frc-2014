@@ -34,6 +34,7 @@ private:
 	float prevAngleBR;
 	float prevAngleBL;
 	float angleOffset;
+	float heading;
 public:
 	DriveTrain();
 	virtual ~DriveTrain();
@@ -51,6 +52,7 @@ public:
 	void ResetGyro();
 	void UpdateCompass(bool done);
 	void SetFieldOffset();
+	float GetHeading();
 };
 
 #endif /* DRIVETRAIN_H_ */

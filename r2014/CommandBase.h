@@ -9,6 +9,7 @@
 #include "OI.h"
 #include "PersistedSettings.h"
 #include "Robotmap.h"
+#include "CSVRecord.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -24,9 +25,10 @@ public:
 	static ExampleSubsystem *examplesubsystem;
 	static DriveTrain *driveTrain;
 	static OI *oi;
-	static PersistedSettings *persistedSettings;
+//	static PersistedSettings *persistedSettings;
 	static Shooter *shooter;
 	static DistanceSensors *distanceSensors;
+	//static CSVRecord *csvRecord;
 };
 
 #endif

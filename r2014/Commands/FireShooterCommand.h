@@ -5,18 +5,18 @@
  *      Author: Team2481
  */
 
-#ifndef INCSHOOTERSETPOINTCOMMAND_H_
-#define INCSHOOTERSETPOINTCOMMAND_H_
+#ifndef FIRESHOOTERCOMMAND_H_
+#define FIRESHOOTERCOMMAND_H_
 
 #include "../CommandBase.h"
 
-class IncShooterSetPointCommand: public CommandBase {
+class FireShooterCommand: public CommandBase {
 public:
-	IncShooterSetPointCommand(){
+	FireShooterCommand(){
 		bool isFinished = 0;
 		SetTimeout(1.5);
 	}
-	virtual ~IncShooterSetPointCommand(){
+	virtual ~FireShooterCommand(){
 		
 	}
 	virtual void Initialize(){

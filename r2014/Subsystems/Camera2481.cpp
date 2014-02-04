@@ -12,6 +12,7 @@ Camera2481::Camera2481() : Subsystem("Camera2481"){
 }
 
 bool Camera2481::HasTarget(){	
+	printf("Targets: %d", cameraTable->GetNumber("BLOB_COUNT"));
 	return cameraTable->GetBoolean("HOT_TARGET");
 }
 

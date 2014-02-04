@@ -15,5 +15,5 @@ DistanceSensors::~DistanceSensors() {
 	// TODO Auto-generated destructor stub
 }
 float DistanceSensors::Get(){
-	
+	return 0;
 }

@@ -17,10 +17,10 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 				BLWheel(new SwerveModule(BLDRIVE, BLSTEER, BLENCODER)),
 				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)) {
 	prevAngle = 90.0;
-	FLWheel->SetOffset(CommandBase::persistedSettings->data["FL_ENCODER_OFFSET"]);
-	FRWheel->SetOffset(CommandBase::persistedSettings->data["FR_ENCODER_OFFSET"]);
-	BRWheel->SetOffset(CommandBase::persistedSettings->data["BR_ENCODER_OFFSET"]);
-	BLWheel->SetOffset(CommandBase::persistedSettings->data["BL_ENCODER_OFFSET"]);
+	FLWheel->SetOffset(PersistedSettings::GetInstance().Get("FL_ENCODER_OFFSET"));
+	FRWheel->SetOffset(PersistedSettings::GetInstance().Get("FR_ENCODER_OFFSET"));
+	BRWheel->SetOffset(PersistedSettings::GetInstance().Get("BR_ENCODER_OFFSET"));
+	BLWheel->SetOffset(PersistedSettings::GetInstance().Get("BL_ENCODER_OFFSET"));
 }
 
 void DriveTrain::InitDefaultCommand() {
@@ -28,14 +28,16 @@ void DriveTrain::InitDefaultCommand() {
 }
 
 void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric){
-	//double FWD = yPos;
-	//double STR = -xPos;
-	twist = -twist;
+//	double FWD = yPos;
+//	double STR = -xPos;
+	twist = -twist * .4;
 	
-	float heading = headingSource->GetHeading();
+	heading = headingSource->GetHeading();
 	double FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
 	double STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
 	STR = -STR;
+	
+	
 	SmartDashboard::PutNumber("FWD", FWD);
 	SmartDashboard::PutNumber("STR", STR);
 	SmartDashboard::PutNumber("twist", twist);
@@ -113,7 +115,7 @@ void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric)
 	
 	angleOffset = wheelAngleFL + 180;
 	
-
+	printf("%f %f %f %f \n", FLWheel->GetRawAngle(), FRWheel->GetRawAngle(), BLWheel->GetRawAngle(), BRWheel->GetRawAngle());
 }
 
 void DriveTrain::SetLengthAndWidth(double robotLength, double robotWidth) {
@@ -179,4 +181,7 @@ void DriveTrain::UpdateCompass(bool done){
 }
 void DriveTrain::SetFieldOffset(){
 	headingSource->setFieldHeadingOffset(-angleOffset);
+}
+float DriveTrain::GetHeading(){
+	return heading;
 }

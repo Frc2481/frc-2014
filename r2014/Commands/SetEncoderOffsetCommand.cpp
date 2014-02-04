@@ -22,19 +22,19 @@ void SetEncoderOffsetCommand::Initialize() {
 }
 
 void SetEncoderOffsetCommand::Execute() {
+	return;
 	int wheel = mWheel;
 	printf("Wheel: %d value: %f", wheel, driveTrain->GetEncoderValue(wheel));
 	if (wheel == FRENCODER) {
-		CommandBase::persistedSettings->data["FR_ENCODER_OFFSET"] = driveTrain->GetEncoderValue(wheel);
+		PersistedSettings::GetInstance().Set("FR_ENCODER_OFFSET", (int)(driveTrain->GetEncoderValue(wheel) + 180) % 360);
 	}else if (wheel == FLENCODER) {
-		CommandBase::persistedSettings->data["FL_ENCODER_OFFSET"] = driveTrain->GetEncoderValue(wheel);
+		PersistedSettings::GetInstance().Set("FL_ENCODER_OFFSET", (int)(driveTrain->GetEncoderValue(wheel) + 180) % 360);
 	}else if (wheel == BRENCODER) {
-		CommandBase::persistedSettings->data["BR_ENCODER_OFFSET"] = driveTrain->GetEncoderValue(wheel);
+		PersistedSettings::GetInstance().Set("BR_ENCODER_OFFSET", (int)(driveTrain->GetEncoderValue(wheel) + 180) % 360);
 	}else if (wheel == BLENCODER) {
-		CommandBase::persistedSettings->data["BL_ENCODER_OFFSET"] = driveTrain->GetEncoderValue(wheel);
+		PersistedSettings::GetInstance().Set("BL_ENCODER_OFFSET", (int)(driveTrain->GetEncoderValue(wheel) + 180) % 360);
 	}
-	CommandBase::persistedSettings->WriteToFile(ENCODER_OFFSET_FILENAME);
-	
+	PersistedSettings::GetInstance().WriteToFile(ENCODER_OFFSET_FILENAME);
 }
 
 bool SetEncoderOffsetCommand::IsFinished() {

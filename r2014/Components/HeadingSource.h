@@ -13,14 +13,19 @@
 #include "LSM303.h"
 #include "RollingAccumulator.h"
 #include "../PersistedSettings.h"
+#include "../CSVRecord.h"
+#include <string>
+#include "WiiGyro.h"
 
 #define GYRO_AVG_SAMPLES 20
 #define COMPASS_AVG_SAMPLES 10
 
 class HeadingSource {
 private:
+	CSVRecord& csvFile;
 	Gyro *gyro;
 	LSM303 *compass;
+	WiiGyro *wiiGyro;
 	int gyroCounter;
 	int compassCounter;
 	float prevHeading;

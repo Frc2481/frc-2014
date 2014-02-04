@@ -2,6 +2,7 @@
 #include "Commands/Command.h"
 #include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
+#include "CSVRecord.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
@@ -31,14 +32,18 @@ private:
 	}
 	
 	virtual void TeleopPeriodic() {
-		double timeBefore = GetTime();
+//		double timeBefore = GetTime();
 		Scheduler::GetInstance()->Run();
-		printf("%f \r\n", GetTime()-timeBefore);
+//		printf("%f \r\n", GetTime()-timeBefore);
 		Wait(0.003);
 	}
 	
 	virtual void TestPeriodic() {
 		lw->Run();
+	}
+	
+	virtual void DisabledInit() {
+		CSVRecord::getInstance().CloseFile();
 	}
 };
 
