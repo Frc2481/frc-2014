@@ -10,6 +10,7 @@
 #include "../RobotParameters.h"
 #include "../Components/SwerveModule.h"
 #include "../Components/HeadingSource.h"
+#include "../Components/WiiGyro.h"
 #include "WPILib.h"
 #include "Commands/Subsystem.h"
 
@@ -22,6 +23,7 @@ private:
 	SwerveModule *BRWheel;
 	SwerveModule *BLWheel;
 	HeadingSource *headingSource;
+	WiiGyro *wiiGyro;
 	//ResetGyroCommand *resetGyroCommand;
 	
 	static const double pi = 3.14159;

@@ -13,7 +13,7 @@
 HeadingSource::HeadingSource(uint32_t gyroChannel, uint8_t compassChannel)
 		: csvFile(CSVRecord::getInstance()){
 	gyro = new Gyro(gyroChannel);
-	wiiGyro = new WiiGyro(compassChannel);
+	//wiiGyro = new WiiGyro(compassChannel);
 	//compass = new Compass(compassChannel);
 	//compass = new LSM303(compassChannel);
 	//compass->init();

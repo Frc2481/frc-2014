@@ -5,7 +5,7 @@
  *      Author: Team2481
  */
 #include "wiiGyro.h"
-
+#include <cmath>
 #define steps_per_deg_slow 20
 #define steps_per_deg_fast 4
 
@@ -25,8 +25,11 @@ WiiGyro::WiiGyro(uint8_t moduleNumber)  :
 	yaw = 0;
 	pitch = 0;
 	roll = 0;
+	yaw_deg = 0;
+	pitch_deg = 0;
+	roll_deg = 0;
 	
-	wiiUpdate->StartPeriodic(.01);
+	wiiUpdate->StartPeriodic(.05);
 	
 	memset(data, 0, sizeof(uint8_t) * 6);
 	memset(last_pitch, 0, sizeof(int) * 3);
@@ -36,8 +39,9 @@ WiiGyro::WiiGyro(uint8_t moduleNumber)  :
 //		I2C* i2c = dm->GetI2C(i);
 //		printf("Address %x: %d", (int)i, i2c->AddressOnly());
 //	}
-	wmpOn();					//turn WM+ on
-	calibrateZeroes();		  //calibrate zeroes
+//	wmpOn();					//turn WM+ on
+//	calibrateZeroes();		  //calibrate zeroes
+//	setup();
 }
 
 WiiGyro::~WiiGyro(){
@@ -61,35 +65,51 @@ void WiiGyro::calibrateZeroes(){
   for (int i=0;i<10;i++){
     //wmpSendZero();
     //wiiGyro->Read(0xa400fa, 6 , &data[0]);
-    wiiGyro->Transaction(0x00,1,&data[0],6);
+	  //uint8_t sendBuffer[1]={0};
+	  wiiGyro->Transaction(0x00, 1, 0, 0);
+//	  wiiGyro->Transaction(sendBuffer,1,0,0);
+	  wiiGyro->Transaction(0,0,&data[0],1);
+	  wiiGyro->Transaction(0,0,&data[1],1);
+	  wiiGyro->Transaction(0,0,&data[2],1);
+	  wiiGyro->Transaction(0,0,&data[3],1);
+	  wiiGyro->Transaction(0,0,&data[4],1);
+	  wiiGyro->Transaction(0,0,&data[5],1);
     yaw0+=(((data[3]>>2)<<8)+data[0])/10;	  //average 10 readings for each zero
     pitch0+=(((data[4]>>2)<<8)+data[1])/10;
     roll0+=(((data[5]>>2)<<8)+data[2])/10;
+    
+      printf("%d %d %d %d %d %d", data[0], data[1],data[2],data[3],data[4],data[5]);
   }
 }
 
 void WiiGyro::receiveData(){
 	//wmpSendZero();			 
 	//send zero before each request (same as nunchuck)
-	//wiiGyro->Read(0xa400fa, 6 , &data[0]);
+	
 //  wiiGyro->Transaction(0x00,1,&data[0],6);
-  //printf("wiiGryo %d ", wiiGyro->AddressOnly());
-  wiiGyro->Transaction(0x00,1,0,0);
-  //printf("middle ");
+  
+  //WPI Lib can't handle reading more than 4 bytes at a time
+  //so we are reading these 1 byte at a time.
+//  uint8_t sendBuffer[1]={0};
+//  wiiGyro->Transaction(sendBuffer,1,0,0);
+  wiiGyro->Transaction(0x00, 1, 0, 0);
   wiiGyro->Transaction(0,0,&data[0],1);
   wiiGyro->Transaction(0,0,&data[1],1);
   wiiGyro->Transaction(0,0,&data[2],1);
   wiiGyro->Transaction(0,0,&data[3],1);
   wiiGyro->Transaction(0,0,&data[4],1);
   wiiGyro->Transaction(0,0,&data[5],1);
-  //printf("read complete!!!\n");
   if(bitRead(data[3], 1)==1) yaw=(((data[3]>>2)<<8)+data[0]-yaw0)/steps_per_deg_slow;	  //see http://wiibrew.org/wiki/Wiimote/Extension_Controllers#Wii_Motion_Plus
   else yaw=(((data[3]>>2)<<8)+data[0]-yaw0)/steps_per_deg_fast;
+  
   if(bitRead(data[3], 0)==1) pitch=(((data[4]>>2)<<8)+data[1]-pitch0)/steps_per_deg_slow;    //for info on what each byte represents
   else pitch=(((data[4]>>2)<<8)+data[1]-pitch0)/steps_per_deg_fast;
+  
   if(bitRead(data[4], 1)==1) roll=(((data[5]>>2)<<8)+data[2]-roll0)/steps_per_deg_slow;
   else roll=(((data[5]>>2)<<8)+data[2]-roll0)/steps_per_deg_fast;
 //  printf("%d %d %d %d %d %d", data[0], data[1],data[2],data[3],data[4],data[5]);
+
+  printf("Raw yaw %f \n", (float)yaw);
 }
 
 float WiiGyro::rk4Integrate(int y4, int y3, int y2, int y1, float deltax){
@@ -101,6 +121,7 @@ float WiiGyro::rk4Integrate(int y4, int y3, int y2, int y1, float deltax){
 void WiiGyro::setup(){
   //wiiGyro.begin();
 	wmpOn();	//turn WM+ on
+	Wait(5);
   calibrateZeroes();		  //calibrate zeroes
   //Wait(10);
 
@@ -108,8 +129,26 @@ void WiiGyro::setup(){
   }
 
 void WiiGyro::loop(){
-	float yaw_deg, pitch_deg, roll_deg = 0;
-	receiveData();			//receive data and calculate yaw pitch and roll
+	static bool first = true;
+	if (first) {
+		first = false;
+		setup();
+	}
+//	if (wiiGyro->AddressOnly() && !wiiGyroInitial->AddressOnly()) {
+//		 printf("Resetting Wii Gyro\n");
+//		 reset();
+//		 setup();
+//		 Wait(5);
+//	}
+
+	//printf("preYawCalc %f \n", yaw_deg);
+	float yawTemp;
+	float pitchTemp;
+	float rollTemp;
+	
+
+	receiveData();	
+	//receive data and calculate yaw pitch and roll
 
   /* Runge-kutta 4th Order Integration */
   
@@ -117,16 +156,29 @@ void WiiGyro::loop(){
   delta_t = time - last_time;
   last_time = timer->Get() * 1000;
 
-  yaw_deg+=rk4Integrate(yaw, last_yaw[0], last_yaw[1], last_yaw[2], delta_t);
-  pitch_deg+=rk4Integrate(pitch, last_pitch[0], last_pitch[1], last_pitch[2], delta_t);
-  roll_deg+=rk4Integrate(roll, last_roll[0], last_roll[1], last_roll[2], delta_t);
+	CRITICAL_REGION(wiiSemaphore) {
+		yawTemp = yaw_deg;
+		pitchTemp = pitch_deg;
+		rollTemp = roll_deg;		
+	}
+	END_REGION;
+
+  yawTemp+=rk4Integrate(yaw, last_yaw[0], last_yaw[1], last_yaw[2], delta_t);
+  pitchTemp+=rk4Integrate(pitch, last_pitch[0], last_pitch[1], last_pitch[2], delta_t);
+  rollTemp+=rk4Integrate(roll, last_roll[0], last_roll[1], last_roll[2], delta_t);
 
   CRITICAL_REGION(wiiSemaphore) {
-	  final_yaw_deg = yaw_deg;
-	  final_pitch_deg = pitch_deg;
-	  final_roll_deg = roll_deg;
+	  yaw_deg = yawTemp;
+	  pitch_deg = pitchTemp;
+	  roll_deg = rollTemp;
   }
   END_REGION;
+
+  SmartDashboard::PutNumber("Wii Gyro Yaw", yawTemp);
+  SmartDashboard::PutNumber("Wii Gyro pitch", pitchTemp);
+  SmartDashboard::PutNumber("Wii Gyro roll",rollTemp);
+  
+
   
   last_yaw[2]=last_yaw[1];
   last_pitch[2]=last_pitch[1];
@@ -139,16 +191,9 @@ void WiiGyro::loop(){
   last_roll[0]=roll;
   
   
-//  SmartDashboard::PutNumber("Wii Gyro Yaw", yaw_deg);
-//  SmartDashboard::PutNumber("Wii Gyro pitch", pitch_deg);
-//  SmartDashboard::PutNumber("Wii Gyro roll",roll_deg);
 //
 //  SmartDashboard::PutNumber("Delta t", delta_t);
   
-  if (wiiGyro->AddressOnly() && !wiiGyroInitial->AddressOnly()) {
-	  printf("Resetting Wii Gyro\n");
-	  setup();
-  }
   
 //  printf("wiiInitial %d \n", wiiGyroInitial->AddressOnly());
 //  printf("wiiGryo %d \n", wiiGyro->AddressOnly());
@@ -168,12 +213,14 @@ void WiiGyro::loop(){
     yaw = 0;
     pitch = 0;
     roll = 0;
-    yaw_deg = 0;
-    pitch_deg = 0;
-    roll_deg = 0;
+    yawTemp = 0;
+    pitchTemp = 0;
+    rollTemp = 0;
     }*/
   //printf("Wii %d\n", wiiGyro->AddressOnly());
   //Wait(.01);
+
+	//dprintf("postYawCalc %f \n", yaw_deg);
 }
 
 unsigned char WiiGyro::bitRead(unsigned char in, unsigned char n){
@@ -192,11 +239,14 @@ void WiiGyro::reset(){
     yaw = 0;
     pitch = 0;
     roll = 0;
+	yaw_deg = 0;
+	pitch_deg = 0;
+	roll_deg = 0;
 }
 float WiiGyro::GetYaw(){
 	float temp_yaw_deg;
 	CRITICAL_REGION(wiiSemaphore){
-		temp_yaw_deg = final_roll_deg;
+		temp_yaw_deg = yaw_deg;
 	}
 	END_REGION;
 	return temp_yaw_deg;

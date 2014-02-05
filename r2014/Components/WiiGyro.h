@@ -11,7 +11,7 @@
 
 class WiiGyro {
 private:
-	uint8_t data[6];	    //six data bytes
+	
 	int yaw, pitch, roll;  //three axes
 	int yaw0, pitch0, roll0;  //calibration zeroes
 	double time, last_time;
@@ -20,13 +20,14 @@ private:
 	int yaw_deg2, pitch_deg2, roll_deg2;
 	int startTag;
 	int accel_x_axis, accel_y_axis, accel_z_axis;
-	float final_yaw_deg, final_pitch_deg, final_roll_deg;
+	float yaw_deg, pitch_deg, roll_deg;
 	I2C *wiiGyroInitial;
 	I2C *wiiGyro;
 	DigitalModule *dm;
 	Timer *timer;
 	SEM_ID wiiSemaphore;
 	Notifier* wiiUpdate;
+	uint8_t data[6];	    //six data bytes
 
 public:
 	WiiGyro(uint8_t moduleNumber);
