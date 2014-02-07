@@ -1,29 +1,32 @@
+//Author: Thomas Speciale
+
 #include "Intake.h"
+#include "../Robotmap.h"
 
-Intake::Intake() 
-		: Subsystem("Intake"),
-		roller(new Talon(1)),
-		ballSwitch(new DigitalInput(1))
-{
+Intake::Intake() : Subsystem("Intake"){
+	ready = new Solenoid(READY);
+	capture = new Solenoid(CAPTURE);
+	roller = new Talon(INTAKE);
 }
 
-Intake::~Intake()
-{
+Intake::~Intake(){
+	delete ready;
+	delete capture;
+	delete roller;
 }
 
-void Intake::SuckIn(){
-	if (!HasBall())
-		roller->Set(1);
+void Intake::RollerOn(){
+	roller->SetSpeed(1);
 }
-
-void Intake::SpitOut(){
-	roller->Set(-1);
+void Intake::RollerOff(){
+	roller->SetSpeed(0);
 }
-
-void Intake::Stop(){
-	roller->Set(0);
+void Intake::Vomit(){
+	roller->SetSpeed(-1);
 }
-
-bool Intake::HasBall(){
-	return ballSwitch->Get();
+void Intake::SetReadySolenoid(bool readyOn){
+	ready->Set(readyOn);
+}
+void Intake::SetCaptureSolenoid(bool captureOn){
+	capture->Set(captureOn);
 }

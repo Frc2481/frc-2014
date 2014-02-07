@@ -24,12 +24,11 @@ public:
 	virtual void Execute(){
 	}
 	virtual bool IsFinished(){
-		return false;
+		return true;
 	}
 	virtual void End(){
 	}
 	virtual void Interrupted(){
-		End();
 	}
 };
 

@@ -1,5 +1,5 @@
-#ifndef EXAMPLE_COMMAND_H
-#define EXAMPLE_COMMAND_H
+#ifndef SPITOUTBALLCOMMAND_H
+#define SPITOUTBALLCOMMAND_H
 
 #include "../CommandBase.h"
 #include "../Subsystems/Intake.h"
@@ -8,18 +8,26 @@
  *
  * @author ExampleAuthor
  */
-class SpitOutBallCommand: public CommandBase {
+class SpitOutBallCommand : public CommandBase {
 public:
-	SpitOutBallCommand();
-	virtual void Initialize();
+	SpitOutBallCommand(){
+		Requires(intake);
+	}
+	virtual void Initialize(){
+		
+	}
 	virtual void Execute(){
-		intake->SpitOut();
+		intake->Vomit();
 	}
 	virtual bool IsFinished(){
-		return true;
+		return false;
 	}
-	virtual void End();
-	virtual void Interrupted();
+	virtual void End(){
+		intake->RollerOff();
+	}
+	virtual void Interrupted(){
+		End();
+	}
 };
 
 #endif

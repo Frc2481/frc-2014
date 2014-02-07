@@ -7,13 +7,20 @@
 
 #include "DistanceSensors.h"
 
-DistanceSensors::DistanceSensors(uint32_t right, uint32_t left) : Subsystem("DistanceSensors"){
-	
+DistanceSensors::DistanceSensors(uint32_t rightSensorChannel, uint32_t leftSensorChannel) 
+		: Subsystem("DistanceSensors"),
+		rightSensor(new Ultrasonic2481(rightSensorChannel)),
+		leftSensor(new Ultrasonic2481(leftSensorChannel)){
+	rightSensor->SetInchesPerVolt(80);
+	leftSensor->SetInchesPerVolt(80);
 }
 
 DistanceSensors::~DistanceSensors() {
-	// TODO Auto-generated destructor stub
+	delete rightSensor;
+	delete leftSensor;
 }
 float DistanceSensors::Get(){
-	return 0;
+	float sum = rightSensor->GetDistance() + leftSensor->GetDistance();
+	float avg = sum / 2;
+	return avg;
 }

@@ -1,12 +1,11 @@
-#ifndef EXAMPLE_COMMAND_H
-#define EXAMPLE_COMMAND_H
+#ifndef TURNONINTAKECOMMAND_H
+#define TURNONINTAKECOMMAND_H
 
 #include "../CommandBase.h"
 #include "../Subsystems/Intake.h"
-/**
+/*
  *
- *
- * @author ExampleAuthor
+ *  Author: paulRich, thomasSpeciale
  */
 class TurnOnIntakeCommand :  public CommandBase {
 public:
@@ -15,14 +14,15 @@ public:
 	}
 	virtual void Initialize(){}
 	virtual void Execute(){
-		if(!intake->HasBall()){
-			intake->SuckIn();	
-		}
+		intake->SetCaptureSolenoid(true);
+		intake->RollerOn();	
 	}
 	virtual bool IsFinished(){
 		return true;
 	}
-	virtual void End() {}
+	virtual void End(){
+		
+	}
 	virtual void Interrupted() {
 		End();
 	}

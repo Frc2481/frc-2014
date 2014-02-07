@@ -7,20 +7,29 @@
 /**
  *
  *
- * @author ExampleAuthor
+ * @author paulRich, thomasSpeciale
  */
 class TurnOffIntakeCommand: public CommandBase {
 public:
-	TurnOffIntakeCommand();
-	virtual void Initialize();
+	TurnOffIntakeCommand(){
+		Requires(intake);
+	}
+	virtual void Initialize(){
+		
+	}
 	virtual void Execute(){
-		intake->Stop();
+		intake->SetCaptureSolenoid(false);
+		intake->RollerOff();
 	}
 	virtual bool IsFinished(){
 		return true;
 	}
-	virtual void End();
-	virtual void Interrupted();
+	virtual void End(){
+		
+	}
+	virtual void Interrupted(){
+		
+	}
 };
 
 #endif

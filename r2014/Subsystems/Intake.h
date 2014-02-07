@@ -1,18 +1,25 @@
+/*	
+ * 
+ *  Author: thomasSpeciale, paulRich
+*/
 #ifndef INTAKE_H_
 #define INTAKE_H_
-#include "WPILib.h"
-class Intake: public Subsystem
-{
+
+#include "WPILIB.h"
+
+class Intake : public Subsystem {
 private:
-	SpeedController* roller;
-	DigitalInput* ballSwitch;
+	Solenoid *ready;
+	Solenoid *capture;
+	Talon *roller;
 public:
 	Intake();
 	virtual ~Intake();
-	void SuckIn();
-	void SpitOut();
-	void Stop();
-	bool HasBall();
+	void RollerOn();
+	void RollerOff();
+	void Vomit();
+	void SetReadySolenoid(bool readyOn);
+	void SetCaptureSolenoid(bool captureOn);
 };
 
 #endif /*INTAKE_H_*/

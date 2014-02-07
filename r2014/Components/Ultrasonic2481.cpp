@@ -16,5 +16,8 @@ Ultrasonic2481::~Ultrasonic2481() {
 	// TODO Auto-generated destructor stub
 }
 float Ultrasonic2481::GetDistance(){
-	return (ultrasonic->GetAverageVoltage() - 2.5) * DISTANCE_PER_VOLT / 3;
+	return (ultrasonic->GetAverageVoltage() - 2.5) * inchesPerVolt / 3;
+}
+void Ultrasonic2481::SetInchesPerVolt(float inchesPerVolt){
+	this->inchesPerVolt = inchesPerVolt;
 }

@@ -1,3 +1,5 @@
+// Author: thomasSpeciale, paulRich
+
 #ifndef JUKECOMMAND_H_
 #define JUKECOMMAND_H_
 

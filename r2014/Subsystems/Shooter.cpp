@@ -1,19 +1,23 @@
+
 /*
  * Shooter.cpp
  *
  *  Created on: Jan 30, 2014
  *      Author: Team2481
+ * 		Editor: paulRich
  */
 
 #include "Shooter.h"
 
-Shooter::Shooter(uint32_t winchChannel, uint32_t winchSensorChannel, uint32_t earChannel, uint32_t releaseChannel) : 
+Shooter::Shooter(uint32_t winchChannel, uint32_t winchSensorChannel, uint32_t earChannel, uint32_t releaseChannel, uint32_t potSwitchChannel) : 
 	Subsystem("shooter"), 
 	winch(new Talon(winchChannel)),
 	winchSensor(new AnalogChannel(winchSensorChannel)),
 	shooterEars(new Solenoid(earChannel)),
 	release(new Solenoid(releaseChannel)),
-	position(0){
+	position(0),
+	potSwitch(new DigitalInput(potSwitchChannel)),
+	offset(0){
 
 }
 
@@ -22,6 +26,7 @@ Shooter::~Shooter() {
 	delete winchSensor;
 	delete shooterEars;
 	delete release;
+	delete potSwitch;
 }
 
 void Shooter::Fire(float distance){
@@ -46,18 +51,25 @@ bool Shooter::GetEars(){
 }
 
 void Shooter::Periodic(){
-	if (winchSensor->GetAverageVoltage() > position + WINCH_TOLERANCE){
+	if (GetPosition() > position + WINCH_TOLERANCE){
 		winch->Set(-1);
 	}
-	else if (winchSensor->GetAverageVoltage() < position - WINCH_TOLERANCE){
+	else if (GetPosition() < position - WINCH_TOLERANCE){
 		winch->Set(1);
 	}
 	else {
 		winch->Set(0);
 	}
+	
+	if (potSwitch->Get()){
+		offset = winchSensor->GetAverageVoltage();
+	}
 }
 void Shooter::SetPosition(float pos){
 	position = pos;
+}
+float Shooter::GetPosition(){
+	winchSensor->GetAverageVoltage() - offset;
 }
 void Shooter::ManualRetractWinch(){
 	release->Set(1);
@@ -78,3 +90,4 @@ void Shooter::ManualLatch(){
 float Shooter::GetSetPoint(){
 	return position;
 }
+

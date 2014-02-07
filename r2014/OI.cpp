@@ -12,51 +12,67 @@
 #include "Commands/ManualFireShooterCommand.h"
 #include "Commands/ManualLatchShooterCommand.h"
 #include "Commands/WriteToCSVCommand.h"
+#include "Commands/TurnOnIntakeCommand.h"
+#include "Commands/TurnOffIntakeCommand.h"
+#include "Commands/SpitOutBallCommand.h"
 
 OI::OI() {
 	// Process operator interface input here.
 	driverStick = new Joystick2481(DRIVER_STICK_PORT);
 	auxStick = new Joystick2481(AUX_STICK_PORT);
+	
 	FROffsetButton = new JoystickButton(driverStick, XboxController::xbBButton);
 	FROffsetButton->WhenPressed(new SetEncoderOffsetCommand(FRENCODER));
 //	FROffsetButton->WhenPressed(new SetICommand(true));
+	
 	FLOffsetButton = new JoystickButton(driverStick, XboxController::xbYButton);
 	FLOffsetButton->WhenPressed(new SetEncoderOffsetCommand(FLENCODER));
 //	FLOffsetButton->WhenPressed(new SetPCommand(true));
+	
 	BROffsetButton = new JoystickButton(driverStick, XboxController::xbAButton);
 	BROffsetButton->WhenPressed(new SetEncoderOffsetCommand(BRENCODER));
 //	BROffsetButton->WhenPressed(new SetICommand(false));
+	
 	BLOffsetButton = new JoystickButton(driverStick, XboxController::xbXButton);
 	BLOffsetButton->WhenPressed(new SetEncoderOffsetCommand(BLENCODER));
 //	BLOffsetButton->WhenPressed(new SetPCommand(false));
+	
 	CalibrateCompassButton = new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -.5);
 	CalibrateCompassButton->WhenPressed(new CalibrateCompassCommand());	
+	
 	RightJukeButton = new JoystickButton(driverStick, XboxController::xbRightBumper); 
 	RightJukeButton->WhenPressed(new JukeCommand(true));
+	
 	LeftJukeButton = new JoystickButton(driverStick, XboxController::xbLeftBumper);
 	LeftJukeButton->WhenPressed(new JukeCommand(false));
+	
 	SetFieldOffsetButton = new JoystickButton(driverStick, XboxController::xbStartButton);
 	SetFieldOffsetButton->WhenPressed(new SetFieldOffsetCommand());	
 	
 	ResetGyroButton = new JoystickButton(driverStick, XboxController::xbBackButton);
 	ResetGyroButton->WhenPressed(new ResetGyroCommand());	
 	
-	ManualRetractShooterButton = new JoystickButton(auxStick, XboxController::xbLeftBumper);
-	ManualRetractShooterButton->WhileHeld(new RetractShooterCommand());	
 	
-	ManualReleaseShooterButton = new JoystickButton(auxStick, XboxController::xbRightBumper);
-	ManualReleaseShooterButton->WhileHeld(new ReleaseShooterCommand());	
+	RetractShooterButton = new JoystickButton(auxStick, XboxController::xbLeftBumper);
+	RetractShooterButton->WhileHeld(new RetractShooterCommand());	
+	
+	ReleaseShooterButton = new JoystickButton(auxStick, XboxController::xbRightBumper);
+	ReleaseShooterButton->WhileHeld(new ReleaseShooterCommand());	
 
 	ManualFireButton = new JoystickButton(auxStick, XboxController::xbAButton);
 	ManualFireButton->WhenPressed(new ManualFireShooterCommand());	
 	
 	ManualLatchButton = new JoystickButton(auxStick, XboxController::xbBButton);
-	ManualLatchButton->WhenPressed(new ManualLatchShooterCommand());	
-
-	WriteToCSVButton = new JoystickButton(auxStick, XboxController::xbStartButton);
-	WriteToCSVButton->WhenPressed(new WriteToCSVCommand());	
+	ManualLatchButton->WhenPressed(new ManualLatchShooterCommand());
 	
-
+	TurnOnIntakeButton = new JoystickButton(auxStick, XboxController::xbXButton);
+	TurnOnIntakeButton->WhenPressed(new TurnOnIntakeCommand());
+	
+	TurnOffIntakeButton = new JoystickButton(auxStick, XboxController::xbYButton);
+	TurnOffIntakeButton->WhenPressed(new TurnOffIntakeCommand());
+	
+	SpitOutButton = new JoystickButton(auxStick, XboxController::xbBackButton);
+	SpitOutButton->WhileHeld(new SpitOutBallCommand());
 	
 	SmartDashboard::PutData(new ResetGyroCommand());
 }

@@ -29,10 +29,13 @@
 #define FLDRIVE 3
 #define FLSTEER 4
 #define WINCH 9
+#define INTAKE 10
 
 //Solenoids
 #define EARS 1
 #define RELEASE 2
+#define READY 3
+#define CAPTURE 4
 
 //Analog Inputs
 #define GYRO_CHANNEL 1
@@ -43,6 +46,9 @@
 #define WINCH_SENSOR 6
 #define ULTRASONIC_RIGHT 7
 #define ULTRASONIC_LEFT 8
+
+//Digital Inputs
+#define POT_SWITCH 1
 
 
 //Module Number

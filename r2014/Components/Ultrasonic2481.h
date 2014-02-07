@@ -13,10 +13,12 @@
 class Ultrasonic2481 {
 private:
 	AnalogChannel *ultrasonic;
+	float inchesPerVolt;
 public:
 	Ultrasonic2481(uint32_t ultrasonicChannel);
 	virtual ~Ultrasonic2481();
 	float GetDistance();
+	void SetInchesPerVolt(float inchesPerVolt);
 };
 
 #endif /* ULTRASONIC2481_H_ */

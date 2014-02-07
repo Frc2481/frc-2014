@@ -26,7 +26,14 @@ private:
 	JoystickButton *WriteToCSVButton;
 	JoystickButton *RightJukeButton;
 	JoystickButton *LeftJukeButton;
-
+	JoystickButton *ManualLatchButton;
+	JoystickButton *ManualFireButton;
+	JoystickButton *RetractShooterButton;
+	JoystickButton *ReleaseShooterButton;
+	JoystickButton *TurnOnIntakeButton;
+	JoystickButton *TurnOffIntakeButton;
+	JoystickButton *SpitOutButton;
+	
 public:
 	OI();
 	Joystick2481* GetDriverStick();
