@@ -32,6 +32,8 @@ private:
 	float prevCompass;
 	float fieldHeadingOffset;
 	float heading;
+	float zeroCompassAngle;
+	bool resetWii;
 
 	
 	LSM303::vector<int16_t> runningMin;
@@ -56,6 +58,8 @@ public:
 	void CompassPeriodic(bool done = false);
 	void CompassInit();
 	void SetOffset();
+	bool ResetWii();
+	void SetZeroAngle();
 };
 
 #endif /* HEADINGSOURCE_H_ */

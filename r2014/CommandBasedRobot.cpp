@@ -17,6 +17,7 @@ private:
 	
 	virtual void AutonomousInit() {
 		autonomousCommand->Start();
+		CommandBase::driveTrain->SetFieldOffset();
 	}
 	
 	virtual void AutonomousPeriodic() {
