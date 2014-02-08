@@ -15,8 +15,8 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 				FRWheel(new SwerveModule(FRDRIVE, FRSTEER, FRENCODER)), 
 				BRWheel(new SwerveModule(BRDRIVE, BRSTEER, BRENCODER)),
 				BLWheel(new SwerveModule(BLDRIVE, BLSTEER, BLENCODER)),
-				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)),
-				wiiGyro(new WiiGyro(COMPASS_MODULE)){
+				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)) {
+//				wiiGyro(new WiiGyro(COMPASS_MODULE)){
 	prevAngle = 90.0;
 	FLWheel->SetOffset(PersistedSettings::GetInstance().Get("FL_ENCODER_OFFSET"));
 	FRWheel->SetOffset(PersistedSettings::GetInstance().Get("FR_ENCODER_OFFSET"));
@@ -39,8 +39,14 @@ void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric)
 //	double FWD = yPos;
 //	double STR = -xPos;
 	twist = -twist * .4;
+//	twist = -twist * .26;
 	
-	heading = wiiGyro->GetYaw();
+	if(headingSource->ResetWii()){
+		headingSource->ResetGyro();
+	}
+	
+	heading = headingSource->GetHeading();
+	printf("Heading from Wii %f \n", heading);
 	double FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
 	double STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
 	STR = -STR;
@@ -183,12 +189,14 @@ void DriveTrain::SetI(float i) {
 }
 void DriveTrain::ResetGyro(){
 	headingSource->ResetGyro();
+	//	wiiGyro->reset();
+	printf("\n\n reset wii in driveTrain \n \n");
 }
 void DriveTrain::UpdateCompass(bool done){
 	headingSource->CompassPeriodic(done);
 }
 void DriveTrain::SetFieldOffset(){
-	headingSource->setFieldHeadingOffset(-angleOffset);
+	headingSource->SetZeroAngle();
 }
 float DriveTrain::GetHeading(){
 	return heading;
