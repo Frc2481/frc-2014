@@ -10,19 +10,26 @@
  * @author paulRich, thomasSpeciale
  */
 class TurnOffIntakeCommand: public CommandBase {
+private:
+	int count;
 public:
 	TurnOffIntakeCommand(){
 		Requires(intake);
+		count = 0;
 	}
 	virtual void Initialize(){
-		
+		intake->SetCaptureSolenoid(false);
+		intake->RollerOn();
 	}
 	virtual void Execute(){
-		intake->SetCaptureSolenoid(false);
-		intake->RollerOff();
+		count++;
 	}
 	virtual bool IsFinished(){
-		return true;
+		if (count > 50) {
+			intake->RollerOff();
+			return true;
+		}
+		return false;
 	}
 	virtual void End(){
 		
