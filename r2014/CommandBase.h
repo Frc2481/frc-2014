@@ -7,6 +7,8 @@
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/DistanceSensors.h"
 #include "Subsystems/Intake.h"
+#include "Subsystems/AirCompressor.h"
+#include "Subsystems/Camera2481.h"
 #include "OI.h"
 #include "PersistedSettings.h"
 #include "Robotmap.h"
@@ -31,6 +33,8 @@ public:
 	static Shooter *shooter;
 	static DistanceSensors *distanceSensors;
 	static Intake *intake;
+	static AirCompressor *compressor;
+	static Camera2481 *camera;
 };
 
 #endif

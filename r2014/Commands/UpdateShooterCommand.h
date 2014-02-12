@@ -5,27 +5,26 @@
  *      Author: Team2481
  */
 
-#ifndef MANUALFIRESHOOTER_H_
-#define MANUALFIRESHOOTER_H_
+#ifndef UPDATESHOOTERCOMMAND_H_
+#define UPDATESHOOTERCOMMAND_H_
 
 #include "../CommandBase.h"
-#include "../ControllerMap.h"
 
-class ManualFireShooterCommand: public CommandBase {
+class UpdateShooterCommand: public CommandBase {
 public:
-	ManualFireShooterCommand(){
+	UpdateShooterCommand(){
 		Requires(shooter);
 	}
-	virtual ~ManualFireShooterCommand(){
+	virtual ~UpdateShooterCommand(){
 		
 	}
 	virtual void Initialize(){
-		shooter->ManualFire();
 	}
 	virtual void Execute(){
+		shooter->Periodic();
 	}
 	virtual bool IsFinished(){
-		return !(oi->GetAuxStick()->GetRawAxis(FIRE_BUTTON) < -.5);
+		return true;
 	}
 	virtual void End(){
 	}

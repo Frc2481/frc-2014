@@ -13,6 +13,10 @@
 class Joystick2481 : public Joystick {
 private:
 	static char inputShape[255];
+	double s;
+	double m;
+	double b;
+	double t;
 public:
 	Joystick2481(UINT32 port);
 	virtual ~Joystick2481();

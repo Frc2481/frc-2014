@@ -16,16 +16,35 @@ OI* CommandBase::oi = NULL;
 Shooter* CommandBase::shooter = NULL;
 DistanceSensors *CommandBase::distanceSensors = NULL;
 Intake *CommandBase::intake = NULL;
+AirCompressor *CommandBase::compressor = NULL;
+Camera2481 *CommandBase::camera = NULL;
 
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
-	examplesubsystem = new ExampleSubsystem();
 //	persistedSettings = &PersistedSettings::GetInstance();
+	printf("commandBaseInit \n");
 	driveTrain = new DriveTrain();
+	if(driveTrain){
+		printf("driveTrain \n");
+	}
 	driveTrain->SetLengthAndWidth(ROBOTLENGTH, ROBOTWIDTH);
-	oi = new OI();
-	shooter = new Shooter(WINCH, WINCH_SENSOR, EARS, RELEASE, POT_SWITCH);
+	shooter = new Shooter(WINCH, WINCH_SENSOR, EAR_LEFT, EAR_RIGHT, RELEASE, POT_SWITCH);
+	if(shooter){
+		printf("shooter \n");
+	}
 	distanceSensors = new DistanceSensors(ULTRASONIC_RIGHT, ULTRASONIC_LEFT);
+	if(distanceSensors){
+		printf("distanceSensors \n");
+	}
 	intake = new Intake();
+	if(intake){
+		printf("intake \n");
+	}
+	camera = new Camera2481();
+	compressor = new AirCompressor(COMPRESSOR_SENSOR, COMPRESSOR_SPIKE_CHANNEL);
+	oi = new OI();
+	if(oi){
+		printf("oi \n");
+	}
 }

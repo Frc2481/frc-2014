@@ -32,10 +32,12 @@
 #define INTAKE 10
 
 //Solenoids
-#define EARS 1
-#define RELEASE 2
-#define READY 3
+#define RELEASE 1
+#define EAR_RIGHT 2
+
+#define EAR_LEFT 3
 #define CAPTURE 4
+#define READY 5
 
 //Analog Inputs
 #define GYRO_CHANNEL 1
@@ -45,10 +47,11 @@
 #define FLENCODER 5
 #define WINCH_SENSOR 6
 #define ULTRASONIC_RIGHT 7
-#define ULTRASONIC_LEFT 8
+#define ULTRASONIC_LEFT 1
 
 //Digital Inputs
-#define POT_SWITCH 1
+#define POT_SWITCH 			1
+#define COMPRESSOR_SENSOR	2
 
 
 //Module Number
@@ -56,5 +59,10 @@
 
 #define COMPASS_ADDRESS 0x3b
 #define WIIGYRO_ADDRESS 0
+
+
+//Relays
+
+#define COMPRESSOR_SPIKE_CHANNEL 1
 
 #endif

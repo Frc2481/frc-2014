@@ -9,15 +9,19 @@
 
 Ultrasonic2481::Ultrasonic2481(uint32_t ultrasonicChannel) : 
 	ultrasonic(new AnalogChannel(ultrasonicChannel)){
-	
 }
 
 Ultrasonic2481::~Ultrasonic2481() {
 	// TODO Auto-generated destructor stub
 }
 float Ultrasonic2481::GetDistance(){
-	return (ultrasonic->GetAverageVoltage() - 2.5) * inchesPerVolt / 3;
+	voltageAccum.add(ultrasonic->GetAverageVoltage());
+	return voltageAccum.avg() * inchesPerVolt;
 }
 void Ultrasonic2481::SetInchesPerVolt(float inchesPerVolt){
 	this->inchesPerVolt = inchesPerVolt;
+}
+float Ultrasonic2481::GetRawVoltage(){
+	voltageAccum.add(ultrasonic->GetAverageVoltage());
+	return voltageAccum.avg();
 }

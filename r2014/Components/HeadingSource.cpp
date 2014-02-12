@@ -12,7 +12,7 @@
 
 HeadingSource::HeadingSource(uint32_t gyroChannel, uint8_t compassChannel)
 		: csvFile(CSVRecord::getInstance()){
-	gyro = new Gyro(gyroChannel);
+//	gyro = new Gyro(gyroChannel);
 	wiiGyro = new WiiGyro(compassChannel);
 	//compass = new Compass(compassChannel);
 	compass = new LSM303(compassChannel);
@@ -61,7 +61,7 @@ void HeadingSource::periodic(){
 	
 	//wiiGyro->loop();
 	compass->read();
-	SmartDashboard::PutNumber("GyroRate",gyro->GetRate());
+//	SmartDashboard::PutNumber("GyroRate",gyro->GetRate());
     //float rawCompassAngle = compass->heading();
 
    //_compassAccum.add(compass->heading());
@@ -90,7 +90,7 @@ void HeadingSource::periodic(){
     
 //    SmartDashboard::PutNumber("GyroAngle", (int)(gyroAvg) % 360);
     SmartDashboard::PutNumber("CompassHeading", (int)(compassAngle) % 360);
-    SmartDashboard::PutNumber("RawGyroAngle", gyro->GetAngle());
+//    SmartDashboard::PutNumber("RawGyroAngle", gyro->GetAngle());
    // SmartDashboard::PutNumber("RawCompassAngle", compass->heading());
     
 //    _gyroRateAccum.add(fabs(gyro->GetRate()));
@@ -145,7 +145,7 @@ void HeadingSource::periodic(){
     //printf("%f %f %f %f \n", heading, fieldHeadingOffset, prevHeading, gyro->GetAngle());
     SmartDashboard::PutNumber("RobotHeading", heading);
 
-    SmartDashboard::PutNumber("gyroAngle", gyro->GetAngle());
+//    SmartDashboard::PutNumber("gyroAngle", gyro->GetAngle());
     
 //    stringstream headingValues;
 //    headingValues << gyro->GetAngle() << "," << gyro->GetRate() << "," << compass->m.x << "," << compass->m.y << "," << compass->m.z;

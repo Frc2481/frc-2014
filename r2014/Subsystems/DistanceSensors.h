@@ -19,6 +19,8 @@ public:
 	DistanceSensors(uint32_t right, uint32_t left);
 	virtual ~DistanceSensors();
 	float Get();
+	float GetRight();
+	float GetLeft();
 };
 
 #endif /* DISTANCESENSORS_H_ */

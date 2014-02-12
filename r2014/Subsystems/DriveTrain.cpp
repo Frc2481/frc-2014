@@ -15,13 +15,15 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 				FRWheel(new SwerveModule(FRDRIVE, FRSTEER, FRENCODER)), 
 				BRWheel(new SwerveModule(BRDRIVE, BRSTEER, BRENCODER)),
 				BLWheel(new SwerveModule(BLDRIVE, BLSTEER, BLENCODER)),
-				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)) {
-//				wiiGyro(new WiiGyro(COMPASS_MODULE)){
+				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)){
+				//wiiGyro(new WiiGyro(COMPASS_MODULE)){
+	printf("Pre DriveTrain Constructor \n");
 	prevAngle = 90.0;
 	FLWheel->SetOffset(PersistedSettings::GetInstance().Get("FL_ENCODER_OFFSET"));
 	FRWheel->SetOffset(PersistedSettings::GetInstance().Get("FR_ENCODER_OFFSET"));
 	BRWheel->SetOffset(PersistedSettings::GetInstance().Get("BR_ENCODER_OFFSET"));
 	BLWheel->SetOffset(PersistedSettings::GetInstance().Get("BL_ENCODER_OFFSET"));
+	printf("post DriveTrain Constructor \n");
 }
 
 void DriveTrain::InitDefaultCommand() {
@@ -41,12 +43,11 @@ void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric)
 	twist = -twist * .4;
 //	twist = -twist * .26;
 	
-	if(headingSource->ResetWii()){
-		headingSource->ResetGyro();
-	}
-	
+	//if(headingSource->ResetWii()){
+	//	headingSource->ResetGyro();
+	//}
+//	
 	heading = headingSource->GetHeading();
-	printf("Heading from Wii %f \n", heading);
 	double FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
 	double STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
 	STR = -STR;
@@ -102,7 +103,7 @@ void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric)
 	SmartDashboard::PutNumber("wheelAngleFL", wheelAngleFL);
 	SmartDashboard::PutNumber("wheelAngleBR", wheelAngleBR);
 	SmartDashboard::PutNumber("wheelAngleBL", wheelAngleBL);
-	SmartDashboard::PutNumber("heading", headingSource->GetHeading());
+	//SmartDashboard::PutNumber("heading", headingSource->GetHeading());
 //	SmartDashboard::PutData(resetGyroCommand);
 	
 	//if (fieldCentric) {
@@ -189,14 +190,14 @@ void DriveTrain::SetI(float i) {
 }
 void DriveTrain::ResetGyro(){
 	headingSource->ResetGyro();
-	//	wiiGyro->reset();
+	//wiiGyro->reset();
 	printf("\n\n reset wii in driveTrain \n \n");
 }
 void DriveTrain::UpdateCompass(bool done){
-	headingSource->CompassPeriodic(done);
+	//headingSource->CompassPeriodic(done);
 }
 void DriveTrain::SetFieldOffset(){
-	headingSource->SetZeroAngle();
+	//headingSource->SetZeroAngle();
 }
 float DriveTrain::GetHeading(){
 	return heading;

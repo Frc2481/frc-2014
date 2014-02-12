@@ -10,9 +10,9 @@ AnalogJoystickButton::AnalogJoystickButton(GenericHID *joystick, int axisNumber,
 bool AnalogJoystickButton::Get()
 {
 	if(m_threshold < 0)
-		return m_joystick->GetRawAxis(m_axisNumber) < m_threshold;
+		return m_joystick->GetRawAxis((uint32_t)m_axisNumber) < m_threshold;
 	else if(m_threshold > 0)
-		return m_joystick->GetRawAxis(m_axisNumber) > m_threshold;
+		return m_joystick->GetRawAxis((uint32_t)m_axisNumber) > m_threshold;
 	return false; 
 		
 }

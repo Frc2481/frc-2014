@@ -5,27 +5,25 @@
  *      Author: Team2481
  */
 
-#ifndef MANUALFIRESHOOTER_H_
-#define MANUALFIRESHOOTER_H_
+#ifndef AUTOSETSHOOTERCOMMAND_H_
+#define AUTOSETSHOOTERCOMMAND_H_
 
 #include "../CommandBase.h"
-#include "../ControllerMap.h"
 
-class ManualFireShooterCommand: public CommandBase {
+class AutoSetShooterCommand: public CommandBase {
 public:
-	ManualFireShooterCommand(){
-		Requires(shooter);
+	AutoSetShooterCommand(){
 	}
-	virtual ~ManualFireShooterCommand(){
+	virtual ~AutoSetShooterCommand(){
 		
 	}
 	virtual void Initialize(){
-		shooter->ManualFire();
+		shooter->SetPosition(distanceSensors->GetRight() / 12);
 	}
 	virtual void Execute(){
 	}
 	virtual bool IsFinished(){
-		return !(oi->GetAuxStick()->GetRawAxis(FIRE_BUTTON) < -.5);
+		return true;
 	}
 	virtual void End(){
 	}

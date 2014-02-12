@@ -13,21 +13,23 @@
 class ReleaseShooterCommand: public CommandBase {
 public:
 	ReleaseShooterCommand(){
+		Requires(shooter);
 		
 	}
 	virtual ~ReleaseShooterCommand(){
 		
 	}
 	virtual void Initialize(){
-		shooter->ManualReleaseWinch();
 		
 	}
 	virtual void Execute(){
+		shooter->ManualReleaseWinch();
 	}
 	virtual bool IsFinished(){
 		return false;
 	}
 	virtual void End(){
+		shooter->SetPosition(shooter->GetPosition());
 		shooter->ManualStopWinch();
 	}
 	virtual void Interrupted(){

@@ -13,20 +13,20 @@
 class RetractShooterCommand: public CommandBase {
 public:
 	RetractShooterCommand(){
-		
+		Requires(shooter);
 	}
 	virtual ~RetractShooterCommand(){
-		
 	}
 	virtual void Initialize(){
-		shooter->ManualRetractWinch();
 	}
 	virtual void Execute(){
+		shooter->ManualRetractWinch();
 	}
 	virtual bool IsFinished(){
 		return false;
 	}
 	virtual void End(){
+		shooter->SetPosition(shooter->GetPosition());
 		shooter->ManualStopWinch();
 	}
 	virtual void Interrupted(){

@@ -6,6 +6,7 @@
  */
 
 #include "Joystick2481.h"
+#include <math.h>
 
 #define MAX_AXIS_VALUE 0.2
 #define MIN_AXIS_VALUE -0.2
@@ -22,9 +23,13 @@ char Joystick2481::inputShape[255] = {0,0,0,0,0,0,0,0,0,0,12,13,15,16,17,18,19,2
 	        182,183,184,186,187,188,189,190,192,193,194,195,196,198,199,200,201,202,204,
 	        205,206,207,208,210,211,212,213,214,216,217,218,219,220,221,223,224,225,226,
 	        227,229,230,231,232,233,235,236,237,238,239,241,242,243,255,255,255,255,255,
-	        255,255,255,255,255};
+	        255,255,255,255,255};	
 
 Joystick2481::Joystick2481(UINT32 port) : Joystick(port) {
+	s = 0.375;
+	m = 1.340508;
+	t = 0.381021;
+	b = -0.340508;
 }
 
 Joystick2481::~Joystick2481() {
@@ -32,12 +37,22 @@ Joystick2481::~Joystick2481() {
 }
 
 float Joystick2481::GetRawAxis(UINT32 axis) {
-	float axisValue = Joystick::GetRawAxis(axis);
+	/*float axisValue = Joystick::GetRawAxis(axis);
 	int iUserValue = (int)(axisValue * 127);
 	iUserValue += 127;
 	iUserValue = inputShape[iUserValue];
 	axisValue = iUserValue - 127;
 	axisValue /= 127;
-	return axisValue;
+	return axisValue;*/
+	float x = Joystick::GetRawAxis(axis);
+    if (x < -t){
+        return m * x - b;
+    }
+    if (x > -t && x < t){
+        return 1 / (pow(s,2.0)) * pow(x,3.0);
+    }
+    else{
+        return m * x + b;
+    }
 	
 }

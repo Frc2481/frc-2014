@@ -5,6 +5,8 @@
 #define ROBOTWIDTH 10
 #define ENCODER_OFFSET_FILENAME "Encoder_Offsets"
 #define LOADED_SHOOTER_POSITION 0
-#define WINCH_TOLERANCE 0
+#define WINCH_TOLERANCE .1
 #define DISTANCE_PER_VOLT 20
+
+#define INCHES_TO_POT_VOLTS .122
 #endif

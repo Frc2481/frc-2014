@@ -30,6 +30,7 @@ void PersistedSettings::LoadFromFile(std::string filename) {
 }
 
 void PersistedSettings::WriteToFile(std::string filename) {
+	printf("pre write to file \n ");
 	ofstream settingsFile(filename.c_str());
 	
 	typedef std::map<std::string, double >::iterator it_type;
@@ -40,6 +41,7 @@ void PersistedSettings::WriteToFile(std::string filename) {
 		settingsFile << "\r\n";
 	}
 	settingsFile.close();
+	printf("post write to file \n ");
 	
 }
 
@@ -67,7 +69,9 @@ double PersistedSettings::Get(string name){
 }
 
 void PersistedSettings::Set(string name, double value){
+	printf("pre Set \n");
 	data[name] = value;
 	WriteToFile(ENCODER_OFFSET_FILENAME);
+	printf("post Set \n");
 }
 

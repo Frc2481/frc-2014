@@ -5,27 +5,25 @@
  *      Author: Team2481
  */
 
-#ifndef MANUALFIRESHOOTER_H_
-#define MANUALFIRESHOOTER_H_
+#ifndef SETSHOOTERTOTHROTTLE_H_
+#define SETSHOOTERTOTHROTTLE_H_
 
 #include "../CommandBase.h"
-#include "../ControllerMap.h"
 
-class ManualFireShooterCommand: public CommandBase {
+class SetShooterToThrottleCommand: public CommandBase {
 public:
-	ManualFireShooterCommand(){
-		Requires(shooter);
+	SetShooterToThrottleCommand(){
 	}
-	virtual ~ManualFireShooterCommand(){
+	virtual ~SetShooterToThrottleCommand(){
 		
 	}
 	virtual void Initialize(){
-		shooter->ManualFire();
+		shooter->SetPosition(((-oi->GetThrottleStick()->GetRawAxis(4) + 1) / 2) * 16);
 	}
 	virtual void Execute(){
 	}
 	virtual bool IsFinished(){
-		return !(oi->GetAuxStick()->GetRawAxis(FIRE_BUTTON) < -.5);
+		return true;
 	}
 	virtual void End(){
 	}

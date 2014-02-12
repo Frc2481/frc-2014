@@ -20,6 +20,8 @@ public:
 	void Vomit();
 	void SetReadySolenoid(bool readyOn);
 	void SetCaptureSolenoid(bool captureOn);
+	bool GetReadySolenoid();
+	bool GetPosition();
 };
 
 #endif /*INTAKE_H_*/

@@ -28,5 +28,13 @@ void Intake::SetReadySolenoid(bool readyOn){
 	ready->Set(readyOn);
 }
 void Intake::SetCaptureSolenoid(bool captureOn){
+	printf("capture Solenoid %d \n", captureOn);
 	capture->Set(captureOn);
+}
+
+bool Intake::GetReadySolenoid() {
+	return ready->Get();
+}
+bool Intake::GetPosition(){
+	return capture->Get();
 }

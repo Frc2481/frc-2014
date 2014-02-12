@@ -12,10 +12,16 @@ public:
 	TurnOnIntakeCommand() {
 		Requires(intake);
 	}
-	virtual void Initialize(){}
+	virtual void Initialize(){
+		if(shooter->IsLatched()) {
+			printf("turn on Intake \n");
+			intake->SetCaptureSolenoid(true);
+			intake->RollerOn();	
+			shooter->SetLeftEar(1);
+			shooter->SetRightEar(1);
+		}
+	}
 	virtual void Execute(){
-		intake->SetCaptureSolenoid(true);
-		intake->RollerOn();	
 	}
 	virtual bool IsFinished(){
 		return true;

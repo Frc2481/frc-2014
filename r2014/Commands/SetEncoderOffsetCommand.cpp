@@ -22,7 +22,7 @@ void SetEncoderOffsetCommand::Initialize() {
 }
 
 void SetEncoderOffsetCommand::Execute() {
-	return;
+	//return;
 	int wheel = mWheel;
 	printf("Wheel: %d value: %f", wheel, driveTrain->GetEncoderValue(wheel));
 	if (wheel == FRENCODER) {

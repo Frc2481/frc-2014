@@ -19,14 +19,19 @@ public:
 	}
 	virtual void Initialize(){
 		intake->SetCaptureSolenoid(false);
-		intake->RollerOn();
+		if(intake->GetPosition()){
+			intake->RollerOn();
+		}
+		count = 0;
 	}
 	virtual void Execute(){
 		count++;
 	}
 	virtual bool IsFinished(){
-		if (count > 50) {
+		if (TimeSinceInitialized() > 1.5) {
 			intake->RollerOff();
+			shooter->SetLeftEar(0);
+			shooter->SetRightEar(0);
 			return true;
 		}
 		return false;
