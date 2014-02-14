@@ -18,7 +18,7 @@ public:
 		
 	}
 	virtual void Initialize(){
-		shooter->SetPosition(((-oi->GetThrottleStick()->GetRawAxis(4) + 1) / 2) * 16);
+		shooter->SetPosition(((-oi->GetThrottleStick()->GetRawAxis(3) + 1) / 2) * 16);
 	}
 	virtual void Execute(){
 	}

@@ -3,23 +3,36 @@
 #include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
 #include "CSVRecord.h"
+#include "Commands/AutoDriveShootCommandGroup.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
 	Command *autonomousCommand;
 	LiveWindow *lw;
+	SendableChooser *autoOptions;
+	CommandGroup *autoCommand;
 	
 	virtual void RobotInit() {
 		CommandBase::init();
 		autonomousCommand = new ExampleCommand();
 		lw = LiveWindow::GetInstance();
 		SmartDashboard::PutData(CommandBase::shooter);
+		autoOptions = new SendableChooser();
+		autoOptions->AddDefault("Forward + Fire - No Hot", new AutoDriveShootCommandGroup());
+		autoOptions->AddObject("Forward + Delay + Fire - No Hot", new AutoDriveShootCommandGroup());
+		autoOptions->AddObject("Forward + Fire - Hot", new AutoDriveShootCommandGroup());
+		autoOptions->AddObject("Forward + Delay + Fire - Hot", new AutoDriveShootCommandGroup());
+		autoOptions->AddObject("Two Ball", new AutoDriveShootCommandGroup());
+		SmartDashboard::PutData("Autonomous Delay Options", autoOptions);
+		autoCommand = 0;
 	}
 	
 	virtual void AutonomousInit() {
 		CommandBase::intake->SetReadySolenoid(true);
 		autonomousCommand->Start();
 		CommandBase::driveTrain->SetFieldOffset();
+		autoCommand = (CommandGroup*)autoOptions->GetSelected();
+		autoCommand->Start();
 	}
 	
 	virtual void AutonomousPeriodic() {
@@ -45,7 +58,7 @@ private:
 		SmartDashboard::PutNumber("Shooter Switch", CommandBase::shooter->GetSwitch());
 		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight());
 		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
-		SmartDashboard::PutNumber("throttle value", CommandBase::oi->GetThrottleStick()->GetRawAxis(4));
+		SmartDashboard::PutNumber("throttle value", 16 - (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
 		Wait(0.003);
 	}
 	
@@ -62,7 +75,7 @@ private:
 		SmartDashboard::PutNumber("Shooter Switch", CommandBase::shooter->GetSwitch());
 		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight());
 		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
-		SmartDashboard::PutNumber("throttle value", CommandBase::oi->GetThrottleStick()->GetRawAxis(4));
+		SmartDashboard::PutNumber("throttle value", 16- (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
 	}
 	
 };

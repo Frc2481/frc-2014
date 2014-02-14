@@ -230,8 +230,8 @@ void WiiGyro::loop(){
 //  SmartDashboard::PutNumber("Delta t", delta_t);
   
   
-  printf("wiiInitial %d \n", wiiGyroInitial->AddressOnly());
-  printf("wiiGryo %d \n", wiiGyro->AddressOnly());
+//  printf("wiiInitial %d \n", wiiGyroInitial->AddressOnly());
+//  printf("wiiGryo %d \n", wiiGyro->AddressOnly());
   /* Runge-kutta 4th Order Integration */
 
   /*if (digitalRead(4) == 1)

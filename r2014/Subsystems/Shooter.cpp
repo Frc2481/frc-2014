@@ -86,15 +86,17 @@ void Shooter::Periodic(){
 			ManualStopWinch();
 		}
 	}
-	printf("shooter position %f \n", position);
+	//printf("shooter position %f \n", position);
 }
 void Shooter::SetPosition(float pos){
 	if(pos > 5){
-		position = 0.0128 * pow(pos, 2) - 0.1789 * pos + 2.2133;
+//		position = ((0.0128 * pow(pos, 2)) - (0.1789 * pos)) + 2.2133;
+		position = (0.1783 * pos) + 1.3027;
 	}
 	else {
-		position = 2.6364 * pos - 1.2727;
+		position = (.1 * pos) + .7;
 	}
+	printf("Pos: %f Position: %f\n", pos, position);
 }
 float Shooter::GetPosition(){
 	return winchSensor->GetAverageVoltage() - offset;
