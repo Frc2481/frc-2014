@@ -8,7 +8,7 @@
 #include "Camera2481.h"
 
 Camera2481::Camera2481() : Subsystem("Camera2481"){
-	cameraTable = NetworkTable::GetTable("camera");
+	cameraTable = NetworkTable::GetTable("HOTTARGET");
 }
 
 bool Camera2481::HasTarget(){	
