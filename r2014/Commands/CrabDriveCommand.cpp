@@ -26,8 +26,7 @@ void CrabDriveCommand::Execute() {
 	
 	driveTrain->Crab(oi->GetDriverStick()->GetRawAxis(XboxController::xbLeftXAxis), 
 			-oi->GetDriverStick()->GetRawAxis(XboxController::xbLeftYAxis), 
-			oi->GetDriverStick()->GetRawAxis(XboxController::xbRightXAxis), 
-			false);
+			oi->GetDriverStick()->GetRawAxis(XboxController::xbRightXAxis));
 }
 
 // Make this return true when this Command no longer needs to run execute()

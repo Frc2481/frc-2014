@@ -37,11 +37,12 @@ private:
 	float prevAngleBL;
 	float angleOffset;
 	float heading;
+	bool isFieldCentric;
 public:
 	DriveTrain();
 	virtual ~DriveTrain();
 	void InitDefaultCommand();
-	void Crab(double xPos, double yPos, double twist, bool fieldCentric);
+	void Crab(double xPos, double yPos, double twist);
 	double degToRad(double deg);
 	double radToDeg(double rad);
 	double limitAngle(double angle);
@@ -56,6 +57,7 @@ public:
 	void SetFieldOffset();
 	float GetHeading();
 	void Stop();
+	void SetFieldCentric(bool fieldCentric);
 };
 
 #endif /* DRIVETRAIN_H_ */

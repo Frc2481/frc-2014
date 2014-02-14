@@ -44,6 +44,7 @@ private:
 //	JoystickButton *IncShooterButton;
 //	JoystickButton *DecShooterButton;
 	JoystickButton *ShooterToThrottleButton;
+	AnalogJoystickButton *ToggleFieldCentricButton;
 	
 public:
 	OI();

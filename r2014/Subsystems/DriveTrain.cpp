@@ -15,7 +15,8 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 				FRWheel(new SwerveModule(FRDRIVE, FRSTEER, FRENCODER)), 
 				BRWheel(new SwerveModule(BRDRIVE, BRSTEER, BRENCODER)),
 				BLWheel(new SwerveModule(BLDRIVE, BLSTEER, BLENCODER)),
-				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)){
+				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)),
+				isFieldCentric(false) {
 				//wiiGyro(new WiiGyro(COMPASS_MODULE)){
 	printf("Pre DriveTrain Constructor \n");
 	prevAngle = 90.0;
@@ -37,21 +38,23 @@ void DriveTrain::Stop() {
 	BRWheel = 0;
 }
 
-void DriveTrain::Crab(double xPos, double yPos, double twist, bool fieldCentric){
-//	double FWD = yPos;
-//	double STR = -xPos;
+void DriveTrain::Crab(double xPos, double yPos, double twist){
 	twist = -twist * .4;
-//	twist = -twist * .26;
+	if (isFieldCentric) {
+		heading = headingSource->GetHeading();
+		double FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
+		double STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
+		STR = -STR;
+	}
+	else {
+		double FWD = yPos;
+		double STR = -xPos;
+	}
 	
 	//if(headingSource->ResetWii()){
 	//	headingSource->ResetGyro();
 	//}
 //	
-	heading = headingSource->GetHeading();
-	double FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
-	double STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
-	STR = -STR;
-	
 	
 	SmartDashboard::PutNumber("FWD", FWD);
 	SmartDashboard::PutNumber("STR", STR);
@@ -201,4 +204,8 @@ void DriveTrain::SetFieldOffset(){
 }
 float DriveTrain::GetHeading(){
 	return heading;
+}
+
+void DriveTrain::SetFieldCentric(bool fieldCentric) {
+	isFieldCentric = fieldCentric;
 }

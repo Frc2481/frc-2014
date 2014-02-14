@@ -18,6 +18,8 @@
 #define SET_FIELD_OFFSET_BUTTON 	XboxController::xbStartButton
 #define RESET_GYRO_BUTTON 			XboxController::xbBackButton
 
+#define TOGGLE_FIELD_CENTRIC_BUTTON XboxController::xbZAxis
+
 //Aux Stick
 #define RETRACT_SHOOTER_BUTTON 		XboxController::xbRightYAxis
 #define RELEASE_SHOOTER_BUTTON 		XboxController::xbRightYAxis

@@ -24,6 +24,7 @@
 #include "Commands/IncShooterSetPointCommand.h"
 #include "Commands/DecShooterSetPoinCommand.h"
 #include "Commands/SetShooterToThrottleCommand.h"
+#include "Commands/ToggleFieldCentricCommand.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -108,6 +109,10 @@ OI::OI() {
 	
 	ShooterToThrottleButton = new JoystickButton(auxStick, SHOOTER_TO_THROTTLE_BUTTON);
 	ShooterToThrottleButton->WhenPressed(new SetShooterToThrottleCommand());
+	
+	ToggleFieldCentricButton = new AnalogJoystickButton(driverStick, TOGGLE_FIELD_CENTRIC_BUTTON, -.5);
+	ToggleFieldCentricButton->WhileHeld(new ToggleFieldCentricCommand());
+	
 	SmartDashboard::PutData(new ResetGyroCommand());
 }
 

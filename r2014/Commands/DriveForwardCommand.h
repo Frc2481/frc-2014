@@ -9,7 +9,7 @@ public:
 			:DriveCommandBase(speed, time, "driveForwardCommand"){
 	}
 	virtual void Execute(){
-		driveTrain->Crab(0,driveSpeed,0,false);
+		driveTrain->Crab(0,driveSpeed,0);
 	}
 };
 #endif /*DRIVEFORWARDCOMMAND_*/
