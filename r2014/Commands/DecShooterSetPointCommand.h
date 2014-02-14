@@ -19,7 +19,7 @@ public:
 		
 	}
 	virtual void Initialize(){
-		shooter->SetPositionVolts(shooter->GetSetPoint() - .1);
+		shooter->SetPosition(shooter->GetSetPoint() - .25);
 	}
 	virtual void Execute(){
 	}
