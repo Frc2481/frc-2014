@@ -11,9 +11,10 @@
 #include "../CommandBase.h"
 #include "FireCommandGroup.h"
 #include "ManualFireShooterCommand.h"
+#include "AutoCockShooterCommand.h"
+#include "AutoSetShooterCommand.h"
 
 class FireCommandGroup: public CommandGroup{
-private:
 public:
 	FireCommandGroup(){
 		AddSequential(new ManualFireShooterCommand());

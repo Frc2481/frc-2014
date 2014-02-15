@@ -9,6 +9,8 @@
 #include "Commands/DecWheelAngleCommand.h"
 #include "Commands/SetEncoderOffsetCommand.h"
 #include "Commands/OptimizeSwerveCommand.h"
+#include "Commands/AutoDriveShootHotCommandGroup.h"
+#include "Commands/AutoTwoBallCommandGroup.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
@@ -24,10 +26,8 @@ private:
 		SmartDashboard::PutData(CommandBase::shooter);
 		autoOptions = new SendableChooser();
 		autoOptions->AddDefault("Forward + Fire - No Hot", new AutoDriveShootCommandGroup());
-		autoOptions->AddObject("Forward + Delay + Fire - No Hot", new AutoDriveShootCommandGroup());
-		autoOptions->AddObject("Forward + Fire - Hot", new AutoDriveShootCommandGroup());
-		autoOptions->AddObject("Forward + Delay + Fire - Hot", new AutoDriveShootCommandGroup());
-		autoOptions->AddObject("Two Ball", new AutoDriveShootCommandGroup());
+		autoOptions->AddObject("Forward + Fire - Hot", new AutoDriveShootHotCommandGroup());
+		autoOptions->AddObject("Two Ball", new AutoTwoBallCommandGroup());
 		SmartDashboard::PutData("Autonomous Delay Options", autoOptions);
 		autoCommand = 0;
 		

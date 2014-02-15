@@ -5,27 +5,27 @@
  *      Author: Team2481
  */
 
-#ifndef AUTOSHOOTDRIVECOMMANDGROUP_H_
-#define AUTOSHOOTDRIVECOMMANDGROUP_H_
+#ifndef AUTODRIVESHOOTCOMMANDGROUP_H_
+#define AUTODRIVESHOOTCOMMANDGROUP_H_
 
 #include "../CommandBase.h"
 #include "ManualFireShooterCommand.h"
 #include "DriveForwardCommand.h"
 #include "FireCommandGroup.h"
+#include "WaitForHotGoalCommand.h"
 #include "AutoSetShooterCommand.h"
 
-class AutoDriveShootCommandGroup: public CommandGroup{
+class AutoDriveShootHotCommandGroup: public CommandGroup{
 private:
 public:
-	AutoDriveShootCommandGroup(){
+	AutoDriveShootHotCommandGroup(){
 		AddSequential(new DriveForwardCommand(.5, .5));
 		AddSequential(new AutoSetShooterCommand());
+		AddSequential(new WaitForHotGoalCommand());
 		AddSequential(new FireCommandGroup());
-		
 	}
-	virtual ~AutoDriveShootCommandGroup(){
+	virtual ~AutoDriveShootHotCommandGroup(){
 		
 	}
 };
-
 #endif
