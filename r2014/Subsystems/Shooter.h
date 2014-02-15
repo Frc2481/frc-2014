@@ -27,6 +27,7 @@ private:
 	int switchCounter;
 	bool latched;
 	ITable *m_table;
+	bool hasSetPosition;
 	
 public:
 	Shooter(uint32_t winchChannel, uint32_t winchSensorChannel, uint32_t earChannelL, uint32_t earChannelR, uint32_t releaseChannel, uint32_t potSwitchChannel);
@@ -43,7 +44,9 @@ public:
 	void ManualFire();
 	void ManualStopWinch();
 	void ManualLatch();
+	void ManualUnlatch();
 	void SetPosition(float pos);
+	void SetPosition(float pos, bool earsUp);
 	float GetSetPoint();
 	float GetPosition();
 	bool GetSwitch();
@@ -61,6 +64,7 @@ public:
 	void CockWinch();
 	void SetPositionVolts(float userPosition);
 	float GetDistance();
+	bool OnTarget();
 };
 
 #endif /* SHOOTER_H_ */

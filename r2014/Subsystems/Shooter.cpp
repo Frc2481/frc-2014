@@ -22,7 +22,8 @@ Shooter::Shooter(uint32_t winchChannel, uint32_t winchSensorChannel, uint32_t ea
 	potSwitch(new DigitalInput(potSwitchChannel)),
 	offset(0),
 	switchCounter(0),
-	m_table(NULL){
+	m_table(NULL),
+	hasSetPosition(false){
 	
 	if(potSwitch->Get()){
 		latched = true;
@@ -79,30 +80,46 @@ void Shooter::Periodic(){
 	//printf("shooter position %f \n", position);
 }
 void Shooter::SetPosition(float pos){
-	winchSensor->Zero();
-	if(pos > 5){
-//		//position = ((0.0128 * pow(pos, 2)) - (0.1789 * pos)) + 2.2133;
-		position = (0.1783 * pos) + 1.3027;		position = -.0104 * pow(pos, 3) + .15 * pow(pos, 2) + .5083* pos + 1.4;
-		//position = 0.125 * pos + 1.3;
-		//printf("< 8 %f %f \n", position, pos);
+	if (!hasSetPosition) {
+		winchSensor->Zero();
+		if(pos > 5){
+	//		position = ((0.0128 * pow(pos, 2)) - (0.1789 * pos)) + 2.2133;
+			position = (0.1783 * pos) + 1.3027;
+			//position = -.0104 * pow(pos, 3) + .15 * pow(pos, 2) + .5083* pos + 1.4;
+		}
+		else {
+			position = (.1 * pos) + .7;
+		}
+		
+		printf("Pos: %f Position: %f\n", pos, position);
+		hasSetPosition = true;
+		
+		if (pos < 5){
+			shooterEarLeft->Set(1);
+			shooterEarRight->Set(1);
+		}
+		else {
+			shooterEarLeft->Set(0);
+			shooterEarRight->Set(0);
+		}
 	}
-	else {
-		position = (.1 * pos) + .7;
-		//position = 0.08 * pos + 1.9;
-		//printf("> 8 %f %f \n", position, pos);
-	}
-
-	if (pos < 5){
-		shooterEarLeft->Set(1);
-		shooterEarRight->Set(1);
-	}
-	else {
-		shooterEarLeft->Set(0);
-		shooterEarRight->Set(0);
-	}
-	
-	//printf("Pos: %f Position: %f\n", pos, position);
 }
+
+void Shooter::SetPosition(float pos, bool earsUp) {
+	if (!hasSetPosition) {
+		if(pos > 5){
+		//	position = ((0.0128 * pow(pos, 2)) - (0.1789 * pos)) + 2.2133;
+			position = (0.1783 * pos) + 1.3027;
+		}
+		else {
+			position = (.1 * pos) + .7;
+		}
+		shooterEarLeft->Set(!earsUp);
+		shooterEarRight->Set(!earsUp);
+		hasSetPosition = true;
+	}
+}
+
 float Shooter::GetPosition(){
 	return winchSensor->GetScaledVoltage();// - offset;
 	
@@ -125,9 +142,12 @@ void Shooter::ManualReleaseWinch(float speed){
 	}
 }
 void Shooter::ManualFire(){
-	latched = false;
-	release->Set(1);
-	position = 0;
+	if (OnTarget()) {
+		latched = false;
+		release->Set(1);
+		position = 0;
+		hasSetPosition = false;
+	}
 }
 void Shooter::ManualStopWinch(){
 	winch->Set(0);
@@ -136,6 +156,12 @@ void Shooter::ManualLatch(){
 	//latched = true;
 	release->Set(0);
 }
+
+void Shooter::ManualUnlatch() {
+	latched = false;
+	release->Set(1);
+}
+
 float Shooter::GetSetPoint(){
 	return position;
 }
@@ -197,7 +223,7 @@ void Shooter::CockWinch(){
 	}
 	else{
 		switchCounter = 0;
-		ManualFire();
+		ManualUnlatch();
 		ManualRetractWinch();
 	}
 	if(switchCounter > 10){
@@ -216,4 +242,9 @@ float Shooter::GetDistance(){
 	else {
 		return (position + 1.2727) / 2.6364;
 	}
+}
+
+bool Shooter::OnTarget() {
+	float actualPosition = GetPosition();
+	return (actualPosition > position - WINCH_TOLERANCE && actualPosition < position + WINCH_TOLERANCE);
 }
