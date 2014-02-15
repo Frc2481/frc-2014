@@ -12,6 +12,7 @@
 #include "../ControllerMap.h"
 
 class ManualFireShooterCommand: public CommandBase {
+
 public:
 	ManualFireShooterCommand(){
 		Requires(shooter);
@@ -20,12 +21,15 @@ public:
 		
 	}
 	virtual void Initialize(){
-		shooter->ManualFire();
+		if (!intake->GetPosition()) {
+			shooter->ManualFire();
+		}
 	}
 	virtual void Execute(){
+		
 	}
 	virtual bool IsFinished(){
-		return !(oi->GetAuxStick()->GetRawAxis(FIRE_BUTTON) < -.5);
+		return !(oi->GetAuxStick()->GetRawAxis(FIRE_BUTTON_NUM) < -.5);
 	}
 	virtual void End(){
 	}
