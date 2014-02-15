@@ -12,11 +12,12 @@
 #include "WPILib.h"
 #include "../Components/PController.h"
 #include "../RobotParameters.h"
+#include "../Components/ContinuousEncoderCounter.h"
 
 class Shooter : public Subsystem, public LiveWindowSendable, public ITableListener {
 private:
 	Talon *winch;
-	AnalogChannel *winchSensor;
+	ContinuousEncoderCounter *winchSensor;
 	Solenoid *shooterEarLeft;
 	Solenoid *shooterEarRight;
 	Solenoid *release;

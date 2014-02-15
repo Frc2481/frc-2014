@@ -14,7 +14,7 @@
 Shooter::Shooter(uint32_t winchChannel, uint32_t winchSensorChannel, uint32_t earChannelL, uint32_t earChannelR, uint32_t releaseChannel, uint32_t potSwitchChannel) : 
 	Subsystem("shooter"), 
 	winch(new Talon(winchChannel)),
-	winchSensor(new AnalogChannel(winchSensorChannel)),
+	winchSensor(new ContinuousEncoderCounter(winchSensorChannel)),
 	shooterEarLeft(new Solenoid(earChannelL)),
 	shooterEarRight(new Solenoid(earChannelR)),
 	release(new Solenoid(releaseChannel)),
@@ -26,12 +26,11 @@ Shooter::Shooter(uint32_t winchChannel, uint32_t winchSensorChannel, uint32_t ea
 	
 	if(potSwitch->Get()){
 		latched = true;
-		offset = winchSensor->GetAverageVoltage();
+		offset = winchSensor->GetScaledVoltage();
 	}
 	else {
 		latched = false;
 	}
-
 }
 
 Shooter::~Shooter() {
@@ -67,15 +66,6 @@ bool Shooter::GetRightEar(){
 
 void Shooter::Periodic(){
 	if(latched){
-		if (position < 1.4){
-			shooterEarLeft->Set(1);
-			shooterEarRight->Set(1);
-		}
-		else {
-			shooterEarLeft->Set(0);
-			shooterEarRight->Set(0);
-		}
-		
 		if (position  > GetPosition() + WINCH_TOLERANCE){
 			ManualReleaseWinch(.25);
 		}
@@ -96,22 +86,33 @@ void Shooter::SetPosition(float pos){
 	else {
 		position = (.1 * pos) + .7;
 	}
+
+	if (position < 1.4){
+		shooterEarLeft->Set(1);
+		shooterEarRight->Set(1);
+	}
+	else {
+		shooterEarLeft->Set(0);
+		shooterEarRight->Set(0);
+	}
+	
 	printf("Pos: %f Position: %f\n", pos, position);
 }
 float Shooter::GetPosition(){
-	return winchSensor->GetAverageVoltage() - offset;
+	return winchSensor->GetScaledVoltage();// - offset;
 	
 }
 void Shooter::ManualRetractWinch(float speed){
-	if (winchSensor->GetAverageVoltage() > .2){
-		winch->Set(speed);
-	}
-	else{
-		ManualStopWinch();
-	}
+//	if (winchSensor->GetScaledVoltage() > .2){
+//		winch->Set(speed);
+//	}
+//	else{
+//		ManualStopWinch();
+//	}
+	winch->Set(speed);
 }
 void Shooter::ManualReleaseWinch(float speed){
-	if(winchSensor->GetAverageVoltage() < 4.8){
+	if(winchSensor->GetScaledVoltage() < 4.8){
 		winch->Set(-speed);
 	}
 	else{
@@ -177,14 +178,15 @@ std::string Shooter::GetSmartDashboardType(){
 	return "PIDController";
 }
 void Shooter::RetractSlack(){
-	if (winchSensor->GetAverageVoltage() > .2){
+	if (winchSensor->GetScaledVoltage() > .2){
 		winch->Set(1);
 	}
 }
 float Shooter::GetRawPosition(){
-	return winchSensor->GetAverageVoltage();
+	return winchSensor->GetScaledVoltage();
 }
 void Shooter::CockWinch(){
+	printf("Switch Count: %d %d\n", switchCounter);
 	if(potSwitch->Get()){
 		switchCounter++;
 		ManualLatch();
@@ -194,12 +196,13 @@ void Shooter::CockWinch(){
 		ManualFire();
 		ManualRetractWinch();
 	}
-	if(switchCounter > 20){
+	if(switchCounter > 10){
 		ManualStopWinch();
 		switchCounter = 0;
 		latched = true;
 		if (potSwitch->Get()){
-			offset = winchSensor->GetAverageVoltage();
+			winchSensor->Zero();
+//			offset = winchSensor->GetScaledVoltage();
 		}
 	}
 }
