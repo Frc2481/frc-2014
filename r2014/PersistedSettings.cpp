@@ -19,6 +19,10 @@ PersistedSettings::~PersistedSettings() {
 
 void PersistedSettings::LoadFromFile(std::string filename) {
 	ifstream settingsFile(filename.c_str());
+	if(!settingsFile.good())
+	{
+		return;
+	}
 	std::string line;
 	while(!settingsFile.eof())
 	{
