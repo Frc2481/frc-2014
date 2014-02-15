@@ -12,6 +12,7 @@ private:
     PController *mSteerController;
     float prevAngle;
     float offset;
+    bool optimized;
     
 	
 public:
@@ -25,6 +26,7 @@ public:
 	void SetOffset(float offset);
 	float DegToVolts(float deg);
 	PController* GetController();
+	void SetOptimized(bool isOptimized);
 };
 
 #endif /*SWERVEMODULE_H_*/
