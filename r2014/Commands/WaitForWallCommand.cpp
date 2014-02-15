@@ -1,8 +1,8 @@
-#include "WaitForWallCommand.h"
-
-WaitForWallCommand::WaitForWallCommand(){
-}
-
-WaitForWallCommand::~WaitForWallCommand()
-{
-}
+//#include "WaitForWallCommand.h"
+//
+//WaitForWallCommand::WaitForWallCommand(){
+//}
+//
+//WaitForWallCommand::~WaitForWallCommand()
+//{
+//}

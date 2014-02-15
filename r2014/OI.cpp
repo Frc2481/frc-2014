@@ -22,7 +22,7 @@
 #include "Commands/AutoSetShooterCommand.h"
 #include "Commands/FireCommandGroup.h"
 #include "Commands/IncShooterSetPointCommand.h"
-#include "Commands/DecShooterSetPoinCommand.h"
+#include "Commands/DecShooterSetPointCommand.h"
 #include "Commands/SetShooterToThrottleCommand.h"
 #include "Commands/ToggleFieldCentricCommand.h"
 
@@ -77,19 +77,19 @@ OI::OI() {
 //	ManualLatchButton = new JoystickButton(auxStick, MANUAL_LATCH_BUTTON);
 //	ManualLatchButton->WhenPressed(new ManualLatchShooterCommand());
 	
-	TurnOnIntakeButton = new JoystickButton(auxStick, TURN_ON_INTAKE_BUTTON);
+	TurnOnIntakeButton = new JoystickButton(driverStick, TURN_ON_INTAKE_BUTTON);
 	TurnOnIntakeButton->WhenPressed(new TurnOnIntakeCommand());
 	
-	TurnOffIntakeButton = new JoystickButton(auxStick, TURN_OFF_INTAKE_BUTTON);
+	TurnOffIntakeButton = new JoystickButton(driverStick, TURN_OFF_INTAKE_BUTTON);
 	TurnOffIntakeButton->WhenPressed(new TurnOffIntakeCommand());
 	
 	SpitOutButton = new JoystickButton(auxStick, VOMIT_BUTTON);
 	SpitOutButton->WhileHeld(new SpitOutBallCommand());
 	
-	ToggleLeftEarButton = new JoystickButton(driverStick, TOGGLE_LEFT_EAR_BUTTON);
+	ToggleLeftEarButton = new JoystickButton(auxStick, TOGGLE_LEFT_EAR_BUTTON);
 	ToggleLeftEarButton->WhenPressed(new ToggleLeftEarCommand());
 	
-	ToggleRightEarButton = new JoystickButton(driverStick, TOGGLE_RIGHT_EAR_BUTTON);
+	ToggleRightEarButton = new JoystickButton(auxStick, TOGGLE_RIGHT_EAR_BUTTON);
 	ToggleRightEarButton->WhenPressed(new ToggleRightEarCommand());
 	
 	ToggleIntakeReadyButton = new JoystickButton(auxStick, TOGGLE_INTAKE_READY_BUTTON);

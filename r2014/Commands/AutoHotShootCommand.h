@@ -50,7 +50,7 @@ public:
 	}
 	
 	virtual bool IsFinished() {
-		return hot && shot;
+		return shot;
 	}
 	
 	virtual void End() {

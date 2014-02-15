@@ -2,8 +2,13 @@
 #include "Commands/Command.h"
 #include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
+#include "Robotmap.h"
 #include "CSVRecord.h"
 #include "Commands/AutoDriveShootCommandGroup.h"
+#include "Commands/IncWheelAngleCommand.h"
+#include "Commands/DecWheelAngleCommand.h"
+#include "Commands/SetEncoderOffsetCommand.h"
+#include "Commands/OptimizeSwerveCommand.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
@@ -25,6 +30,24 @@ private:
 		autoOptions->AddObject("Two Ball", new AutoDriveShootCommandGroup());
 		SmartDashboard::PutData("Autonomous Delay Options", autoOptions);
 		autoCommand = 0;
+		
+		SmartDashboard::PutData("FL Angle + 1", new IncWheelAngleCommand(FLENCODER));
+		SmartDashboard::PutData("FR Angle + 1", new IncWheelAngleCommand(FRENCODER));
+		SmartDashboard::PutData("BL Angle + 1", new IncWheelAngleCommand(BLENCODER));
+		SmartDashboard::PutData("BR Angle + 1", new IncWheelAngleCommand(BRENCODER));
+		
+		SmartDashboard::PutData("FL Angle - 1", new DecWheelAngleCommand(FLENCODER));
+		SmartDashboard::PutData("FR Angle - 1", new DecWheelAngleCommand(FRENCODER));
+		SmartDashboard::PutData("BL Angle - 1", new DecWheelAngleCommand(BLENCODER));
+		SmartDashboard::PutData("BR Angle - 1", new DecWheelAngleCommand(BRENCODER));
+
+		SmartDashboard::PutData("FL Reset Offset", new SetEncoderOffsetCommand(FLENCODER));
+		SmartDashboard::PutData("FR Reset Offset", new SetEncoderOffsetCommand(FRENCODER));
+		SmartDashboard::PutData("BL Reset Offset", new SetEncoderOffsetCommand(BLENCODER));
+		SmartDashboard::PutData("BR Reset Offset", new SetEncoderOffsetCommand(BRENCODER));
+		
+
+		SmartDashboard::PutData("DisableOptimization", new OptimizeSwerveCommand());
 	}
 	
 	virtual void AutonomousInit() {
@@ -59,6 +82,7 @@ private:
 		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight());
 		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
 		SmartDashboard::PutNumber("throttle value", 16 - (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
+		
 		Wait(0.003);
 	}
 	

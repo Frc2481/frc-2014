@@ -15,8 +15,9 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 				FRWheel(new SwerveModule(FRDRIVE, FRSTEER, FRENCODER)), 
 				BRWheel(new SwerveModule(BRDRIVE, BRSTEER, BRENCODER)),
 				BLWheel(new SwerveModule(BLDRIVE, BLSTEER, BLENCODER)),
-				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)),
 				isFieldCentric(false) {
+//				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)){
+
 				//wiiGyro(new WiiGyro(COMPASS_MODULE)){
 	printf("Pre DriveTrain Constructor \n");
 	prevAngle = 90.0;
@@ -39,16 +40,19 @@ void DriveTrain::Stop() {
 }
 
 void DriveTrain::Crab(double xPos, double yPos, double twist){
+	double FWD;
+	double STR;
+
 	twist = -twist * .4;
 	if (isFieldCentric) {
 		heading = headingSource->GetHeading();
-		double FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
-		double STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
+		FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
+		STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
 		STR = -STR;
 	}
 	else {
-		double FWD = yPos;
-		double STR = -xPos;
+		FWD = -yPos;
+		STR = xPos;
 	}
 	
 	//if(headingSource->ResetWii()){
@@ -192,7 +196,7 @@ void DriveTrain::SetI(float i) {
 	BLWheel->GetController()->SetI(i);
 }
 void DriveTrain::ResetGyro(){
-	headingSource->ResetGyro();
+//	headingSource->ResetGyro();
 	//wiiGyro->reset();
 	printf("\n\n reset wii in driveTrain \n \n");
 }
@@ -208,4 +212,27 @@ float DriveTrain::GetHeading(){
 
 void DriveTrain::SetFieldCentric(bool fieldCentric) {
 	isFieldCentric = fieldCentric;
+}
+
+float DriveTrain::GetWheelAngle(int wheel){
+	if (wheel == FLENCODER) 		return FLWheel->GetRawAngle();
+	else if (wheel == FRENCODER) 	return FRWheel->GetRawAngle();
+	else if (wheel == BLENCODER) 	return BLWheel->GetRawAngle();
+	else if (wheel == BRENCODER) 	return BRWheel->GetRawAngle();
+	return 0;
+}
+
+void DriveTrain::SetWheelAngle(int wheel, float angle){
+	printf("actual angle %f \n", BRWheel->GetAngle());
+	printf("angle %f wheel %d \n", angle, wheel);
+	if (wheel == FLENCODER) 		FLWheel->Set(0, angle);
+	else if (wheel == FRENCODER) 	FRWheel->Set(0, angle);
+	else if (wheel == BLENCODER) 	BLWheel->Set(0, angle);
+	else if (wheel == BRENCODER) 	BRWheel->Set(0, angle);
+}
+void DriveTrain::SetOptimized(bool optimized){
+	FLWheel->SetOptimized(optimized);
+	FRWheel->SetOptimized(optimized);
+	BLWheel->SetOptimized(optimized);
+	BRWheel->SetOptimized(optimized);
 }

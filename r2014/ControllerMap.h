@@ -12,8 +12,8 @@
 
 //Driver Stick
 #define CALIBRATE_COMPASS_BUTTON 	XboxController::xbZAxis
-#define TOGGLE_RIGHT_EAR_BUTTON 	XboxController::xbXButton
-#define TOGGLE_LEFT_EAR_BUTTON 		XboxController::xbYButton
+#define TOGGLE_RIGHT_EAR_BUTTON 	XboxController::xbRightBumper
+#define TOGGLE_LEFT_EAR_BUTTON 		XboxController::xbLeftBumper
 
 #define SET_FIELD_OFFSET_BUTTON 	XboxController::xbStartButton
 #define RESET_GYRO_BUTTON 			XboxController::xbBackButton

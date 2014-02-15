@@ -163,7 +163,8 @@ void WiiGyro::loop(){
 		}
 		else if(first) {
 			printf("calibrating zeroes \n");
-			Wait(5);
+			//Wait(5);
+			
 			calibrateZeroes();
 			calibrateZeroes();
 			resetWii = true;

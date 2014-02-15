@@ -4,7 +4,7 @@
 #include "ShootBallCommand.h"
 #include "DriveForwardCommand.h"
 #include "PickupBallCommand.h"
-#include "DriveBackwardCommand.h"
+#include "DriveBackwardsCommand.h"
 
 class AutonomousModeCommandGroup: public CommandBase {
 public:

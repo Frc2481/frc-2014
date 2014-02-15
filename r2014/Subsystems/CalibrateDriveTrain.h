@@ -1,12 +1,12 @@
 /*
- * DriveTrain.h
+ * CalibrateDriveTrain.h
  *
  *  Created on: Jan 9, 2014
  *      Author: Team2481
  */
 
-#ifndef DRIVETRAIN_H_
-#define DRIVETRAIN_H_
+#ifndef CALIBRATEDRIVETRAIN_H_
+#define CALIBRATEDRIVETRAIN_H_
 #include "../RobotParameters.h"
 #include "../Components/SwerveModule.h"
 #include "../Components/HeadingSource.h"
@@ -14,14 +14,18 @@
 #include "WPILib.h"
 #include "Commands/Subsystem.h"
 
-class DriveTrain: public Subsystem {
+class CalibrateDriveTrain: public Subsystem {
 
 #define MAX_CHANGE 10
 private:
-	SwerveModule *FLWheel;
-	SwerveModule *FRWheel;
-	SwerveModule *BRWheel;
-	SwerveModule *BLWheel;
+	Talon *FLWheel;
+	Talon *FRWheel;
+	Talon *BRWheel;
+	Talon *BLWheel;
+	Talon *FLSteer;
+	Talon *FRSteer;
+	Talon *BRSteer;
+	Talon *BLSteer;
 	HeadingSource *headingSource;
 	WiiGyro *wiiGyro;
 	//ResetGyroCommand *resetGyroCommand;
@@ -37,12 +41,14 @@ private:
 	float prevAngleBL;
 	float angleOffset;
 	float heading;
-	bool isFieldCentric;
+	int count;
+	
+	
 public:
-	DriveTrain();
-	virtual ~DriveTrain();
+	CalibrateDriveTrain();
+	virtual ~CalibrateDriveTrain();
 	void InitDefaultCommand();
-	void Crab(double xPos, double yPos, double twist);
+	void Crab(double xPos, double yPos, double twist, bool fieldCentric);
 	double degToRad(double deg);
 	double radToDeg(double rad);
 	double limitAngle(double angle);
@@ -57,7 +63,6 @@ public:
 	void SetFieldOffset();
 	float GetHeading();
 	void Stop();
-	void SetFieldCentric(bool fieldCentric);
 	float GetWheelAngle(int wheel);
 	void SetWheelAngle(int wheel, float angle);
 	void SetOptimized(bool optimized);

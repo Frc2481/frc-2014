@@ -93,17 +93,20 @@ void PController::Update() {
 		float feedback = input->PIDGet();
 		float error = setPoint - feedback;
 		float correctedError = 0;
+		if (error < 0){
+			error +=360;
+		}
 		
 		if (fabs(error) < tolerance){
 			correctedError = 0;
 			onTarget = true;
 		}
-		else if (error <= -inputRange / 2){
+		else if (error < -inputRange / 2){
 			onTarget = false;
 			correctedError = error + inputRange;
 		}
 		
-		else if(error >= inputRange / 2) {
+		else if(error  > inputRange / 2) {
 			onTarget = false;
 			correctedError = error - inputRange;
 		}
@@ -111,6 +114,7 @@ void PController::Update() {
 			onTarget = false;
 			correctedError = error;
 		}
+
 		/*
 		if(i > 0.0)
 		{
@@ -136,11 +140,7 @@ void PController::Update() {
 		else if (pidOutput < outputRangeLower){
 			pidOutput = outputRangeLower;
 		}
-		//printf("correctedError: %f, p: %f\n", -correctedError, p);
 		output->PIDWrite(-pidOutput);
-		SmartDashboard::PutNumber("corrected", correctedError);
-		SmartDashboard::PutNumber("error", error);
-		SmartDashboard::PutNumber("feedback", feedback);
 	}
 	else {
 		output->PIDWrite(0);

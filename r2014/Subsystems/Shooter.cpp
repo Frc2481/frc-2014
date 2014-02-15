@@ -186,7 +186,6 @@ float Shooter::GetRawPosition(){
 	return winchSensor->GetScaledVoltage();
 }
 void Shooter::CockWinch(){
-	printf("Switch Count: %d %d\n", switchCounter);
 	if(potSwitch->Get()){
 		switchCounter++;
 		ManualLatch();
