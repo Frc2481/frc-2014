@@ -80,11 +80,9 @@ OI::OI() {
 //	ManualLatchButton = new JoystickButton(auxStick, MANUAL_LATCH_BUTTON);
 //	ManualLatchButton->WhenPressed(new ManualLatchShooterCommand());
 	
-	TurnOnIntakeButton = TURN_ON_INTAKE_BUTTON;
-	TurnOnIntakeButton->WhenPressed(new TurnOnIntakeCommand());
-	
-	TurnOffIntakeButton = TURN_OFF_INTAKE_BUTTON;
-	TurnOffIntakeButton->WhenPressed(new TurnOffIntakeCommand());
+	IntakeButton = INTAKE_BUTTON;
+	IntakeButton->WhenPressed(new TurnOnIntakeCommand());
+	IntakeButton->WhenReleased(new TurnOffIntakeCommand());
 	
 	SpitOutButton = VOMIT_BUTTON;
 	SpitOutButton->WhileHeld(new SpitOutBallCommand());

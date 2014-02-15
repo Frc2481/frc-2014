@@ -17,8 +17,8 @@
 #define TOGGLE_FIELD_CENTRIC_BUTTON new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -.5)
 #define TOGGLE_FORWARD_BUTTON		new JoystickButton(driverStick, XboxController::xbAButton)
 
-#define TURN_ON_INTAKE_BUTTON 		new JoystickButton(driverStick, XboxController::xbRightBumper)
-#define TURN_OFF_INTAKE_BUTTON 		new JoystickButton(driverStick, XboxController::xbLeftBumper)
+#define INTAKE_BUTTON 				new JoystickButton(driverStick, XboxController::xbLeftBumper)
+#define VOMIT_BUTTON 				new AnalogJoystickButton(driverStick, XboxController::xbZAxis, 0.5)
 
 //Aux Stick
 #define RETRACT_SHOOTER_BUTTON 		new AnalogJoystickButton(auxStick, XboxController::xbRightYAxis, -.5)
@@ -27,7 +27,6 @@
 #define FIRE_BUTTON_NUM				XboxController::xbZAxis
 #define FIRE_BUTTON 				new AnalogJoystickButton(auxStick, FIRE_BUTTON_NUM, -.5)
 
-#define VOMIT_BUTTON 				new JoystickButton(auxStick, XboxController::xbBButton)
 #define TOGGLE_INTAKE_READY_BUTTON 	new JoystickButton(auxStick, XboxController::xbLeftStickClick)
 
 #define TOGGLE_RIGHT_EAR_BUTTON 	new JoystickButton(auxStick, XboxController::xbStartButton)

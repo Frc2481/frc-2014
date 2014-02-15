@@ -1,5 +1,5 @@
-#ifndef SHOOTEROUTWHILEHELDCOMMAND_H
-#define SHOOTEROUTWHILEHELDCOMMAND_H
+#ifndef INTAKEOUTWHILEHELDCOMMAND_H
+#define INTAKEOUTWHILEHELDCOMMAND_H
 
 #include "../CommandBase.h"
 
@@ -8,9 +8,9 @@
  *
  * @author ExampleAuthor
  */
-class ShooterOutWhileHeldCommand : public CommandBase {
+class IntakeOutWhileHeldCommand : public CommandBase {
 public:
-	ShooterOutWhileHeldCommand(){
+	IntakeOutWhileHeldCommand(){
 		Requires(intake);
 	}
 	virtual void Initialize(){

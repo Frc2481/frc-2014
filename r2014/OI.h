@@ -33,8 +33,7 @@ private:
 	Button *LeftJukeButton;
 	Button *RetractShooterButton;
 	Button *ReleaseShooterButton;
-	Button *TurnOnIntakeButton;
-	Button *TurnOffIntakeButton;
+	Button *IntakeButton;
 	Button *SpitOutButton;
 	Button *ToggleIntakeReadyButton;
 	Button *AutoCockShooterButton;
