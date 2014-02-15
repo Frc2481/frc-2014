@@ -231,6 +231,7 @@ void Shooter::CockWinch(){
 		ManualStopWinch();
 		switchCounter = 0;
 		latched = true;
+		winchSensor->Zero();
 	}
 }
 void Shooter::SetPositionVolts(float userPosition){
