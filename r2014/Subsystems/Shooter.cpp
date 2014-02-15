@@ -79,15 +79,20 @@ void Shooter::Periodic(){
 	//printf("shooter position %f \n", position);
 }
 void Shooter::SetPosition(float pos){
+	winchSensor->Zero();
 	if(pos > 5){
-//		position = ((0.0128 * pow(pos, 2)) - (0.1789 * pos)) + 2.2133;
-		position = (0.1783 * pos) + 1.3027;
+//		//position = ((0.0128 * pow(pos, 2)) - (0.1789 * pos)) + 2.2133;
+		position = (0.1783 * pos) + 1.3027;		position = -.0104 * pow(pos, 3) + .15 * pow(pos, 2) + .5083* pos + 1.4;
+		//position = 0.125 * pos + 1.3;
+		//printf("< 8 %f %f \n", position, pos);
 	}
 	else {
 		position = (.1 * pos) + .7;
+		//position = 0.08 * pos + 1.9;
+		//printf("> 8 %f %f \n", position, pos);
 	}
 
-	if (position < 1.4){
+	if (pos < 5){
 		shooterEarLeft->Set(1);
 		shooterEarRight->Set(1);
 	}
@@ -96,7 +101,7 @@ void Shooter::SetPosition(float pos){
 		shooterEarRight->Set(0);
 	}
 	
-	printf("Pos: %f Position: %f\n", pos, position);
+	//printf("Pos: %f Position: %f\n", pos, position);
 }
 float Shooter::GetPosition(){
 	return winchSensor->GetScaledVoltage();// - offset;
@@ -199,10 +204,6 @@ void Shooter::CockWinch(){
 		ManualStopWinch();
 		switchCounter = 0;
 		latched = true;
-		if (potSwitch->Get()){
-			winchSensor->Zero();
-//			offset = winchSensor->GetScaledVoltage();
-		}
 	}
 }
 void Shooter::SetPositionVolts(float userPosition){

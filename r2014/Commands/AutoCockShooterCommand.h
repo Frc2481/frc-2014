@@ -11,8 +11,6 @@
 #include "../CommandBase.h"
 
 class AutoCockShooterCommand: public CommandBase {
-private:
-	bool isFinished;
 public:
 	AutoCockShooterCommand(){
 		Requires(shooter);
@@ -21,19 +19,12 @@ public:
 		
 	}
 	virtual void Initialize(){
-		isFinished = false;
 	}
 	virtual void Execute(){
-		if (!shooter->IsLatched()){
-			shooter->CockWinch();
-		}
-		else{
-			shooter->ManualStopWinch();
-			isFinished = true;
-		}
+		shooter->CockWinch();
 	}
 	virtual bool IsFinished(){
-		return isFinished;
+		return shooter->IsLatched();
 	}
 	virtual void End(){
 		shooter->ManualStopWinch();
