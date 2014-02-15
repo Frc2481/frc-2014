@@ -7,6 +7,7 @@
 #include "Commands/SetFieldOffsetCommand.h"
 #include "Commands/JukeCommand.h"
 #include "Robotmap.h"
+#include "RobotParameters.h"
 #include "Commands/ReleaseShooterCommand.h"
 #include "Commands/RetractShooterCommand.h"
 #include "Commands/ManualFireShooterCommand.h"
@@ -26,6 +27,7 @@
 #include "Commands/SetShooterToThrottleCommand.h"
 #include "Commands/ToggleFieldCentricCommand.h"
 #include "Commands/ToggleForwardCommand.h"
+#include "Commands/FireDistanceCommand.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -50,8 +52,8 @@ OI::OI() {
 	BLOffsetButton->WhenPressed(new SetEncoderOffsetCommand(BLENCODER));
 //	BLOffsetButton->WhenPressed(new SetPCommand(false));
 	
-	CalibrateCompassButton = CALIBRATE_COMPASS_BUTTON;
-	CalibrateCompassButton->WhenPressed(new CalibrateCompassCommand());	
+	//CalibrateCompassButton = CALIBRATE_COMPASS_BUTTON;
+	//CalibrateCompassButton->WhenPressed(new CalibrateCompassCommand());	
 	/*
 	RightJukeButton = new JoystickButton(driverStick, XboxController::xbRightBumper); 
 	RightJukeButton->WhenPressed(new JukeCommand(true));
@@ -59,11 +61,11 @@ OI::OI() {
 	LeftJukeButton = new JoystickButton(driverStick, XboxController::xbLeftBumper);
 	LeftJukeButton->WhenPressed(new JukeCommand(false));
 	*/
-	SetFieldOffsetButton = SET_FIELD_OFFSET_BUTTON;
-	SetFieldOffsetButton->WhenPressed(new SetFieldOffsetCommand());	
+	//SetFieldOffsetButton = SET_FIELD_OFFSET_BUTTON;
+	//SetFieldOffsetButton->WhenPressed(new SetFieldOffsetCommand());	
 	
-	ResetGyroButton = RESET_GYRO_BUTTON;
-	ResetGyroButton->WhenPressed(new ResetGyroCommand());	
+	//ResetGyroButton = RESET_GYRO_BUTTON;
+	//ResetGyroButton->WhenPressed(new ResetGyroCommand());	
 	
 	
 	RetractShooterButton = RETRACT_SHOOTER_BUTTON;
@@ -116,6 +118,15 @@ OI::OI() {
 	
 	ToggleForwardButton = TOGGLE_FORWARD_BUTTON;
 	ToggleForwardButton->WhenPressed(new ToggleForwardCommand());
+	
+	TrussPassButton = TRUSS_PASS_BUTTON;
+	TrussPassButton->WhenPressed(new FireDistanceCommand(TRUSS_SHOT_DISTANCE, true));
+	
+	OutletPassButton = OUTLET_PASS_BUTTON;
+	OutletPassButton->WhenPressed(new FireDistanceCommand(OUTLET_SHOT_DISTANCE, true));
+	
+	CornerShotButton = CORNER_SHOT_BUTTON;
+	CornerShotButton->WhenPressed(new FireDistanceCommand(CORNER_SHOT_DISTANCE, true));
 	
 	SmartDashboard::PutData(new ResetGyroCommand());
 }

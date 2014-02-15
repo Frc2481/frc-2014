@@ -30,10 +30,14 @@
 #define VOMIT_BUTTON 				new JoystickButton(auxStick, XboxController::xbBButton)
 #define TOGGLE_INTAKE_READY_BUTTON 	new JoystickButton(auxStick, XboxController::xbLeftStickClick)
 
-#define TOGGLE_RIGHT_EAR_BUTTON 	new JoystickButton(auxStick, XboxController::xbRightBumper)
-#define TOGGLE_LEFT_EAR_BUTTON 		new JoystickButton(auxStick, XboxController::xbLeftBumper)
+#define TOGGLE_RIGHT_EAR_BUTTON 	new JoystickButton(auxStick, XboxController::xbStartButton)
+#define TOGGLE_LEFT_EAR_BUTTON 		new JoystickButton(auxStick, XboxController::xbBackButton)
 
-#define AUTO_COCK_SHOOTER_BUTTON 	new AnalogJoystickButton (auxStick, XboxController::xbZAxis, .5)
+#define AUTO_COCK_SHOOTER_BUTTON 	new JoystickButton (auxStick, XboxController::xbRightBumper)
 #define SHOOTER_TO_THROTTLE_BUTTON	new JoystickButton(auxStick, XboxController::xbXButton)
+
+#define TRUSS_PASS_BUTTON			new AnalogJoystickButton(auxStick, XboxController::xbRightYAxis, .8)
+#define OUTLET_PASS_BUTTON			new AnalogJoystickButton(auxStick, XboxController::xbRightYAxis, -.8)
+#define CORNER_SHOT_BUTTON			new AnalogJoystickButton(auxStick, XboxController::xbLeftYAxis, .8)
 
 #endif 

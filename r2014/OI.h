@@ -47,6 +47,8 @@ private:
 	Button *ToggleFieldCentricButton;
 	Button *ToggleForwardButton;
 	Button *TrussPassButton;
+	Button *OutletPassButton;
+	Button *CornerShotButton;
 	
 public:
 	OI();
