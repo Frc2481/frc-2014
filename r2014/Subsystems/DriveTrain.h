@@ -38,6 +38,7 @@ private:
 	float angleOffset;
 	float heading;
 	bool isFieldCentric;
+	bool isForward;
 public:
 	DriveTrain();
 	virtual ~DriveTrain();
@@ -61,6 +62,7 @@ public:
 	float GetWheelAngle(int wheel);
 	void SetWheelAngle(int wheel, float angle);
 	void SetOptimized(bool optimized);
+	void ToggleForward();
 };
 
 #endif /* DRIVETRAIN_H_ */

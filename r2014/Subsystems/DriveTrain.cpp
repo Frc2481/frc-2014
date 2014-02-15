@@ -15,7 +15,8 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 				FRWheel(new SwerveModule(FRDRIVE, FRSTEER, FRENCODER)), 
 				BRWheel(new SwerveModule(BRDRIVE, BRSTEER, BRENCODER)),
 				BLWheel(new SwerveModule(BLDRIVE, BLSTEER, BLENCODER)),
-				isFieldCentric(false) {
+				isFieldCentric(false), 
+				isForward(true) {
 //				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)){
 
 				//wiiGyro(new WiiGyro(COMPASS_MODULE)){
@@ -48,11 +49,16 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 		heading = headingSource->GetHeading();
 		FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
 		STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
-		STR = -STR;
 	}
 	else {
-		FWD = -yPos;
+		FWD = yPos;
 		STR = xPos;
+	}
+	if (isForward) {
+		FWD = -FWD;
+	}
+	else {
+		STR = -STR;
 	}
 	
 	//if(headingSource->ResetWii()){
@@ -235,4 +241,8 @@ void DriveTrain::SetOptimized(bool optimized){
 	FRWheel->SetOptimized(optimized);
 	BLWheel->SetOptimized(optimized);
 	BRWheel->SetOptimized(optimized);
+}
+
+void DriveTrain::ToggleForward() {
+	isForward = !isForward;
 }
