@@ -108,10 +108,11 @@ void Shooter::SetPosition(float pos){
 void Shooter::SetPosition(float pos, bool earsUp) {
 	if (!hasSetPosition) {
 		if(pos > 5){
-		//	position = ((0.0128 * pow(pos, 2)) - (0.1789 * pos)) + 2.2133;
+		//	position = (-(0.0104 * pow(pos, 3)) + (0.15 * pow(pos,2)) + (-0.5083 * pos) + 1.4;
 			position = (0.1783 * pos) + 1.3027;
 		}
 		else {
+			//position = (-0.0009 * pow(pos, 4)) + (0.0448 * pow(pos, 3)) + (-.0834 * pow(pos, 2)) + (6.8458 * pos) - 19.1;
 			position = (.1 * pos) + .7;
 		}
 		shooterEarLeft->Set(!earsUp);
