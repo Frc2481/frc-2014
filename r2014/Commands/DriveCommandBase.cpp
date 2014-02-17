@@ -18,7 +18,7 @@ void DriveCommandBase::Initialize() {
 	return IsTimedOut();
 }
 void DriveCommandBase::End(){
-	driveTrain->Stop();
+	driveTrain->Crab(0,0,0);
 }
 void DriveCommandBase::Interrupted(){}
 

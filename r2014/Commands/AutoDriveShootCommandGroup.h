@@ -13,12 +13,14 @@
 #include "DriveForwardCommand.h"
 #include "FireCommandGroup.h"
 #include "AutoSetShooterCommand.h"
+#include "SetForwardCommand.h"
 
 class AutoDriveShootCommandGroup: public CommandGroup{
 private:
 public:
 	AutoDriveShootCommandGroup(){
-		AddSequential(new DriveForwardCommand(.5, .5));
+		AddSequential(new SetForwardCommand(false));
+		AddSequential(new DriveForwardCommand(.5, 2));
 		AddSequential(new AutoSetShooterCommand());
 		AddSequential(new FireCommandGroup());
 		

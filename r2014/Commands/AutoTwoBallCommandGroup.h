@@ -13,11 +13,14 @@
 #include "TurnOffIntakeCommand.h"
 #include "TurnOnIntakeCommand.h"
 #include "AutoSetShooterCommand.h"
+#include "VariableIntakeCommand.h"
+#include "SetForwardCommand.h"
 
 class AutoTwoBallCommandGroup: public CommandGroup{
 private:
 public:
 	AutoTwoBallCommandGroup(){
+		AddSequential(new SetForwardCommand(false));
 		AddSequential(new TurnOnIntakeCommand);
 		AddSequential(new DriveForwardCommand(.5, .5));
 		AddSequential(new AutoSetShooterCommand());
