@@ -60,6 +60,7 @@ private:
 	
 	virtual void AutonomousPeriodic() {
 		Scheduler::GetInstance()->Run();
+		CommandBase::shooter->Periodic();
 	}
 	
 	virtual void TeleopInit() {
@@ -82,6 +83,8 @@ private:
 		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight() / 12);
 		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
 		SmartDashboard::PutNumber("throttle value", 16 - (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
+//		SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
+		CommandBase::shooter->Periodic();
 		
 		Wait(0.003);
 	}
@@ -100,6 +103,7 @@ private:
 		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight() / 12);
 		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
 		SmartDashboard::PutNumber("throttle value", 16- (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
+//		SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
 	}
 	
 };
