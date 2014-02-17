@@ -19,7 +19,8 @@ ContinuousEncoderCounter::ContinuousEncoderCounter(uint32_t encoderChannel)
 }
 
 ContinuousEncoderCounter::~ContinuousEncoderCounter() {
-	// TODO Auto-generated destructor stub
+	delete mEncoder;
+	delete mUpdate;
 }
 
 
