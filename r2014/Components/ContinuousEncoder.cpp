@@ -18,7 +18,7 @@ ContinuousEncoder::ContinuousEncoder(uint32_t encoderChannel)
 }
 
 ContinuousEncoder::~ContinuousEncoder() {
-	// TODO Auto-generated destructor stub
+	delete mEncoder;
 }
 double ContinuousEncoder::PIDGet(){
 	sum -= prevEncoderValues[index];
