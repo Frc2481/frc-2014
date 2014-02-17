@@ -21,9 +21,9 @@ private:
 	Button *FLOffsetButton;
 	Button *BROffsetButton;
 	Button *BLOffsetButton;
-	Button *CalibrateCompassButton;
-	Button *SetFieldOffsetButton;
-	Button *ResetGyroButton;
+//	Button *CalibrateCompassButton;
+//	Button *SetFieldOffsetButton;
+//	Button *ResetGyroButton;
 	Button *ManualRetractShooterButton;
 	Button *ManualReleaseShooterButton;
 	Button *ManualFireButton;
@@ -31,8 +31,8 @@ private:
 	Button *WriteToCSVButton;
 	Button *RightJukeButton;
 	Button *LeftJukeButton;
-	Button *RetractShooterButton;
-	Button *ReleaseShooterButton;
+//	Button *RetractShooterButton;
+//	Button *ReleaseShooterButton;
 	Button *TurnOnIntakeButton;
 	Button *TurnOffIntakeButton;
 	Button *SpitOutButton;
@@ -44,11 +44,14 @@ private:
 //	Button *IncShooterButton;
 //	Button *DecShooterButton;
 	Button *ShooterToThrottleButton;
-	Button *ToggleFieldCentricButton;
-	Button *ToggleForwardButton;
+//	Button *ToggleFieldCentricButton;
+	Button *ForwardButton;
+	Button *BackwardButton;
 	Button *TrussPassButton;
 	Button *OutletPassButton;
 	Button *CornerShotButton;
+	Button *NormalShotButton;
+	Button *ShooterPassButton;
 	
 public:
 	OI();

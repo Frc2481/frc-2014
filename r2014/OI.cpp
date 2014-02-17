@@ -26,8 +26,9 @@
 #include "Commands/DecShooterSetPointCommand.h"
 #include "Commands/SetShooterToThrottleCommand.h"
 #include "Commands/ToggleFieldCentricCommand.h"
-#include "Commands/ToggleForwardCommand.h"
+#include "Commands/SetForwardCommand.h"
 #include "Commands/FireDistanceCommand.h"
+#include "Commands/ShooterPassCommandGroup.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -68,11 +69,11 @@ OI::OI() {
 	//ResetGyroButton->WhenPressed(new ResetGyroCommand());	
 	
 	
-	RetractShooterButton = RETRACT_SHOOTER_BUTTON;
-	RetractShooterButton->WhileHeld(new RetractShooterCommand());	
-	
-	ReleaseShooterButton = RELEASE_SHOOTER_BUTTON;
-	ReleaseShooterButton->WhileHeld(new ReleaseShooterCommand());	
+//	RetractShooterButton = RETRACT_SHOOTER_BUTTON;
+//	RetractShooterButton->WhileHeld(new RetractShooterCommand());	
+//	
+//	ReleaseShooterButton = RELEASE_SHOOTER_BUTTON;
+//	ReleaseShooterButton->WhileHeld(new ReleaseShooterCommand());	
 
 	ManualFireButton = FIRE_BUTTON;
 	ManualFireButton->WhenPressed(new FireCommandGroup());	
@@ -84,7 +85,7 @@ OI::OI() {
 	TurnOnIntakeButton->WhenPressed(new TurnOnIntakeCommand());
 	
 	TurnOffIntakeButton = TURN_OFF_INTAKE_BUTTON;
-	TurnOffIntakeButton->WhenPressed(new TurnOffIntakeCommand());
+	TurnOffIntakeButton->WhenReleased(new TurnOffIntakeCommand());
 	
 	SpitOutButton = VOMIT_BUTTON;
 	SpitOutButton->WhileHeld(new SpitOutBallCommand());
@@ -113,20 +114,29 @@ OI::OI() {
 	ShooterToThrottleButton = SHOOTER_TO_THROTTLE_BUTTON;
 	ShooterToThrottleButton->WhenPressed(new SetShooterToThrottleCommand());
 	
-	ToggleFieldCentricButton = TOGGLE_FIELD_CENTRIC_BUTTON;
-	ToggleFieldCentricButton->WhileHeld(new ToggleFieldCentricCommand());
+//	ToggleFieldCentricButton = TOGGLE_FIELD_CENTRIC_BUTTON;
+//	ToggleFieldCentricButton->WhileHeld(new ToggleFieldCentricCommand());
 	
-	ToggleForwardButton = TOGGLE_FORWARD_BUTTON;
-	ToggleForwardButton->WhenPressed(new ToggleForwardCommand());
+	ForwardButton = FORWARD_BUTTON;
+	ForwardButton->WhenPressed(new SetForwardCommand(true));
+	
+	BackwardButton = BACKWARD_BUTTON;
+	BackwardButton->WhenPressed(new SetForwardCommand(false));
 	
 	TrussPassButton = TRUSS_PASS_BUTTON;
-	TrussPassButton->WhenPressed(new FireDistanceCommand(TRUSS_SHOT_DISTANCE, true));
+	TrussPassButton->WhenPressed(new FireDistanceCommand(TRUSS_SHOT_DISTANCE, false));
 	
 	OutletPassButton = OUTLET_PASS_BUTTON;
 	OutletPassButton->WhenPressed(new FireDistanceCommand(OUTLET_SHOT_DISTANCE, true));
 	
 	CornerShotButton = CORNER_SHOT_BUTTON;
-	CornerShotButton->WhenPressed(new FireDistanceCommand(CORNER_SHOT_DISTANCE, true));
+	CornerShotButton->WhenPressed(new FireDistanceCommand(CORNER_SHOT_DISTANCE, false));
+	
+	NormalShotButton = NORMAL_SHOT_BUTTON;
+	NormalShotButton->WhenPressed(new FireDistanceCommand(NORMAL_SHOT_DISTANCE, true));
+	
+	ShooterPassButton = SHOOTER_PASS_BUTTON;
+	ShooterPassButton->WhenPressed(new ShooterPassCommandGroup());
 	
 	SmartDashboard::PutData(new ResetGyroCommand());
 }
