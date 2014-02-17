@@ -11,7 +11,7 @@
 class DriveCommandBase: public CommandBase {
 protected:
 	float driveSpeed;
-	double timeout;
+	double timeout;	
 public:
 	DriveCommandBase(float speed, double time, const char *name);
 	virtual void Initialize();
