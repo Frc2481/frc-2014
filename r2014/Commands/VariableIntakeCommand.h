@@ -8,18 +8,15 @@
  *  Author: paulRich, thomasSpeciale
  */
 class VariableIntakeCommand :  public CommandBase {
-private:
-	float tgtSpeed;
 public:
-	VariableIntakeCommand(float speed) {
+	VariableIntakeCommand() {
 		Requires(intake);
-		tgtSpeed = speed;
 	}
 	virtual void Initialize(){
 		if(shooter->IsLatched()) {
 			printf("turn on Intake \n");
 			intake->SetCaptureSolenoid(true);
-			intake->SetRollerSpeed(tgtSpeed);	
+			intake->SetRollerSpeed(0.5);	
 			shooter->SetLeftEar(1);
 			shooter->SetRightEar(1);
 		}
