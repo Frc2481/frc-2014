@@ -31,6 +31,7 @@ SwerveModule::~SwerveModule()
 	delete mDrive;
 	delete mSteer;
 	delete mEncoder;
+	delete mSteerController;
 }
 float SwerveModule::GetAngle()const{
 	return mEncoder->GetAngle();
