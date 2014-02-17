@@ -40,7 +40,7 @@ void ContinuousEncoderCounter::Update() {
 			mRevCount--;
 		}
 		mPrevVoltage = volts;
-		printf("%d %f %f - %f = %f\n", mRevCount, GetVoltage(), 5 - mEncoder->GetAverageVoltage(), mOffset, GetScaledVoltage());
+		//printf("%d %f %f - %f = %f\n", mRevCount, GetVoltage(), 5 - mEncoder->GetAverageVoltage(), mOffset, GetScaledVoltage());
 	}
 	END_REGION;
 }
@@ -77,7 +77,7 @@ void ContinuousEncoderCounter::Zero() {
 	CRITICAL_REGION(mSemaphore) {
 		mRevCount = 0;
 		mOffset = 5 - mEncoder->GetAverageVoltage();
-		printf("RESET -- %d %f %f - %f = %f\n", mRevCount, GetVoltage(), 5 - mEncoder->GetAverageVoltage(), mOffset, GetScaledVoltage());
+		//printf("RESET -- %d %f %f - %f = %f\n", mRevCount, GetVoltage(), 5 - mEncoder->GetAverageVoltage(), mOffset, GetScaledVoltage());
 	}
 	END_REGION;
 }
