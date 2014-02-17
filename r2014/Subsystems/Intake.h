@@ -22,6 +22,7 @@ public:
 	void SetCaptureSolenoid(bool captureOn);
 	bool GetReadySolenoid();
 	bool GetPosition();
+	void SetRollerSpeed(float speed);
 };
 
 #endif /*INTAKE_H_*/

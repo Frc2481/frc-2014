@@ -38,3 +38,8 @@ bool Intake::GetReadySolenoid() {
 bool Intake::GetPosition(){
 	return capture->Get();
 }
+
+void Intake::SetRollerSpeed(float speed)
+{
+	roller->SetSpeed(speed);
+}
