@@ -1,5 +1,5 @@
-#ifndef FIREDISTANCECOMMAND_H
-#define FIREDISTANCECOMMAND_H
+#ifndef MANUALSETSHOOTERPOSITIONCOMMAND_H
+#define MANUALSETSHOOTERPOSITIONCOMMAND_H
 
 #include "../CommandBase.h"
 
@@ -8,18 +8,18 @@
  *
  * @author ExampleAuthor
  */
-class FireDistanceCommand : public CommandBase {
+class ManualSetShooterPositionCommand : public CommandBase {
 private:
 	float distance;
 	bool earsUp;
 public:
-	FireDistanceCommand(float setDistance, bool setEarsUp){
+	ManualSetShooterPositionCommand(float setDistance, bool setEarsUp){
 		distance = setDistance;
 		earsUp = setEarsUp;
 	}
 	virtual void Initialize(){
 		printf(" %f %d \n", distance , earsUp);
-		shooter->SetPosition(distance, earsUp);
+		shooter->ManualSetDistance(distance, earsUp);
 		
 	}
 	virtual void Execute(){

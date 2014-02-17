@@ -19,7 +19,8 @@ ContinuousEncoderCounter::ContinuousEncoderCounter(uint32_t encoderChannel)
 }
 
 ContinuousEncoderCounter::~ContinuousEncoderCounter() {
-	// TODO Auto-generated destructor stub
+	delete mEncoder;
+	delete mUpdate;
 }
 
 
@@ -40,7 +41,7 @@ void ContinuousEncoderCounter::Update() {
 			mRevCount--;
 		}
 		mPrevVoltage = volts;
-		printf("%d %f %f - %f = %f\n", mRevCount, GetVoltage(), 5 - mEncoder->GetAverageVoltage(), mOffset, GetScaledVoltage());
+//		printf("%d %f %f - %f = %f\n", mRevCount, GetVoltage(), 5 - mEncoder->GetAverageVoltage(), mOffset, GetScaledVoltage());
 	}
 	END_REGION;
 }

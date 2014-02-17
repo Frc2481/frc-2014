@@ -65,6 +65,7 @@ public:
 	void SetPositionVolts(float userPosition);
 	float GetDistance();
 	bool OnTarget();
+	void ManualSetDistance(float pos, bool earsUp);
 };
 
 #endif /* SHOOTER_H_ */

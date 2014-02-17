@@ -23,7 +23,7 @@ public:
 	virtual void Execute(){
 	}
 	virtual bool IsFinished(){
-		return true;
+		return shooter->OnTarget();
 	}
 	virtual void End(){
 	}
