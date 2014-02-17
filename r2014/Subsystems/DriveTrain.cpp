@@ -34,10 +34,7 @@ void DriveTrain::InitDefaultCommand() {
 }
 
 void DriveTrain::Stop() {
-	FLWheel = 0;
-	FRWheel = 0;
-	BLWheel = 0;
-	BRWheel = 0;
+	Crab(0,0,0);
 }
 
 void DriveTrain::Crab(double xPos, double yPos, double twist){
@@ -243,6 +240,6 @@ void DriveTrain::SetOptimized(bool optimized){
 	BRWheel->SetOptimized(optimized);
 }
 
-void DriveTrain::ToggleForward() {
-	isForward = !isForward;
+void DriveTrain::SetForward(bool fwd) {
+	isForward = fwd;
 }

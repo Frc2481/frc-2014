@@ -62,7 +62,7 @@ public:
 	float GetWheelAngle(int wheel);
 	void SetWheelAngle(int wheel, float angle);
 	void SetOptimized(bool optimized);
-	void ToggleForward();
+	void SetForward(bool fwd);
 };
 
 #endif /* DRIVETRAIN_H_ */
