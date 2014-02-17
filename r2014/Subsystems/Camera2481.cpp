@@ -8,14 +8,13 @@
 #include "Camera2481.h"
 
 Camera2481::Camera2481() : Subsystem("Camera2481"){
-	cameraTable = NetworkTable::GetTable("HOTTARGET");
+	
 }
 
 bool Camera2481::HasTarget(){	
-	printf("Targets: %d", cameraTable->GetNumber("BLOB_COUNT"));
-	return cameraTable->GetBoolean("HOT_TARGET");
+	printf("Hot Target: %f \n", SmartDashboard::GetNumber("HOTTARGET"));
+	return SmartDashboard::GetBoolean("HOTTARGET");
 }
 
 Camera2481::~Camera2481() {
-	delete cameraTable;
 }
