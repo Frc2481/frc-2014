@@ -18,8 +18,8 @@ class AutoDriveShootCommandGroup: public CommandGroup{
 private:
 public:
 	AutoDriveShootCommandGroup(){
-		AddSequential(new DriveForwardCommand(.5, .5));
-		AddSequential(new AutoSetShooterCommand());
+		AddSequential(new DriveForwardCommand(.5, 2));
+		//AddSequential(new AutoSetShooterCommand());
 		AddSequential(new FireCommandGroup());
 		
 	}
