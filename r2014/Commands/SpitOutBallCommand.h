@@ -17,7 +17,9 @@ public:
 		
 	}
 	virtual void Execute(){
-		intake->Vomit();
+		if(intake->GetPosition()){
+			intake->Vomit();
+		}
 	}
 	virtual bool IsFinished(){
 		return false;

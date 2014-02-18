@@ -23,7 +23,6 @@ public:
 		AddSequential(new DriveForwardCommand(.5, 2));
 		AddSequential(new AutoSetShooterCommand());
 		AddSequential(new FireCommandGroup());
-		
 	}
 	virtual ~AutoDriveShootCommandGroup(){
 		
