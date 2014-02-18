@@ -196,6 +196,7 @@ void Shooter::ValueChanged(ITable* source, const std::string& key, EntryValue va
 	if (key == "p") {
 		if (position != m_table->GetNumber("p")) {
 			position = m_table->GetNumber("p", GetPosition());
+			winchSensor->Zero();
 		}
 	}
 }
