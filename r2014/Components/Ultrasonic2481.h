@@ -15,7 +15,7 @@ class Ultrasonic2481 {
 private:
 	AnalogChannel *ultrasonic;
 	float inchesPerVolt;
-	RollingAccumulator<float, 10> voltageAccum;
+	RollingAccumulator<float, 25> voltageAccum;
 public:
 	Ultrasonic2481(uint32_t ultrasonicChannel);
 	virtual ~Ultrasonic2481();
