@@ -31,6 +31,7 @@ void ContinuousEncoderCounter::UpdateEncoder(void* ptr) {
 
 void ContinuousEncoderCounter::Update() {
 	float volts = GetVoltage();
+	SmartDashboard::PutNumber("encoder voltage", volts);
 	CRITICAL_REGION(mSemaphore) {
 	
 		if (mPrevVoltage > 4 && volts < 1) {
@@ -51,7 +52,7 @@ float ContinuousEncoderCounter::GetVoltage() const {
 	float offset;
 	
 	CRITICAL_REGION(mSemaphore) {
-		volt = 5 - mEncoder->GetAverageVoltage();
+		volt = 5 - mEncoder->GetVoltage();
 		offset = mOffset;
 	}
 	END_REGION;
@@ -63,21 +64,19 @@ float ContinuousEncoderCounter::GetVoltage() const {
 
 double ContinuousEncoderCounter::GetScaledVoltage() const {
 	int count;
-	float volt;
 	
 	CRITICAL_REGION(mSemaphore) {
 		count = mRevCount;
-		volt = GetVoltage();
 	}
 	END_REGION;
 	
-	return (count * .5) + ((volt /  5) * .5);
+	return (count * .5) + ((GetVoltage() /  5) * .5);
 }
 
 void ContinuousEncoderCounter::Zero() {
 	CRITICAL_REGION(mSemaphore) {
 		mRevCount = 0;
-		mOffset = 5 - mEncoder->GetAverageVoltage();
+		mOffset = 5 - mEncoder->GetVoltage();
 		printf("RESET -- %d %f %f - %f = %f\n", mRevCount, GetVoltage(), 5 - mEncoder->GetAverageVoltage(), mOffset, GetScaledVoltage());
 	}
 	END_REGION;
