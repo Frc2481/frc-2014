@@ -68,7 +68,14 @@ bool Shooter::GetRightEar(){
 }
 
 void Shooter::Periodic(){
-	if(latched){
+	if(latched && hasSetPosition){
+
+		if(position > 5){
+			position = 5;
+		}
+		else if (position < 0){
+			position = 0;
+		}
 		if (position  > GetPosition() + WINCH_TOLERANCE){
 			ManualReleaseWinch(.5);
 		}
@@ -79,18 +86,27 @@ void Shooter::Periodic(){
 			ManualStopWinch();
 		}
 	}
+	SmartDashboard::PutNumber("Winch commanded value", winch->Get());
+	SmartDashboard::PutNumber("Shooter Setpoint", position);
 	//printf("shooter position %f \n", position);
 }
 void Shooter::SetPosition(float pos){
 	if (!hasSetPosition) {
 		winchSensor->Zero();
 	}
-		if(pos < 8){
+		if(pos > 16){
+			position = 3.5;
+		}
+		else if(pos < 5){
 	//		position = ((0.0128 * pow(pos, 2)) - (0.1789 * pos)) + 2.2133;
 			position = (-0.0104 * pow(pos, 3)) + (0.15 * pow(pos,2)) + (-0.5083 * pos) + 1.4;
 			//position = -.0104 * pow(pos, 3) + .15 * pow(pos, 2) + .5083* pos + 1.4;
+			
+			
+			//position = (-0.1274 * pow(pos, 4)) + (1.6587 * pow(pos, 3)) + (-7.7484 * pow(pos, 2)) + (15.131 * pos) + -8.7925;
 		}
 		else {
+			//position = (-0.00004 * pow(pos, 6)) + (0.0025 * pow(pos, 5)) + (-0.0577 * pow(pos, 4)) + (0.6575 * pow(pos, 3)) + (-3.6608 * pow(pos, 2)) + (7.9492 * pos) + 2.3762;
 			position = (-0.0009 * pow(pos, 4)) + (0.0448 * pow(pos, 3)) + (-.0834 * pow(pos, 2)) + (6.8458 * pos) - 19.1;
 			//position = (.1 * pos) + .7;
 		}
@@ -113,12 +129,15 @@ void Shooter::SetPosition(float pos, bool earsUp) {
 	if (!hasSetPosition) {
 		winchSensor->Zero();
 	}
-		if(pos < 8){
-			position = (-0.0104 * pow(pos, 3)) + (0.15 * pow(pos,2)) + (-0.5083 * pos) + 1.4;
+		if(pos > 16){
+			position = 3.5;
+		}
+		else if(pos < 5){
+			position = (-0.1274 * pow(pos, 4)) + (1.6587 * pow(pos, 3)) + (-7.7484 * pow(pos, 2)) + (15.131 * pos) + -8.7925;
 			//position = (0.1783 * pos) + 1.3027;
 		}
 		else {
-			position = (-0.0009 * pow(pos, 4)) + (0.0448 * pow(pos, 3)) + (-.0834 * pow(pos, 2)) + (6.8458 * pos) - 19.1;
+			position = (-0.00004 * pow(pos, 6)) + (0.0025 * pow(pos, 5)) + (-0.0577 * pow(pos, 4)) + (0.6575 * pow(pos, 3)) + (-3.6608 * pow(pos, 2)) + (7.9492 * pos) + 2.3762;
 			//position = (.1 * pos) + .7;
 		}
 		shooterEarLeft->Set(!earsUp);
@@ -138,15 +157,20 @@ void Shooter::ManualRetractWinch(float speed){
 //	else{
 //		ManualStopWinch();
 //	}
-	winch->Set(speed);
+//	if (hasSetPosition || !latched){
+		winch->Set(speed);
+//	}
+//	else {
+//		winch->Set(0);
+//	}
 }
 void Shooter::ManualReleaseWinch(float speed){
-	if(winchSensor->GetScaledVoltage() < 4.8){
+//	if(winchSensor->GetScaledVoltage() < 4.8){
 		winch->Set(-speed);
-	}
-	else{
-		ManualStopWinch();
-	}
+//	}
+//	else{
+//		ManualStopWinch();
+//	}
 }
 void Shooter::ManualFire(){
 	if (OnTarget()) {
@@ -196,7 +220,10 @@ void Shooter::ValueChanged(ITable* source, const std::string& key, EntryValue va
 	if (key == "p") {
 		if (position != m_table->GetNumber("p")) {
 			position = m_table->GetNumber("p", GetPosition());
-			winchSensor->Zero();
+			if(!hasSetPosition){
+				winchSensor->Zero();
+			}
+			hasSetPosition = true;
 		}
 	}
 }
@@ -228,7 +255,7 @@ void Shooter::CockWinch(){
 	if(potSwitch->Get()){
 		switchCounter++;
 		ManualLatch();
-		
+		position = 0;
 	}
 	else{
 		switchCounter = 0;
