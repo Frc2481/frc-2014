@@ -76,7 +76,7 @@ double ContinuousEncoderCounter::GetScaledVoltage() const {
 void ContinuousEncoderCounter::Zero() {
 	CRITICAL_REGION(mSemaphore) {
 		mRevCount = 0;
-		mOffset = 5 - mEncoder->GetVoltage();
+		mOffset = 4.5 - mEncoder->GetVoltage();
 		printf("RESET -- %d %f %f - %f = %f\n", mRevCount, GetVoltage(), 5 - mEncoder->GetAverageVoltage(), mOffset, GetScaledVoltage());
 	}
 	END_REGION;
