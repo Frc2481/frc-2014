@@ -25,6 +25,8 @@ Shooter::Shooter(uint32_t winchChannel, uint32_t winchSensorChannel, uint32_t ea
 	m_table(NULL),
 	hasSetPosition(false){
 	
+	winch->SetSafetyEnabled(true);
+	
 	if(potSwitch->Get()){
 		latched = true;
 		winchSensor->Zero();
@@ -68,8 +70,11 @@ bool Shooter::GetRightEar(){
 }
 
 void Shooter::Periodic(){
+	if(position < .125){
+		position = .125;
+	}
 	if(latched && hasSetPosition){
-
+		
 		if(position > 3.6){
 			position = 3.6;
 		}
@@ -80,7 +85,6 @@ void Shooter::Periodic(){
 			ManualReleaseWinch(1);
 		}
 		else if (position < GetPosition() - WINCH_TOLERANCE){
-			printf("retract periodic %f %f \n", position, GetPosition());
 			ManualRetractWinch(1);
 		}
 		else {
@@ -93,7 +97,7 @@ void Shooter::Periodic(){
 }
 void Shooter::SetPosition(float pos){
 	if (!hasSetPosition) {
-//		winchSensor->Zero();
+		winchSensor->Zero();
 	}
 	if(latched){
 		if(pos > 16){
@@ -115,7 +119,7 @@ void Shooter::SetPosition(float pos){
 			//position = (.1 * pos) + .7;
 		}
 		
-		//printf("Pos: %f Position: %f\n", pos, position);
+		printf("Pos: %f Position: %f\n", pos, position);
 		hasSetPosition = true;
 		
 		if (pos < 5){
@@ -126,13 +130,13 @@ void Shooter::SetPosition(float pos){
 			shooterEarLeft->Set(0);
 			shooterEarRight->Set(0);
 		}
-		printf("%f %f \n", pos, position);
+		//printf("%f %f \n", pos, position);
 	}
 }
 
 void Shooter::SetPosition(float pos, bool earsUp) {
 	if (!hasSetPosition) {
-//		winchSensor->Zero();
+		winchSensor->Zero();
 	}
 	if(latched){
 		if(pos > 16){
@@ -149,7 +153,7 @@ void Shooter::SetPosition(float pos, bool earsUp) {
 		shooterEarLeft->Set(!earsUp);
 		shooterEarRight->Set(!earsUp);
 		hasSetPosition = true;
-		printf("%f %f \n", pos, position);
+		//printf("%f %f \n", pos, position);
 	}
 }
 
@@ -183,7 +187,7 @@ void Shooter::ManualFire(){
 	if (OnTarget()) {
 		latched = false;
 		release->Set(1);
-		position = 0;
+		position = .125;
 		hasSetPosition = false;
 		ManualStopWinch();
 	}
@@ -268,16 +272,16 @@ void Shooter::CockWinch(){
 	else{
 		switchCounter = 0;
 		ManualUnlatch();
-		printf("Retract Cock Winch \n");
 		ManualRetractWinch();
 	}
 	if(switchCounter > 10){
 		ManualStopWinch();
 	}
-	if (switchCounter > 50) {
+	if(switchCounter > 20){
 		switchCounter = 0;
 		latched = true;
 		winchSensor->Zero();
+		
 	}
 }
 void Shooter::SetPositionVolts(float userPosition){
