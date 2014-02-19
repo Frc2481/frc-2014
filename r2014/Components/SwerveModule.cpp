@@ -12,7 +12,8 @@ SwerveModule::SwerveModule(uint32_t driveChannel, uint32_t steerChannel, uint32_
 				prevAngle(0),
 				optimized(true)
 {
-	
+	mDrive->SetSafetyEnabled(true);
+	mSteer->SetSafetyEnabled(true);
 	mSteerController->SetOutputRange(-1,1);
 
 	mSteerController->SetInputRange(0, 360);

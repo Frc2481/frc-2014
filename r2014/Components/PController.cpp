@@ -21,10 +21,10 @@ PController::PController(PIDSource* userInput, PIDOutput* userOutput, float pVal
 			inputRange(5),
 			outputRangeUpper(1),
 			outputRangeLower(-1),
-			setPoint(0),
-			enabled(true),		
+			enabled(true),
 			onTarget(false),
 			pidOutput(0),
+			setPoint(0),
 			pSemaphore(semMCreate(SEM_Q_PRIORITY)),
 			pUpdate(new Notifier(PController::UpdateController, this)){
 	pUpdate->StartPeriodic(.004);
