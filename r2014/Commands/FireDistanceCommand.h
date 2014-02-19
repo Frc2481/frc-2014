@@ -18,7 +18,7 @@ public:
 		earsUp = setEarsUp;
 	}
 	virtual void Initialize(){
-		printf(" %f %d \n", distance , earsUp);
+		printf("Fire Distance Command Distance: %f Ears: %d \n", distance , earsUp);
 		shooter->SetPosition(distance, earsUp);
 		
 	}

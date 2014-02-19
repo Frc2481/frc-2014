@@ -18,6 +18,7 @@ public:
 		
 	}
 	virtual void Initialize(){
+		printf("SetShooterToThrottle distance: %f \n",((-oi->GetThrottleStick()->GetRawAxis(3) + 1) / 2) * 16);
 		shooter->SetPosition(((-oi->GetThrottleStick()->GetRawAxis(3) + 1) / 2) * 16);
 	}
 	virtual void Execute(){

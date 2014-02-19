@@ -20,8 +20,8 @@ public:
 			printf("turn on Intake \n");
 			intake->SetCaptureSolenoid(true);
 			intake->SetRollerSpeed(tgtSpeed);	
-			shooter->SetLeftEar(1);
-			shooter->SetRightEar(1);
+//			shooter->SetLeftEar(1);
+//			shooter->SetRightEar(1);
 		}
 	}
 	virtual void Execute(){

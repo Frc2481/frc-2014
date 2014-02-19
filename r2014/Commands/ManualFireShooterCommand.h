@@ -12,16 +12,18 @@
 #include "../ControllerMap.h"
 
 class ManualFireShooterCommand: public CommandBase {
-
+private:
+	bool auton;
 public:
-	ManualFireShooterCommand(){
+	ManualFireShooterCommand(bool autonomous = false){
+		auton = autonomous;
 		Requires(shooter);
 	}
 	virtual ~ManualFireShooterCommand(){
 		
 	}
 	virtual void Initialize(){
-		if (!intake->GetPosition()) {
+		if (auton || !intake->GetPosition()) {
 			shooter->ManualFire();
 		}
 	}

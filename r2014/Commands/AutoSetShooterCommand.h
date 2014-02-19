@@ -11,14 +11,23 @@
 #include "../CommandBase.h"
 
 class AutoSetShooterCommand: public CommandBase {
+private:
+	bool auton;
 public:
-	AutoSetShooterCommand(){
+	AutoSetShooterCommand(bool autonomous = false){
+		auton = autonomous;
 	}
 	virtual ~AutoSetShooterCommand(){
 		
 	}
 	virtual void Initialize(){
-		shooter->SetPosition(distanceSensors->GetRight() / 12);
+		printf("AutoSetShooterCommand Distanc: %f \n", distanceSensors->GetRight());
+		if(auton){
+			shooter->SetPosition(distanceSensors->GetRight() / 12, false);
+		}
+		else {
+			shooter->SetPosition(distanceSensors->GetRight() / 12);
+		}
 	}
 	virtual void Execute(){
 	}

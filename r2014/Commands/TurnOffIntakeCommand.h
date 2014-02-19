@@ -11,11 +11,13 @@
  */
 class TurnOffIntakeCommand: public CommandBase {
 private:
+	bool auton;
 	int count;
 public:
-	TurnOffIntakeCommand(){
+	TurnOffIntakeCommand(bool autonomous = false){
 		Requires(intake);
 		count = 0;
+		auton = autonomous;
 	}
 	virtual void Initialize(){
 		intake->SetCaptureSolenoid(false);
@@ -28,7 +30,7 @@ public:
 		count++;
 	}
 	virtual bool IsFinished(){
-		if (TimeSinceInitialized() > 1.5) {
+		if (TimeSinceInitialized() > 1.5 || (TimeSinceInitialized() > .75 && auton)) {
 			intake->RollerOff();
 			if(!shooter->HasSetPosition()){
 				shooter->SetLeftEar(0);

@@ -16,9 +16,9 @@
 
 class FireCommandGroup: public CommandGroup{
 public:
-	FireCommandGroup(){
-		AddSequential(new ManualFireShooterCommand());
-		AddSequential(new WaitCommand(1.5));
+	FireCommandGroup(bool auton = false){
+		AddSequential(new ManualFireShooterCommand(auton));
+		AddSequential(new WaitCommand(.25));
 		AddSequential(new AutoCockShooterCommand());
 	}
 	virtual ~FireCommandGroup(){
