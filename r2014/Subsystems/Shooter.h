@@ -65,6 +65,7 @@ public:
 	void SetPositionVolts(float userPosition);
 	float GetDistance();
 	bool OnTarget();
+	bool HasSetPosition();
 	void ManualSetDistance(float pos, bool earsUp);
 };
 
