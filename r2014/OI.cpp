@@ -29,6 +29,7 @@
 #include "Commands/SetForwardCommand.h"
 #include "Commands/FireDistanceCommand.h"
 #include "Commands/ShooterPassCommandGroup.h"
+#include "Commands/ManualSetShooterPositionCommand.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -77,6 +78,7 @@ OI::OI() {
 
 	ManualFireButton = FIRE_BUTTON;
 	ManualFireButton->WhenPressed(new FireCommandGroup());	
+	//ManualFireButton->WhileHeld(new RetractShooterCommand());	
 	
 //	ManualLatchButton = new JoystickButton(auxStick, MANUAL_LATCH_BUTTON);
 //	ManualLatchButton->WhenPressed(new ManualLatchShooterCommand());
@@ -101,6 +103,7 @@ OI::OI() {
 	
 	AutoCockShooterButton = AUTO_COCK_SHOOTER_BUTTON;
 	AutoCockShooterButton->WhenPressed(new AutoCockShooterCommand());
+	//AutoCockShooterButton->WhileHeld(new ReleaseShooterCommand());
 	
 	AutoSetShooterButton = AUTO_SET_SHOOTER_BUTTON;
 	AutoSetShooterButton->WhileHeld(new AutoSetShooterCommand());
@@ -124,16 +127,16 @@ OI::OI() {
 	BackwardButton->WhenPressed(new SetForwardCommand(false));
 	
 	TrussPassButton = TRUSS_PASS_BUTTON;
-	TrussPassButton->WhenPressed(new FireDistanceCommand(TRUSS_SHOT_DISTANCE, false));
+	TrussPassButton->WhenPressed(new ManualSetShooterPositionCommand(TRUSS_SHOT_DISTANCE, false));
 	
 	OutletPassButton = OUTLET_PASS_BUTTON;
-	OutletPassButton->WhenPressed(new FireDistanceCommand(OUTLET_SHOT_DISTANCE, true));
+	OutletPassButton->WhenPressed(new ManualSetShooterPositionCommand(OUTLET_SHOT_DISTANCE, true));
 	
 	CornerShotButton = CORNER_SHOT_BUTTON;
-	CornerShotButton->WhenPressed(new FireDistanceCommand(CORNER_SHOT_DISTANCE, false));
+	CornerShotButton->WhenPressed(new ManualSetShooterPositionCommand(CORNER_SHOT_DISTANCE, false));
 	
 	NormalShotButton = NORMAL_SHOT_BUTTON;
-	NormalShotButton->WhenPressed(new FireDistanceCommand(NORMAL_SHOT_DISTANCE, true));
+	NormalShotButton->WhenPressed(new ManualSetShooterPositionCommand(NORMAL_SHOT_DISTANCE, true));
 	
 	ShooterPassButton = SHOOTER_PASS_BUTTON;
 	ShooterPassButton->WhenPressed(new ShooterPassCommandGroup());
