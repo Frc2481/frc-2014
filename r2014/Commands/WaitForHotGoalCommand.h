@@ -12,6 +12,7 @@
 class WaitForHotGoalCommand: public CommandBase {
 public:
 	WaitForHotGoalCommand(){
+		SetTimeout(5);
 	}
 	virtual ~WaitForHotGoalCommand(){
 		
@@ -21,7 +22,7 @@ public:
 	virtual void Execute(){
 	}
 	virtual bool IsFinished(){
-		return camera->HasTarget();
+		return camera->HasTarget() ||  IsTimedOut();
 	}
 	virtual void End(){
 	}
