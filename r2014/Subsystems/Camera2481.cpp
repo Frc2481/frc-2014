@@ -16,7 +16,9 @@ bool Camera2481::HasTarget(){
 //		printf("Hot Target: %f \n", SmartDashboard::GetNumber("HOTTARGET"));
 		return SmartDashboard::GetBoolean("HOTTARGET");
 	} 
-	catch(int e){}
+	catch(int e){
+		return false;
+	}
 }
 
 Camera2481::~Camera2481() {
