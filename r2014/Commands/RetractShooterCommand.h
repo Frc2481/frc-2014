@@ -26,7 +26,7 @@ public:
 		return false;
 	}
 	virtual void End(){
-		shooter->SetPosition(shooter->GetPosition());
+		//shooter->SetPosition(shooter->GetPosition());
 		shooter->ManualStopWinch();
 	}
 	virtual void Interrupted(){

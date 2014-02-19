@@ -13,7 +13,7 @@ class ShooterPassCommandGroup: public CommandGroup{
 private:
 public:
 	ShooterPassCommandGroup(){
-		AddSequential(new ManualSetShooterPositionCommand(.1, true));
+		AddSequential(new ManualSetShooterPositionCommand(.125, true));
 		AddSequential(new ManualFireShooterCommand());
 		AddSequential(new WaitCommand(.5));
 		AddParallel(new ReleaseShooterCommand());

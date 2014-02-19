@@ -20,10 +20,16 @@ class AutoTwoBallCommandGroup: public CommandGroup{
 private:
 public:
 	AutoTwoBallCommandGroup(){
-		AddSequential(new SetForwardCommand(false));
-		AddSequential(new TurnOnIntakeCommand);
-		AddSequential(new DriveForwardCommand(.5, .5));
+		AddSequential(new SetForwardCommand(true));
+		AddSequential(new VariableIntakeCommand(1.0));
+		AddSequential(new WaitCommand(1.5));
+		AddSequential(new DriveForwardCommand(.7,2));
 		AddSequential(new AutoSetShooterCommand());
+		AddSequential(new VariableIntakeCommand(.42));
+		AddSequential(new WaitCommand(.5));
+		AddSequential(new VariableIntakeCommand(-1));
+		AddSequential(new WaitCommand(.47));
+		AddSequential(new VariableIntakeCommand(0));
 		AddSequential(new FireCommandGroup());
 		AddSequential(new TurnOffIntakeCommand());
 		AddSequential(new FireCommandGroup());

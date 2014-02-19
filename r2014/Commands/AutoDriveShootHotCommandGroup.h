@@ -20,9 +20,9 @@ class AutoDriveShootHotCommandGroup: public CommandGroup{
 private:
 public:
 	AutoDriveShootHotCommandGroup(){
-		AddSequential(new SetForwardCommand(false));
-		AddSequential(new DriveForwardCommand(.5, .5));
-		//AddSequential(new AutoSetShooterCommand());
+		AddSequential(new SetForwardCommand(true));
+		AddSequential(new DriveForwardCommand(.5, 2));
+		AddSequential(new AutoSetShooterCommand());
 		AddSequential(new WaitForHotGoalCommand());
 		AddSequential(new FireCommandGroup());
 	}

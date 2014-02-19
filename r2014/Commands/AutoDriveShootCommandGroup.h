@@ -19,9 +19,10 @@ class AutoDriveShootCommandGroup: public CommandGroup{
 private:
 public:
 	AutoDriveShootCommandGroup(){
-		AddSequential(new SetForwardCommand(false));
+		AddSequential(new SetForwardCommand(true));
 		AddSequential(new DriveForwardCommand(.5, 2));
 		AddSequential(new AutoSetShooterCommand());
+		AddSequential(new WaitCommand(.25));
 		AddSequential(new FireCommandGroup());
 	}
 	virtual ~AutoDriveShootCommandGroup(){

@@ -30,8 +30,10 @@ public:
 	virtual bool IsFinished(){
 		if (TimeSinceInitialized() > 1.5) {
 			intake->RollerOff();
-			shooter->SetLeftEar(0);
-			shooter->SetRightEar(0);
+			if(!shooter->HasSetPosition()){
+				shooter->SetLeftEar(0);
+				shooter->SetRightEar(0);
+			}
 			return true;
 		}
 		return false;
