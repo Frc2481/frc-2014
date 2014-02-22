@@ -15,11 +15,10 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 				FRWheel(new SwerveModule(FRDRIVE, FRSTEER, FRENCODER)), 
 				BRWheel(new SwerveModule(BRDRIVE, BRSTEER, BRENCODER)),
 				BLWheel(new SwerveModule(BLDRIVE, BLSTEER, BLENCODER)),
-				isFieldCentric(false), 
+				gyro(new Gyro(GYRO_CHANNEL)),
+				isFieldCentric(true), 
 				isForward(true) {
-//				headingSource(new HeadingSource(GYRO_CHANNEL, COMPASS_MODULE)){
 
-				//wiiGyro(new WiiGyro(COMPASS_MODULE)){
 	printf("Pre DriveTrain Constructor \n");
 	prevAngle = 90.0;
 	FLWheel->SetOffset(PersistedSettings::GetInstance().Get("FL_ENCODER_OFFSET"));
@@ -43,7 +42,7 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 
 	twist = -twist * .4;
 	if (isFieldCentric) {
-		heading = headingSource->GetHeading();
+		heading = gyro->GetAngle();
 		FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
 		STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
 	}
@@ -57,11 +56,6 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 	else {
 		STR = -STR;
 	}
-	
-	//if(headingSource->ResetWii()){
-	//	headingSource->ResetGyro();
-	//}
-//	
 	
 	SmartDashboard::PutNumber("FWD", FWD);
 	SmartDashboard::PutNumber("STR", STR);
@@ -113,8 +107,6 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 	SmartDashboard::PutNumber("wheelAngleFL", wheelAngleFL);
 	SmartDashboard::PutNumber("wheelAngleBR", wheelAngleBR);
 	SmartDashboard::PutNumber("wheelAngleBL", wheelAngleBL);
-	//SmartDashboard::PutNumber("heading", headingSource->GetHeading());
-//	SmartDashboard::PutData(resetGyroCommand);
 	
 	//if (fieldCentric) {
 	/*
@@ -199,16 +191,10 @@ void DriveTrain::SetI(float i) {
 	BLWheel->GetController()->SetI(i);
 }
 void DriveTrain::ResetGyro(){
-//	headingSource->ResetGyro();
-	//wiiGyro->reset();
+	gyro->Reset();
 	printf("\n\n reset wii in driveTrain \n \n");
 }
-void DriveTrain::UpdateCompass(bool done){
-	//headingSource->CompassPeriodic(done);
-}
-void DriveTrain::SetFieldOffset(){
-	//headingSource->SetZeroAngle();
-}
+
 float DriveTrain::GetHeading(){
 	return heading;
 }

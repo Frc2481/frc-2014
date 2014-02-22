@@ -53,7 +53,6 @@ private:
 	virtual void AutonomousInit() {
 		CommandBase::intake->SetReadySolenoid(true);
 		autonomousCommand->Start();
-		CommandBase::driveTrain->SetFieldOffset();
 		autoCommand = (CommandGroup*)autoOptions->GetSelected();
 		autoCommand->Start();
 	}

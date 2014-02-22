@@ -22,9 +22,7 @@ private:
 	SwerveModule *FRWheel;
 	SwerveModule *BRWheel;
 	SwerveModule *BLWheel;
-	HeadingSource *headingSource;
-	WiiGyro *wiiGyro;
-	//ResetGyroCommand *resetGyroCommand;
+	Gyro * gyro;
 	
 	static const double pi = 3.14159;
 	double baseWidth;
@@ -54,8 +52,6 @@ public:
 	void SetI(float i);
 	float GetI();
 	void ResetGyro();
-	void UpdateCompass(bool done);
-	void SetFieldOffset();
 	float GetHeading();
 	void Stop();
 	void SetFieldCentric(bool fieldCentric);

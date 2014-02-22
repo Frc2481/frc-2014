@@ -3,8 +3,6 @@
 #include "Commands/SetICommand.h"
 #include "Commands/SetPCommand.h"
 #include "Commands/ResetGyroCommand.h"
-#include "Commands/CalibrateCompassCommand.h"
-#include "Commands/SetFieldOffsetCommand.h"
 #include "Commands/JukeCommand.h"
 #include "Robotmap.h"
 #include "RobotParameters.h"
