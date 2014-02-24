@@ -22,6 +22,6 @@ void Ultrasonic2481::SetInchesPerVolt(float inchesPerVolt){
 	this->inchesPerVolt = inchesPerVolt;
 }
 float Ultrasonic2481::GetRawVoltage(){
-	voltageAccum.add(ultrasonic->GetAverageVoltage());
+	voltageAccum.add(ultrasonic->GetVoltage());
 	return voltageAccum.avg();
 }
