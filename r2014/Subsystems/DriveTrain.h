@@ -37,6 +37,7 @@ private:
 	float heading;
 	bool isFieldCentric;
 	bool isForward;
+	bool gyroCorrection;
 public:
 	DriveTrain();
 	virtual ~DriveTrain();
@@ -59,6 +60,8 @@ public:
 	void SetWheelAngle(int wheel, float angle);
 	void SetOptimized(bool optimized);
 	void SetForward(bool fwd);
+	void SetGyroCorrection(bool b);
+	bool IsGyroCorrection() const;
 };
 
 #endif /* DRIVETRAIN_H_ */

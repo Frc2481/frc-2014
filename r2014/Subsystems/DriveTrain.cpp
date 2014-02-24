@@ -16,7 +16,7 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 				BRWheel(new SwerveModule(BRDRIVE, BRSTEER, BRENCODER)),
 				BLWheel(new SwerveModule(BLDRIVE, BLSTEER, BLENCODER)),
 				gyro(new Gyro(GYRO_CHANNEL)),
-				isFieldCentric(true), 
+				isFieldCentric(false),
 				isForward(true) {
 
 	printf("Pre DriveTrain Constructor \n");
@@ -25,6 +25,7 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 	FRWheel->SetOffset(PersistedSettings::GetInstance().Get("FR_ENCODER_OFFSET"));
 	BRWheel->SetOffset(PersistedSettings::GetInstance().Get("BR_ENCODER_OFFSET"));
 	BLWheel->SetOffset(PersistedSettings::GetInstance().Get("BL_ENCODER_OFFSET"));
+	gyroCorrection = false;
 	printf("post DriveTrain Constructor \n");
 }
 
@@ -40,9 +41,16 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 	double FWD;
 	double STR;
 
+	float gyroAngle = gyro->GetAngle();
+
+	if (gyroCorrection) {
+		twist = -gyroAngle / 30.0;
+		printf("GYRO CORRECTION\n");
+	}
+
 	twist = -twist * .4;
 	if (isFieldCentric) {
-		heading = gyro->GetAngle();
+		heading = gyroAngle;
 		FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
 		STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
 	}
@@ -60,6 +68,7 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 	SmartDashboard::PutNumber("FWD", FWD);
 	SmartDashboard::PutNumber("STR", STR);
 	SmartDashboard::PutNumber("twist", twist);
+	SmartDashboard::PutNumber("Wii Gyro Yaw Rate", gyroAngle);
 
 	double A = STR - twist * baseLength / radius;
 	double B = STR + twist * baseLength / radius;
@@ -200,6 +209,7 @@ float DriveTrain::GetHeading(){
 }
 
 void DriveTrain::SetFieldCentric(bool fieldCentric) {
+	gyro->Reset();
 	isFieldCentric = fieldCentric;
 }
 
@@ -228,4 +238,11 @@ void DriveTrain::SetOptimized(bool optimized){
 
 void DriveTrain::SetForward(bool fwd) {
 	isForward = fwd;
+}
+
+void DriveTrain::SetGyroCorrection(bool b) {
+	gyroCorrection = b;
+}
+bool DriveTrain::IsGyroCorrection() const {
+	return gyroCorrection;
 }
