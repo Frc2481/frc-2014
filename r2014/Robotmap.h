@@ -46,8 +46,8 @@
 #define BRENCODER 4
 #define FLENCODER 5
 #define WINCH_SENSOR 6
-#define ULTRASONIC_RIGHT 7
-#define ULTRASONIC_LEFT 1
+#define ULTRASONIC_RIGHT 8
+//#define ULTRASONIC_LEFT 7
 
 //Digital Inputs
 #define POT_SWITCH 			1
