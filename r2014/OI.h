@@ -44,7 +44,7 @@ private:
 //	Button *IncShooterButton;
 //	Button *DecShooterButton;
 	Button *ShooterToThrottleButton;
-//	Button *ToggleFieldCentricButton;
+	Button *ToggleFieldCentricButton;
 	Button *ForwardButton;
 	Button *BackwardButton;
 	Button *TrussPassButton;

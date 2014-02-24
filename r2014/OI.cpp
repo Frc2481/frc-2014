@@ -115,8 +115,8 @@ OI::OI() {
 	ShooterToThrottleButton = SHOOTER_TO_THROTTLE_BUTTON;
 	ShooterToThrottleButton->WhenPressed(new SetShooterToThrottleCommand());
 	
-//	ToggleFieldCentricButton = TOGGLE_FIELD_CENTRIC_BUTTON;
-//	ToggleFieldCentricButton->WhileHeld(new ToggleFieldCentricCommand());
+	ToggleFieldCentricButton = TOGGLE_FIELD_CENTRIC_BUTTON;
+	ToggleFieldCentricButton->WhileHeld(new ToggleFieldCentricCommand());
 	
 	ForwardButton = FORWARD_BUTTON;
 	ForwardButton->WhenPressed(new SetForwardCommand(true));
