@@ -14,9 +14,9 @@
 class DistanceSensors: public Subsystem {
 private:
 	Ultrasonic2481 *rightSensor;
-	Ultrasonic2481 *leftSensor;
+	//Ultrasonic2481 *leftSensor;
 public:
-	DistanceSensors(uint32_t right, uint32_t left);
+	DistanceSensors(uint32_t right);
 	virtual ~DistanceSensors();
 	float Get();
 	float GetRight();
