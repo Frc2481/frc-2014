@@ -25,7 +25,7 @@ private:
 	CSVRecord& csvFile;
 	Gyro *gyro;
 	LSM303 *compass;
-	WiiGyro *wiiGyro;
+//	WiiGyro *wiiGyro;
 	int gyroCounter;
 	int compassCounter;
 	float prevHeading;

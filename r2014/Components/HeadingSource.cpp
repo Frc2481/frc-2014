@@ -12,8 +12,8 @@
 
 HeadingSource::HeadingSource(uint32_t gyroChannel, uint8_t compassChannel)
 		: csvFile(CSVRecord::getInstance()){
-//	gyro = new Gyro(gyroChannel);
-	wiiGyro = new WiiGyro(compassChannel);
+	gyro = new Gyro(gyroChannel);
+//	wiiGyro = new WiiGyro(compassChannel);
 	//compass = new Compass(compassChannel);
 	compass = new LSM303(compassChannel);
 	compass->init();
@@ -41,7 +41,7 @@ HeadingSource::HeadingSource(uint32_t gyroChannel, uint8_t compassChannel)
 }
 
 HeadingSource::~HeadingSource() {
-	delete gyro;
+	//delete gyro;
 //	delete compass;
 }
 
@@ -70,8 +70,8 @@ void HeadingSource::periodic(){
 //    _gyroCosAccum.add(cos(gyro->GetAngle() / 180 * PI));
 //    float gyroAvg = (int)((atan2(_gyroSinAccum.avg(), _gyroCosAccum.avg()) * 180 / PI) + 360) % 360;
     
-    _gyroSinAccum.add(sin(wiiGyro->GetYaw() / 180 * PI));
-	_gyroCosAccum.add(cos(wiiGyro->GetYaw() / 180 * PI));
+//    _gyroSinAccum.add(sin(gyro->GetRate() / 180 * PI));
+//	_gyroCosAccum.add(cos(gyro->GetRate() / 180 * PI));
 	float gyroAvg = (int)((atan2(_gyroSinAccum.avg(), _gyroCosAccum.avg()) * 180 / PI) + 360) % 360;
     
     _compassSinAccum.add(sin(compass->heading() / 180 * PI));
@@ -94,14 +94,14 @@ void HeadingSource::periodic(){
    // SmartDashboard::PutNumber("RawCompassAngle", compass->heading());
     
 //    _gyroRateAccum.add(fabs(gyro->GetRate()));
-    _gyroRateAccum.add(fabs(wiiGyro->GetRate()));
+//    _gyroRateAccum.add(fabs(gyro->GetRate()));
     
-    
-    if(_gyroRateAccum.avg() < 20){
-        gyroCounter++;
-    }else{
-        gyroCounter = 0;
-    }
+//    
+//    if(_gyroRateAccum.avg() < 20){
+//        gyroCounter++;
+//    }else{
+//        gyroCounter = 0;
+//    }
 
     
 //    if(gyroCounter > 25 && compassCounter > 15){
@@ -113,28 +113,28 @@ void HeadingSource::periodic(){
 //        printf("Zeroing gyro\n");
 //    }
     
-    if(zeroCompassAngle < 20 && compassAngle > 330){
-    	compassAngle -= 360;
-    }
-    else if(zeroCompassAngle > 340 && compassAngle < 30){
-    	compassAngle += 360;
-    }
-    
-    if(compassAngle < zeroCompassAngle + 10 && compassAngle > zeroCompassAngle - 10){
-        compassCounter++;
-    }else{
-        compassCounter = 0;
-    }
-    SmartDashboard::PutNumber("compass Corrected", compassAngle);
-    
-    if(compassCounter > 20 && gyroCounter > 20){
-    	compassCounter = 0;
-    	gyroCounter = 0;
-    	resetWii = true;
-    }
-    else {
-    	resetWii = false;
-    }
+//    if(zeroCompassAngle < 20 && compassAngle > 330){
+//    	compassAngle -= 360;
+//    }
+//    else if(zeroCompassAngle > 340 && compassAngle < 30){
+//    	compassAngle += 360;
+//    }
+//    
+//    if(compassAngle < zeroCompassAngle + 10 && compassAngle > zeroCompassAngle - 10){
+//        compassCounter++;
+//    }else{
+//        compassCounter = 0;
+//    }
+//    SmartDashboard::PutNumber("compass Corrected", compassAngle);
+//    
+//    if(compassCounter > 20 && gyroCounter > 20){
+//    	compassCounter = 0;
+//    	gyroCounter = 0;
+//    	resetWii = true;
+//    }
+//    else {
+//    	resetWii = false;
+//    }
    
     //prevCompass = compassAngle;
 
@@ -154,7 +154,7 @@ void HeadingSource::periodic(){
     
 }
 void HeadingSource::ResetGyro(){
-	wiiGyro->reset();
+//	gyro->Reset();
 }
 void HeadingSource::CompassPeriodic(bool done){
 //	printf("xMin %d, yMin %d, zMin %d, xMax %d, yMax %d, zMin %d \n", runningMin.x, runningMin.y, runningMin.z, runningMax.x, runningMax.y, runningMax.z);	
