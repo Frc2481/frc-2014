@@ -11,6 +11,7 @@
 
 class Camera2481 : public Subsystem {
 private:
+	NetworkTable* mTable;
 public:
 	Camera2481();
 	bool HasTarget();

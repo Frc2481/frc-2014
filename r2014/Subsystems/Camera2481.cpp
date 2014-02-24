@@ -8,13 +8,14 @@
 #include "Camera2481.h"
 
 Camera2481::Camera2481() : Subsystem("Camera2481"){
-	
+	mTable = NetworkTable::GetTable("RoboRealm");
 }
 
 bool Camera2481::HasTarget(){
 	try{
-//		printf("Hot Target: %f \n", SmartDashboard::GetNumber("HOTTARGET"));
-		return SmartDashboard::GetBoolean("HOTTARGET");
+		int ht = (int)mTable->GetNumber("HOTTARGET", 2);
+		SmartDashboard::PutNumber("HOTTARGET", ht);
+		return ht == 1;
 	} 
 	catch(int e){
 		return false;
