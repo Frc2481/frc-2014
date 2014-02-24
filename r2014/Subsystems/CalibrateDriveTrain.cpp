@@ -123,3 +123,9 @@ void CalibrateDriveTrain::SetWheelAngle(int wheel, float angle){
 }
 void CalibrateDriveTrain::SetOptimized(bool optimized){
 }
+void CalibrateDriveTrain::SetForward(bool fwd) {
+}
+void CalibrateDriveTrain::SetGyroCorrection(bool b) {
+}
+void CalibrateDriveTrain::SetFieldCentric(bool fieldCentric) {
+}

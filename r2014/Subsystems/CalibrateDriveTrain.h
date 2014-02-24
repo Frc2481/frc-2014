@@ -48,7 +48,7 @@ public:
 	CalibrateDriveTrain();
 	virtual ~CalibrateDriveTrain();
 	void InitDefaultCommand();
-	void Crab(double xPos, double yPos, double twist, bool fieldCentric);
+	void Crab(double xPos, double yPos, double twist, bool fieldCentric=false);
 	double degToRad(double deg);
 	double radToDeg(double rad);
 	double limitAngle(double angle);
@@ -66,6 +66,9 @@ public:
 	float GetWheelAngle(int wheel);
 	void SetWheelAngle(int wheel, float angle);
 	void SetOptimized(bool optimized);
+	void SetForward(bool fwd);
+	void SetGyroCorrection(bool b);
+	void SetFieldCentric(bool fieldCentric);
 };
 
 #endif /* DRIVETRAIN_H_ */
