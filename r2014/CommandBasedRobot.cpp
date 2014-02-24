@@ -52,23 +52,35 @@ private:
 	
 	virtual void AutonomousInit() {
 		CommandBase::intake->SetReadySolenoid(true);
+		CommandBase::driveTrain->ResetGyro();
+		CommandBase::driveTrain->SetGyroCorrection(true);
 		autonomousCommand->Start();
 		autoCommand = (CommandGroup*)autoOptions->GetSelected();
 		autoCommand->Start();
 	}
 	
 	virtual void AutonomousPeriodic() {
+		SmartDashboard::PutNumber("Raw 10 turn Pot", CommandBase::shooter->GetRawPosition());
+		SmartDashboard::PutNumber("10 turn Pot", CommandBase::shooter->GetPosition());
+		SmartDashboard::PutNumber("Shooter Switch", CommandBase::shooter->GetSwitch());
+		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight() / 12);
+		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
+		SmartDashboard::PutNumber("throttle value", 16- (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
+		//SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
 		Scheduler::GetInstance()->Run();
 		CommandBase::shooter->Periodic();
 	}
 	
 	virtual void TeleopInit() {
 		CommandBase::intake->SetReadySolenoid(true);
+		CommandBase::driveTrain->SetGyroCorrection(false);
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		autonomousCommand->Cancel();
+		//CommandBase::driveTrain->ResetGyro();
+		//CommandBase::driveTrain->SetGyroCorrection(true);
 	}
 	
 	virtual void TeleopPeriodic() {
@@ -102,7 +114,8 @@ private:
 		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight() / 12);
 		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
 		SmartDashboard::PutNumber("throttle value", 16- (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
-//		SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
+		//SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
+		CommandBase::camera->HasTarget();
 	}
 	
 };
