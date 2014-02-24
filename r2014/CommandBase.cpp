@@ -11,6 +11,7 @@ CommandBase::CommandBase() : Command() {
 // Initialize a single static instance of all of your subsystems to NULL
 ExampleSubsystem* CommandBase::examplesubsystem = NULL;
 DriveTrain* CommandBase::driveTrain = NULL;
+//CalibrateDriveTrain* CommandBase::driveTrain = NULL;
 //PersistedSettings* CommandBase::persistedSettings = NULL;
 OI* CommandBase::oi = NULL;
 Shooter* CommandBase::shooter = NULL;
@@ -25,6 +26,7 @@ void CommandBase::init() {
 //	persistedSettings = &PersistedSettings::GetInstance();
 	printf("commandBaseInit \n");
 	driveTrain = new DriveTrain();
+	//driveTrain = new CalibrateDriveTrain();
 	if(driveTrain){
 		printf("driveTrain \n");
 	}
@@ -33,7 +35,7 @@ void CommandBase::init() {
 	if(shooter){
 		printf("shooter \n");
 	}
-	distanceSensors = new DistanceSensors(ULTRASONIC_RIGHT, ULTRASONIC_LEFT);
+	distanceSensors = new DistanceSensors(ULTRASONIC_RIGHT);
 	if(distanceSensors){
 		printf("distanceSensors \n");
 	}
