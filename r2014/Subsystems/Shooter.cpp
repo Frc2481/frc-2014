@@ -25,7 +25,7 @@ Shooter::Shooter(uint32_t winchChannel, uint32_t winchSensorChannel, uint32_t ea
 	m_table(NULL),
 	hasSetPosition(false){
 	
-	winch->SetSafetyEnabled(true);
+//	winch->SetSafetyEnabled(true);
 	
 	if(potSwitch->Get()){
 		latched = true;
