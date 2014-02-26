@@ -15,6 +15,7 @@ public:
 	virtual void Initialize(){
 		if(shooter->IsLatched()) {
 			printf("turn on Intake \n");
+			intake->SetReadySolenoid(true);
 			intake->SetCaptureSolenoid(true);
 			intake->RollerOn();	
 			shooter->SetLeftEar(1);
