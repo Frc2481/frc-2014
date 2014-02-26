@@ -53,6 +53,11 @@
 #define POT_SWITCH 			1
 #define COMPRESSOR_SENSOR	2
 
+//Digital Outputs
+#define LIGHTS_A 2
+#define LIGHTS_B 3
+#define LIGHTS_C 4
+#define LIGHTS_D 5
 
 //Module Number
 #define COMPASS_MODULE 1

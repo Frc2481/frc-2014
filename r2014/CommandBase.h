@@ -14,6 +14,7 @@
 #include "Robotmap.h"
 #include "CSVRecord.h"
 #include "Subsystems/CalibrateDriveTrain.h"
+#include "Subsystems/Lights.h"
 
 
 /**
@@ -37,6 +38,7 @@ public:
 	static Intake *intake;
 	static AirCompressor *compressor;
 	static Camera2481 *camera;
+	static Lights *lights;
 };
 
 #endif

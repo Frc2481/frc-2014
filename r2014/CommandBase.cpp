@@ -19,6 +19,7 @@ DistanceSensors *CommandBase::distanceSensors = NULL;
 Intake *CommandBase::intake = NULL;
 AirCompressor *CommandBase::compressor = NULL;
 Camera2481 *CommandBase::camera = NULL;
+Lights *CommandBase::lights = NULL;
 
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
@@ -42,6 +43,10 @@ void CommandBase::init() {
 	intake = new Intake();
 	if(intake){
 		printf("intake \n");
+	}
+	lights = new Lights(LIGHTS_A, LIGHTS_B, LIGHTS_C, LIGHTS_D);
+	if(lights){
+		printf("lights \n");
 	}
 	camera = new Camera2481();
 	compressor = new AirCompressor(COMPRESSOR_SENSOR, COMPRESSOR_SPIKE_CHANNEL);

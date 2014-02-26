@@ -20,6 +20,7 @@ public:
 	}
 	virtual void Execute(){
 		driveTrain->SetForward(forward);
+		lights->SetForward(forward);
 	}
 	virtual bool IsFinished(){
 		return true;
