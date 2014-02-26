@@ -23,7 +23,8 @@ Shooter::Shooter(uint32_t winchChannel, uint32_t winchSensorChannel, uint32_t ea
 	offset(0),
 	switchCounter(0),
 	m_table(NULL),
-	hasSetPosition(false){
+	hasSetPosition(false),
+	onTargetCounter(0){
 	
 //	winch->SetSafetyEnabled(true);
 	
@@ -70,6 +71,9 @@ bool Shooter::GetRightEar(){
 }
 
 void Shooter::Periodic(){
+
+	float actualPosition = GetPosition();
+
 	if(position < .125){
 		position = .125;
 	}
@@ -81,15 +85,21 @@ void Shooter::Periodic(){
 		else if (position < 0){
 			position = 0;
 		}
-		if (position  > GetPosition() + WINCH_TOLERANCE){
+		if (position  > actualPosition + WINCH_TOLERANCE){
 			ManualReleaseWinch(1);
 		}
-		else if (position < GetPosition() - WINCH_TOLERANCE){
+		else if (position < actualPosition - WINCH_TOLERANCE){
 			ManualRetractWinch(1);
 		}
 		else {
 			ManualStopWinch();
 		}
+	}
+	if (actualPosition > position - WINCH_TOLERANCE && actualPosition < position + WINCH_TOLERANCE){
+		onTargetCounter++;
+	}
+	else {
+		onTargetCounter = 0;
 	}
 	SmartDashboard::PutNumber("Winch commanded value", winch->Get());
 	SmartDashboard::PutNumber("Shooter Setpoint", position);
@@ -297,9 +307,7 @@ float Shooter::GetDistance(){
 }
 
 bool Shooter::OnTarget() {
-	float actualPosition = GetPosition();
-	printf("ontarget %d \n",(actualPosition > position - WINCH_TOLERANCE && actualPosition < position + WINCH_TOLERANCE));
-	return (actualPosition > position - WINCH_TOLERANCE && actualPosition < position + WINCH_TOLERANCE);
+	return onTargetCounter > 5;
 }
 void Shooter::ManualSetDistance(float pos, bool earsUp){
 	if (!hasSetPosition) {

@@ -28,6 +28,7 @@ private:
 	bool latched;
 	ITable *m_table;
 	bool hasSetPosition;
+	int onTargetCounter;
 	
 public:
 	Shooter(uint32_t winchChannel, uint32_t winchSensorChannel, uint32_t earChannelL, uint32_t earChannelR, uint32_t releaseChannel, uint32_t potSwitchChannel);

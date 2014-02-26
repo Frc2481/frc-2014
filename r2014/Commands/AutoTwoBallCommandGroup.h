@@ -41,6 +41,7 @@ public:
 		AddSequential(new WaitCommand(1.1));
 		AddSequential(new VariableIntakeCommand(0));
 		AddSequential(new WaitForShooterSetpointCommand(.5));
+		AddSequential(new WaitCommand(.25));
 		AddSequential(new FireCommandGroup(true));
 		AddParallel(new AutoSetShooterCommand(true));
 		AddSequential(new TurnOnIntakeCommand());
