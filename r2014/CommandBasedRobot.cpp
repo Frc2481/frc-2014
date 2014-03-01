@@ -11,6 +11,7 @@
 #include "Commands/OptimizeSwerveCommand.h"
 #include "Commands/AutoDriveShootHotCommandGroup.h"
 #include "Commands/AutoTwoBallCommandGroup.h"
+#include "Commands/AutoDriveShootCornerCommandGroup.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
@@ -25,7 +26,8 @@ private:
 		lw = LiveWindow::GetInstance();
 		SmartDashboard::PutData(CommandBase::shooter);
 		autoOptions = new SendableChooser();
-		autoOptions->AddDefault("Forward + Fire - No Hot", new AutoDriveShootCommandGroup());
+		autoOptions->AddDefault("Corner - No Hot", new AutoDriveShootCornerCommandGroup());
+		autoOptions->AddObject("Forward + Fire - No Hot", new AutoDriveShootCommandGroup());
 		autoOptions->AddObject("Forward + Fire - Hot", new AutoDriveShootHotCommandGroup());
 		autoOptions->AddObject("Two Ball", new AutoTwoBallCommandGroup());
 		SmartDashboard::PutData("Autonomous Delay Options", autoOptions);
