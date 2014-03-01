@@ -29,7 +29,7 @@
 #define FIRE_BUTTON_NUM				XboxController::xbZAxis
 #define FIRE_BUTTON 				new AnalogJoystickButton(auxStick, FIRE_BUTTON_NUM, -.5)
 
-#define TOGGLE_INTAKE_READY_BUTTON 	new JoystickButton(auxStick, XboxController::xbLeftStickClick)
+#define TOGGLE_INTAKE_READY_BUTTON 	new JoystickButton(auxStick, XboxController::xbYButton)
 
 #define TOGGLE_RIGHT_EAR_BUTTON 	new JoystickButton(auxStick, XboxController::xbLeftBumper)
 #define TOGGLE_LEFT_EAR_BUTTON 		new JoystickButton(auxStick, XboxController::xbLeftBumper)
