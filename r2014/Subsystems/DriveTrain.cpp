@@ -27,6 +27,7 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain"),
 	BLWheel->SetOffset(PersistedSettings::GetInstance().Get("BL_ENCODER_OFFSET"));
 	gyroCorrection = false;
 	printf("post DriveTrain Constructor \n");
+	gyro->Reset();
 }
 
 void DriveTrain::InitDefaultCommand() {
@@ -44,7 +45,9 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 	float gyroAngle = gyro->GetAngle();
 
 	if (gyroCorrection) {
-		twist = -gyroAngle / 30.0;
+		//TODO: Decide if we want this.
+		gyroAngle = max(min(gyroAngle, 5), -5);
+		twist = gyroAngle / 30.0;
 		printf("GYRO CORRECTION\n");
 	}
 
@@ -68,7 +71,7 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 	SmartDashboard::PutNumber("FWD", FWD);
 	SmartDashboard::PutNumber("STR", STR);
 	SmartDashboard::PutNumber("twist", twist);
-	SmartDashboard::PutNumber("Wii Gyro Yaw Rate", gyroAngle);
+	SmartDashboard::PutNumber("Gyro Angle", gyroAngle);
 
 	double A = STR - twist * baseLength / radius;
 	double B = STR + twist * baseLength / radius;
