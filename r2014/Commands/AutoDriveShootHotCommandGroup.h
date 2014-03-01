@@ -15,6 +15,7 @@
 #include "WaitForHotGoalCommand.h"
 #include "AutoSetShooterCommand.h"
 #include "SetForwardCommand.h"
+#include "SetShooterPositionCommand.h"
 
 class AutoDriveShootHotCommandGroup: public CommandGroup{
 private:
@@ -23,6 +24,7 @@ public:
 		AddSequential(new SetForwardCommand(true));
 		AddSequential(new DriveForwardCommand(.5, 2));
 		AddSequential(new AutoSetShooterCommand());
+//		AddSequential(new SetShooterPositionCommand(8, true));
 		AddSequential(new WaitForHotGoalCommand());
 		AddSequential(new FireCommandGroup());
 	}
