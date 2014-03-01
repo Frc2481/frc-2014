@@ -17,7 +17,7 @@ public:
 		AddSequential(new ManualFireShooterCommand());
 		AddSequential(new WaitCommand(.5));
 		AddParallel(new ReleaseShooterCommand());
-		AddSequential(new WaitCommand(.5));
+		AddSequential(new WaitCommand(.75));
 		AddSequential(new AutoCockShooterCommand());
 		
 	}
