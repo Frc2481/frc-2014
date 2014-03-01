@@ -194,7 +194,7 @@ void Shooter::ManualReleaseWinch(float speed){
 	}
 }
 void Shooter::ManualFire(){
-	if (OnTarget()) {
+	if (OnTarget() && hasSetPosition) {
 		latched = false;
 		release->Set(1);
 		position = .125;
@@ -307,7 +307,8 @@ float Shooter::GetDistance(){
 }
 
 bool Shooter::OnTarget() {
-	return onTargetCounter > 5;
+	float actualPosition = GetPosition();
+	return actualPosition > position - WINCH_TOLERANCE && actualPosition < position + WINCH_TOLERANCE;//onTargetCounter > 5;
 }
 void Shooter::ManualSetDistance(float pos, bool earsUp){
 	if (!hasSetPosition) {
