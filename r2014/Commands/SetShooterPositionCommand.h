@@ -20,6 +20,7 @@ public:
 	virtual void Initialize(){
 		printf(" %f %d \n", distance , earsUp);
 		shooter->SetPosition(distance, earsUp);
+		intake->SetReadySolenoid(true);
 		
 	}
 	virtual void Execute(){

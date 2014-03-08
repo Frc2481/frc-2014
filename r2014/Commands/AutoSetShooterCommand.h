@@ -26,6 +26,7 @@ public:
 			shooter->SetPosition(distanceSensors->GetRight() / 12, false);
 		}
 		else {
+			intake->SetReadySolenoid(true);
 			shooter->SetPosition(distanceSensors->GetRight() / 12);
 		}
 	}
