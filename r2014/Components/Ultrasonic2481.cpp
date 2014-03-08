@@ -20,19 +20,39 @@ Ultrasonic2481::~Ultrasonic2481() {
 	// TODO Auto-generated destructor stub
 }
 float Ultrasonic2481::GetDistance(){
-	return distance;
+	double d;
+
+	CRITICAL_REGION(ultrasonicSemaphore) {
+		d = distance;
+	}
+	END_REGION
+
+	return d;
 }
 void Ultrasonic2481::SetInchesPerVolt(float inchesPerVolt){
-	this->inchesPerVolt = inchesPerVolt;
+	CRITICAL_REGION(ultrasonicSemaphore) {
+		this->inchesPerVolt = inchesPerVolt;
+	}
+	END_REGION
 }
 float Ultrasonic2481::GetRawVoltage(){
-	voltageAccum.add(ultrasonic->GetVoltage());
-	return voltageAccum.avg();
+	CRITICAL_REGION(ultrasonicSemaphore) {
+		voltageAccum.add(ultrasonic->GetVoltage());
+		return voltageAccum.avg();
+	}
+	END_REGION
 }
+
 void Ultrasonic2481::Update(){
-	voltageAccum.add(ultrasonic->GetAverageVoltage());
-	distance  = voltageAccum.avg() * inchesPerVolt;
+	float volt = ultrasonic->GetAverageVoltage();
+
+	CRITICAL_REGION(ultrasonicSemaphore) {
+		voltageAccum.add(volt);
+		distance  = voltageAccum.avg() * inchesPerVolt;
+	}
+	END_REGION
 }
+
 void Ultrasonic2481::LoopPeriodic(void* instance) {
 	Ultrasonic2481* ultrasonic = (Ultrasonic2481*) instance;
 	ultrasonic->Update();
