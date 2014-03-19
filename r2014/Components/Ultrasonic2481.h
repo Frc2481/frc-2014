@@ -10,12 +10,14 @@
 #include <WPILib.h>
 #include "../RobotParameters.h"
 #include "RollingAccumulator.h"
+#include "LowPassFilter.h"
 
 class Ultrasonic2481 {
 private:
 	AnalogChannel *ultrasonic;
 	float inchesPerVolt;
-	RollingAccumulator<float, 30> voltageAccum;
+	RollingAccumulator<float, 10> voltageAccum;
+	LowPassFilter lowPassFilter;
 	SEM_ID ultrasonicSemaphore;
 	Notifier* ultrasonicUpdate;
 	float distance;

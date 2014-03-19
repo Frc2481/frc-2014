@@ -9,6 +9,7 @@
 
 Ultrasonic2481::Ultrasonic2481(uint32_t ultrasonicChannel) : 
 			ultrasonic(new AnalogChannel(ultrasonicChannel)),
+			lowPassFilter(.01, 1),
 			ultrasonicSemaphore(semMCreate(SEM_Q_PRIORITY)),
 			ultrasonicUpdate(new Notifier(Ultrasonic2481::LoopPeriodic, this)),
 			distance(0){
@@ -45,12 +46,16 @@ float Ultrasonic2481::GetRawVoltage(){
 
 void Ultrasonic2481::Update(){
 	float volt = ultrasonic->GetAverageVoltage();
+	float lowPass = lowPassFilter.Filter(volt);
+	SmartDashboard::PutNumber("Ultrasonic Raw", ((volt * inchesPerVolt) / 12));
+	SmartDashboard::PutNumber("Ultrasonic Lowpass", ((lowPass * inchesPerVolt) / 12));
 
 	CRITICAL_REGION(ultrasonicSemaphore) {
-		voltageAccum.add(volt);
+		voltageAccum.add(lowPass);
 		distance  = voltageAccum.avg() * inchesPerVolt;
 	}
 	END_REGION
+	SmartDashboard::PutNumber("Ultrasonic Average", (voltageAccum.avg() * (inchesPerVolt / 12)));
 }
 
 void Ultrasonic2481::LoopPeriodic(void* instance) {
