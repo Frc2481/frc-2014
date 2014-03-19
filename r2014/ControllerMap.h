@@ -14,14 +14,16 @@
 //#define CALIBRATE_COMPASS_BUTTON 	new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -.5)
 //#define SET_FIELD_OFFSET_BUTTON 	new JoystickButton(driverStick, XboxController::xbStartButton)
 //#define RESET_GYRO_BUTTON 			new JoystickButton(driverStick, XboxController::xbBackButton)
-#define TOGGLE_FIELD_CENTRIC_BUTTON new JoystickButton(driverStick, XboxController::xbRightBumper)
+#define LEFT_JUKE_COMMAND_BUTTON    new JoystickButton(driverStick, XboxController::xbLeftBumper)
+#define RIGHT_JUKE_COMMAND_BUTTON   new JoystickButton(driverStick, XboxController::xbRightBumper)
+#define TOGGLE_FIELD_CENTRIC_BUTTON new JoystickButton(driverStick, XboxController::xbXButton)
 #define FORWARD_BUTTON				new JoystickButton(driverStick, XboxController::xbAButton)
 #define BACKWARD_BUTTON				new JoystickButton(driverStick, XboxController::xbBButton)
 
 #define TURN_ON_INTAKE_BUTTON 		new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -.5)
 #define TURN_OFF_INTAKE_BUTTON 		new AnalogJoystickButton(driverStick, XboxController::xbZAxis, -.5)
 
-#define VOMIT_BUTTON 				new JoystickButton(driverStick, XboxController::xbLeftBumper)
+#define VOMIT_BUTTON 				new JoystickButton(driverStick, XboxController::xbYButton)
 //Aux Stick
 //#define RETRACT_SHOOTER_BUTTON 		new AnalogJoystickButton(auxStick, XboxController::xbRightYAxis, -.5)
 //#define RELEASE_SHOOTER_BUTTON 		new AnalogJoystickButton(auxStick, XboxController::xbRightYAxis, .5)

@@ -81,6 +81,12 @@ OI::OI() {
 //	ManualLatchButton = new JoystickButton(auxStick, MANUAL_LATCH_BUTTON);
 //	ManualLatchButton->WhenPressed(new ManualLatchShooterCommand());
 	
+	RightJukeCommandButton = RIGHT_JUKE_COMMAND_BUTTON;
+	RightJukeCommandButton->WhileHeld(new JukeCommand(true));
+
+	LeftJukeCommandButton = LEFT_JUKE_COMMAND_BUTTON;
+	LeftJukeCommandButton->WhileHeld(new JukeCommand(false));
+
 	TurnOnIntakeButton = TURN_ON_INTAKE_BUTTON;
 	TurnOnIntakeButton->WhenPressed(new TurnOnIntakeCommand());
 	

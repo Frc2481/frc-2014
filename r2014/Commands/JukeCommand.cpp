@@ -9,28 +9,16 @@ JukeCommand::JukeCommand(bool jukeRight){
 	}
 	void JukeCommand::Execute(){
 		if (isRight == true){
-			if (TimeSinceInitialized() < .25){
-				driveTrain->Crab(1,0,0);
-			}
-			else if (TimeSinceInitialized() < .75){
-				driveTrain->Crab(-1,0,0);
-			}
-			else if (TimeSinceInitialized() < 1.75){
-				driveTrain->Crab(-.25,1,-.5);
-			}	
-			else if (TimeSinceInitialized() < .25){
-				driveTrain->Crab(-1,0,0);
-			}
-			else if (TimeSinceInitialized() < .75){
-				driveTrain->Crab(1,0,0);
-			}
-			else if (TimeSinceInitialized() < 1.75){
-				driveTrain->Crab(.25,1,.5);
-			}
+				driveTrain->Crab(0,-1,-1);
+		}
+		else if (isRight == false){
+				driveTrain->Crab(0,-1,1);
 		}
 	}
+
 	bool JukeCommand::IsFinished(){
-		if (TimeSinceInitialized() > 2.25){
+		if (fabs(oi->GetDriverStick()->GetRawAxis(XboxController::xbLeftXAxis)) > .2 ||
+			fabs(oi->GetDriverStick()->GetRawAxis(XboxController::xbLeftYAxis)) > .2){
 			return true;
 		}
 		return false;

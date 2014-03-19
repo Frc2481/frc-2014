@@ -24,6 +24,8 @@ private:
 //	Button *CalibrateCompassButton;
 //	Button *SetFieldOffsetButton;
 //	Button *ResetGyroButton;
+	Button *LeftJukeCommandButton;
+	Button *RightJukeCommandButton;
 	Button *ManualRetractShooterButton;
 	Button *ManualReleaseShooterButton;
 	Button *ManualFireButton;
