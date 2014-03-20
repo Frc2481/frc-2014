@@ -33,30 +33,32 @@ private:
 public:
 	AutoTwoBallCommandGroup(){
 		AddSequential(new SetForwardCommand(true));
-		AddParallel(new SetShooterPositionCommand(NORMAL_SHOT_DISTANCE, false));
+		AddParallel(new ManualSetShooterPositionCommand(NORMAL_SHOT_DISTANCE, true));
 		AddSequential(new VariableIntakeCommand(1.0));
-		AddSequential(new WaitCommand(1.1));
+		AddSequential(new WaitCommand(1));
 		AddSequential(new VariableIntakeCommand(.2));
-		AddSequential(new DriveForwardCommand(1,1.6));
+		AddSequential(new DriveForwardCommand(1,.75));
 		//AddSequential(new WaitCommand(1));
 		//AddParallel(new AutoSetShooterCommand());
 		AddSequential(new VariableIntakeCommand(-.3));
-		AddSequential(new WaitCommand(1.1));
+		AddSequential(new WaitCommand(.9));
 		AddSequential(new VariableIntakeCommand(0));
 		AddSequential(new WaitForShooterSetpointCommand(.5));
-		AddSequential(new WaitCommand(.25));
-		AddSequential(new FireCommandGroup(true));
-		AddParallel(new SetShooterPositionCommand(NORMAL_SHOT_DISTANCE, false));
-		//AddParallel(new AutoSetShooterCommand(true));
-		AddSequential(new TurnOnIntakeCommand());
 		AddSequential(new WaitCommand(.5));
-//		AddSequential(new ToggleRightEarCommand());
-//		AddSequential(new ToggleLeftEarCommand());
+		AddSequential(new FireCommandGroup(true));
+		AddParallel(new ManualSetShooterPositionCommand(NORMAL_SHOT_DISTANCE, true));
+		AddSequential(new TurnOnIntakeCommand());
+		//AddParallel(new AutoSetShooterCommand(true));
+		AddSequential(new WaitCommand(.25));
+		AddSequential(new ToggleRightEarCommand());
+		AddSequential(new ToggleLeftEarCommand());
+		//AddSequential(new WaitCommand(.25));
 		AddSequential(new WaitCommand(.5));
 		AddSequential(new TurnOffIntakeCommand(true));
-//		AddSequential(new ToggleRightEarCommand());
-//		AddSequential(new ToggleLeftEarCommand());
-		AddSequential(new WaitCommand(.5));
+		AddSequential(new WaitCommand(.25));
+		AddSequential(new ToggleRightEarCommand());
+		AddSequential(new ToggleLeftEarCommand());
+		AddSequential(new WaitCommand(.25));
 		AddSequential(new WaitForShooterSetpointCommand(.5));
 		AddSequential(new FireCommandGroup());
 		

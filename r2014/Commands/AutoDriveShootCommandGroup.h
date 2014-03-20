@@ -15,17 +15,20 @@
 #include "AutoSetShooterCommand.h"
 #include "SetForwardCommand.h"
 #include "SetShooterPositionCommand.h"
+#include "ManualSetShooterPositionCommand.h"
+#include "WaitForShooterSetpointCommand.h"
 
 class AutoDriveShootCommandGroup: public CommandGroup{
 private:
 public:
 	AutoDriveShootCommandGroup(){
 		AddSequential(new SetForwardCommand(true));
-		AddSequential(new DriveForwardCommand(.5, 1.6));
+		AddParallel(new ManualSetShooterPositionCommand(NORMAL_SHOT_DISTANCE, true));
+		AddSequential(new DriveForwardCommand(.75, 1));
 		AddSequential(new WaitCommand(1.5));
-		AddSequential(new AutoSetShooterCommand());
 //		AddSequential(new SetShooterPositionCommand(8, true));
-		AddSequential(new WaitCommand(.25));
+		//AddSequential(new WaitCommand(.25));
+		AddSequential(new WaitForShooterSetpointCommand(.25));
 		AddSequential(new FireCommandGroup());
 	}
 	virtual ~AutoDriveShootCommandGroup(){

@@ -46,7 +46,7 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 
 	if (gyroCorrection) {
 		//TODO: Decide if we want this.
-		gyroAngle = max(min(gyroAngle, 5), -5);
+		gyroAngle = max(min(gyroAngle, 10), -10);
 		twist = gyroAngle / 30.0;
 		printf("GYRO CORRECTION\n");
 	}
