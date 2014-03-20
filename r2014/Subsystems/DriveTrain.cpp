@@ -68,20 +68,20 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 		STR = -STR;
 	}
 	
-	SmartDashboard::PutNumber("FWD", FWD);
-	SmartDashboard::PutNumber("STR", STR);
-	SmartDashboard::PutNumber("twist", twist);
-	SmartDashboard::PutNumber("Gyro Angle", gyroAngle);
+//	SmartDashboard::PutNumber("FWD", FWD);
+//	SmartDashboard::PutNumber("STR", STR);
+//	SmartDashboard::PutNumber("twist", twist);
+//	SmartDashboard::PutNumber("Gyro Angle", gyroAngle);
 
 	double A = STR - twist * baseLength / radius;
 	double B = STR + twist * baseLength / radius;
 	double C = FWD - twist * baseWidth / radius;
 	double D = FWD + twist * baseWidth / radius;
-	SmartDashboard::PutNumber("A", A);
-	SmartDashboard::PutNumber("B", B);
-	SmartDashboard::PutNumber("C", C);
-	SmartDashboard::PutNumber("D", D);
-	SmartDashboard::PutNumber("twist", twist);
+//	SmartDashboard::PutNumber("A", A);
+//	SmartDashboard::PutNumber("B", B);
+//	SmartDashboard::PutNumber("C", C);
+//	SmartDashboard::PutNumber("D", D);
+//	SmartDashboard::PutNumber("twist", twist);
 	double wheelSpeedFL = sqrt(pow(B, 2) + pow(C, 2));
 	double wheelSpeedFR = sqrt(pow(B, 2) + pow(D, 2));
 	double wheelSpeedBL = sqrt(pow(A, 2) + pow(C, 2));
@@ -111,14 +111,14 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 		wheelSpeedBL /= maxWheelSpeed;
 	}
 	
-	SmartDashboard::PutNumber("wheelSpeedFR", wheelSpeedFR);
-	SmartDashboard::PutNumber("wheelSpeedFL", wheelSpeedFL);
-	SmartDashboard::PutNumber("wheelSpeedBR", wheelSpeedBR);
-	SmartDashboard::PutNumber("wheelSpeedBL", wheelSpeedBL);
-	SmartDashboard::PutNumber("wheelAngleFR", wheelAngleFR);
-	SmartDashboard::PutNumber("wheelAngleFL", wheelAngleFL);
-	SmartDashboard::PutNumber("wheelAngleBR", wheelAngleBR);
-	SmartDashboard::PutNumber("wheelAngleBL", wheelAngleBL);
+//	SmartDashboard::PutNumber("wheelSpeedFR", wheelSpeedFR);
+//	SmartDashboard::PutNumber("wheelSpeedFL", wheelSpeedFL);
+//	SmartDashboard::PutNumber("wheelSpeedBR", wheelSpeedBR);
+//	SmartDashboard::PutNumber("wheelSpeedBL", wheelSpeedBL);
+//	SmartDashboard::PutNumber("wheelAngleFR", wheelAngleFR);
+//	SmartDashboard::PutNumber("wheelAngleFL", wheelAngleFL);
+//	SmartDashboard::PutNumber("wheelAngleBR", wheelAngleBR);
+//	SmartDashboard::PutNumber("wheelAngleBL", wheelAngleBL);
 	
 	//if (fieldCentric) {
 	/*

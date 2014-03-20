@@ -31,7 +31,7 @@ void ContinuousEncoderCounter::UpdateEncoder(void* ptr) {
 
 void ContinuousEncoderCounter::Update() {
 	float volts = GetVoltage();
-	SmartDashboard::PutNumber("encoder voltage", volts);
+//	SmartDashboard::PutNumber("encoder voltage", volts);
 	CRITICAL_REGION(mSemaphore) {
 	
 		if (mPrevVoltage > 4 && volts < 1) {

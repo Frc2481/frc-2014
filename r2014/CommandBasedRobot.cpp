@@ -62,13 +62,14 @@ private:
 	}
 	
 	virtual void AutonomousPeriodic() {
-		SmartDashboard::PutNumber("Raw 10 turn Pot", CommandBase::shooter->GetRawPosition());
-		SmartDashboard::PutNumber("10 turn Pot", CommandBase::shooter->GetPosition());
-		SmartDashboard::PutNumber("Shooter Switch", CommandBase::shooter->GetSwitch());
-		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight() / 12);
-		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
-		SmartDashboard::PutNumber("throttle value", 16- (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
-		//SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
+//		SmartDashboard::PutNumber("Raw 10 turn Pot", CommandBase::shooter->GetRawPosition());
+//		SmartDashboard::PutNumber("10 turn Pot", CommandBase::shooter->GetPosition());
+//		SmartDashboard::PutNumber("Shooter Switch", CommandBase::shooter->GetSwitch());
+//		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight() / 12);
+//		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
+//		SmartDashboard::PutNumber("throttle value", 16- (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
+
+		SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
 		Scheduler::GetInstance()->Run();
 		CommandBase::shooter->Periodic();
 	}
@@ -89,14 +90,15 @@ private:
 		
 //		double timeBefore = GetTime();
 		Scheduler::GetInstance()->Run();
-//		printf("%f \r\n", GetTime()-timeBefore);
-		SmartDashboard::PutNumber("Raw 10 turn Pot", CommandBase::shooter->GetRawPosition());
-		SmartDashboard::PutNumber("10 turn Pot", CommandBase::shooter->GetPosition());
-		SmartDashboard::PutNumber("Shooter Switch", CommandBase::shooter->GetSwitch());
-		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight() / 12);
-		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
-		SmartDashboard::PutNumber("throttle value", 16 - (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
-//		SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
+////		printf("%f \r\n", GetTime()-timeBefore);
+//		SmartDashboard::PutNumber("Raw 10 turn Pot", CommandBase::shooter->GetRawPosition());
+//		SmartDashboard::PutNumber("10 turn Pot", CommandBase::shooter->GetPosition());
+//		SmartDashboard::PutNumber("Shooter Switch", CommandBase::shooter->GetSwitch());
+//		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight() / 12);
+//		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
+//		SmartDashboard::PutNumber("throttle value", 16 - (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
+
+		SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
 		CommandBase::shooter->Periodic();
 		
 		Wait(0.003);
@@ -110,13 +112,14 @@ private:
 		CSVRecord::getInstance().CloseFile();
 	}
 	virtual void DisabledPeriodic(){
-		SmartDashboard::PutNumber("Raw 10 turn Pot", CommandBase::shooter->GetRawPosition());
-		SmartDashboard::PutNumber("10 turn Pot", CommandBase::shooter->GetPosition());
-		SmartDashboard::PutNumber("Shooter Switch", CommandBase::shooter->GetSwitch());
-		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight() / 12);
-		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
-		SmartDashboard::PutNumber("throttle value", 16- (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
-		//SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
+//		SmartDashboard::PutNumber("Raw 10 turn Pot", CommandBase::shooter->GetRawPosition());
+//		SmartDashboard::PutNumber("10 turn Pot", CommandBase::shooter->GetPosition());
+//		SmartDashboard::PutNumber("Shooter Switch", CommandBase::shooter->GetSwitch());
+//		SmartDashboard::PutNumber("DistanceSensors", CommandBase::distanceSensors->GetRight() / 12);
+//		SmartDashboard::PutNumber("DistanceToShoot", CommandBase::shooter->GetDistance());
+//		SmartDashboard::PutNumber("throttle value", 16- (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
+
+		SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
 		CommandBase::camera->HasTarget();
 	}
 	
