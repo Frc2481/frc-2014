@@ -12,8 +12,10 @@
 class Camera2481 : public Subsystem {
 private:
 	NetworkTable* mTable;
+	bool hotTarget;
 public:
 	Camera2481();
+	void CheckHotTarget();
 	bool HasTarget();
 	virtual ~Camera2481();
 };

@@ -16,11 +16,13 @@
 #include "AutoSetShooterCommand.h"
 #include "SetForwardCommand.h"
 #include "SetShooterPositionCommand.h"
+#include "CheckHotGoalCommand.h"
 
 class AutoDriveShootHotCommandGroup: public CommandGroup{
 private:
 public:
 	AutoDriveShootHotCommandGroup(){
+		AddParallel(new CheckHotGoalCommand());
 		AddSequential(new SetForwardCommand(true));
 		AddSequential(new DriveForwardCommand(.5, 2));
 		AddSequential(new AutoSetShooterCommand());

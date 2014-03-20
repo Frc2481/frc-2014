@@ -1,7 +1,7 @@
 <head><version>2.61.5</version></head>
-<Axis_Internet_Camera disabled>
+<Axis_Internet_Camera>
   <auto_back_light>TRUE</auto_back_light>
-  <auto_exposure>FALSE</auto_exposure>
+  <auto_exposure>TRUE</auto_exposure>
   <auto_white_balance>TRUE</auto_white_balance>
   <brightness_value>10</brightness_value>
   <color_level_value>50</color_level_value>
@@ -20,7 +20,7 @@
   <filter_size>97</filter_size>
   <max_threshold>255</max_threshold>
   <mean_offset>-1</mean_offset>
-  <min_threshold>238</min_threshold>
+  <min_threshold>46</min_threshold>
 </Adaptive_Threshold>
 <Blob_Filter>
   <create_blob_array_variable>FALSE</create_blob_array_variable>
@@ -32,7 +32,7 @@
         <filter_id>8</filter_id>
         <invert_count>0</invert_count>
         <invert_threshold>0</invert_threshold>
-        <minimum_size>300</minimum_size>
+        <minimum_size>2</minimum_size>
         <weight_threshold>0</weight_threshold>
       </filter>
       <filter:2>
@@ -41,7 +41,7 @@
         <filter_id>33</filter_id>
         <invert_count>0</invert_count>
         <invert_threshold>0</invert_threshold>
-        <maximum_size>1000</maximum_size>
+        <maximum_size>10</maximum_size>
         <weight_threshold>0</weight_threshold>
       </filter:2>
     </tab>
@@ -61,7 +61,7 @@
 <Python_Program_v3x>
   <script>import rr
 blobCount = rr.GetVariable("BLOB_COUNT");
-if blobCount &gt; 30:
+if blobCount &gt; 70:
 	HotTarget = True
 else:
 	HotTarget = False

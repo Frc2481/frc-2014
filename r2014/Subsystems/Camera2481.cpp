@@ -9,17 +9,20 @@
 
 Camera2481::Camera2481() : Subsystem("Camera2481"){
 	mTable = NetworkTable::GetTable("RoboRealm");
+	hotTarget = 0;
 }
 
-bool Camera2481::HasTarget(){
+void Camera2481::CheckHotTarget(){
 	try{
 		int ht = (int)mTable->GetNumber("HOTTARGET", 2);
 		SmartDashboard::PutNumber("HOTTARGET", ht);
-		return ht == 1;
+		hotTarget = ht;
 	} 
-	catch(int e){
-		return false;
+	catch(int e){;
 	}
+}
+bool Camera2481::HasTarget(){
+	return hotTarget;
 }
 
 Camera2481::~Camera2481() {
