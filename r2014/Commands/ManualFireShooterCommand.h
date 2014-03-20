@@ -23,9 +23,9 @@ public:
 		
 	}
 	virtual void Initialize(){
-		if (auton || !intake->GetPosition()) {
+		//if (auton || !intake->GetPosition()) {
 			shooter->ManualFire();
-		}
+		//}
 	}
 	virtual void Execute(){
 		
