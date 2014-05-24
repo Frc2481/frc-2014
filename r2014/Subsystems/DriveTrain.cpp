@@ -50,14 +50,14 @@ void DriveTrain::Crab(double xPos, double yPos, double twist){
 		twist = gyroAngle / 30.0;
 		printf("GYRO CORRECTION\n");
 	}
-
-	twist = -twist * .4;
+	twist = -twist;
 	if (isFieldCentric) {
-		heading = gyroAngle;
+		heading = -gyroAngle;
 		FWD = yPos * cos(heading * pi / 180) + xPos *sin(heading * pi / 180);
 		STR = xPos * cos(heading * pi / 180) - yPos * sin(heading * pi / 180);
 	}
 	else {
+		twist = twist * .4;
 		FWD = yPos;
 		STR = xPos;
 	}
