@@ -14,6 +14,8 @@ private:
 	bool earsUp;
 public:
 	ManualSetShooterPositionCommand(float setDistance, bool setEarsUp){
+		Requires(shooter);
+		SetInterruptible(false);
 		distance = setDistance;
 		earsUp = setEarsUp;
 	}
