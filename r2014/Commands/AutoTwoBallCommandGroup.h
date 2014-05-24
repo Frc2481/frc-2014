@@ -37,7 +37,7 @@ public:
 		AddSequential(new VariableIntakeCommand(1.0));
 		AddSequential(new WaitCommand(1));
 		AddSequential(new VariableIntakeCommand(.2));
-		AddSequential(new DriveForwardCommand(1,.75));
+		AddSequential(new DriveForwardCommand(1,.85));
 		//AddSequential(new WaitCommand(1));
 		//AddParallel(new AutoSetShooterCommand());
 		AddSequential(new VariableIntakeCommand(-.3));

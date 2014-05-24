@@ -24,10 +24,12 @@ class AutoDriveShootHotCommandGroup: public CommandGroup{
 private:
 public:
 	AutoDriveShootHotCommandGroup(){
+		AddSequential(new WaitCommand(1));
 		AddParallel(new CheckHotGoalCommand());
 		AddParallel(new ManualSetShooterPositionCommand(NORMAL_SHOT_DISTANCE, true));
 		AddSequential(new SetForwardCommand(true));
-		AddSequential(new DriveForwardCommand(.75, 1));
+		AddSequential(new DriveForwardCommand(.75, 1.25));
+		AddSequential(new WaitCommand(1));
 //		AddSequential(new SetShooterPositionCommand(8, true));
 		AddSequential(new WaitForHotGoalCommand());
 		AddSequential(new WaitForShooterSetpointCommand(.25));

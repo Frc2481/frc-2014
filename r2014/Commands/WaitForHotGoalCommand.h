@@ -12,7 +12,7 @@
 class WaitForHotGoalCommand: public CommandBase {
 public:
 	WaitForHotGoalCommand(){
-		SetTimeout(5);
+		SetTimeout(4);
 	}
 	virtual ~WaitForHotGoalCommand(){
 		

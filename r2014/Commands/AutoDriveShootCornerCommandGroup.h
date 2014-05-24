@@ -24,13 +24,12 @@ private:
 public:
 	AutoDriveShootCornerCommandGroup(){
 		AddSequential(new SetForwardCommand(true));
-		AddSequential(new ManualSetShooterPositionCommand(CORNER_SHOT_DISTANCE, false));
 		AddSequential(new DriveForwardCommand(.5, 2.3));
 		AddSequential(new DriveForwardCommand(.25, 2));
-		AddSequential(new WaitCommand(.25));
-		AddSequential(new DriveBackwardsCommand(.5, .2));
-		AddSequential(new WaitCommand(1.5));
-		AddSequential(new FireCommandGroup());
+//		AddSequential(new WaitCommand(.25));
+//		AddSequential(new DriveBackwardsCommand(.5, .2));
+//		AddSequential(new WaitCommand(1.5));
+//		AddSequential(new FireCommandGroup());
 	}
 	virtual ~AutoDriveShootCornerCommandGroup(){
 		

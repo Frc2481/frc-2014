@@ -61,7 +61,7 @@
 <Python_Program_v3x>
   <script>import rr
 blobCount = rr.GetVariable("BLOB_COUNT");
-if blobCount &gt; 70:
+if blobCount &gt; 50:
 	HotTarget = True
 else:
 	HotTarget = False
