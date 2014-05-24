@@ -21,12 +21,12 @@ public:
 		
 	}
 	virtual void Initialize(){
-		printf("AutoSetShooterCommand Distanc: %f \n", distanceSensors->GetRight());
+		printf("AutoSetShooterCommand Distanc: %f \n");//, distanceSensors->GetRight());
 		if(auton){
-			shooter->SetPosition(distanceSensors->GetRight() / 12, false);
+			//shooter->SetPosition(distanceSensors->GetRight() / 12, false);
 		}
 		else {
-			shooter->SetPosition(distanceSensors->GetRight() / 12);
+			//shooter->SetPosition(distanceSensors->GetRight() / 12);
 			intake->SetReadySolenoid(true);
 		}
 	}

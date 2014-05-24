@@ -15,7 +15,7 @@ DriveTrain* CommandBase::driveTrain = NULL;
 //PersistedSettings* CommandBase::persistedSettings = NULL;
 OI* CommandBase::oi = NULL;
 Shooter* CommandBase::shooter = NULL;
-DistanceSensors *CommandBase::distanceSensors = NULL;
+//DistanceSensors *CommandBase::distanceSensors = NULL;
 Intake *CommandBase::intake = NULL;
 AirCompressor *CommandBase::compressor = NULL;
 Camera2481 *CommandBase::camera = NULL;
@@ -35,10 +35,10 @@ void CommandBase::init() {
 	if(shooter){
 		printf("shooter \n");
 	}
-	distanceSensors = new DistanceSensors(ULTRASONIC_RIGHT);
-	if(distanceSensors){
-		printf("distanceSensors \n");
-	}
+//	distanceSensors = new DistanceSensors(ULTRASONIC_RIGHT);
+//	if(distanceSensors){
+//		printf("distanceSensors \n");
+//	}
 	intake = new Intake();
 	if(intake){
 		printf("intake \n");

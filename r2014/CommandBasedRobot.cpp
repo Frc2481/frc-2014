@@ -12,6 +12,7 @@
 #include "Commands/AutoDriveShootHotCommandGroup.h"
 #include "Commands/AutoTwoBallCommandGroup.h"
 #include "Commands/AutoDriveShootCornerCommandGroup.h"
+#include "Components/CurrentMonitor.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
@@ -19,11 +20,13 @@ private:
 	LiveWindow *lw;
 	SendableChooser *autoOptions;
 	CommandGroup *autoCommand;
+	CurrentMonitor *currentMonitor;
 	
 	virtual void RobotInit() {
 		CommandBase::init();
 		autonomousCommand = new ExampleCommand();
 		lw = LiveWindow::GetInstance();
+		currentMonitor = new CurrentMonitor(ULTRASONIC_RIGHT);
 		SmartDashboard::PutData(CommandBase::shooter);
 		autoOptions = new SendableChooser();
 		autoOptions->AddObject("Corner - No Hot", new AutoDriveShootCornerCommandGroup());
@@ -70,6 +73,7 @@ private:
 //		SmartDashboard::PutNumber("throttle value", 16- (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
 
 		SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
+		SmartDashboard::PutNumber("Current ", currentMonitor->GetScaledAmps());
 		Scheduler::GetInstance()->Run();
 		CommandBase::shooter->Periodic();
 	}
@@ -99,6 +103,7 @@ private:
 //		SmartDashboard::PutNumber("throttle value", 16 - (((CommandBase::oi->GetThrottleStick()->GetThrottle()) + 1) / 2) * 16);
 
 		SmartDashboard::PutBoolean("HotTarget", CommandBase::camera->HasTarget());
+		SmartDashboard::PutNumber("Current ", currentMonitor->GetScaledAmps());
 		CommandBase::shooter->Periodic();
 		
 		Wait(0.003);

@@ -33,7 +33,7 @@ public:
 	static OI *oi;
 //	static PersistedSettings *persistedSettings;
 	static Shooter *shooter;
-	static DistanceSensors *distanceSensors;
+	//static DistanceSensors *distanceSensors;
 	static Intake *intake;
 	static AirCompressor *compressor;
 	static Camera2481 *camera;
