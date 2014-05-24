@@ -1,5 +1,5 @@
 /*
- * CrabDriveCommand.h
+ * IncWheelAngleCommand.h
  *
  *  Created on: Jan 11, 2014
  *      Author: Team2481
@@ -34,4 +34,4 @@ public:
 	}
 };
 
-#endif /* CRABDRIVECOMMAND_H_ */
+#endif /* INCWHEELANGLECOMMAND_H_ */

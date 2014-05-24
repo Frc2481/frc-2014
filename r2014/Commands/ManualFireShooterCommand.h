@@ -1,5 +1,5 @@
 /*
- * CrabDriveCommand.h
+ * ManualFireShooterCommand.h
  *
  *  Created on: Jan 11, 2014
  *      Author: Team2481
@@ -39,4 +39,4 @@ public:
 	}
 };
 
-#endif /* CRABDRIVECOMMAND_H_ */
+#endif /* MANUALFIRESHOOTER_H_ */

@@ -1,12 +1,12 @@
 /*
- * ClimbFirstLevel.h
+ * PickUpBallCommand.h
  *
  *  Created on: Feb 9, 2013
  *      Author: Team2481
  */
 
-#ifndef CLIMBFIRSTLEVEL_H_
-#define CLIMBFIRSTLEVEL_H_
+#ifndef PICKUPBALLCOMMAND_H_
+#define PICKUPBALLCOMMAND_H_
 
 #include "WPILib.h"
 #include "TurnOnIntakeCommand.h"

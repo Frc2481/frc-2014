@@ -1,5 +1,5 @@
 /*
- * CrabDriveCommand.h
+ * WaitForShooterSetpointCommand.h
  *
  *  Created on: Jan 11, 2014
  *      Author: Team2481
@@ -31,4 +31,4 @@ public:
 	}
 };
 
-#endif /* CRABDRIVECOMMAND_H_ */
+#endif /* WAITFORSHOOTERSETPOINTCOMMAND_H_ */
