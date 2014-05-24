@@ -131,7 +131,7 @@ OI::OI() {
 	BackwardButton->WhenPressed(new SetForwardCommand(false));
 	
 	TrussPassButton = TRUSS_PASS_BUTTON;
-	TrussPassButton->WhenPressed(new ManualSetShooterPositionCommand(TRUSS_SHOT_DISTANCE, false));
+	TrussPassButton->WhenPressed(new ManualSetShooterPositionCommand(TRUSS_SHOT_DISTANCE, true));
 	
 	OutletPassButton = OUTLET_PASS_BUTTON;
 	OutletPassButton->WhenPressed(new ManualSetShooterPositionCommand(OUTLET_SHOT_DISTANCE, true));
